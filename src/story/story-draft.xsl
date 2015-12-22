@@ -8,1102 +8,913 @@
 		xmlns:str="http://exslt.org/strings"
 		extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story2/story-draft.xsl,v 1.14 2008/01/07 02:35:52 bruce Exp $
+	extension-element-prefixes="date doc exsl str"
+$Header: /repo/local.cvs/app/story-xml/src/story3/story-draft.xsl,v 1.9 2008/02/24 19:32:37 bruce Exp $
 -->
   <xsl:output method="html"
 	      indent="yes" />
-  <!-- ************************************************** -->
-  <xsl:param name="gDraft"
-	     select="'1'" />
-  <xsl:param name="gDebug"
-	     select="'0'" />
-  <xsl:include href="story-com.xsl" />
+  <xsl:param name="gDraft" select="boolean(number('1'))" />
+  <xsl:include href="story-com-param.xsl" />
   <xsl:include href="story-com-html.xsl" />
+  <xsl:include href="story-com.xsl" />
   <!-- ************************************************** -->
   <xsl:template match="/content">
-    <xsl:apply-templates select="site"
-			 mode="draft" />
-    <!--  <xsl:apply-templates select="page"/> -->
-    <xsl:apply-templates select="book"
-			 mode="draft" />
-    <xsl:call-template name="output-list" />
+    <xsl:if test="number(story-dtd/@version) &lt; $gDTDVer">
+      <xsl:message>
+        <xsl:value-of select="concat('You may need to upgrade your document to story-dtd version ', $gDTDVer)" />
+      </xsl:message>
+    </xsl:if>
+    <xsl:apply-templates select="book" />
+    <xsl:call-template name="fOutputList" />
   </xsl:template>
   <!-- ************************************************** -->
-  <xsl:template name="output-list">
+  <xsl:template name="fOutputList">
     <exsl:document method="text"
 		   href="output-list.txt">
-      <xsl:apply-templates select="site"
-			   mode="output-list" />
-      <xsl:apply-templates select="page"
-			   mode="output-list" />
       <xsl:apply-templates select="book"
 			   mode="output-list" />
-      <xsl:call-template name="timeline-output-list" />
     </exsl:document>
-  </xsl:template>
-  <xsl:template match="site"
-		mode="output-list">
-    <xsl:value-of select="'site.html'" />
-    <xsl:value-of select="$gNL" />
   </xsl:template>
   <xsl:template match="book"
 		mode="output-list">
-    <xsl:if test="contains($gBookStatus, concat(' book-', @status, ' '))">
-      <xsl:value-of select="concat(@id, '-draft.html')" />
-      <xsl:value-of select="$gNL" />
-    </xsl:if>
-  </xsl:template>
-  <xsl:template name="timeline-output-list">
-    <xsl:if test="boolean(number($gDraftRef/@timeline))">
-      <xsl:value-of select="'timeline.html'" />
-      <xsl:value-of select="$gNL" />
-    </xsl:if>
+    <xsl:value-of select="concat(@id,'-draft.html')" />
+    <xsl:value-of select="$gNL" />
   </xsl:template>
   <!-- ************************************************** -->
-  <xsl:template match="site"
-		mode="draft">
+  <xsl:template match="book">
+<!--
+    <xsl:if test="$gDebug">
+      <xsl:message>
+	<xsl:value-of select="concat('Debug: text=', $gPrintRef/@text)" />
+      </xsl:message>
+    </xsl:if>
+-->
+    <!-- ************************ -->
     <exsl:document method="html"
-		   href="site.html">
+		   href="{concat(@id, '-draft.html')}">
       <html>
-	<head>
-	  <title>Site - Draft</title>
-	</head>
-	<xsl:copy-of select="$gHtmlStyle" />
-	<body>
-	  <h1>Site - Draft</h1>
-	  <h2>style</h2>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th>Name</th>
-	      <th>Value</th>
-	    </tr>
-	    <tr>
-	      <td>preview-thread</td>
-	      <td>
-		<xsl:value-of select="style/@preview-thread" />
-	      </td>
-	    </tr>
-	    <tr>
-	      <td>style-ref</td>
-	      <td>
-		<xsl:value-of select="style/@style-ref" />
-	      </td>
-	    </tr>
-	  </table>
-	  <h2>def-style</h2>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th>id</th>
-	      <th>print-ref</th>
-	      <th>content-ref</th>
-	      <th>draft-ref</th>
-	      <th>draft</th>
-	      <th>debug</th>
-	    </tr>
-	    <xsl:apply-templates select="def-style" />
-	  </table>
-	  <h2>def-print - common</h2>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th>id</th>
-	      <th>output- 
-	      <br />type</th>
-	      <th>copyright- 
-	      <br />type</th>
-	      <th>toc</th>
-	      <th>body- 
-	      <br />size</th>
-	      <th>body- 
-	      <br />family</th>
-	      <th>head- 
-	      <br />size</th>
-	      <th>head- 
-	      <br />family</th>
-	      <th>title- 
-	      <br />size</th>
-	      <th>title- 
-	      <br />family</th>
-	      <th>ch- 
-	      <br />title- 
-	      <br />size</th>
-	      <th>ch- 
-	      <br />title- 
-	      <br />family</th>
-	      <th>line- 
-	      <br />height</th>
-	    </tr>
-	    <xsl:apply-templates select="def-print"
-				 mode="common" />
-	  </table>
-	  <h2>def-print - paper</h2>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th>id</th>
-	      <th>page</th>
-	      <th>margin</th>
-	      <th>gutter</th>
-	      <th>bleed-left</th>
-	      <th>bleed-right</th>
-	      <th>bleed-top</th>
-	      <th>bleed-bottom</th>
-	      <th>duplex</th>
-	      <th>header-type</th>
-	    </tr>
-	    <xsl:apply-templates select="def-print"
-				 mode="paper" />
-	  </table>
-	  <h2>def-print - html</h2>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th>id</th>
-	      <th>ref</th>
-	      <th>bgcolor</th>
-	      <th>text</th>
-	      <th>draft</th>
-	      <th>link</th>
-	      <th>vlink</th>
-	      <th>alink</th>
-	      <th>next-prev</th>
-	    </tr>
-	    <xsl:apply-templates select="def-print"
-				 mode="html" />
-	  </table>
-	  <h2>def-content</h2>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th></th>
-	      <th colspan="3">page</th>
-	      <th colspan="3">book</th>
-	      <th colspan="3">chapter</th>
-	      <th colspan="3">unit</th>
-	      <th colspan="3">headings</th>
-	      <th colspan="4">filter</th>
-	    </tr>
-	    <tr align="left"
-		valign="top">
-	      <th>id</th>
-	      <th>dr</th>
-	      <th>in</th>
-	      <th>dn</th>
-	      <th>dr</th>
-	      <th>in</th>
-	      <th>dn</th>
-	      <th>dr</th>
-	      <th>in</th>
-	      <th>dn</th>
-	      <th>dr</th>
-	      <th>in</th>
-	      <th>dn</th>
-	      <th>ch-preface</th>
-	      <th>preface</th>
-	      <th>prolog</th>
-	      <th>thread</th>
-	      <th wrap="1">ch-list</th>
-	      <th wrap="1">unit-list</th>
-	      <th>link-fmt</th>
-	    </tr>
-	    <xsl:apply-templates select="def-content" />
-	  </table>
-	  <h2>def-draft</h2>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th></th>
-	      <th></th>
-	      <th colspan="6">def-</th>
-	      <th colspan="5">unit-</th>
-	      <th colspan="5">thread-</th>
-	    </tr>
-	    <tr align="left"
-		valign="top">
-	      <th>id</th>
-	      <th>timeline</th>
-	      <th>base</th>
-	      <th>img</th>
-	      <th>link</th>
-	      <th>who</th>
-	      <th>where</th>
-	      <th>thread</th>
-	      <th>title</th>
-	      <th>when</th>
-	      <th>where</th>
-	      <th>who</th>
-	      <th>outline</th>
-	      <th>content</th>
-	      <th>all</th>
-	      <th>ref</th>
-	      <th>id-vp</th>
-	      <th>all-vp</th>
-	    </tr>
-	    <xsl:apply-templates select="def-draft" />
-	  </table>
-	  <xsl:if test="boolean(number($gDraftRef/@def-base))">
-	    <h2>def-base</h2>
-	    <table border="1"
-		   cellpadding="4"
-		   cellspacing="0">
-	      <tr align="left"
-		  valign="top">
-		<th>@id</th>
-		<th>URL</th>
-	      </tr>
-	      <xsl:apply-templates select="def-base"
-				   mode="draft" />
-	    </table>
-	  </xsl:if>
-	  <xsl:if test="boolean(number($gDraftRef/@def-img))">
-	    <h2>def-img</h2>
-	    <table border="1"
-		   cellpadding="4"
-		   cellspacing="0">
-	      <tr align="left"
-		  valign="top">
-		<th>@id</th>
-		<th>@base</th>
-		<th wrap="1">@url</th>
-		<th wrap="1">alt</th>
-	      </tr>
-	      <xsl:apply-templates select="def-img"
-				   mode="draft" />
-	    </table>
-	  </xsl:if>
-	  <xsl:if test="boolean(number($gDraftRef/@def-link))">
-	    <h2>def-link</h2>
-	    <table border="1"
-		   cellpadding="4"
-		   cellspacing="0">
-	      <tr align="left"
-		  valign="top">
-		<th>@id</th>
-		<th>@base</th>
-		<th wrap="1">@url</th>
-		<th>@ref</th>
-		<th wrap="1">title</th>
-	      </tr>
-	      <xsl:apply-templates select="def-link"
-				   mode="draft" />
-	    </table>
-	  </xsl:if>
-	</body>
+        <head>
+          <title>
+            <xsl:value-of select="title" />
+          </title>
+          <xsl:call-template name="fMetaHead" />
+	  <xsl:call-template name="fHtmlStyle"/>
+        </head>
+        <body>
+          <xsl:call-template name="fBodyAttr" />
+          <xsl:call-template name="fTitlePage" />
+          <xsl:call-template name="fCopyrightPage" />
+          <xsl:call-template name="fTocPage" />
+          <xsl:call-template name="fDefBook" />
+          <xsl:apply-templates select="preface" />
+          <xsl:apply-templates select="chapter" />
+          <xsl:apply-templates select="epilog" />
+        </body>
       </html>
     </exsl:document>
   </xsl:template>
+  <!-- **************************************************
+Page
+-->
   <!-- ******************** -->
-  <xsl:template match="def-style">
-    <tr align="left">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:value-of select="@print-ref" />
-      </td>
-      <td>
-	<xsl:value-of select="@content-ref" />
-      </td>
-      <td>
-	<xsl:value-of select="@draft-ref" />
-      </td>
-      <td>
-	<xsl:value-of select="@draft" />
-      </td>
-      <td>
-	<xsl:value-of select="@debug" />
-      </td>
+  <xsl:template name="fDefBook">
+<hr/>
+<h2><font class="draft">Draft Color Key</font></h2>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th width="30%">Color/Style</th>
+      <th width="70%">Descripton</th>
     </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-print"
-		mode="common">
-    <tr align="left">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:value-of select="@output-type" />
-      </td>
-      <td>
-	<xsl:value-of select="@copyright-type" />
-      </td>
-      <td>
-	<xsl:value-of select="@toc" />
-      </td>
-      <td>
-	<xsl:value-of select="@body-size" />
-      </td>
-      <td>
-	<xsl:value-of select="@body-family" />
-      </td>
-      <td>
-	<xsl:value-of select="@head-size" />
-      </td>
-      <td>
-	<xsl:value-of select="@head-family" />
-      </td>
-      <td>
-	<xsl:value-of select="@title-size" />
-      </td>
-      <td>
-	<xsl:value-of select="@title-family" />
-      </td>
-      <td>
-	<xsl:value-of select="@ch-title-size" />
-      </td>
-      <td>
-	<xsl:value-of select="@ch-title-family" />
-      </td>
-      <td>
-	<xsl:value-of select="@line-height" />
-      </td>
+    <tr align="left"
+	valign="top">
+      <td><p class="block">Black</p></td>
+      <td><p class="block"><font class="draft">Black text will print in final non-draft copy.</font></p></td>
     </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-print"
-		mode="paper">
-    <tr align="left">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:value-of select="@page" />
-      </td>
-      <td>
-	<xsl:value-of select="@margin" />
-      </td>
-      <td>
-	<xsl:value-of select="@gutter" />
-      </td>
-      <td>
-	<xsl:value-of select="@bleed-left" />
-      </td>
-      <td>
-	<xsl:value-of select="@bleed-right" />
-      </td>
-      <td>
-	<xsl:value-of select="@bleed-top" />
-      </td>
-      <td>
-	<xsl:value-of select="@bleed-bottom" />
-      </td>
-      <td>
-	<xsl:value-of select="@duplex" />
-      </td>
-      <td>
-	<xsl:value-of select="@header-type" />
-      </td>
+    <tr align="left"
+	valign="top">
+      <td><p class="block"><font class="draft">Red, Italic</font></p></td>
+      <td><p class="block"><font class="draft">This text only prints in draft copies.</font></p></td>
     </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-print"
-		mode="html">
-    <tr align="left">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:value-of select="@ref" />
-      </td>
-      <td>
-	<xsl:value-of select="@bgcolor" />
-      </td>
-      <td>
-	<xsl:value-of select="@text" />
-      </td>
-      <td>
-	<xsl:value-of select="@draft" />
-      </td>
-      <td>
-	<xsl:value-of select="@link" />
-      </td>
-      <td>
-	<xsl:value-of select="@vlink" />
-      </td>
-      <td>
-	<xsl:value-of select="@alink" />
-      </td>
-      <td>
-	<xsl:value-of select="@next-prev" />
-      </td>
+    <tr align="left"
+	valign="top">
+      <td><p class="block"><font class="del">Red, Strike</font></p></td>
+      <td><p class="block"><font class="draft">This is deleted text, which only prints in draft copies, if the @deleted draft option is on.</font></p></td>
     </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-content">
-    <tr align="center">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:if test="@page-draft != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@page-in-progress != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@page-done != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@book-draft != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@book-in-progress != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@book-done != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@ch-draft != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@ch-in-progress != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@ch-done != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@unit-draft != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@unit-in-progress != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@unit-done != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@ch-preface != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@preface != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@prolog != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:value-of select="@thread" />
-      </td>
-      <td wrap="1">
-	<xsl:value-of select="@ch-list" />
-      </td>
-      <td wrap="1">
-	<xsl:value-of select="@unit-list" />
-      </td>
-      <td>
-	<xsl:value-of select="@link-fmt" />
-      </td>
+    <tr align="left"
+	valign="top">
+      <td><p class="block"><font class="change">Blue, Underline</font></p></td>
+      <td><p class="block"><font class="draft">This is changed text.  It will be black in non-draft copies.</font></p></td>
     </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-draft">
-    <tr align="center">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:if test="@def-base != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@def-img != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@def-link != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@def-who != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@def-where != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@def-thread != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@unit-title != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@unit-when != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@unit-where != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@unit-who != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@unit-outline != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@thread-content != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@thread-all != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@thread-ref != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@thread-id-vp != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@thread-all-vp != '0'">*</xsl:if>
-      </td>
-      <td>
-	<xsl:if test="@timeline != '0'">*</xsl:if>
-      </td>
+    <tr align="left"
+	valign="top">
+      <td><p class="block"><font class="ins">Green, Underlined</font></p></td>
+      <td><p class="block"><font class="draft">This is added text.  It will be black in non-draft copies.</font></p></td>
     </tr>
-  </xsl:template>
-  <!-- ************************************************** -->
-  <xsl:template match="book"
-		mode="draft">
-    <xsl:if test="contains($gBookStatus, concat(' book-', @status, ' '))">
-      <exsl:document method="html"
-		     href="{concat(@id,'-draft.html')}">
-	<html>
-	  <head>
-	    <title>Draft - 
-	    <xsl:value-of select="title" /></title>
-	    <xsl:call-template name="meta-head" />
-	    <xsl:copy-of select="$gHtmlStyle" />
-	  </head>
-	  <body>
-	  <xsl:call-template name="body-attr" />
-	  <h1>Draft - 
-	  <xsl:value-of select="title" /></h1>By: 
-	  <xsl:value-of select="author" />
-	  <br />
-	  <xsl:call-template name="show-draft">
-	    <xsl:with-param name="pContent">email: 
-	    <xsl:value-of select="email" />
-	    <br />file-prefix: 
-	    <xsl:value-of select="file-prefix" />
-	    <br /></xsl:with-param>
-	  </xsl:call-template>
-	  <xsl:variable name="LastDate">
-	    <xsl:apply-templates select="cvs/@date" />
-	  </xsl:variable>
-	  <xsl:if test="substring(pub-date,1,4) = substring($LastDate,1,4)">
-	  Copyright 
-	  <xsl:value-of select="substring(pub-date,1,4)" />
-	  <br /></xsl:if>
-	  <xsl:if test="substring(pub-date,1,4) != substring($LastDate,1,4)">
-	  Copyright 
-	  <xsl:value-of select="substring(pub-date,1,4)" />- 
-	  <xsl:value-of select="substring($LastDate,1,4)" />
-	  <br /></xsl:if>
-	  <xsl:if test="edition != '1'">Edition: 
-	  <xsl:value-of select="edition" />
-	  <br /></xsl:if>
-	  <xsl:if test="@status = 'in-progress'">In progress 
-	  <br /></xsl:if>
-	  <xsl:if test="@status = 'draft'">Draft 
-	  <br /></xsl:if>
-	  <xsl:call-template name="show-draft">
-	    <xsl:with-param name="pContent">
-	      <table border="1"
-		     cellpadding="4"
-		     cellspacing="0">
-		<tr>
-		  <td>
-		    <pre>
-<xsl:call-template name="cvs-print" />
-      
-</pre>
-		  </td>
-		</tr>
-	      </table>
-	    </xsl:with-param>
-	  </xsl:call-template>
-	  <xsl:call-template name="toc" />
-	  <xsl:if test="boolean(number($gContentRef/@ch-preface))">
-	    <xsl:apply-templates select="ch-preface" />
-	  </xsl:if>
-	  <xsl:if test="boolean(number($gContentRef/@preface))">
-	    <xsl:apply-templates select="preface" />
-	  </xsl:if>
-	  <xsl:if test="boolean(number($gDraftRef/@def-who))">
-	    <xsl:call-template name="show-draft">
-	      <xsl:with-param name="pContent">
-		<h2>def-who</h2>
-		<table border="1"
-		       cellpadding="4"
-		       cellspacing="0">
-		  <tr align="left"
-		      valign="top">
-		    <th>@id</th>
-		    <th wrap="1">Description</th>
-		  </tr>
-		  <xsl:apply-templates select="def-book/def-who"
-				       mode="draft" />
-		</table>
-	      </xsl:with-param>
-	    </xsl:call-template>
-	  </xsl:if>
-	  <xsl:if test="boolean(number($gDraftRef/@def-where))">
-	    <xsl:call-template name="show-draft">
-	      <xsl:with-param name="pContent">
-		<h2>def-where</h2>
-		<table border="1"
-		       cellpadding="4"
-		       cellspacing="0">
-		  <tr align="left"
-		      valign="top">
-		    <th>@id</th>
-		    <th wrap="1">Description</th>
-		  </tr>
-		  <xsl:apply-templates select="def-book/def-where"
-				       mode="draft" />
-		</table>
-	      </xsl:with-param>
-	    </xsl:call-template>
-	  </xsl:if>
-	  <xsl:if test="boolean(number($gDraftRef/@def-thread))">
-	    <xsl:call-template name="show-draft">
-	      <xsl:with-param name="pContent">
-		<h2>def-thread</h2>
-		<table border="1"
-		       cellpadding="4"
-		       cellspacing="0">
-		  <tr align="left"
-		      valign="top">
-		    <th>@id</th>
-		    <th wrap="1">Description</th>
-		  </tr>
-		  <xsl:apply-templates select="def-book/def-thread"
-				       mode="draft" />
-		</table>
-	      </xsl:with-param>
-	    </xsl:call-template>
-	  </xsl:if>
-	  <xsl:if test="boolean(number($gDraftRef/@timeline))">
-	    <xsl:call-template name="timeline" />
-	    <h2>
-	      <a href="timeline.html">Timeline</a>
-	    </h2>
-	  </xsl:if>
-	  <xsl:apply-templates select="chapter"
-			       mode="draft" />
-	  <xsl:if test="boolean(number($gContentRef/@preface))">
-	    <xsl:apply-templates select="epilog" />
-	  </xsl:if>
-	  <hr />Last updated: 
-	  <xsl:apply-templates select="cvs/@date" /></body>
-	</html>
-      </exsl:document>
-    </xsl:if>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template name="toc">
-    <hr />
-    <h2>Contents</h2>
-    <ul>
-      <xsl:if test="boolean(number($gContentRef/@preface))">
-	<xsl:apply-templates select="preface"
-			     mode="toc" />
-      </xsl:if>
-      <xsl:if test="boolean(number($gDraftRef/@timeline))">
-	<li>
-	  <a href="timeline.html">Timeline</a>
-	</li>
-      </xsl:if>
-      <xsl:apply-templates select="chapter"
-			   mode="toc" />
-      <xsl:if test="boolean(number($gContentRef/@preface))">
-	<xsl:apply-templates select="epilog"
-			     mode="toc" />
-      </xsl:if>
-    </ul>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="preface"
-		mode="toc">
-    <li>
-      <a>
-	<xsl:attribute name="href">#preface</xsl:attribute>
-	<xsl:apply-templates select="title"
-			     mode="preface" />
-      </a>
-    </li>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="epilog"
-		mode="toc">
-    <li>
-      <a>
-	<xsl:attribute name="href">#epilog</xsl:attribute>
-	<xsl:apply-templates select="title"
-			     mode="epilog" />
-      </a>
-    </li>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="chapter"
-		mode="toc">
-    <xsl:if test="contains($gChStatus, concat(' ch-', @status, ' ')) and (($gContentCh = '') or contains($gContentCh, concat(' ', @id, ' ')))">
+    <tr align="left"
+	valign="top">
+      <td><p class="block"><div class="ins"><font class="draft">Red, Italic, with Green Underline</font></div></p></td>
+      <td><p class="block"><font class="draft">This is draft text in a block that has a RevisionFlag="added".  It will only print in draft copies, if the @deleted draft option is on.</font></p></td>
+    </tr>
+    <tr align="left"
+	valign="top">
+      <td><p class="block"><div class="change"><font class="draft">Red, Italic, with Blue Underline</font></div></p></td>
+      <td><p class="block"><font class="draft">This is draft text in a block that has a RevisionFlag="changed".  It will only print in draft copies.</font></p></td>
+    </tr>
+    <tr align="left"
+	valign="top">
+      <td><p class="block"><div class="del"><font class="draft">Red, Italic, Strike</font></div></p></td>
+      <td><p class="block"><font class="draft">This is draft text in a block that has a RevisionFlag="deleted".  It will only print in draft copies.</font></p></td>
+    </tr>
+  </table>
 
-      <li>
-      <a>
-      <xsl:attribute name="href">#ch- 
-      <xsl:value-of select="@id" /></xsl:attribute>
-      <xsl:value-of select="ch-no" />. 
-      <xsl:value-of select="title" /></a>
-      <xsl:if test="../@status != 'done'">
-	<xsl:if test="@status = 'draft'">- draft</xsl:if>
-	<xsl:if test="@status = 'in-progress'">- in progress</xsl:if>
-	<xsl:if test="@status = 'done'">- done</xsl:if>
-      </xsl:if>(first post: 
-      <xsl:value-of select="pub-date" />; last update: 
-      <xsl:apply-templates select="cvs/@date" />)</li>
-    </xsl:if>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-base"
-		mode="draft">
-    <tr align="left"
-	valign="top">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:value-of select="." />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-img"
-		mode="draft">
-    <tr align="left"
-	valign="top">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:value-of select="@base" />
-      </td>
-      <td wrap="1">
-	<xsl:value-of select="@url" />
-      </td>
-      <td wrap="1">
-	<xsl:value-of select="." />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-link"
-		mode="draft">
-    <tr align="left"
-	valign="top">
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td>
-	<xsl:value-of select="@base" />
-      </td>
-      <td wrap="1">
-	<xsl:value-of select="@url" />
-      </td>
-      <td>
-	<xsl:value-of select="@ref" />
-      </td>
-      <td wrap="1">
-	<xsl:value-of select="." />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-who"
-		mode="draft">
-    <tr>
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td wrap="1">
-	<xsl:apply-templates select="p|s|pre" />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-where"
-		mode="draft">
-    <tr>
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td wrap="1">
-	<xsl:apply-templates select="p|s|pre" />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="def-thread"
-		mode="draft">
-    <tr>
-      <td>
-	<xsl:value-of select="@id" />
-      </td>
-      <td wrap="1">
-	<xsl:apply-templates select="p|s|pre" />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="when"
-		mode="draft">
-    <tr>
-      <td>
-	<xsl:value-of select="start-date" />
-      </td>
-      <td>
-	<xsl:if test="duration">
-	  <xsl:value-of select="duration" />
-	</xsl:if>
-	<xsl:if test="enddate">
-	  <xsl:value-of select="end-date" />
-	</xsl:if>
-      </td>
-      <td wrap="1">
-	<xsl:apply-templates select="description"
-			     mode="draft" />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="description"
-		mode="draft">
-    <xsl:apply-templates select="p|s|pre" />
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="where"
-		mode="draft">
-    <tr>
-      <td>
-	<xsl:value-of select="@ref" />
-      </td>
-      <td wrap="1">
-	<xsl:apply-templates select="p|s|pre" />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="who"
-		mode="draft">
-    <tr>
-      <td>
-	<xsl:value-of select="@ref" />
-      </td>
-      <td wrap="1">
-	<xsl:apply-templates select="p|s|pre" />
-      </td>
-    </tr>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template name="outline"
-		mode="draft">
-    <xsl:if test="boolean(number($gDraftRef/@unit-when))">
-      <xsl:call-template name="show-draft">
-	<xsl:with-param name="pContent">
-	  <h3>when</h3>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th>start-date</th>
-	      <th>end-date or 
-	      <br />duration</th>
-	      <th wrap="1">Description</th>
-	    </tr>
-	    <xsl:apply-templates select="outline/when"
-				 mode="draft" />
-	  </table>
-	</xsl:with-param>
-      </xsl:call-template>
-    </xsl:if>
-    <xsl:if test="boolean(number($gDraftRef/@unit-where))">
-      <xsl:call-template name="show-draft">
-	<xsl:with-param name="pContent">
-	  <h3>where</h3>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th>@ref</th>
-	      <th wrap="1">Description</th>
-	    </tr>
-	    <xsl:apply-templates select="outline/where"
-				 mode="draft" />
-	  </table>
-	</xsl:with-param>
-      </xsl:call-template>
-    </xsl:if>
-    <xsl:if test="boolean(number($gDraftRef/@unit-who))">
-      <xsl:call-template name="show-draft">
-	<xsl:with-param name="pContent">
-	  <h3>who</h3>
-	  <table border="1"
-		 cellpadding="4"
-		 cellspacing="0">
-	    <tr align="left"
-		valign="top">
-	      <th>@ref</th>
-	      <th wrap="1">Description</th>
-	    </tr>
-	    <xsl:apply-templates select="outline/who"
-				 mode="draft" />
-	  </table>
-	</xsl:with-param>
-      </xsl:call-template>
-    </xsl:if>
-    <xsl:call-template name="show-draft">
-      <xsl:with-param name="pContent">
-	<h3>outline</h3>
-	<table border="1"
-	       cellpadding="4"
-	       cellspacing="0">
-	  <tr>
-	    <td wrap="1">
-	      <xsl:apply-templates select="outline/description"
-				   mode="draft" />
-	    </td>
-	  </tr>
-	</table>
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="chapter"
-		mode="draft">
-    <xsl:if test="contains($gChStatus, concat(' ch-', @status, ' ')) and (($gContentCh = '') or contains($gContentCh, concat(' ', @id, ' ')))">
+    <font class="draft">
+<hr/>
+<h2>style-info</h2>
+<p class="block"><xsl:value-of select="concat('thread-refs=', style-info/@thread-refs)"/></p>
+<p class="block"><xsl:value-of select="concat('style-ref=', style-info/@style-ref)"/></p>
+<p class="block"><xsl:value-of select="concat('meta-description=', style-info/meta-description)"/></p>
+<p class="block"><xsl:value-of select="concat('file-prefix=', style-info/file-prefix)"/></p>
 
-      <xsl:call-template name="chapter-body-draft" />
+<h3>def-style</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>print-ref</th>
+      <th>content-ref</th>
+      <th>draft-ref</th>
+      <th>draft</th>
+      <th>debug</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-style" mode="draft"/>
+  </table>
+
+<h3>def-content</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>ch-<br/>draft</th>
+      <th>ch-<br/>final</th>
+      <th>ch-<br/>in-<br/>progress</th>
+      <th>ch-<br/>preface</th>
+      <th>ch-<br/>refs</th>
+      <th>link-<br/>fmt</th>
+      <th>preface</th>
+      <th>prolog</th>
+      <th>thread-<br/>refs</th>
+      <th>unit-<br/>draft</th>
+      <th>unit-<br/>final</th>
+      <th>unit-<br/>in-<br/>progress</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-content" mode="draft"/>
+  </table>
+
+<h3>def-draft</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>def-<br/>base</th>
+      <th>def-<br/>img</th>
+      <th>def-<br/>link</th>
+      <th>def-<br/>thread</th>
+      <th>def-<br/>where</th>
+      <th>def-<br/>who</th>
+      <th>deleted</th>
+      <th>thread-<br/>all</th>
+      <th>thread-<br/>all-<br/>vp</th>
+      <th>thread-<br/>content</th>
+      <th>thread-<br/>id-<br/>vp</th>
+      <th>thread-<br/>ref</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-draft" mode="draft1"/>
+  </table>
+  <br/>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>time<br/>line</th>
+      <th>unit-<br/>outline</th>
+      <th>unit-<br/>title</th>
+      <th>unit-<br/>when</th>
+      <th>unit-<br/>where</th>
+      <th>unit-<br/>who</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-draft" mode="draft2"/>
+  </table>
+
+<h3>def-print</h3>
+
+<p class="block"><b>common</b></p>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>auto-<br/>break</th>
+      <th>body-<br/>family</th>
+      <th>body-<br/>size</th>
+      <th>ch-<br/>title-<br/>family</th>
+      <th>ch-<br/>title-<br/>size</th>
+      <th>copyright-<br/>type</th>
+      <th>mar<br/>gin</th>
+      <th>out<br/>put-<br/>type</th>
+      <th>title-<br/>family</th>
+      <th>title-<br/>size</th>
+      <th>toc</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-print" mode="draft-com"/>
+  </table>
+
+<p class="block"><b>html only</b></p>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>alink</th>
+      <th>bgcolor</th>
+      <th>draft</th>
+      <th>img-<br/>ref</th>
+      <th>link</th>
+      <th>multi-<br/>file</th>
+      <th>next-<br/>prev</th>
+      <th>text</th>
+      <th>vlink</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-print" mode="draft-html"/>
+  </table>
+
+<p class="block"><b>print only</b></p>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>bleed-<br/>bottom</th>
+      <th>bleed-<br/>left</th>
+      <th>bleed-<br/>right</th>
+      <th>bleed-<br/>top</th>
+      <th>ch-<br/>page-<br/>break</th>
+      <th>du<br/>plex</th>
+      <th>gut<br/>ter</th>
+      <th>head-<br/>align</th>
+      <th>head-<br/>family</th>
+      <th>head-<br/>loca<br/>tion</th>
+      <th>head-<br/>size</th>
+      <th>head-<br/>type</th>
+      <th>line-<br/>height</th>
+      <th>page</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-print" mode="draft-print"/>
+  </table>
+
+<h3>def-base</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>value</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-base" mode="draft"/>
+  </table>
+
+<h3>def-img</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>base-ref</th>
+      <th>url</th>
+      <th>alt</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-img" mode="draft"/>
+  </table>
+
+<h3>def-link</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>base-ref</th>
+      <th>url</th>
+      <th>img-ref</th>
+      <th>title</th>
+    </tr>
+    <xsl:apply-templates select="style-info/def-link" mode="draft"/>
+  </table>
+
+<hr/>
+<h2>story-info</h2>
+
+<xsl:if test="$gDraftRef/@timeline = '1'">
+  <xsl:call-template name="fTimeline" />
+    <h3><font class="draft">
+      <a href="{concat(@id, '-timeline.html')}"><xsl:value-of select="concat(@id, '-timeline.html')"/></a>
+    </font></h3>
+</xsl:if>
+
+<xsl:if test="$gDraftRef/@def-when = '1'">
+  <h3>def-when</h3>
+  <xsl:apply-templates select="story-info/def-when" mode="draft"/>
+</xsl:if>
+
+<xsl:if test="$gDraftRef/@def-who = '1'">
+<h3>def-who</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>description</th>
+    </tr>
+    <xsl:apply-templates select="story-info/def-who" mode="draft"/>
+  </table>
+</xsl:if>
+
+<xsl:if test="$gDraftRef/@def-where = '1'">
+<h3>def-where</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th>id</th>
+      <th>description</th>
+    </tr>
+    <xsl:apply-templates select="story-info/def-where" mode="draft"/>
+  </table>
+</xsl:if>
+
+<xsl:if test="$gDraftRef/@def-thread = '1'">
+<h3>def-thread</h3>
+  <table border="1"
+         summary=""
+	 cellpadding="4"
+	 cellspacing="0">
+    <tr align="left"
+	valign="top">
+      <th width="20%">id</th>
+      <th width="80%">description</th>
+    </tr>
+    <xsl:apply-templates select="story-info/def-thread" mode="draft"/>
+  </table>
+</xsl:if>
+
+<h3>ch-preface</h3>
+  <xsl:apply-templates select="story-info/ch-preface" mode="draft"/>
+
+    </font>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-style" mode="draft">
+    <tr>
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:value-of select="@print-ref"/></td>
+      <td><xsl:value-of select="@content-ref"/></td>
+      <td><xsl:value-of select="@draft-ref"/></td>
+      <td align="center"><xsl:if test="@draft != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@debug != '0'">*</xsl:if></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-content" mode="draft">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td align="center"><xsl:if test="@ch-draft != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@ch-final != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@ch-in-progress != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@ch-preface != '0'">*</xsl:if></td>
+      <td><xsl:value-of select="@ch-refs"/></td>
+      <td><xsl:value-of select="@link-fmt"/></td>
+      <td align="center"><xsl:if test="@preface != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@prolog != '0'">*</xsl:if></td>
+      <td><xsl:value-of select="@thread-refs"/></td>
+      <td align="center"><xsl:if test="@unit-draft != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@unit-final != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@unit-in-progress != '0'">*</xsl:if></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-draft" mode="draft1">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td align="center"><xsl:if test="@def-base != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@def-img != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@def-link != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@def-thread != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@def-where != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@def-who != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@deleted != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@thread-all != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@thread-all-vp != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@thread-content != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@thread-id-vp != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@thread-ref != '0'">*</xsl:if></td>
+    </tr>
+  </xsl:template>
+
+
+  <xsl:template match="def-draft" mode="draft2">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td align="center"><xsl:if test="@timeline != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@unit-outline != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@unit-title != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@unit-when != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@unit-where != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@unit-who != '0'">*</xsl:if></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-print" mode="draft-com">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td align="center"><xsl:if test="@auto-break != '0'">*</xsl:if></td>
+      <td><xsl:value-of select="@body-family"/></td>
+      <td><xsl:value-of select="@body-size"/></td>
+      <td><xsl:value-of select="@ch-title-family"/></td>
+      <td><xsl:value-of select="@ch-title-size"/></td>
+      <td><xsl:value-of select="@copyright-type"/></td>
+      <td><xsl:value-of select="@margin"/></td>
+      <td><xsl:value-of select="@output-type"/></td>
+      <td><xsl:value-of select="@title-family"/></td>
+      <td><xsl:value-of select="@title-size"/></td>
+      <td align="center"><xsl:if test="@toc != '0'">*</xsl:if></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-print" mode="draft-html">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:value-of select="@alink"/></td>
+      <td><xsl:value-of select="@bgcolor"/></td>
+      <td><xsl:value-of select="@draft"/></td>
+      <td><xsl:value-of select="@img-ref"/></td>
+      <td><xsl:value-of select="@link"/></td>
+      <td align="center"><xsl:if test="@multi-file != '0'">*</xsl:if></td>
+      <td align="center"><xsl:if test="@next-prev != '0'">*</xsl:if></td>
+      <td><xsl:value-of select="@text"/></td>
+      <td><xsl:value-of select="@vlink"/></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-print" mode="draft-print">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:value-of select="@bleed-bottom"/></td>
+      <td><xsl:value-of select="@bleed-left"/></td>
+      <td><xsl:value-of select="@bleed-right"/></td>
+      <td><xsl:value-of select="@bleed-top"/></td>
+      <td><xsl:value-of select="@ch-page-break"/></td>
+      <td align="center"><xsl:if test="@duplex != '0'">*</xsl:if></td>
+      <td><xsl:value-of select="@gutter"/></td>
+      <td><xsl:value-of select="@head-align"/></td>
+      <td><xsl:value-of select="@head-family"/></td>
+      <td><xsl:value-of select="@head-location"/></td>
+      <td><xsl:value-of select="@head-size"/></td>
+      <td><xsl:value-of select="@head-type"/></td>
+      <td><xsl:value-of select="@line-height"/></td>
+      <td><xsl:value-of select="@page"/></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-base" mode="draft">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:value-of select="."/></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-img" mode="draft">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:value-of select="@base-ref"/></td>
+      <td><xsl:value-of select="@url"/></td>
+      <td><xsl:value-of select="."/></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-link" mode="draft">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:value-of select="@base-ref"/></td>
+      <td><xsl:value-of select="@url"/></td>
+      <td><xsl:value-of select="@img-ref"/></td>
+      <td><xsl:value-of select="."/></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-when" mode="draft">
+    <p class="block">
+      Default Unit start-date (only missing attributes are replaced
+      with the corresponding values):<br/>
+      <xsl:value-of select="concat('year-month-day=', @year, '-', format-number(@month, '00'), '-', format-number(@day, '00'))"/>
+      <xsl:value-of select="concat('; hour:min gmt=', format-number(@hour, '00'), ':', format-number(@min, '00'), ' ', @gmt)"/>
+    </p>
+    <p class="block">
+      Default Duration, if no duration or end-date is specified:<br/>
+      <xsl:value-of select="concat('year-month-day=', @d-year, '-', @d-month, '-', @d-day)"/>
+      <xsl:value-of select="concat('; hour:min=', format-number(@d-hour, '00'), ':', format-number(@d-min, '00'))"/>
+    </p>
+    <p class="block">(Note: end-date will get it's default values from the start-date.)</p>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="def-who" mode="draft">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:apply-templates mode="block"/></td>
+    </tr>
+  </xsl:template>
+
+  <!-- ******************** -->
+  <xsl:template match="def-where" mode="draft">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:apply-templates mode="block"/></td>
+    </tr>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="def-thread" mode="draft">
+    <tr align="left"
+	valign="top">
+      <td><xsl:value-of select="@id"/></td>
+      <td><xsl:apply-templates mode="block"/></td>
+    </tr>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="ch-preface" mode="draft">
+      <p class="block"><xsl:value-of select="concat('id=', @id)"/></p>
+      <xsl:apply-templates mode="block"/>
+  </xsl:template>
+
+  <!-- **************************************************
+Book
+-->
+  <!-- ******************** -->
+  <xsl:template match="unit">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <xsl:call-template name="fRevFlag">
+        <xsl:with-param name="pContent">
+
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@unit-title"/>
+        <xsl:with-param name="pContent">
+          <h3>
+          <xsl:value-of select="concat('Unit: (', @id, ') ', title, ' - ', @type)" />
+          </h3>
+          <p class="block"><xsl:value-of select="concat('revision=', @revision, '; revision-flag=', @revision-flag)" /></p>
+        </xsl:with-param>
+      </xsl:call-template>
+
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@unit-when"/>
+        <xsl:with-param name="pContent">
+          <h3>when</h3>
+            <table border="1"
+                   summary=""
+                   cellpadding="4"
+                   cellspacing="0">
+              <tr align="left"
+                  valign="top">
+              <th>start-date</th>
+              <th>end-date</th>
+              <th>duration</th>
+              <th>Description</th>
+            </tr>
+            <xsl:apply-templates select="outline/when" />
+          </table>
+        </xsl:with-param>
+      </xsl:call-template>
+
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@unit-where"/>
+        <xsl:with-param name="pContent">
+          <h3>where</h3>
+          <table border="1"
+                 summary=""
+                 cellpadding="4"
+                 cellspacing="0">
+            <tr align="left"
+                valign="top">
+              <th>ref</th>
+              <th>Description</th>
+            </tr>
+            <xsl:apply-templates select="outline/where" />
+          </table>
+        </xsl:with-param>
+      </xsl:call-template>
+
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@unit-who"/>
+        <xsl:with-param name="pContent">
+          <h3>who</h3>
+          <table border="1"
+                 summary=""
+                 cellpadding="4"
+                 cellspacing="0">
+            <tr align="left"
+                valign="top">
+              <th>ref</th>
+              <th>Description</th>
+            </tr>
+            <xsl:apply-templates select="outline/who" />
+          </table>
+        </xsl:with-param>
+      </xsl:call-template>
+
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@unit-outline"/>
+        <xsl:with-param name="pContent">
+          <h3>outline</h3>
+          <xsl:apply-templates select="outline/description"/>
+        </xsl:with-param>
+      </xsl:call-template>
+
+      <xsl:if test="$gPrintRef/@auto-break = '1' and position() != 1">
+        <hr class="break"/>
+      </xsl:if>
+      <xsl:apply-templates select="thread" />
+
+        </xsl:with-param>
+      </xsl:call-template>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template name="chapter-body-draft">
-    <hr />
-    <a>
-      <xsl:attribute name="name">ch- 
-      <xsl:value-of select="@id" /></xsl:attribute>
-    </a>
-    <h2>
-    <xsl:value-of select="ch-no" />. 
-    <xsl:value-of select="title" /></h2>
-    <xsl:if test="@staus != done">
+  <xsl:template match="when">
+    <tr>
+    <td><xsl:value-of select="start-date"/></td>
+    <td><xsl:value-of select="end-date"/></td>
+    <td><xsl:value-of select="duration"/></td>
+    <td><xsl:apply-templates select="description"/></td>
+    </tr>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="where|who">
+    <tr>
+    <td><xsl:value-of select="@ref"/></td>
+    <td><xsl:apply-templates mode="block"/></td>
+    </tr>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="description">
+    <xsl:apply-templates mode="block"/>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="thread">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@thread-ref"/>
+	<xsl:with-param name="pContent">
+           <xsl:value-of select="concat('thread ref=',@ref)"/>
+           <br/>
+	</xsl:with-param>
+      </xsl:call-template>
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@thread-id-vp"/>
+	<xsl:with-param name="pContent">
+           <xsl:value-of select="concat('thread who-refs=',@who-refs)"/>
+           <br/>
+	</xsl:with-param>
+      </xsl:call-template>
+      <xsl:if test="$gDraftRef/@thread-content = '1'">
+        <xsl:apply-templates select="p|s|t|pre|quote|br" />
+      </xsl:if>
+    </xsl:if>
+    <xsl:if test="$tShow = '0' and $gDraftRef/@thread-all = '1'">
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@thread-ref"/>
+	<xsl:with-param name="pContent">
+           <xsl:value-of select="concat('thread ref=',@ref)"/>
+           <br/>
+	</xsl:with-param>
+      </xsl:call-template>
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@thread-id-vp"/>
+	<xsl:with-param name="pContent">
+           <xsl:value-of select="concat('thread who-refs=',@who-refs)"/>
+           <br/>
+	</xsl:with-param>
+      </xsl:call-template>
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@thread-content"/>
+	<xsl:with-param name="pContent">
+          <xsl:apply-templates select="p|s|t|pre|quote|br" />
+	</xsl:with-param>
+      </xsl:call-template>
+     </xsl:if>
+  </xsl:template>
+  <!-- **************************************************
+Block
+-->
+  <!-- ******************** -->
+  <xsl:template match="p|para">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
       <p>
-	<xsl:value-of select="@status" />
+      <xsl:call-template name="fRevisionFlag"/>
       </p>
     </xsl:if>
-    <xsl:call-template name="show-draft">
-      <xsl:with-param name="pContent">
-	<table border="1"
-	       cellpadding="4"
-	       cellspacing="0">
-	  <tr>
-	    <td>
-	      <pre>
-<xsl:call-template name="cvs-print" />
-      
-</pre>
-	    </td>
-	  </tr>
-	</table>
-      </xsl:with-param>
-    </xsl:call-template>
-    <xsl:if test="boolean(number($gContentRef/@prolog))">
-      <xsl:apply-templates select="prolog" />
-    </xsl:if>
-    <hr />
-    <xsl:apply-templates select="unit"
-			 mode="draft" />
-    <xsl:if test="boolean(number($gContentRef/@prolog))">
-      <xsl:apply-templates select="postlog" />
+    <xsl:if test="$tShow = '0' and $gDraftRef/@thread-all = '1'">
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="'1'"/>
+        <xsl:with-param name="pContent">
+          <p>
+          <xsl:call-template name="fRevisionFlag"/>
+          </p>
+        </xsl:with-param>
+      </xsl:call-template>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="unit"
-		mode="draft">
-    <xsl:if test="contains($gUnitStatus, concat(' unit-', @status, ' ')) and (($gContentUnit = '') or contains($gContentUnit, concat(' ', @id, ' ')))">
-
-      <xsl:if test="boolean(number($gDraftRef/@unit-title))">
-	<xsl:call-template name="show-draft">
-	  <xsl:with-param name="pContent">
-	  <hr width="50%"
-	      align="left" />
-	  <h3>Unit: 
-	  <xsl:value-of select="concat(' (', @id, ') ')" />
-	  <xsl:value-of select="title" />
-	  <xsl:text>
- - 
-</xsl:text>n 
-	  <xsl:value-of select="@type" /></h3>status= 
-	  <xsl:value-of select="@status" />
-	  <br /></xsl:with-param>
-	</xsl:call-template>
-      </xsl:if>
-      <xsl:if test="boolean(number($gDraftRef/@unit-outline))">
-	<xsl:call-template name="outline"
-			   mode="draft" />
-      </xsl:if>
-      <p />
-      <xsl:apply-templates select="thread"
-			   mode="draft" />
+  <xsl:template match="pre|pre-fmt">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <pre>
+      <xsl:call-template name="fRevisionFlag"/>
+      </pre>
+    </xsl:if>
+    <xsl:if test="$tShow = '0' and $gDraftRef/@thread-all = '1'">
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="'1'"/>
+        <xsl:with-param name="pContent">
+          <pre>
+          <xsl:call-template name="fRevisionFlag"/>
+          </pre>
+        </xsl:with-param>
+      </xsl:call-template>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="thread"
-		mode="draft">
-    <xsl:if test="contains(concat(' ', @ref, ' '), $gContentThread)">
-      <xsl:if test="boolean(number($gDraftRef/@thread-id-vp))">
-	<xsl:call-template name="show-draft">
-	  <xsl:with-param name="pContent">
-	    <xsl:value-of select="concat('thread @ref=',@ref)" />
-	    <xsl:text>
-; 
-</xsl:text>
-	    <xsl:value-of select="concat('@vp=',@viewpoint)" />
-	    <br />
-	  </xsl:with-param>
-	</xsl:call-template>
-      </xsl:if>
-      <xsl:if test="boolean(number($gDraftRef/@thread-content))">
-	<xsl:apply-templates select="p|s|t|pre"
-			     mode="draft" />
-      </xsl:if>
+  <xsl:template match="quote">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <p class="quote">
+      <xsl:call-template name="fRevisionFlag"/>
+      </p>
+    </xsl:if>
+    <xsl:if test="$tShow = '0' and $gDraftRef/@thread-all = '1'">
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="'1'"/>
+        <xsl:with-param name="pContent">
+          <p class="quote">
+          <xsl:call-template name="fRevisionFlag"/>
+          </p>
+        </xsl:with-param>
+      </xsl:call-template>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template name="timeline">
+  <xsl:template match="s">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <p>
+      <xsl:call-template name="fRevisionFlag"/>
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@thread-id-vp"/>
+        <xsl:with-param name="pContent" select="concat(' (who-ref=',@who-ref,')')"/>
+      </xsl:call-template>
+      </p>
+    </xsl:if>
+    <xsl:if test="$tShow = '0' and $gDraftRef/@thread-all = '1'">
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="'1'"/>
+        <xsl:with-param name="pContent">
+          <p>
+          <xsl:call-template name="fRevisionFlag"/>
+          <xsl:value-of select="concat(' (who-ref=',@who-ref,')')"/>
+          </p>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="t">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <p>
+      <xsl:call-template name="fRevisionFlag"/>
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@thread-id-vp"/>
+        <xsl:with-param name="pContent" select="concat(' (who-ref=',@who-ref,')')"/>
+      </xsl:call-template>
+      </p>
+    </xsl:if>
+    <xsl:if test="$tShow = '0' and $gDraftRef/@thread-all = '1'">
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft" select="$gDraftRef/@thread-all-vp"/>
+        <xsl:with-param name="pContent">
+          <p>
+          <xsl:call-template name="fRevisionFlag"/>
+          <xsl:value-of select="concat(' (who-ref=',@who-ref,')')"/>
+          </p>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template name="fFmtDraft">
+    <xsl:param name="pDraft" />
+    <xsl:param name="pContent" />
+    <xsl:if test="$pDraft = '1'">
+      <font class="draft">
+        <xsl:copy-of select="$pContent" />
+      </font>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template name="fTimeline">
     <exsl:document method="xml"
 		   href="/tmp/timeline.xml">
       <timeline>
-	<xsl:text></xsl:text>
+        <title>
+          <xsl:value-of select="concat(@id, ' Timeline - ', title)" />
+        </title>
 	<xsl:apply-templates select="chapter"
 			     mode="timeline" />
       </timeline>
     </exsl:document>
-    <xsl:call-template name="fmt-timeline" />
+<!--
+    <xsl:call-template name="fFmtTimeline" />
+-->
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template name="fmt-timeline">
+  <xsl:template name="fFmtTimeline">
     <exsl:document method="html"
-		   href="timeline.html">
+		   href="{concat(@id, '-timeline.html')}">
       <xsl:apply-templates select="document('/tmp/timeline.xml')" />
     </exsl:document>
   </xsl:template>
@@ -1111,36 +922,31 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-draft.xsl,v 1.14 2008/01
   <xsl:template match="timeline">
     <html>
       <head>
-	<title>Timeline</title>
+	<title><xsl:value-of select="concat(title, ' Timeline')" /></title>
       </head>
       <body>
-      <h1>Timeline</h1>
+      <h1><xsl:value-of select="concat(title, ' Timeline')" /></h1>
       <h2>Filters</h2>
-      <xsl:if test="$gContentCh != ''">Chapter List: 
-      <xsl:value-of select="$gContentCh" />
-      <br /></xsl:if>
-      <xsl:if test="$gContentUnit != ''">Unit List: 
-      <xsl:value-of select="$gContentUnit" />
+      <xsl:if test="$gContentRef/@ch-refs != ''">Chapter List: 
+      <xsl:value-of select="$gContentRef/@ch-refs" />
       <br /></xsl:if>Thread: 
-      <xsl:value-of select="$gContentThread" />
-      <xsl:if test="boolean(number($gDraftRef/@thread-all-vp))">
-	<xsl:text>
- (thread-all-vp)
-</xsl:text>
+      <xsl:value-of select="$gContentRef/@thread-refs" />
+      <xsl:if test="$gDraftRef/@thread-all-vp = '1'">
+        <xsl:value-of select="' (thread-all-vp)'" />
       </xsl:if>
       <br />
-      <xsl:if test="boolean(number($gContentRef/@ch-done))">
-      ch-done</xsl:if>
-      <xsl:if test="boolean(number($gContentRef/@ch-in-progress))">
+      <xsl:if test="$gContentRef/@ch-final = '1'">
+      ch-final</xsl:if>
+      <xsl:if test="$gContentRef/@ch-in-progress = '1'">
       ch-in-progress</xsl:if>
-      <xsl:if test="boolean(number($gContentRef/@ch-draft))">
+      <xsl:if test="$gContentRef/@ch-draft = '1'">
       ch-draft</xsl:if>
       <br />
-      <xsl:if test="boolean(number($gContentRef/@unit-done))">
-      unit-done</xsl:if>
-      <xsl:if test="boolean(number($gContentRef/@unit-in-progress))">
+      <xsl:if test="$gContentRef/@unit-final = '1'">
+      unit-final</xsl:if>
+      <xsl:if test="$gContentRef/@unit-in-progress = '1'">
       unit-in-progress</xsl:if>
-      <xsl:if test="boolean(number($gContentRef/@unit-draft))">
+      <xsl:if test="$gContentRef/@unit-draft = '1'">
       unit-draft</xsl:if>
       <br />
       <h2>Units</h2>
@@ -1173,8 +979,10 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-draft.xsl,v 1.14 2008/01
   <!-- ******************** -->
   <xsl:template match="chapter"
 		mode="timeline">
-    <xsl:if test="contains($gChStatus, concat(' ch-', @status, ' ')) and (($gContentCh = '') or contains($gContentCh, concat(' ', @id, ' ')))">
-
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1' and @revision-flag != 'deleted'">
       <xsl:apply-templates select="unit"
 			   mode="timeline" />
     </xsl:if>
@@ -1182,92 +990,61 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-draft.xsl,v 1.14 2008/01
   <!-- ******************** -->
   <xsl:template match="unit"
 		mode="timeline">
-    <xsl:if test="contains($gUnitStatus, concat(' unit-', @status, ' ')) and (($gContentUnit = '') or contains($gContentUnit, concat(' ', @id, ' ')))">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1' and @revision-flag != 'deleted'">
 
-      <!-- <record date="" type=start|end>value</record> -->
+      <xsl:variable name="tStartDate">
+        <xsl:call-template name="fToXMLTime">
+          <xsl:with-param name="pNode" select="outline/when/start-date"/>
+          <xsl:with-param name="pDefNode1" select="/content/book/story-info/def-when"/>
+          <xsl:with-param name="pDefNode2" select="/content/book/story-info/def-when"/>
+        </xsl:call-template>
+      </xsl:variable>
+
+      <xsl:variable name="tEndDate">
+        <xsl:call-template name="fToXMLTime">
+          <xsl:with-param name="pNode" select="outline/when/end-date"/>
+          <xsl:with-param name="pDefNode1" select="outline/when/start-date"/>
+          <xsl:with-param name="pDefNode2" select="/content/book/story-info/def-when"/>
+        </xsl:call-template>
+      </xsl:variable>
+
       <xsl:element name="record">
-	<xsl:attribute name="date">
-	  <xsl:value-of select="outline/when/start-date" />
-	</xsl:attribute>
-	<xsl:attribute name="type">
-	  <xsl:text>
-start
-</xsl:text>
-	</xsl:attribute>
-	<td>
-	  <xsl:value-of select="concat('C-', ../@id, ' ')" />
-	</td>
-	<td>
-	  <xsl:value-of select="concat('U-', @id, ' ')" />
-	</td>
-	<td>
-	  <xsl:value-of select="'begin'" />
-	</td>
-	<td>
-	  <xsl:value-of select="@type" />
-	</td>
-	<td wrap="1">
-	  <xsl:value-of select="title" />
-	</td>
-	<td>
-	  <xsl:value-of select="outline/where/@ref" />
-	</td>
-	<td wrap="1">
-	  <xsl:for-each select="outline/who">
-	    <xsl:value-of select="concat(' ', @ref)" />
+	<xsl:attribute name="date" select="$tStartDate" />
+	<xsl:attribute name="type" select="'start'" />
+	<xsl:attribute name="ch" select="../@id" />
+	<xsl:attribute name="unit" select="@id" />
+	<xsl:attribute name="u-type" select="@type" />
+	<xsl:attribute name="u-title" select="title" />
+	<xsl:attribute name="where">
+	  <xsl:for-each select="outline/where">
+	    <xsl:value-of select="concat(@ref, '; ')" />
 	  </xsl:for-each>
-	</td>
+	</xsl:attribute>>
+	<xsl:attribute name="who">
+	  <xsl:for-each select="outline/who">
+	    <xsl:value-of select="concat(@ref, '; ')" />
+	  </xsl:for-each>
+	</xsl:attribute>>
       </xsl:element>
-      <xsl:text></xsl:text>
+
+<!--
+<xsl:value-of select="date:add(outline/when/start-date, outline/when/duration)" />
+-->
       <xsl:element name="record">
-	<xsl:attribute name="date">
-	  <xsl:if test="outline/when/end-date">
-	    <xsl:value-of select="outline/when/end-date" />
-	  </xsl:if>
-	  <xsl:if test="outline/when/duration">
-	    <xsl:value-of select="date:add(outline/when/start-date, outline/when/duration)" />
-	  </xsl:if>
-	</xsl:attribute>
-	<xsl:attribute name="type">
-	  <xsl:text>
-end
-</xsl:text>
-	</xsl:attribute>
-	<td>
-	  <xsl:value-of select="concat('C-', ../@id, ' ')" />
-	</td>
-	<td>
-	  <xsl:value-of select="concat('U-', @id)" />
-	</td>
-	<td>
-	  <xsl:value-of select="'end'" />
-	</td>
-	<td>
-	  <xsl:value-of select="@type" />
-	</td>
-	<td>
-	  <xsl:value-of select="'Elapsed: '" />
-	  <xsl:if test="outline/when/duration">
-	    <xsl:value-of select="translate(outline/when/duration, 'PTHYMDS', ' hymds')" />
-	  </xsl:if>
-	  <xsl:if test="outline/when/end-date">
+	<xsl:attribute name="date" select="$tEndDate" />
+	<xsl:attribute name="type" select="'end'" />
+	<xsl:attribute name="ch" select="../@id" />
+	<xsl:attribute name="unit" select="@id" />
+	<xsl:attribute name="u-type" select="@type" />
+	<xsl:attribute name="u-title" select="title" />
+	<xsl:attribute name="duration" select="$tDuration" />
 	    <xsl:value-of select="translate(date:difference(outline/when/end-date, outline/when/start-date), 'PTHYMDS', ' hymds')" />
-	  </xsl:if>
-	  <xsl:text>
- 
-</xsl:text>
-	</td>
       </xsl:element>
-      <xsl:text></xsl:text>
+      <xsl:value-of select="' '" />
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="*"
-		mode="draft">
-    <xsl:call-template name="show-draft">
-      <xsl:with-param name="pContent">
-	<xsl:value-of select="." />
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
 </xsl:stylesheet>

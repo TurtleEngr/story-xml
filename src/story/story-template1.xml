@@ -1,207 +1,177 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE 
-t:document-template PUBLIC "-//Syntext/DTD Syntext Document Template V1.0//EN"
-"doctemplate.dtd"
-[]>
+<!DOCTYPE t:document-template PUBLIC "-//Syntext/DTD Syntext Document Template V1.0//EN" "doctemplate.dtd" []>
 <t:document-template xmlns:t="http://www.syntext.com/Extensions/DocTemplate-1.0">
-
-<!--
+  <!--
 If there are problems, be sure there are no spaces at beginning or
 end of attribute values.
--->
-<t:name>Story2/Full</t:name>
-<t:xml-stylesheet>$SERNA_STYLESHEETS/story2/story-serna.xsl</t:xml-stylesheet>
-<t:toc-stylesheet>$SERNA_STYLESHEETS/story2/story-toc.xsl</t:toc-stylesheet>
-<t:xml-schema>$SERNA_SCHEMAS/story2/story-schema.xsd</t:xml-schema>
-<t:dtd-sysid>story2/story.dtd</t:dtd-sysid>
-<t:dtd-guess-string>content</t:dtd-guess-string>
-<t:hide-attributes>xml:lang xml:space</t:hide-attributes>
-<t:open-document />
-<t:document-root>
-  <content>
-    <book id="book" status="in-progress">
-      <title>book title</title>
-      <bookinfo>
-        <releaseinfo rev="$Revision: 1.23 $"
-        date="$Date: 2007/12/25 01:45:33 $"
-        source="$Source: /repo/local.cvs/app/story-xml/src/story2/story-template1.xml,v $" />
-        <pub-date>YYYY-MM-DD</pub-date>
-        <meta-description>book description</meta-description>
-        <keywordset>word, word</keywordset>
-        <edition>1</edition>
-        <authorgroup>
-          <author>
-            <firstname></firstname>
-            <surname></surname>
-            <authorblurb />
-          </author>
-        </authorgroup>
-      </bookinfo>
-      <def-book>
-        <style preview-thread="main" style-ref="main" />
-        <def-style id="main" content-ref="main" print-ref="main"
-        draft-ref="main" draft="0" debug="0" />
-        <def-content id="main" ch-preface="1" preface="1" prolog="1"
-        thread="main" page-draft="0" page-in-progress="0" page-done="1"
-        book-draft="0" book-in-progress="0" book-done="1" ch-draft="0"
-        ch-in-progress="0" ch-done="1" unit-draft="0" unit-in-progress="0"
-        unit-done="1" link-fmt="default" />
-        <def-content id="manuscript" ch-preface="0" preface="1" prolog="1"
-        thread="main" page-draft="0" page-in-progress="0" page-done="1"
-        book-draft="0" book-in-progress="0" book-done="1" ch-draft="0"
-        ch-in-progress="0" ch-done="1" unit-draft="0" unit-in-progress="0"
-        unit-done="1" link-fmt="text" />
-        <def-draft id="main" def-base="1" def-img="1" def-link="1" def-who="1"
-        def-where="1" def-thread="1" unit-title="1" unit-when="1"
-        unit-where="1" unit-who="1" unit-outline="1" thread-all="0"
-        thread-ref="1" thread-id-vp="1" thread-all-vp="1" timeline="0" />
-        <def-draft id="manuscript" def-base="0" def-img="0" def-link="0"
-        def-who="0" def-where="0" def-thread="0" unit-title="0" unit-when="0"
-        unit-where="0" unit-who="0" unit-outline="0" thread-ref="0"
-        thread-id-vp="0" thread-all-vp="0" />
-        <def-print id="main" content-ref="main" draft-ref="main" multi-file="0"
-        output-type="ps" toc="1" copyright="standard" page="6x9in"
-        margin="0.5in" gutter="0.3in" body-size="15" body-family="times"
-        head-size="20" title-size="25" head-family="times" ch-title-size="20"
-        ch-title-family="times" line-height="120" duplex="1"
-        header-type="title-author" bgcolor="white" text="black" draft="$ff6600"
-        next-prev="1" link="#0000ff" alink="#0000ff" vlink="#ff00ff" />
-        <def-print id="manuscript" content-ref="manuscript"
-        draft-ref="manuscript" multi-file="0" output-type="pdf" toc="0"
-        copyright="none" page="8.5x11in" margin="1in" gutter="0" font-size="15"
-        font-family="times" line-height="240" duplex="0"
-        header-type="page-no" />
-        <def-base id="ext" />
-        <def-base id="main">http://www.moria.dynu.com/</def-base>
-        <def-base id="test">file:///home/george/story/src/</def-base>
-        <def-img id="offsite" url="icon/link.png" base="main">offsite
-        link</def-img>
-        <def-img id="folder" url="icon/folder.png" base="main">folder</def-img>
-        <def-link id="google" url="http://www.google.com" base="ext"
-        ref="offsite">Google</def-link>
-        <def-who id="hero">
-          <p>describe a character</p>
-        </def-who>
-        <def-where id="where1">
-          <p>describe a location</p>
-        </def-where>
-        <def-thread id="main">
-          <p>describe the thread</p>
-        </def-thread>
-        <file-prefix>ch</file-prefix>
-        <ch-preface>
-          <title>Disclamer</title>
-          <p>placed before preface, if single file, or each chapter, if chapter
-          files are output</p>
-        </ch-preface>
-      </def-book>
-      <preface>
-        <title>Preface</title>
-        <p>placed before all chapters</p>
-      </preface>
-      <chapter id="1" status="in-progress">
-        <title>chapter title</title>
-        <chapterinfo>
-          <releaseinfo rev="$Revision: 1.23 $"
-          date="$Date: 2007/12/25 01:45:33 $"
-          source="$Source: /repo/local.cvs/app/story-xml/src/story2/story-template1.xml,v $" />
+-->  <t:name>Story3/Full</t:name>
+  <t:xml-stylesheet>$SERNA_STYLESHEETS/story3/story-serna.xsl</t:xml-stylesheet>
+  <t:toc-stylesheet>$SERNA_STYLESHEETS/story3/story-toc.xsl</t:toc-stylesheet>
+  <t:xml-schema>$SERNA_SCHEMAS/story3/story-schema.xsd</t:xml-schema>
+  <t:dtd-sysid>story3/story.dtd</t:dtd-sysid>
+  <t:dtd-guess-string>story-dtd version=&quot;3&quot;</t:dtd-guess-string>
+  <t:open-document/>
+  <t:document-root>
+    <content>
+      <story-dtd version="3"/>
+      <book id="book" revision="in-progress">
+        <title>book title</title>
+        <book-info>
+          <author-group>
+            <author>
+              <first-name/>
+              <surname/>
+              <email>author@domain.com</email>
+              <author-blurb/>
+            </author>
+          </author-group>
+          <release-info rev="$Revision: 1.5 $" date="$Date: 2008/03/14 04:09:43 $" source="$Source: /repo/local.cvs/app/story-xml/src/story3/story-template1.xml,v $"/>
           <pub-date>YYYY-MM-DD</pub-date>
-        </chapterinfo>
-        <prolog>
-          <title>Prolog</title>
-          <p>placed at beginning of chapter</p>
-        </prolog>
-        <unit id="1" status="in-progress" type="sequel">
-        <title>summary title</title>
-        <outline>
-          <when>
-            <!--
+          <copyright>
+            <year>2007</year>
+            <holder>author</holder>
+          </copyright>
+          <edition>1</edition>
+          <keyword-set>word, word</keyword-set>
+        </book-info>
+        <style-info thread-refs="main" style-ref="main">
+          <def-style id="main" content-ref="main" print-ref="main" draft-ref="main" draft="0" debug="0"/>
+          <def-content id="main" ch-preface="1" preface="1" prolog="1" thread-refs="main" page-draft="0" page-in-progress="0" page-done="1" book-draft="0" book-in-progress="0" book-done="1" ch-draft="0" ch-in-progress="0" ch-done="1" unit-draft="0" unit-in-progress="0" unit-done="1" link-fmt="default"/>
+          <def-content id="manuscript" ch-preface="0" preface="1" prolog="1" thread-refs="main" page-draft="0" page-in-progress="0" page-done="1" book-draft="0" book-in-progress="0" book-done="1" ch-draft="0" ch-in-progress="0" ch-done="1" unit-draft="0" unit-in-progress="0" unit-done="1" link-fmt="text"/>
+          <def-draft id="main" def-base="1" def-img="1" def-link="1" def-who="1" def-where="1" def-thread="1" unit-title="1" unit-when="1" unit-where="1" unit-who="1" unit-outline="1" thread-all="0" thread-ref="1" thread-id-vp="1" thread-all-vp="1" timeline="0"/>
+          <def-draft id="manuscript" def-base="0" def-img="0" def-link="0" def-who="0" def-where="0" def-thread="0" unit-title="0" unit-when="0" unit-where="0" unit-who="0" unit-outline="0" thread-ref="0" thread-id-vp="0" thread-all-vp="0"/>
+          <def-print id="main" alink="#0000ff" bgcolor="white" body-family="times" body-size="15" ch-title-family="times" ch-title-size="20" copyright-type="standard" draft="$ff6600" duplex="1" gutter="0.3in" head-align="right" head-family="times" head-location="top" head-size="20" head-type="title-author" line-height="120" link="#0000ff" margin="0.5in" multi-file="0" next-prev="1" output-type="ps" page="6x9in" text="black" title-family="Times" title-size="25" toc="1" vlink="#ff00ff"/>
+          <def-print id="manuscript" alink="#0000ff" bgcolor="white" body-family="times" body-size="15" ch-title-family="times" ch-title-size="20" copyright-type="none" draft="$ff6600" duplex="0" gutter="0" head-align="right" head-family="times" head-location="top" head-size="20" head-type="page-no" line-height="240" link="#0000ff" margin="0.5in" multi-file="0" next-prev="0" output-type="pdf" page="8.5x11in" text="black" title-family="Times" title-size="25" toc="0" vlink="#ff00ff"/>
+          <def-base id="ext"/>
+          <def-base id="main">http://www.moria.dynu.com/</def-base>
+          <def-base id="test">file:///home/george/story/src/</def-base>
+          <def-img id="offsite" url="icon/link.png" base-ref="main"/>
+          <def-img id="folder" url="icon/folder.png" base-ref="main"/>
+          <def-link id="google" url="http://www.google.com" base-ref="ext" img-ref="offsite"/>
+          <meta-description>book description</meta-description>
+          <file-prefix>ch</file-prefix>
+        </style-info>
+        <story-info>
+          <def-who id="hero">
+            <p>describe a character</p>
+          </def-who>
+          <def-where id="where1">
+            <p>describe a location</p>
+          </def-where>
+          <def-thread id="main">
+            <p>describe the thread</p>
+          </def-thread>
+          <ch-preface>
+            <title>Disclamer</title>
+            <p>placed before preface, if single file, or each chapter, if chapter files are output</p>
+          </ch-preface>
+        </story-info>
+        <preface>
+          <title>Preface</title>
+          <p>placed before all chapters</p>
+        </preface>
+        <chapter id="1" revision="in-progress">
+          <title>chapter title</title>
+          <chapter-info>
+            <release-info rev="$Revision: 1.5 $" date="$Date: 2008/03/14 04:09:43 $" source="$Source: /repo/local.cvs/app/story-xml/src/story3/story-template1.xml,v $"/>
+            <pub-date>YYYY-MM-DD</pub-date>
+          </chapter-info>
+          <prolog>
+            <title>Prolog</title>
+            <p>placed at beginning of chapter</p>
+          </prolog>
+          <unit id="1" revision="in-progress" type="sequel">
+            <title>summary title</title>
+            <outline>
+              <when>
+                <!--
   start-date: yyyy-mm-dd(Thh:mmZ(-)nnnn)
   duration: PyyyyYmmMddD(ThhHmmM) or
   end-date: yyyy-mm-dd(Thh:mmZ(-)nnn)
-  -->
-            <start-date>2006-01-01T13:00Z-0800</start-date>
-            <duration>P0Y0M0DT2H5M</duration>
-            <description>
-              <p>describe when</p>
-            </description>
-          </when>
-          <where ref="where1">
-            <p>additional description, differences</p>
-          </where>
-          <who ref="hero">
-            <p>additional description, differences</p>
-          </who>
-          <description>
-            <p>This text will only be output with 'drafts'</p>
-          </description>
-        </outline>
-        <thread refs="main" who-refs="hero">
-          <s who-ref="hero">Say text example (ref is optional).</s>
-        </thread>
-        <thread refs="main" who-refs="hero">
-          <t who-ref="hero">Thought text example (ref is required).</t>
-          <p>Paragraph text example.</p>
-        </thread>p</unit>
-        <postlog>
-          <title>Postlog</title>
-          <p>placed at end of chapter</p>
-        </postlog>
-      </chapter>
-      <epilog>
-        <title>Epilog</title>
-        <p>placed after all chapters</p>
-      </epilog>
-    </book>
-  </content>
+  -->                <start-date>2006-01-01T13:00Z-0800</start-date>
+                <duration>P0Y0M0DT2H5M</duration>
+                <description>
+                  <p>describe when</p>
+                </description>
+              </when>
+              <where ref="where1">
+                <p>additional description, differences</p>
+              </where>
+              <who ref="hero">
+                <p>additional description, differences</p>
+              </who>
+              <description>
+                <p>This text will only be output with &apos;drafts&apos;</p>
+              </description>
+            </outline>
+            <thread ref="main" who-refs="hero">
+              <s who-ref="hero">Say text example (ref is optional).</s>
+            </thread>
+            <thread ref="main" who-refs="hero">
+              <t who-ref="hero">Thought text example (ref is required).</t>
+              <p>Paragraph text example.</p>
+            </thread>
+          </unit>
+          <postlog>
+            <title>Postlog</title>
+            <p>placed at end of chapter</p>
+          </postlog>
+        </chapter>
+        <epilog>
+          <title>Epilog</title>
+          <p>placed after all chapters</p>
+        </epilog>
+      </book>
+    </content>
   </t:document-root>
   <t:publish>
     <t:name>Draft</t:name>
     <t:inscription>Draft only html files</t:inscription>
     <t:extension>html</t:extension>
     <t:script>run-xsltproc-html</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story2/story-draft.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_STYLESHEETS/story3/story-draft.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>html</t:name>
     <t:inscription>Single html file</t:inscription>
     <t:extension>html</t:extension>
     <t:script>run-xsltproc</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story2/story-html.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_STYLESHEETS/story3/story-html.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>Multiple</t:name>
     <t:inscription>Multiple html files</t:inscription>
     <t:extension>html</t:extension>
     <t:script>run-xsltproc-html</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story2/story-ch-html.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_STYLESHEETS/story3/story-ch-html.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>pdf</t:name>
     <t:inscription>Single PDF</t:inscription>
     <t:extension>pdf</t:extension>
     <t:script>run-fop</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story2/story-pdf.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_STYLESHEETS/story3/story-pdf.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>Raw</t:name>
     <t:inscription>All tags and content</t:inscription>
     <t:extension>raw.html</t:extension>
     <t:script>run-xsltproc</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story2/story-raw-html.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_STYLESHEETS/story3/story-raw-html.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>docbook</t:name>
     <t:inscription>Translate story xml to docbook xml</t:inscription>
     <t:extension>doc.xml</t:extension>
     <t:script>pub-docbook</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story2/story2docbook.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_STYLESHEETS/story3/story3docbook.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
-    <t:name>Convert-2to3</t:name>
-    <t:inscription>Convert story Ver2 dtd to Ver3 dtd</t:inscription>
-    <t:extension>ver3.xml</t:extension>
-    <t:script>convert-2to3</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story2/convert-2to3.xsl</t:stylesheet>
+    <t:name>Convert-3to4</t:name>
+    <t:inscription>Convert story Ver3 dtd to Ver4 dtd</t:inscription>
+    <t:extension>ver4.xml</t:extension>
+    <t:script>convert-3to4</t:script>
+    <t:stylesheet>$SERNA_STYLESHEETS/story3/convert-3to4.xsl</t:stylesheet>
   </t:publish>
 </t:document-template>
+

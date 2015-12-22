@@ -15,8 +15,8 @@ t:document-template PUBLIC "-//Syntext/DTD Syntext Document Template V1.0//EN"
     <book id="book" status="in-progress">
       <title>book title</title>
       <bookinfo>
-        <releaseinfo rev="$Revision: 1.6 $" date="$Date: 2007/12/22 18:48:02 $"
-        source="$Source: /repo/local.cvs/app/story-xml/src/story2/story-template2.sdt,v $" />
+        <releaseinfo rev="$Revision: 1.1 $" date="$Date: 2007/12/24 02:53:58 $"
+        source="$Source: /repo/local.cvs/app/story-xml/src/story3/story-template2.sdt,v $" />
         <pub-date>YYYY-MM-DD</pub-date>
         <meta-description>book description</meta-description>
         <keywordset>word, word</keywordset>
@@ -94,9 +94,9 @@ t:document-template PUBLIC "-//Syntext/DTD Syntext Document Template V1.0//EN"
       <chapter id="1" status="in-progress">
         <title>chapter title</title>
         <chapterinfo>
-          <releaseinfo rev="$Revision: 1.6 $"
-          date="$Date: 2007/12/22 18:48:02 $"
-          source="$Source: /repo/local.cvs/app/story-xml/src/story2/story-template2.sdt,v $" />
+          <releaseinfo rev="$Revision: 1.1 $"
+          date="$Date: 2007/12/24 02:53:58 $"
+          source="$Source: /repo/local.cvs/app/story-xml/src/story3/story-template2.sdt,v $" />
           <pub-date>YYYY-MM-DD</pub-date>
         </chapterinfo>
         <prolog>

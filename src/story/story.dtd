@@ -1,5 +1,5 @@
 <!--
-$Header: /repo/local.cvs/app/story-xml/src/story2/story.dtd,v 1.22 2007/12/18 08:16:21 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story3/story.dtd,v 1.8 2008/02/24 19:21:46 bruce Exp $
 -->
 
 <!-- ************************************** -->
@@ -18,8 +18,32 @@ condition CDATA #IMPLIED
 id CDATA #IMPLIED
 lang CDATA #IMPLIED
 revision (in-progress|draft|final) #IMPLIED
-revison-flag (changed|added|deleted|off) #IMPLIED
+revision-flag (changed|added|deleted|off) #IMPLIED
 ">
+
+<!ENTITY % req-com-attr "
+condition CDATA #IMPLIED
+id CDATA #REQUIRED
+lang CDATA #IMPLIED
+revision (in-progress|draft|final) #REQUIRED
+revision-flag (changed|added|deleted|off) #IMPLIED
+">
+
+<!ENTITY % date-time "
+year CDATA #IMPLIED
+month CDATA #IMPLIED
+day CDATA #IMPLIED
+hour CDATA #IMPLIED
+min CDATA #IMPLIED
+">
+<!--
+year - any integer
+month - 1-12
+day - 1-31
+hour - 0-23
+min - 0-59
+gmt - -NNNN or NNNN (GMT-8 = -0800)
+-->
 
 <!ENTITY % font-family "helvetica|courier|times">
 <!--
@@ -119,9 +143,9 @@ Internal use:
 <!--
 root - for example: :ext:LOGNAME@moria.dynu.com:/data/public.cvs
 repository - for example: app/story-xml/src
-source - $Source: /repo/local.cvs/app/story-xml/src/story2/story.dtd,v $
-rev - $Revision: 1.22 $
-date -$Date: 2007/12/18 08:16:21 $
+source - $Source: /repo/local.cvs/app/story-xml/src/story3/story.dtd,v $
+rev - $Revision: 1.8 $
+date -$Date: 2008/02/24 19:21:46 $
 -->
 <!ELEMENT pub-date (#PCDATA)>		<!-- yyyy-mm-dd -->
 <!ATTLIST pub-date
@@ -146,10 +170,21 @@ date -$Date: 2007/12/18 08:16:21 $
 >
 
 <!-- ************************************** -->
-<!ENTITY % text-type "(#PCDATA|link|img|b|i|tt)*">
-<!ELEMENT b (#PCDATA|link|img|i|tt)*>
-<!ELEMENT i (#PCDATA|link|img|b|tt)*>
-<!ELEMENT tt (#PCDATA|link|img|b|i)*>
+<!ENTITY % text-style "(#PCDATA|link|img|b|i|tt|rev)*">
+<!ELEMENT b (#PCDATA|link|img|i|tt|rev)*>
+<!ELEMENT i (#PCDATA|link|img|b|tt|rev)*>
+<!ELEMENT tt (#PCDATA|link|img|b|i|rev)*>
+<!ELEMENT rev (#PCDATA|link|img|b|i|tt)*>
+<!ATTLIST rev
+	condition CDATA #IMPLIED
+	id CDATA #IMPLIED
+	lang CDATA #IMPLIED
+	revision (in-progress|draft|final) #IMPLIED
+	revision-flag (changed|added|deleted|off) #REQUIRED
+>
+<!--
+no operation, only used to set the revision-flag
+-->
 
 <!ELEMENT link (#PCDATA)>
 <!ATTLIST link
@@ -173,23 +208,39 @@ url - (def-link url)
 >
 <!-- ref - def-img-id -->
 
-<!ENTITY % simple-text "(p|pre)*">
+<!ENTITY % simple-text "(para|pre-fmt|quote)*">
 
-<!ENTITY % text "(p|pre|s|rev)*">
+<!ENTITY % thread-text "(p|pre|s|t|quote|br)*">
 
-<!ENTITY % thread "(p|pre|s|t|rev)*">
-
-<!ELEMENT p %text-type;>
-<!ATTLIST p
+<!ELEMENT para %text-style;>
+<!ATTLIST para
 	%com-attr;
 >
+<!-- Format as a block para -->
 
-<!ELEMENT pre %text-type;>
+<!ELEMENT pre %text-style;>
 <!ATTLIST pre
 	%com-attr;
 >
 
-<!ELEMENT s %text-type;>
+<!ELEMENT pre-fmt %text-style;>
+<!ATTLIST pre-fmt
+	%com-attr;
+>
+
+<!ELEMENT quote %text-style;>
+<!ATTLIST quote
+	%com-attr;
+>
+<!-- Format the same as a block para, but indent 10% on margins -->
+
+<!ELEMENT p %text-style;>
+<!ATTLIST p
+	%com-attr;
+>
+<!-- Indented para style, justified -->
+
+<!ELEMENT s %text-style;>
 <!ATTLIST s
 	%com-attr;
 	who-ref CDATA #IMPLIED
@@ -199,7 +250,7 @@ story, say - ref id is the person talking, optional (output is not
 affected, but this may be output in draft copies)
 -->
 
-<!ELEMENT t %text-type;>
+<!ELEMENT t %text-style;>
 <!ATTLIST t
 	%com-attr;
 	who-ref CDATA #REQUIRED
@@ -210,25 +261,31 @@ id, that match a thread's viewpoint id, will be printed.  Draft
 copies may output all thought text (with the ids).
 -->
 
-<!ELEMENT rev %text-type;>
-<!ATTLIST rev
+<!--
+Section break.  Either a blank line (print) or a short rule line (html).
+-->
+<!ELEMENT br EMPTY>
+<!ATTLIST br
 	%com-attr;
 >
-<!--
-no operation, only used to set the revision-flag
--->
 
 <!-- ************************************** -->
-<!ELEMENT content  (book+)>
+<!ELEMENT content  (story-dtd?, book+)>
+
+<!-- ************************************** -->
+<!ELEMENT story-dtd EMPTY>
+<!ATTLIST story-dtd
+	version CDATA #REQUIRED
+>
 
 <!-- ************************************** -->
 <!ELEMENT book (%com-title;, book-info, style-info, story-info, preface?, chapter*, epilog?)
 >
 <!ATTLIST book
-	%com-attr;
+	%req-com-attr;
 >
 
-<!ELEMENT book-info (%com-info;, copyright?, publisher?, legal-notice?, edition?, isbn?, keyword-set?)>
+<!ELEMENT book-info (%com-info;, copyright?, publisher?, legal-notice?, edition?, biblio-id*, keyword-set?, abstract?)>
 
 
 <!ELEMENT copyright (year+, holder*)>
@@ -237,41 +294,49 @@ no operation, only used to set the revision-flag
 
 <!ELEMENT publisher (publisher-name, address?)>
 <!ELEMENT publisher-name (#PCDATA)>
-<!ELEMENT address (street?, pob?, post-code?, city?, state?, country?, phone?, fax?, email?, other-addr?)>
+<!ELEMENT address (street*, pob?, city?, state?, post-code?, country?, phone*, fax?, email*, other-addr*)>
 <!ELEMENT street (#PCDATA)>
 <!ELEMENT pob (#PCDATA)>
-<!ELEMENT post-code (#PCDATA)>
 <!ELEMENT city (#PCDATA)>
 <!ELEMENT state (#PCDATA)>
+<!ELEMENT post-code (#PCDATA)>
 <!ELEMENT country (#PCDATA)>
 <!ELEMENT phone (#PCDATA)>
 <!ELEMENT fax (#PCDATA)>
 <!ELEMENT other-addr (#PCDATA)>
 
-<!ELEMENT legal-notice (title?, p)>
+<!ELEMENT legal-notice (title?, %simple-text;)>
 
 <!ELEMENT edition (#PCDATA)>
-<!ELEMENT isbn (#PCDATA)>
+
+<!ELEMENT biblio-id (#PCDATA)>
+<!ATTLIST biblio-id
+	class (doi|isbn|isrn|issn|library-of-congress|other|pub-number|uri) #REQUIRED
+	other-class CDATA #IMPLIED
+>
+
 <!ELEMENT keyword-set (#PCDATA)>
+
+<!ELEMENT abstract (%simple-text;)>
 
 <!ELEMENT style-info ((def-style|def-content|def-draft|def-print|def-base|def-img|def-link)*, meta-description, file-prefix)>
 <!ATTLIST style-info
-	preview-thread CDATA #REQUIRED
 	style-ref CDATA #REQUIRED
+	thread-refs CDATA #REQUIRED
 >
 <!--
 preview-thread - editor content view
 style-ref - def-style id
 -->
 
-<!ELEMENT def-style EMPTY>
+<!ELEMENT def-style (%simple-text;)>
 <!ATTLIST def-style
 	%id;
 	content-ref CDATA #REQUIRED
-	print-ref CDATA #REQUIRED
-	draft-ref CDATA #REQUIRED
-	draft (%bool;) #REQUIRED
 	debug (%bool;) #REQUIRED
+	draft (%bool;) #REQUIRED
+	draft-ref CDATA #REQUIRED
+	print-ref CDATA #REQUIRED
 >
 <!--
 print-ref - def-print id
@@ -279,25 +344,22 @@ content-ref - def-content id
 draft-ref - def-draft id
 -->
 
-<!ELEMENT def-content EMPTY>
+<!ELEMENT def-content (%simple-text;)>
 <!ATTLIST def-content
 	%id;
-	ch-preface (%bool;) #IMPLIED
-	preface (%bool;) #IMPLIED
-	prolog (%bool;) #IMPLIED
-	thread CDATA #REQUIRED
-
-	ch-in-progress (%bool;) #IMPLIED
 	ch-draft (%bool;) #IMPLIED
 	ch-final (%bool;) #IMPLIED
-
-	unit-in-progress (%bool;) #IMPLIED
+	ch-in-progress (%bool;) #IMPLIED
+	ch-preface (%bool;) #IMPLIED
+	ch-refs CDATA #IMPLIED
+	link-fmt (default|full|long|short|text|plain) #REQUIRED
+	preface (%bool;) #IMPLIED
+	prolog (%bool;) #IMPLIED
+	thread-refs CDATA #REQUIRED
 	unit-draft (%bool;) #IMPLIED
 	unit-final (%bool;) #IMPLIED
-
-	ch-refs CDATA #IMPLIED
+	unit-in-progress (%bool;) #IMPLIED
 	unit-refs CDATA #IMPLIED
-	link-fmt (default|full|long|short|text|plain) #REQUIRED
 >
 <!--
 Default: no, for missing attributes.
@@ -316,115 +378,131 @@ link-fmt -
 	plain - force attr: title (no 'a' tag)
 -->
 
-<!ELEMENT def-draft EMPTY>
+<!ELEMENT def-draft (%simple-text;)>
 <!ATTLIST def-draft
 	%id;
 	def-base (%bool;) #IMPLIED
 	def-img (%bool;) #IMPLIED
 	def-link (%bool;) #IMPLIED
-	def-who (%bool;) #IMPLIED
-	def-where (%bool;) #IMPLIED
 	def-thread (%bool;) #IMPLIED
+	def-when (%bool;) #IMPLIED
+	def-where (%bool;) #IMPLIED
+	def-who (%bool;) #IMPLIED
+        deleted (%bool;) #IMPLIED
+	thread-all (%bool;) #IMPLIED
+	thread-all-vp (%bool;) #IMPLIED
+	thread-content (%bool;) #IMPLIED
+	thread-id-vp (%bool;) #IMPLIED
+	thread-ref (%bool;) #IMPLIED
+	timeline (%bool;) #IMPLIED
+	unit-outline (%bool;) #IMPLIED
 	unit-title (%bool;) #IMPLIED
 	unit-when (%bool;) #IMPLIED
 	unit-where (%bool;) #IMPLIED
 	unit-who (%bool;) #IMPLIED
-	unit-outline (%bool;) #IMPLIED
-	thread-content (%bool;) #IMPLIED
-	thread-all (%bool;) #IMPLIED
-	thread-ref (%bool;) #IMPLIED
-	thread-id-vp (%bool;) #IMPLIED
-	thread-all-vp (%bool;) #IMPLIED
-	timeline (%bool;) #IMPLIED
 >
 <!--
 Default: no, for missing attributes.
+deleted - show deleted content?
 thread-content - print content of threads
 thread-all - show all treads, not just the thread defined in content.
 thread-ref - show thread reference ids?
 thread-id-vp - show thread viewpoint id?
 thread-all-vp - output all viewpoint thoughts
 preview-thread - use this for the editor view
-timeline - show the when times across all selected units
+timeline - show the when times across all active units
 -->
 
-<!ELEMENT def-print EMPTY>
+<!ELEMENT def-print (%simple-text;)>
 <!ATTLIST def-print
 	%id;
-	output-type (html|pdf|ps|txt)  #REQUIRED
-	multi-file (%bool;) #REQUIRED
-	copyright-type (none|standard|commons|gnu) #REQUIRED
-	toc (%bool;) #REQUIRED
-	body-size (%font-size;) #REQUIRED
-	body-family (%font-family;) #REQUIRED
-	head-size (%font-size;) #REQUIRED
-	head-family (%font-family;) #REQUIRED
-	title-size (%font-size;) #REQUIRED
-	title-family (%font-family;) #REQUIRED
-	ch-title-size (%font-size;) #REQUIRED
-	ch-title-family (%font-family;) #REQUIRED
-	line-height (100|110|120|130|150|200|220|240|260|280|300) #REQUIRED
-
-	page (4.25x5.5in|6x9in|8.5x11in) #REQUIRED
-	margin (0.25in|0.5in|0.75in|1in) #REQUIRED
-	gutter (0|0.2in|0.25in|0.3in|3.5in|0.375in|0.4in) #REQUIRED
+	alink CDATA #IMPLIED
+	auto-break (%bool;) #IMPLIED
+	bgcolor CDATA #REQUIRED
+	bleed-bottom (0|0.125in|0.25in) #IMPLIED
 	bleed-left (0|0.125in|0.25in) #IMPLIED
 	bleed-right (0|0.125in|0.25in) #IMPLIED
 	bleed-top (0|0.125in|0.25in) #IMPLIED
-	bleed-bottom (0|0.125in|0.25in) #IMPLIED
-	duplex (%bool;) #REQUIRED
-	header-type (none|page-no|title|title-author|title-chapter) #REQUIRED
-
-	img-ref CDATA #IMPLIED
-	bgcolor CDATA #REQUIRED
-	text CDATA #REQUIRED
+	body-family (%font-family;) #REQUIRED
+	body-size (%font-size;) #REQUIRED
+	ch-title-family (%font-family;) #REQUIRED
+	ch-title-size (%font-size;) #REQUIRED
+	ch-page-break (none|some-odd|all-odd) #REQUIRED
+	copyright-type (none|standard|commons|gnu) #REQUIRED
 	draft CDATA #REQUIRED
+	duplex (%bool;) #REQUIRED
+	gutter (0|0.2in|0.25in|0.3in|3.5in|0.375in|0.4in) #REQUIRED
+	head-align (left|right|center) #REQUIRED
+	head-family (%font-family;) #REQUIRED
+	head-location (top|bottom) #REQUIRED
+	head-size (%font-size;) #REQUIRED
+	head-type (page-no|title|title-author|title-chapter) #REQUIRED
+	img-ref CDATA #IMPLIED
+	line-height (100|110|120|130|150|200|220|240|260|280|300) #REQUIRED
 	link CDATA #IMPLIED
-	vlink CDATA #IMPLIED
-	alink CDATA #IMPLIED
+	margin (0.25in|0.5in|0.75in|1in) #REQUIRED
+	multi-file (%bool;) #REQUIRED
 	next-prev (%bool;) #IMPLIED
+	output-type (html|pdf|ps|docbook|txt)  #REQUIRED
+	page (4.25x5.5in|6x9in|8.5x11in) #REQUIRED
+	text CDATA #REQUIRED
+	title-family (%font-family;) #REQUIRED
+	title-size (%font-size;) #REQUIRED
+	toc (%bool;) #REQUIRED
+	vlink CDATA #IMPLIED
 >
 <!--
-Default: no, for missing attributes (unless noted otherwise)
-output-type - htmlpdf|ps|txt
-multi-file - yes: each ch in a file; no: single file
-toc - print toc?
-toc - html: name link to ch. or create toc file of links, if muli-file
-copyright-type - don't print if missing or '0'
-head-size - html: h3 size in css
-title-size - html: h1 size in css
-ch-title-size - html: h2 size in css
-body-size - body font point size
-body-family - body font name
-head-family - head font name
-line-height - percent, recommend 120 for single space, 240 for double
+Default: 0 or "", for missing attributes (unless noted otherwise)
+	auto-break - put a section break automatically between units (i.e. not first unit of a chapter)
+	body-family - body font name
+	body-size - body font point size
+	ch-page-break - controls page breaks for chapters.  toc, preface, first chapter, epilog are always odd.
+	ch-title-size - html: h2 size in css
+	copyright-type - don't print if missing or '0'
+	head-family - head font name
+	head-size - html: h3 size in css
+	line-height - percent, recommend 120 for single space, 240 for double
+	multi-file - yes: each ch in a file; no: single file
+	output-type - htmlpdf|ps|docbook|txt
+	title-size - html: h1 size in css
+	toc - html: name link to ch. or create toc file of links, if muli-file
+	toc - print toc?
 
 non-html only:
-page - final page size, in inches (lulu sizes)
-margin - top, bottom, left, right margins
-gutter - space for binding, recommend 0.2in or 0.3in (inside edge)
-bleed-left - left page crop (usually 0)
-bleed-right - right page crop (lulu: 0.25, default: 0)
-bleed-top - top page crop (lulu: 0.125, default: 0)
-bleed-bottom - bottom page crop (lulu: 0.125, default: 0)
-duplex - double sided?  If yes, the gutter and bleed-right alternates,
+	page - final page size, in inches (lulu sizes)
+	margin - top, bottom, left, right margins
+	gutter - space for binding, recommend 0.2in or 0.3in (inside edge)
+	bleed-left - left page crop (usually 0)
+	bleed-right - right page crop (lulu: 0.25, default: 0)
+	bleed-top - top page crop (lulu: 0.125, default: 0)
+	bleed-bottom - bottom page crop (lulu: 0.125, default: 0)
+	duplex - double sided?  If yes, the gutter and bleed-right alternates,
          also the gutter, page no., and headings will alternate
-header-type -
-	0 - none
-	page-no - only page numbers (outside)
-	title - numbers outside, title inside
-	title-author - numbers outside, title even, author odd
-	title-chapter - numbers outside, title even, chapter odd
+	head-type -
+		page-no - only page numbers
+		title - numbers outside, title inside
+		author-title - numbers outside, author even, title odd
+		title-chapter - numbers outside, title even, chapter odd
+	head-align
+		- page no. is aways on outside edge, if there is
+		  other text.  If just page-no head-type, then
+		  head-align applies to the page-no.
+		left - align non-page text to inside edge
+		right - align non-page text to outside edge
+		center - center the text
+	head-location
+		top - top of page, with a rule line below
+		bottom - bottom of page, with a rule line above
 
 html only:
-img-ref - html: def-img id (background image)
-bgcolor - background color
-text - text color
-draft - draft color
-link
-vlink
-alink
-next-prev - html: create next/prev chapter links, only if muli-file
+	alink
+	bgcolor - background color
+	draft - draft color
+	img-ref - html: def-img id (background image)
+	link
+	next-prev - html: create next/prev chapter links, only if muli-file
+	text - text color
+	vlink
 -->
 
 <!ELEMENT def-base (#PCDATA)>
@@ -461,15 +539,30 @@ file:///home/george/ver/public/app/story/src/
 <!ELEMENT file-prefix (#PCDATA)>
 <!-- Prefix for ch files -->
 
-<!ELEMENT story-info ((def-who|def-where|def-thread)*, ch-preface?)>
+<!ELEMENT story-info ((def-when|de-where|def-who|def-thread)*, ch-preface?)>
 
-<!ELEMENT def-who %simple-text;>
-<!ATTLIST def-who
-	%id;
+<!ELEMENT def-when EMPTY>
+<!ATTLIST def-when
+	%date-time;
+	gmt CDATA #IMPLIED
+	d-year CDATA #IMPLIED
+	d-month CDATA #IMPLIED
+	d-day CDATA #IMPLIED
+	d-hour CDATA #IMPLIED
+	d-min CDATA #IMPLIED
 >
+<!--
+Defaults, if attr is not specified in "when" start-date.
+If no duration or end-date, then use the d-* values for default duration.
+-->
 
 <!ELEMENT def-where %simple-text;>
 <!ATTLIST def-where
+	%id;
+>
+
+<!ELEMENT def-who %simple-text;>
+<!ATTLIST def-who
 	%id;
 >
 
@@ -478,25 +571,25 @@ file:///home/george/ver/public/app/story/src/
 	%id;
 >
 
-<!ELEMENT preface (%com-title;, %text;)>
-<!ELEMENT epilog (%com-title;, %text;)>
+<!ELEMENT preface (%com-title;, %simple-text;)>
+<!ELEMENT epilog (%com-title;, %simple-text;)>
 
-<!ELEMENT ch-preface (title, %text;)>
+<!ELEMENT ch-preface (title, %simple-text;)>
 
 <!-- ****************** -->
 <!ELEMENT chapter (%com-title;, chapter-info, prolog?, unit+, postlog?)>
 <!ATTLIST chapter
-	%com-attr;
+	%req-com-attr;
 >
 
 <!ELEMENT chapter-info (%com-info;)>
 
-<!ELEMENT prolog (title, %text;)>
+<!ELEMENT prolog (title, %simple-text;)>
 <!ATTLIST prolog
 	%com-attr;
 >
 
-<!ELEMENT postlog (title, %text;)>
+<!ELEMENT postlog (title, %simple-text;)>
 <!ATTLIST postlog
 	%com-attr;
 >
@@ -504,16 +597,36 @@ file:///home/george/ver/public/app/story/src/
 <!-- ****************** -->
 <!ELEMENT unit (title, outline?, thread+)>
 <!ATTLIST unit
-	%com-attr;
+	%req-com-attr;
 	type (scene|sequel) #REQUIRED
 >
 
 <!ELEMENT outline (when?, where?, who*, description?)>
 
-<!ELEMENT when (start-date, (duration|end-date), description?)>
+<!ELEMENT when (start-date, duration?, end-date?, description?)>
 <!ELEMENT start-date (#PCDATA)>	<!-- yyyy-mm-dd(Thh:mmZ(-)nnn) -->
+<!ATTLIST start-date
+	%date-time;
+	gmt CDATA #IMPLIED
+>
 <!ELEMENT duration  (#PCDATA)>	<!-- PyyyyYmmMddD(ThhHmmM) ex: P0Y0M0DT2H5M -->
+<!ATTLIST duration
+	%date-time;
+>
 <!ELEMENT end-date (#PCDATA)>	<!-- yyyy-mm-dd(Thh:mmZ(-)nnn) -->
+<!ATTLIST end-date
+	%date-time;
+	gmt CDATA #IMPLIED
+>
+<!--
+If duration is missing, calc duration from end-date.
+If both duration and end-date are present, use duration (ignore end-date)
+   (time fix routine: update end-date)
+If both duration and end-date are missing see def-when attr. for def. duration
+If attr are missing from start-date, see def-when.
+If attr are missing from end-date, get them from start-date.
+If attr are missing from duration, see def-when d-* attr. defaults
+-->
 
 <!ELEMENT where %simple-text;>
 <!ATTLIST where
@@ -529,10 +642,10 @@ file:///home/george/ver/public/app/story/src/
 
 <!ELEMENT description (%simple-text;)>
 
-<!ELEMENT thread %thread;>
+<!ELEMENT thread %thread-text;>
 <!ATTLIST thread
 	%com-attr;
-	refs CDATA #REQUIRED
+	ref CDATA #REQUIRED
 	who-refs CDATA #REQUIRED
 >
 <!--

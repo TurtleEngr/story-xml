@@ -1,166 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+		xmlns:date="http://exslt.org/dates-and-times"
 		xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
 		exclude-result-prefixes="doc"
 		xmlns:exsl="http://exslt.org/common"
-		extension-element-prefixes="exsl">
+		xmlns:str="http://exslt.org/strings"
+		extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story2/story-html.xsl,v 1.11 2008/01/07 02:35:52 bruce Exp $
+	extension-element-prefixes="date doc exsl str"
+$Header: /repo/local.cvs/app/story-xml/src/story3/story-html.xsl,v 1.9 2008/02/24 19:21:46 bruce Exp $
 -->
   <xsl:output method="html"
 	      indent="yes" />
-  <xsl:include href="story-com.xsl" />
+  <xsl:param name="gDraft" select="boolean(number('0'))" />
+  <xsl:include href="story-com-param.xsl" />
   <xsl:include href="story-com-html.xsl" />
+  <xsl:include href="story-com.xsl" />
   <!-- ************************************************** -->
   <xsl:template match="/content">
-    <xsl:apply-templates select="site" />
-    <xsl:apply-templates select="page" />
     <xsl:apply-templates select="book" />
-    <xsl:call-template name="output-list" />
+    <xsl:call-template name="fOutputList" />
   </xsl:template>
   <!-- ************************************************** -->
-  <xsl:template match="site"></xsl:template>
-  <!-- ************************************************** -->
-  <xsl:template name="output-list">
+  <xsl:template name="fOutputList">
     <exsl:document method="text"
 		   href="output-list.txt">
-      <xsl:apply-templates select="page"
-			   mode="output-list" />
       <xsl:apply-templates select="book"
 			   mode="output-list" />
     </exsl:document>
   </xsl:template>
   <xsl:template match="book"
 		mode="output-list">
-    <xsl:if test="contains($gBookStatus, concat(' book-', @status, ' '))">
-      <xsl:value-of select="concat(@id,'.html')" />
-      <xsl:value-of select="$gNL" />
-    </xsl:if>
+    <xsl:value-of select="concat(@id,'.html')" />
+    <xsl:value-of select="$gNL" />
   </xsl:template>
   <!-- ************************************************** -->
   <xsl:template match="book">
-    <xsl:if test="contains($gBookStatus, concat(' book-', @status, ' '))">
-      <exsl:document method="html"
-		     href="{concat(@id,'.html')}">
-	<html>
-	  <head>
-	    <title>
-	      <xsl:value-of select="title" />
-	    </title>
-	    <xsl:call-template name="meta-head" />
-	  </head>
-	  <body>
-	  <xsl:call-template name="body-attr" />
-	  <xsl:call-template name="DebugBook" />
-	  <h1>
-	    <xsl:value-of select="title" />
-	  </h1>By: 
-	  <xsl:value-of select="author" />
-	  <br />
-	  <xsl:variable name="LastDate">
-	    <xsl:apply-templates select="cvs/@date" />
-	  </xsl:variable>
-	  <xsl:if test="substring(pub-date,1,4) = substring($LastDate,1,4)">
-	  Copyright 
-	  <xsl:value-of select="substring(pub-date,1,4)" />
-	  <br /></xsl:if>
-	  <xsl:if test="substring(pub-date,1,4) != substring($LastDate,1,4)">
-	  Copyright 
-	  <xsl:value-of select="substring(pub-date,1,4)" />- 
-	  <xsl:value-of select="substring($LastDate,1,4)" />
-	  <br /></xsl:if>
-	  <xsl:if test="edition != '1'">Edition: 
-	  <xsl:value-of select="edition" />
-	  <br /></xsl:if>
-	  <xsl:if test="@status = 'in-progress'">In progress 
-	  <br /></xsl:if>
-	  <xsl:if test="@status = 'draft'">Draft 
-	  <br /></xsl:if>
-	  <xsl:comment>
-	    <xsl:call-template name="cvs-print" />
-	  </xsl:comment>
-	  <xsl:call-template name="toc" />
-	  <xsl:if test="boolean(number($gContentRef/@ch-preface))">
-	    <xsl:apply-templates select="ch-preface" />
-	  </xsl:if>
-	  <xsl:if test="boolean(number($gContentRef/@preface))">
-	    <xsl:apply-templates select="preface" />
-	  </xsl:if>
-	  <xsl:apply-templates select="chapter" />
-	  <xsl:if test="boolean(number($gContentRef/@preface))">
-	    <xsl:apply-templates select="epilog" />
-	  </xsl:if>
-	  <hr />Last updated: 
-	  <xsl:apply-templates select="cvs/@date" /></body>
-	</html>
-      </exsl:document>
+<!--
+    <xsl:if test="$gDebug">
+      <xsl:message>
+	<xsl:value-of select="concat('Debug: text=', $gPrintRef/@text)" />
+      </xsl:message>
     </xsl:if>
+-->
+    <!-- ************************ -->
+    <exsl:document method="html"
+		   href="{concat(@id, '.html')}">
+      <html>
+        <head>
+          <title>
+            <xsl:value-of select="title" />
+          </title>
+          <xsl:call-template name="fMetaHead" />
+	  <xsl:call-template name="fHtmlStyle"/>
+        </head>
+        <body>
+          <xsl:call-template name="fBodyAttr" />
+          <xsl:call-template name="fTitlePage" />
+          <xsl:call-template name="fCopyrightPage" />
+          <xsl:call-template name="fTocPage" />
+          <xsl:apply-templates select="preface" />
+          <xsl:apply-templates select="chapter" />
+          <xsl:apply-templates select="epilog" />
+        </body>
+      </html>
+    </exsl:document>
   </xsl:template>
+  <!-- **************************************************
+Book
+-->
   <!-- ******************** -->
-  <xsl:template name="toc">
-    <hr />
-    <h2>Contents</h2>
-    <ul>
-      <xsl:if test="boolean(number($gContentRef/@preface))">
-	<xsl:apply-templates select="preface"
-			     mode="toc" />
+  <xsl:template match="unit">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <xsl:if test="$gPrintRef/@auto-break = '1' and position() != 1">
+        <hr class="break"/>
       </xsl:if>
-      <xsl:apply-templates select="chapter"
-			   mode="toc" />
-      <xsl:if test="boolean(number($gContentRef/@preface))">
-	<xsl:apply-templates select="epilog"
-			     mode="toc" />
-      </xsl:if>
-    </ul>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="preface"
-		mode="toc">
-    <li>
-      <a>
-	<xsl:attribute name="href">#preface</xsl:attribute>
-	<xsl:apply-templates select="title"
-			     mode="preface" />
-      </a>
-    </li>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="epilog"
-		mode="toc">
-    <li>
-      <a>
-	<xsl:attribute name="href">#epilog</xsl:attribute>
-	<xsl:apply-templates select="title"
-			     mode="epilog" />
-      </a>
-    </li>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="chapter"
-		mode="toc">
-    <xsl:if test="contains($gChStatus, concat(' ch-', @status, ' ')) and (($gContentCh = '') or contains($gContentCh, concat(' ', @id, ' ')))">
-
-      <li>
-      <a>
-      <xsl:attribute name="href">#ch- 
-      <xsl:value-of select="@id" /></xsl:attribute>
-      <xsl:value-of select="ch-no" />. 
-      <xsl:value-of select="title" /></a>
-      <xsl:if test="../@status != 'done'">
-	<xsl:if test="@status = 'draft'">- draft</xsl:if>
-	<xsl:if test="@status = 'in-progress'">- in progress</xsl:if>
-	<xsl:if test="@status = 'done'">- done</xsl:if>
-      </xsl:if>(first post: 
-      <xsl:value-of select="pub-date" />; last update: 
-      <xsl:apply-templates select="cvs/@date" />)</li>
+      <xsl:apply-templates select="thread" />
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="chapter">
-    <xsl:if test="contains($gChStatus, concat(' ch-', @status, ' ')) and (($gContentCh = '') or contains($gContentCh, concat(' ', @id, ' ')))">
-
-      <xsl:call-template name="chapter-body" />
+  <xsl:template match="thread">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <xsl:apply-templates select="p|s|t|pre|quote|br" />
     </xsl:if>
   </xsl:template>
+  <!-- **************************************************
+Block
+-->
+  <!-- ******************** -->
+  <xsl:template match="p|para">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+    <p>
+      <xsl:call-template name="fRevisionFlag"/>
+    </p>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="pre|pre-fmt">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+    <pre>
+      <xsl:call-template name="fRevisionFlag"/>
+    </pre>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="quote">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+    <p class="quote">
+      <xsl:call-template name="fRevisionFlag"/>
+    </p>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="s">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+    <p>
+      <xsl:call-template name="fRevisionFlag"/>
+    </p>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="t">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <p>
+        <xsl:call-template name="fRevisionFlag"/>
+      </p>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
 </xsl:stylesheet>

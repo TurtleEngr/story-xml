@@ -6,7 +6,7 @@
 		xmlns:exsl="http://exslt.org/common"
 		extension-element-prefixes="exsl">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/01/07 02:35:52 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story3/story-ch-html.xsl,v 1.3 2008/02/19 06:44:15 bruce Exp $
 -->
   <xsl:output method="html"
 	      indent="yes" />
@@ -28,10 +28,10 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/0
       <xsl:apply-templates select="book/epilog"
 			   mode="ch" />
     </xsl:if>
-    <xsl:call-template name="output-list" />
+    <xsl:call-template name="fOutputList" />
   </xsl:template>
   <!-- ************************************************** -->
-  <xsl:template name="output-list">
+  <xsl:template name="fOutputList">
     <exsl:document method="text"
 		   href="output-list.txt">
       <xsl:apply-templates select="page"
@@ -89,26 +89,26 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/0
 	    <title>
 	      <xsl:value-of select="title" />
 	    </title>
-	    <xsl:call-template name="meta-head" />
+	    <xsl:call-template name="fMetaHead" />
 	  </head>
 	  <body>
-	  <xsl:call-template name="body-attr" />
+	  <xsl:call-template name="fBodyAttr" />
 	  <xsl:if test="$gDebug != 0">
 	    <xsl:message>
 	      <xsl:value-of select="concat('content-style=', $gContentStyle,' x')" />
 	    </xsl:message>
 	  </xsl:if>
-	  <xsl:call-template name="book-header">
+	  <xsl:call-template name="fBookHeader">
 	    <xsl:with-param name="pBook"
 			    select="." />
 	  </xsl:call-template>
 	  <xsl:comment>
-	    <xsl:call-template name="cvs-print" />
+	    <xsl:call-template name="fCVSPprint" />
 	  </xsl:comment>
 	  <xsl:if test="boolean(number($gContentRef/@ch-preface))">
 	    <xsl:apply-templates select="ch-preface" />
 	  </xsl:if>
-	  <xsl:call-template name="toc" />
+	  <xsl:call-template name="fToc" />
 	  <hr />Last updated: 
 	  <xsl:apply-templates select="cvs/@date" /></body>
 	</html>
@@ -116,7 +116,7 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/0
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template name="book-header">
+  <xsl:template name="fBookHeader">
   <xsl:param name="pBook" />
   <h1>
     <xsl:value-of select="$pBook/title" />
@@ -155,8 +155,8 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/0
 			       mode="preface" /></title>
 	</head>
 	<body>
-	  <xsl:call-template name="body-attr" />
-	  <xsl:call-template name="book-header">
+	  <xsl:call-template name="fBodyAttr" />
+	  <xsl:call-template name="fBookHeader">
 	    <xsl:with-param name="pBook"
 			    select=".." />
 	  </xsl:call-template>
@@ -165,7 +165,7 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/0
 				 mode="preface" />
 	  </h2>
 	  <xsl:apply-templates select="p|s|pre" />
-	  <xsl:call-template name="chapter-footer" />
+	  <xsl:call-template name="fChapterFooter" />
 	</body>
       </html>
     </exsl:document>
@@ -183,8 +183,8 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/0
 			       mode="epilog" /></title>
 	</head>
 	<body>
-	  <xsl:call-template name="body-attr" />
-	  <xsl:call-template name="book-header">
+	  <xsl:call-template name="fBodyAttr" />
+	  <xsl:call-template name="fBookHeader">
 	    <xsl:with-param name="pBook"
 			    select=".." />
 	  </xsl:call-template>
@@ -193,13 +193,13 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/0
 				 mode="epilog" />
 	  </h2>
 	  <xsl:apply-templates select="p|s|pre" />
-	  <xsl:call-template name="chapter-footer" />
+	  <xsl:call-template name="fChapterFooter" />
 	</body>
       </html>
     </exsl:document>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template name="toc">
+  <xsl:template name="fToc">
     <hr />
     <h2>Table of Contents</h2>
     <ul>
@@ -259,23 +259,23 @@ $Header: /repo/local.cvs/app/story-xml/src/story2/story-ch-html.xsl,v 1.8 2008/0
 	    <xsl:value-of select="title" /></title>
 	  </head>
 	  <body>
-	    <xsl:call-template name="body-attr" />
-	    <xsl:call-template name="book-header">
+	    <xsl:call-template name="fBodyAttr" />
+	    <xsl:call-template name="fBookHeader">
 	      <xsl:with-param name="pBook"
 			      select=".." />
 	    </xsl:call-template>
 	    <xsl:if test="boolean(number($gContentRef/@ch-preface))">
 	      <xsl:apply-templates select="../ch-preface" />
 	    </xsl:if>
-	    <xsl:call-template name="chapter-body" />
-	    <xsl:call-template name="chapter-footer" />
+	    <xsl:call-template name="fChapterBody" />
+	    <xsl:call-template name="fChapterFooter" />
 	  </body>
 	</html>
       </exsl:document>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template name="chapter-footer">
+  <xsl:template name="fChapterFooter">
     <hr />
     <p>
       <a>

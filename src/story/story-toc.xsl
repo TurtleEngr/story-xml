@@ -5,7 +5,7 @@
 		xmlns:xse="http://www.syntext.com/Extensions/XSLT-1.0"
 		exclude-result-prefixes="#default">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story2/story-toc.xsl,v 1.3 2008/01/07 02:35:52 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story3/story-toc.xsl,v 1.2 2008/01/07 02:35:53 bruce Exp $
 -->
   <xsl:output method="xml"
 	      indent="yes" />
