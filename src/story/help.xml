@@ -42,10 +42,10 @@
 
   <h:attr-group name="release-info">
     <h:attr-help name="date">
-      <h:short-help>Usually the Date keyword is put here.  For example: $Date: 2008/03/22 07:35:57 $</h:short-help>
+      <h:short-help>Usually the Date keyword is put here.  For example: $Date: 2009/03/29 05:11:49 $</h:short-help>
     </h:attr-help>
     <h:attr-help name="rev">
-      <h:short-help>Usually the Revision keyword is put here.  For example: $Revision: 1.4 $</h:short-help>
+      <h:short-help>Usually the Revision keyword is put here.  For example: $Revision: 1.2 $</h:short-help>
     </h:attr-help>
     <h:attr-help name="file">
       <h:short-help>Name of this file.</h:short-help>
@@ -57,7 +57,7 @@
       <h:short-help>The repository "root" is put here.  For example: :ext:LOGNAME@moria.dynu.com:/data/public.cvs</h:short-help>
     </h:attr-help>
     <h:attr-help name="source">
-      <h:short-help>Usually the Source keyword is put here.  For example: $Source: /repo/local.cvs/app/story-xml/src/story4/story-help.xml,v $</h:short-help>
+      <h:short-help>Usually the Source keyword is put here.  For example: $Source: /repo/local.cvs/app/story-xml/src/story5/help.xml,v $</h:short-help>
     </h:attr-help>
     <h:attr-help name="svn-path">
       <h:short-help>Usually the URL keyword is put here.  For example: $URL$</h:short-help>

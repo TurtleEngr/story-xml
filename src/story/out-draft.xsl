@@ -8,16 +8,16 @@
                 xmlns:str="http://exslt.org/strings"
                 extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story4/story-draft.xsl,v 1.8 2008/03/13 15:32:30 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story5/out-draft.xsl,v 1.7 2009/04/28 07:23:43 bruce Exp $
 -->
   <xsl:output method="html"
               indent="yes" />
   <xsl:param name="gDraft"
              select="boolean(number('1'))" />
-  <xsl:include href="story-com-param.xsl" />
-  <xsl:include href="story-com-html.xsl" />
-  <xsl:include href="story-com.xsl" />
-  <xsl:include href="story-timeline.xsl" />
+  <xsl:include href="com-param.xsl" />
+  <xsl:include href="com-html.xsl" />
+  <xsl:include href="com.xsl" />
+  <xsl:include href="com-timeline.xsl" />
   <!-- ************************************************** -->
   <xsl:template match="/content">
     <xsl:apply-templates select="story-dtd" />
@@ -80,7 +80,6 @@ Page
       <font class="draft">Draft Color Key</font>
     </h2>
     <table border="1"
-           summary=""
            cellpadding="4"
            cellspacing="0">
       <tr align="left"
@@ -225,7 +224,6 @@ Page
       </p>
       <h3>def-style</h3>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -242,7 +240,6 @@ Page
       </table>
       <h3>def-content</h3>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -278,7 +275,6 @@ Page
       </table>
       <h3>def-draft</h3>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -317,7 +313,6 @@ Page
       </table>
       <br />
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -344,7 +339,6 @@ Page
         <b>common</b>
       </p>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -382,7 +376,6 @@ Page
         <b>html only</b>
       </p>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -408,7 +401,6 @@ Page
         <b>print only</b>
       </p>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -449,7 +441,6 @@ Page
       </table>
       <h3>def-base</h3>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -462,7 +453,6 @@ Page
       </table>
       <h3>def-img</h3>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -477,7 +467,6 @@ Page
       </table>
       <h3>def-link</h3>
       <table border="1"
-             summary=""
              cellpadding="4"
              cellspacing="0">
         <tr align="left"
@@ -512,7 +501,6 @@ Page
       <xsl:if test="$gDraftRef/@def-who = '1'">
         <h3>def-who</h3>
         <table border="1"
-               summary=""
                cellpadding="4"
                cellspacing="0">
           <tr align="left"
@@ -545,7 +533,6 @@ gmt=
       <xsl:if test="$gDraftRef/@def-where = '1'">
         <h3>def-where</h3>
         <table border="1"
-               summary=""
                cellpadding="4"
                cellspacing="0">
           <tr align="left"
@@ -560,7 +547,6 @@ gmt=
       <xsl:if test="$gDraftRef/@def-thread = '1'">
         <h3>def-thread</h3>
         <table border="1"
-               summary=""
                cellpadding="4"
                cellspacing="0">
           <tr align="left"
@@ -707,7 +693,7 @@ gmt=
         <xsl:if test="@timeline != '0'">*</xsl:if>
       </td>
       <td align="center">
-        <xsl:if test="@unit-outline != '0'">*</xsl:if>
+        <xsl:value-of select="@unit-outline" />
       </td>
       <td align="center">
         <xsl:if test="@unit-title != '0'">*</xsl:if>
@@ -934,7 +920,7 @@ gmt=
         <xsl:value-of select="@id" />
       </td>
       <td>
-        <xsl:apply-templates mode="block" />
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
       </td>
     </tr>
   </xsl:template>
@@ -947,7 +933,7 @@ gmt=
         <xsl:value-of select="@id" />
       </td>
       <td>
-        <xsl:apply-templates mode="block" />
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
       </td>
     </tr>
   </xsl:template>
@@ -960,7 +946,7 @@ gmt=
         <xsl:value-of select="@id" />
       </td>
       <td>
-        <xsl:apply-templates mode="block" />
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
       </td>
     </tr>
   </xsl:template>
@@ -970,7 +956,7 @@ gmt=
     <p class="block">
       <xsl:value-of select="concat('id=', @id)" />
     </p>
-    <xsl:apply-templates mode="block" />
+    <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
   </xsl:template>
   <!-- **************************************************
 Book
@@ -1001,7 +987,6 @@ Book
             <xsl:with-param name="pContent">
               <h3>when</h3>
               <table border="1"
-                     summary=""
                      cellpadding="4"
                      cellspacing="0">
                 <tr align="left"
@@ -1021,13 +1006,13 @@ Book
             <xsl:with-param name="pContent">
               <h3>where</h3>
               <table border="1"
-                     summary=""
                      cellpadding="4"
                      cellspacing="0">
                 <tr align="left"
                     valign="top">
-                  <th>ref</th>
-                  <th>Description</th>
+                  <th width="10%">ref</th>
+                  <th width="40%">Base Description</th>
+                  <th width="40%">Alt. Description</th>
                 </tr>
                 <xsl:apply-templates select="outline/where" />
               </table>
@@ -1039,13 +1024,13 @@ Book
             <xsl:with-param name="pContent">
               <h3>who</h3>
               <table border="1"
-                     summary=""
                      cellpadding="4"
                      cellspacing="0">
                 <tr align="left"
                     valign="top">
-                  <th>ref</th>
-                  <th>Description</th>
+                  <th width="10%">ref</th>
+                  <th width="40%">Base Description</th>
+                  <th width="40%">Alt. Description</th>
                 </tr>
                 <xsl:apply-templates select="outline/who" />
               </table>
@@ -1053,7 +1038,7 @@ Book
           </xsl:call-template>
           <xsl:call-template name="fFmtDraft">
             <xsl:with-param name="pDraft"
-                            select="$gDraftRef/@unit-outline" />
+                            select="number($gDraftRef/@unit-outline = '1' or ($gDraftRef/@unit-outline = '2' and @revision='in-progress'))" />
             <xsl:with-param name="pContent">
               <h3>outline</h3>
               <xsl:apply-templates select="outline/description" />
@@ -1122,19 +1107,36 @@ Book
     </tr>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="where|who">
+  <xsl:template match="where">
     <tr>
       <td>
         <xsl:value-of select="@ref" />
       </td>
       <td>
-        <xsl:apply-templates mode="block" />
+        <xsl:apply-templates select="key('def-where-index',@ref)/*" />
+      </td>
+      <td>
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+      </td>
+    </tr>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="who">
+    <tr>
+      <td>
+        <xsl:value-of select="@ref" />
+      </td>
+      <td>
+        <xsl:apply-templates select="key('def-who-index',@ref)/*" />
+      </td>
+      <td>
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
       </td>
     </tr>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="description">
-    <xsl:apply-templates mode="block" />
+    <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="thread">
@@ -1192,12 +1194,34 @@ Book
 Block
 -->
   <!-- ******************** -->
-  <xsl:template match="p|para">
+  <xsl:template match="p">
     <xsl:variable name="tShow">
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <p>
+        <xsl:call-template name="fRevisionFlag" />
+      </p>
+    </xsl:if>
+    <xsl:if test="$tShow = '0' and $gDraftRef/@thread-all = '1'">
+      <xsl:call-template name="fFmtDraft">
+        <xsl:with-param name="pDraft"
+                        select="'1'" />
+        <xsl:with-param name="pContent">
+          <p>
+            <xsl:call-template name="fRevisionFlag" />
+          </p>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="para">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <p class="block">
         <xsl:call-template name="fRevisionFlag" />
       </p>
     </xsl:if>

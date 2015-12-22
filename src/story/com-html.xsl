@@ -8,7 +8,7 @@
                 xmlns:str="http://exslt.org/strings"
                 extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story4/story-com-html.xsl,v 1.9 2008/06/22 03:25:06 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story5/com-html.xsl,v 1.6 2009/05/01 20:52:53 bruce Exp $
 -->
   <!-- ******************** -->
   <xsl:param name="gIndent">
@@ -308,8 +308,7 @@ Block
 -->
   <!-- ******************** -->
   <xsl:template match="legal-notice">
-    <xsl:apply-templates select="para|pre-fmt|quote"
-                         mode="block" />
+    <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="ch-preface|preface|epilog"
@@ -345,7 +344,7 @@ Block
           <xsl:apply-templates select="title" />
         </xsl:element>
       </h2>
-      <xsl:apply-templates select="para|pre-fmt" mode="block" />
+      <xsl:apply-templates select="p|para|pre|pre-fmt"/>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -504,7 +503,7 @@ Block
       <h3 class="prolog-title">
         <xsl:apply-templates select="title" />
       </h3>
-      <xsl:apply-templates select="para|pre-fmt" mode="block"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt"/>
       <hr class="prolog" />
     </xsl:if>
   </xsl:template>
@@ -518,50 +517,12 @@ Block
       <h3 class="prolog-title">
         <xsl:apply-templates select="title" />
       </h3>
-      <xsl:apply-templates select="para|pre-fmt" mode="block"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt"/>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="br">
     <hr class="break" />
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="p|para"
-                mode="block">
-    <xsl:variable name="tShow">
-      <xsl:call-template name="fShowContent" />
-    </xsl:variable>
-    <xsl:if test="$tShow = '1'">
-      <p class="block">
-        <xsl:call-template name="fRevisionFlag" />&#160;
-      </p>
-    </xsl:if>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="pre|pre-fmt"
-                mode="block">
-    <xsl:variable name="tShow">
-      <xsl:call-template name="fShowContent" />
-    </xsl:variable>
-    <xsl:if test="$tShow = '1'">
-      <pre>
-      
-<xsl:call-template name="fRevisionFlag" />
-    
-</pre>
-    </xsl:if>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="quote"
-                mode="block">
-    <xsl:variable name="tShow">
-      <xsl:call-template name="fShowContent" />
-    </xsl:variable>
-    <xsl:if test="$tShow = '1'">
-      <p class="quote">
-        <xsl:call-template name="fRevisionFlag" />
-      </p>
-    </xsl:if>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="rev">
@@ -638,7 +599,7 @@ Inline
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="@date">
-    <xsl:value-of select="substring(., 7, 10)" />
+    <xsl:value-of select="substring(., 8, 10)" />
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="@rev">

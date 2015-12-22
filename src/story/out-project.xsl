@@ -8,14 +8,14 @@
                 xmlns:str="http://exslt.org/strings"
                 extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story4/story-project.xsl,v 1.2 2008/03/13 15:32:30 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story5/out-project.xsl,v 1.4 2009/04/03 06:00:13 bruce Exp $
 -->
   <xsl:param name="gDraft"
              select="boolean(number('1'))" />
-  <xsl:include href="story-com-param.xsl" />
-  <xsl:include href="story-com-html.xsl" />
-  <xsl:include href="story-com.xsl" />
-  <xsl:include href="story-timeline.xsl" />
+  <xsl:include href="com-param.xsl" />
+  <xsl:include href="com-html.xsl" />
+  <xsl:include href="com.xsl" />
+  <xsl:include href="com-timeline.xsl" />
   <!-- ************************************************** -->
   <xsl:template match="/content">
     <xsl:apply-templates select="book" />

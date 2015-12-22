@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8'?>
+<t:document-template xmlns:t="http://www.syntext.com/Extensions/DocTemplate-1.0">
+  <!--
+If there are problems, be sure there are no spaces at beginning or
+end of attribute values.
+-->
+  <t:name>Story4</t:name>
+  <t:xml-schema>$SERNA_TEMPLATE_DIR/schema.xsd</t:xml-schema>
+  <t:xml-stylesheet>$SERNA_TEMPLATE_DIR/story-serna-2.xsl</t:xml-stylesheet>
+  <t:toc-stylesheet>$SERNA_TEMPLATE_DIR/story-toc.xsl</t:toc-stylesheet>
+  <t:dtd-sysid>story4/story.dtd</t:dtd-sysid>
+  <t:dtd-guess-string>story-dtd version=&quot;4&quot;</t:dtd-guess-string>
+  <t:show-tags>1</t:show-tags>
+  <t:spellcheck>
+    <t:skip-elements> */id release-info def-style def-content def-print def-draft </t:skip-elements>
+  </t:spellcheck>
+  <t:element-help>$SERNA_TEMPLATE_DIR/help.xml</t:element-help>
+  <t:root-elements>content</t:root-elements>
+  <t:document-skeleton>
+    <t:name>Minimal</t:name>
+    <t:content>
+m4_include(sample-minimal.xml)
+    </t:content>
+  </t:document-skeleton>
+  <t:document-skeleton>
+    <t:name>Full</t:name>
+    <t:content>
+m4_include(sample-full.xml)
+    </t:content>
+  </t:document-skeleton>
+  <t:publish>
+    <t:name>Draft</t:name>
+    <t:inscription>Draft only html files</t:inscription>
+    <t:extension>draft.html</t:extension>
+    <t:script>pub-xsltproc-multi</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-draft.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>HTML</t:name>
+    <t:inscription>Single HTML File</t:inscription>
+    <t:extension>html</t:extension>
+    <t:script>pub-xsltproc</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-html.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>ChapterHTML</t:name>
+    <t:inscription>Multiple HTML Files</t:inscription>
+    <t:extension>multi.html</t:extension>
+    <t:script>pub-xsltproc-multi</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-ch-html.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>PDF</t:name>
+    <t:inscription>Standard PDF File</t:inscription>
+    <t:extension>pdf</t:extension>
+    <t:script>pub-fop-pdf</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-pdf.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>Pub-PDF</t:name>
+    <t:inscription>PDF with embedded fonts</t:inscription>
+    <t:extension>pdf</t:extension>
+    <t:script>pub-fop-pdf</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-pdf.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>Project</t:name>
+    <t:inscription>OpenProj,  MS Project</t:inscription>
+    <t:extension>proj.xml</t:extension>
+    <t:script>pub-xsltproc</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-project.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>Planner</t:name>
+    <t:inscription>Project Managment,  Linux</t:inscription>
+    <t:extension>proj.xml</t:extension>
+    <t:script>pub-xsltproc</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-planner.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>docbook</t:name>
+    <t:inscription>Translate story xml to docbook xml</t:inscription>
+    <t:extension>docbook.xml</t:extension>
+    <t:script>pub-xsltproc</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-docbook.xsl</t:stylesheet>
+  </t:publish>
+</t:document-template>

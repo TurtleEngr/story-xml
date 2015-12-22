@@ -8,7 +8,7 @@
                 xmlns:str="http://exslt.org/strings"
                 extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story4/story-com.xsl,v 1.3 2008/02/25 00:18:17 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story5/com.xsl,v 1.2 2009/03/29 05:11:49 bruce Exp $
 -->
   <!-- ************************************************************
 Utility Templates

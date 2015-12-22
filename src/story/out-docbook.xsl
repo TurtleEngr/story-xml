@@ -6,8 +6,8 @@
   <xsl:output method="xml"
               indent="yes" />
   <xsl:preserve-space elements="pre pre-fmt" />
-  <xsl:include href="story-com-param.xsl" />
-  <xsl:include href="story-com.xsl" />
+  <xsl:include href="com-param.xsl" />
+  <xsl:include href="com.xsl" />
   <!-- ******************** -->
   <xsl:template match="/content/book">
     <xsl:element name="book">

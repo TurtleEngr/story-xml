@@ -5,7 +5,7 @@ If there are problems, be sure there are no spaces at beginning or
 end of attribute values.
 -->
   <t:name>Story4</t:name>
-  <t:xml-schema>$SERNA_TEMPLATE_DIR/story-schema.xsd</t:xml-schema>
+  <t:xml-schema>$SERNA_TEMPLATE_DIR/schema.xsd</t:xml-schema>
   <t:xml-stylesheet>$SERNA_TEMPLATE_DIR/story-serna-2.xsl</t:xml-stylesheet>
   <t:toc-stylesheet>$SERNA_TEMPLATE_DIR/story-toc.xsl</t:toc-stylesheet>
   <t:dtd-sysid>story4/story.dtd</t:dtd-sysid>
@@ -14,7 +14,7 @@ end of attribute values.
   <t:spellcheck>
     <t:skip-elements> */id release-info def-style def-content def-print def-draft </t:skip-elements>
   </t:spellcheck>
-  <t:element-help>$SERNA_TEMPLATE_DIR/story-help.xml</t:element-help>
+  <t:element-help>$SERNA_TEMPLATE_DIR/help.xml</t:element-help>
   <t:root-elements>content</t:root-elements>
   <t:document-skeleton>
     <t:name>Minimal</t:name>
@@ -32,7 +32,7 @@ end of attribute values.
           <surname/>
         </author>
       </author-group>
-      <release-info date="$Date: 2008/06/24 05:35:39 $" rev="$Revision: 1.7 $"/>
+      <release-info date="$Date: 2009/04/18 22:53:57 $" rev="$Revision: 1.5 $"/>
       <pub-date>2008</pub-date>
       <copyright>
         <year>2008</year>
@@ -79,7 +79,7 @@ end of attribute values.
       <subtitle/>
       <title-abbrev/>
       <chapter-info>
-        <release-info date="$Date: 2008/06/24 05:35:39 $" rev="$Revision: 1.7 $"/>
+        <release-info date="$Date: 2009/04/18 22:53:57 $" rev="$Revision: 1.5 $"/>
         <pub-date>2008</pub-date>
       </chapter-info>
       <prolog>
@@ -88,26 +88,14 @@ end of attribute values.
       <unit type="scene" id="u1" revision="in-progress">
         <title>Unit title</title>
         <outline>
-          <when>
-            <start-date min="0"/>
-            <end-date min="0"/>
-            <description>
-              <para/>
-            </description>
-          </when>
-          <where ref="beach">
-            <para>additional description</para>
-          </where>
-          <who ref="hero">
-            <para>additional description.</para>
-          </who>
           <description>
-            <para>Describe this unit.</para>
+            <para>Describe the scene's goal, disaster, or the sequel's reaction/plan</para>
           </description>
         </outline>
         <thread ref="main" who-refs="hero">
           <p>Paragraph</p>
-          <s who-ref="hero">&quot;What?&quot; said the hero.</s>
+          <s who-ref="hero">"What?" said the hero.</s>
+          <s>"The who-ref is optional for the s tag.".</s>
           <t who-ref="hero">Thought text.</t>
           <t who-ref="bob">Non-view point character thought (not printed.)</t>
         </thread>
@@ -118,6 +106,7 @@ end of attribute values.
     </chapter>
   </book>
 </content>
+
     </t:content>
   </t:document-skeleton>
   <t:document-skeleton>
@@ -140,7 +129,7 @@ end of attribute values.
           </author-blurb>
         </author>
       </author-group>
-      <release-info date="$Date: 2008/06/24 05:35:39 $"  rev="$Revision: 1.7 $" file="file.name.xml" repository="fiction/book1" root="/data/local.cvs" source="$Source: /repo/local.cvs/app/story-xml/src/story4/story-template2.sdt,v $" />
+      <release-info date="$Date: 2009/04/18 22:53:57 $"  rev="$Revision: 1.5 $" file="file.name.xml" repository="fiction/book1" root="/data/local.cvs" source="$Source: /repo/local.cvs/app/story-xml/src/story5/template2.sdt,v $" />
       <pub-date>2008</pub-date>
       <copyright>
         <year>2008</year>
@@ -198,7 +187,7 @@ end of attribute values.
       <subtitle>subtitle</subtitle>
       <title-abbrev>ch-abbrev</title-abbrev>
       <chapter-info>
-        <release-info date="$Date: 2008/06/24 05:35:39 $" rev="$Revision: 1.7 $" svn-path="$URL$" />
+        <release-info date="$Date: 2009/04/18 22:53:57 $" rev="$Revision: 1.5 $" svn-path="$URL$" />
         <pub-date>2008</pub-date>
       </chapter-info>
       <prolog>
@@ -242,62 +231,63 @@ end of attribute values.
     </chapter>
   </book>
 </content>
+
     </t:content>
   </t:document-skeleton>
   <t:publish>
-    <t:name>draft</t:name>
+    <t:name>Draft</t:name>
     <t:inscription>Draft only html files</t:inscription>
     <t:extension>draft.html</t:extension>
     <t:script>pub-xsltproc-multi</t:script>
-    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-draft.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-draft.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
-    <t:name>html</t:name>
-    <t:inscription>Single html file</t:inscription>
+    <t:name>HTML</t:name>
+    <t:inscription>Single HTML File</t:inscription>
     <t:extension>html</t:extension>
     <t:script>pub-xsltproc</t:script>
-    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-html.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-html.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
-    <t:name>MultipleHTML</t:name>
-    <t:inscription>Multiple html files</t:inscription>
+    <t:name>ChapterHTML</t:name>
+    <t:inscription>Multiple HTML Files</t:inscription>
     <t:extension>multi.html</t:extension>
     <t:script>pub-xsltproc-multi</t:script>
-    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-ch-html.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-ch-html.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
-    <t:name>pdf</t:name>
-    <t:inscription>Single PDF</t:inscription>
+    <t:name>PDF</t:name>
+    <t:inscription>Standard PDF File</t:inscription>
     <t:extension>pdf</t:extension>
     <t:script>pub-fop-pdf</t:script>
-    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-pdf.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-pdf.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
-    <t:name>ps</t:name>
-    <t:inscription>Single PS</t:inscription>
-    <t:extension>ps</t:extension>
-    <t:script>pub-fop-ps</t:script>
-    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-pdf.xsl</t:stylesheet>
+    <t:name>Pub-PDF</t:name>
+    <t:inscription>PDF with embedded fonts</t:inscription>
+    <t:extension>pdf</t:extension>
+    <t:script>pub-fop-pdf</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-pdf.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>Project</t:name>
-    <t:inscription>OpenProj (MS Project)</t:inscription>
+    <t:inscription>OpenProj,  MS Project</t:inscription>
     <t:extension>proj.xml</t:extension>
     <t:script>pub-xsltproc</t:script>
-    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-project.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-project.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>Planner</t:name>
+    <t:inscription>Project Managment,  Linux</t:inscription>
+    <t:extension>proj.xml</t:extension>
+    <t:script>pub-xsltproc</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-planner.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>docbook</t:name>
     <t:inscription>Translate story xml to docbook xml</t:inscription>
     <t:extension>docbook.xml</t:extension>
     <t:script>pub-xsltproc</t:script>
-    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-docbook.xsl</t:stylesheet>
-  </t:publish>
-  <t:publish>
-    <t:name>Convert-3to4</t:name>
-    <t:inscription>Convert story Ver3 dtd to Ver4 dtd</t:inscription>
-    <t:extension>ver4.xml</t:extension>
-    <t:script>convert-3to4</t:script>
-    <t:stylesheet>$SERNA_TEMPLATE_DIR/convert-3to4.xsl</t:stylesheet>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/out-docbook.xsl</t:stylesheet>
   </t:publish>
 </t:document-template>

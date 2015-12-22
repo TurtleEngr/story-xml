@@ -7,8 +7,8 @@
 		xmlns:exsl="http://exslt.org/common"
 		xmlns:str="http://exslt.org/strings"
 		extension-element-prefixes="date doc exsl str">
-  <xsl:include href="story-com-param.xsl" />
-  <xsl:include href="story-com.xsl" />
+  <xsl:include href="com-param.xsl" />
+  <xsl:include href="com.xsl" />
   <xsl:output method="text" />
   <!-- ************************************************** -->
   <xsl:template match="/content/book">

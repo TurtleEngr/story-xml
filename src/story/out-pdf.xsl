@@ -10,13 +10,13 @@
                 extension-element-prefixes="date doc exsl str">
   <!--
         extension-element-prefixes="date doc exsl fo str"
-$Header: /repo/local.cvs/app/story-xml/src/story4/story-pdf.xsl,v 1.14 2009/03/01 05:50:10 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story5/out-pdf.xsl,v 1.4 2009/04/20 05:52:10 bruce Exp $
 -->
   <xsl:output method="xml"
               indent="yes" />
   <xsl:param name="gDraft"
              select="boolean(number('0'))" />
-  <xsl:include href="story-com-param.xsl" />
+  <xsl:include href="com-param.xsl" />
   <!-- ************************************* -->
   <!-- Set page size variables -->
   <xsl:param name="gWidth">
@@ -233,7 +233,7 @@ $Header: /repo/local.cvs/app/story-xml/src/story4/story-pdf.xsl,v 1.14 2009/03/0
     </xsl:call-template>
   </xsl:param>
   <!-- =================================================================== -->
-  <xsl:include href="story-com.xsl" />
+  <xsl:include href="com.xsl" />
   <xsl:template match="/content">
     <xsl:apply-templates select="book" />
   </xsl:template>
@@ -656,8 +656,7 @@ Book
   <xsl:template match="legal-notice">
     <xsl:comment>Begin:legal-notice</xsl:comment>
     <fo:block padding-top=".5em" keep-with-previous.within-page="always">
-      <xsl:apply-templates select="para|pre-fmt"
-                           mode="block" />
+      <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
     </fo:block>
     <xsl:comment>End:legal-notice</xsl:comment>
   </xsl:template>
@@ -794,7 +793,7 @@ for public release.</fo:block>
                 font-size="{$gPrintRef/@ch-title-size}">
         <xsl:apply-templates select="title" />
       </fo:block>
-      <xsl:apply-templates select="para|pre-fmt|quote" mode="block"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
     <xsl:comment>End: ch-preface, preface, epilog</xsl:comment>
     </xsl:if>
   </xsl:template>
@@ -852,7 +851,7 @@ for public release.</fo:block>
                 font-size="{$gPrintRef/@ch-title-size}">
         <xsl:apply-templates select="title" />
       </fo:block>
-      <xsl:apply-templates select="para|pre-fmt" mode="block"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
       <fo:block text-align="left"
                 padding-bottom=".5em"
                 line-height="60%">
@@ -886,7 +885,7 @@ for public release.</fo:block>
                 font-size="{$gPrintRef/@ch-title-size}">
         <xsl:apply-templates select="title" />
       </fo:block>
-      <xsl:apply-templates select="para|pre-fmt" mode="block"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
     </xsl:if>
     <xsl:comment>End: postlog</xsl:comment>
   </xsl:template>
@@ -1072,7 +1071,7 @@ Block
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="p|para">
+  <xsl:template match="p">
     <xsl:variable name="tShow">
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
@@ -1088,8 +1087,7 @@ Block
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="p|para"
-                mode="block">
+  <xsl:template match="para">
     <xsl:variable name="tShow">
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
@@ -1098,23 +1096,6 @@ Block
                 padding-top=".5em"
                 orphans="2"
                 widows="2">
-        <xsl:apply-templates />&#160;
-      </fo:block>
-    </xsl:if>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template match="quote"
-                mode="block">
-    <xsl:variable name="tShow">
-      <xsl:call-template name="fShowContent" />
-    </xsl:variable>
-    <xsl:if test="$tShow = '1'">
-      <fo:block text-align="justify"
-                orphans="2"
-                widows="2"
-                padding-top=".5em"
-                margin-left="{$gMargin}in"
-                margin-right="{$gMargin}in">
         <xsl:apply-templates />&#160;
       </fo:block>
     </xsl:if>
@@ -1136,8 +1117,7 @@ Block
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="pre|pre-fmt"
-                mode="block">
+  <xsl:template match="pre-fmt">
     <xsl:variable name="tShow">
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
@@ -1159,7 +1139,7 @@ Block
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
-  <xsl:template match="pre|pre-fmt">
+  <xsl:template match="pre">
     <xsl:variable name="tShow">
       <xsl:call-template name="fShowContent" />
     </xsl:variable>

@@ -9,15 +9,15 @@
                 extension-element-prefixes="date doc exsl str">
   <!--
         extension-element-prefixes="date doc exsl str"
-$Header: /repo/local.cvs/app/story-xml/src/story4/story-html.xsl,v 1.4 2008/03/23 07:57:15 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story5/out-ch-html.xsl,v 1.6 2009/07/05 19:58:54 bruce Exp $
 -->
   <xsl:output method="html"
               indent="yes" />
   <xsl:param name="gDraft"
              select="boolean(number('0'))" />
-  <xsl:include href="story-com-param.xsl" />
-  <xsl:include href="story-com-html.xsl" />
-  <xsl:include href="story-com.xsl" />
+  <xsl:include href="com-param.xsl" />
+  <xsl:include href="com-html.xsl" />
+  <xsl:include href="com.xsl" />
   <!-- ************************************************** -->
   <xsl:template match="/content">
     <xsl:apply-templates select="book" />
@@ -90,19 +90,30 @@ Book
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
-      <xsl:apply-templates select="p|s|t|pre|quote|br" />
+      <xsl:apply-templates select="p|s|t|pre|quote|br|para|pre-fmt" />
     </xsl:if>
   </xsl:template>
   <!-- **************************************************
 Block
 -->
   <!-- ******************** -->
-  <xsl:template match="p|para">
+  <xsl:template match="p">
     <xsl:variable name="tShow">
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <p>
+        <xsl:call-template name="fRevisionFlag" />&#160;
+      </p>
+    </xsl:if>
+  </xsl:template>
+  <!-- ******************** -->
+  <xsl:template match="para">
+    <xsl:variable name="tShow">
+      <xsl:call-template name="fShowContent" />
+    </xsl:variable>
+    <xsl:if test="$tShow = '1'">
+      <p class="block">
         <xsl:call-template name="fRevisionFlag" />&#160;
       </p>
     </xsl:if>

@@ -1,18 +1,3 @@
-<?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE t:document-template PUBLIC "-//Syntext/DTD Syntext Document Template V1.0//EN" "doctemplate.dtd" []>
-<t:document-template xmlns:t="http://www.syntext.com/Extensions/DocTemplate-1.0">
-  <!--
-If there are problems, be sure there are no spaces at beginning or
-end of attribute values.
--->
-  <t:name>Story4/Full</t:name>
-  <t:xml-stylesheet>$SERNA_STYLESHEETS/story4/story-serna.xsl</t:xml-stylesheet>
-  <t:toc-stylesheet>$SERNA_STYLESHEETS/story4/story-toc.xsl</t:toc-stylesheet>
-  <t:xml-schema>$SERNA_SCHEMAS/story4/story-schema.xsd</t:xml-schema>
-  <t:dtd-sysid>story4/story.dtd</t:dtd-sysid>
-  <t:dtd-guess-string>story-dtd version=&quot;4&quot;</t:dtd-guess-string>
-  <t:open-document/>
-  <t:document-root>
 <content>
   <story-dtd version="4" />
   <book id="book" revision="in-progress">
@@ -30,7 +15,7 @@ end of attribute values.
           </author-blurb>
         </author>
       </author-group>
-      <release-info date="$Date: 2008/06/24 15:20:10 $"  rev="$Revision: 1.6 $" file="file.name.xml" repository="fiction/book1" root="/data/local.cvs" source="$Source: /repo/local.cvs/app/story-xml/src/story4/story-template1.xml,v $" />
+      <release-info date="$Date: 2009/03/31 15:51:05 $"  rev="$Revision: 1.1 $" file="file.name.xml" repository="fiction/book1" root="/data/local.cvs" source="$Source: /repo/local.cvs/app/story-xml/src/story5/sample-full.xml,v $" />
       <pub-date>2008</pub-date>
       <copyright>
         <year>2008</year>
@@ -88,7 +73,7 @@ end of attribute values.
       <subtitle>subtitle</subtitle>
       <title-abbrev>ch-abbrev</title-abbrev>
       <chapter-info>
-        <release-info date="$Date: 2008/06/24 15:20:10 $" rev="$Revision: 1.6 $" svn-path="$URL$" />
+        <release-info date="$Date: 2009/03/31 15:51:05 $" rev="$Revision: 1.1 $" svn-path="$URL$" />
         <pub-date>2008</pub-date>
       </chapter-info>
       <prolog>
@@ -132,61 +117,3 @@ end of attribute values.
     </chapter>
   </book>
 </content>
-  </t:document-root>
-  <t:publish>
-    <t:name>draft</t:name>
-    <t:inscription>Draft only html files</t:inscription>
-    <t:extension>draft.html</t:extension>
-    <t:script>pub-xsltproc-multi</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story4/story-draft.xsl</t:stylesheet>
-  </t:publish>
-  <t:publish>
-    <t:name>html</t:name>
-    <t:inscription>Single html file</t:inscription>
-    <t:extension>html</t:extension>
-    <t:script>pub-xsltproc</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story4/story-html.xsl</t:stylesheet>
-  </t:publish>
-  <t:publish>
-    <t:name>MultipleHTML</t:name>
-    <t:inscription>Multiple html files</t:inscription>
-    <t:extension>multi.html</t:extension>
-    <t:script>pub-xsltproc-multi</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story4/story-ch-html.xsl</t:stylesheet>
-  </t:publish>
-  <t:publish>
-    <t:name>pdf</t:name>
-    <t:inscription>Single PDF</t:inscription>
-    <t:extension>pdf</t:extension>
-    <t:script>pub-fop-pdf</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story4/story-pdf.xsl</t:stylesheet>
-  </t:publish>
-  <t:publish>
-    <t:name>ps</t:name>
-    <t:inscription>Single PS</t:inscription>
-    <t:extension>ps</t:extension>
-    <t:script>pub-fop-ps</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story4/story-pdf.xsl</t:stylesheet>
-  </t:publish>
-  <t:publish>
-    <t:name>Project</t:name>
-    <t:inscription>OpenProj (MS Project)</t:inscription>
-    <t:extension>proj.xml</t:extension>
-    <t:script>pub-xsltproc</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story4/story-project.xsl</t:stylesheet>
-  </t:publish>
-  <t:publish>
-    <t:name>docbook</t:name>
-    <t:inscription>Translate story xml to docbook xml</t:inscription>
-    <t:extension>docbook.xml</t:extension>
-    <t:script>pub-xsltproc</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story4/story-docbook.xsl</t:stylesheet>
-  </t:publish>
-  <t:publish>
-    <t:name>Convert-3to4</t:name>
-    <t:inscription>Convert story Ver3 dtd to Ver4 dtd</t:inscription>
-    <t:extension>ver4.xml</t:extension>
-    <t:script>convert-3to4</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story4/convert-3to4.xsl</t:stylesheet>
-  </t:publish>
-</t:document-template>
