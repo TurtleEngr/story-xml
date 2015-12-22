@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE cont [
+<!ENTITY book SYSTEM "book.xml">
+]>
+<content>
+&book;
+</content>
+

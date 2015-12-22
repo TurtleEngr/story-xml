@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+
+<page id="other" status="done">
+<title>Other Stories</title>
+
+<cvs-date>$Date: 2005/06/19 22:24:07 $</cvs-date>
+<cvs-revision>$Revision: 1.2 $</cvs-revision>
+<cvs-source>
+$Source: /repo/local.cvs/app/story-xml/old/test2/sample/other.xml,v $
+</cvs-source>
+<pub-date>2005-01-01</pub-date>
+<meta-description>meta-description text</meta-description>
+<meta-keywords>meta-keywords text</meta-keywords>
+
+<text type="indent">
+<p>First paragraph, type indent text text text text text text text
+text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text
+text text text text text text text text text text text.</p>
+
+<p>Second paragraph. type indent.</p>
+</text>
+
+<text type="block">
+<p>Third paragraph, type block text text text text text text text
+text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text
+text text text text text text text text text text text.</p>
+</text>
+
+<text type="pre">
+<p>Fourth paragraph, type pre text text text text text text text BR
+text text text text text text text text text text text text text text BR
+text text text text text text text text text text text text text text BR
+text text text text text text text text text text text.BR</p>
+</text>
+
+<text>
+<p>Fifth paragraph, type default text text text text text text text
+text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text
+text text text text text text text text text text text.</p>
+</text>
+
+<sect1>
+<title>section title</title>
+
+<item><title>foo</title>
+<text type="block">
+
+<p>First paragraph, block <b>text</b> <i>text</i> text text text text text
+text text text text text text text text text text text text.</p>
+
+<p>Second paragraph.</p>
+
+</text>
+</item>
+
+<item><title>bar</title>
+<text type="block">
+
+<p>Good story.</p>
+
+</text>
+</item>
+
+</sect1>
+</page>

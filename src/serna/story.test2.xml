@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<content>
+  <site>
+    <cvs-source>$Source: /repo/local.cvs/app/story-xml/old/src/serna/story.test2.xml,v $</cvs-source>
+    <cvs-revision>$Revision: 1.1 $</cvs-revision>
+    <cvs-date>$Date: 2006/02/19 00:18:13 $</cvs-date>
+    <pub-date>2005-12-14</pub-date>
+    <meta-description>meta desc content</meta-description>
+    <meta-keywords>foo, bar, keyword</meta-keywords>
+    <style>
+      <img ref="bg1"/>
+    </style>
+    <def-img id="bg1" url="/icons/paper.gif"/>
+    <def-link id="link1" url="http://www.amazo.com"/>
+  </site>
+  <page id="page1">
+    <title>Page 1 Title Text</title>
+    <cvs-source>$Soruce$</cvs-source>
+    <cvs-revision>$Revision: 1.1 $</cvs-revision>
+    <cvs-date>$Date: 2006/02/19 00:18:13 $</cvs-date>
+    <pub-date>2005-12-14</pub-date>
+    <meta-description>description</meta-description>
+    <meta-keywords>keyword</meta-keywords>
+    <p>Preliminary text.</p>
+    <sect1>
+      <title>Section Title Text</title>
+      <item>
+        <title>Item Title Text</title>
+        <p>Test <b>Bold text <i>Italic bold text.</i></b></p>
+      </item>
+      <item>
+        <title>Item 2 title text</title>
+        <pre>Pre text, hmm, CR is not possible?
+actually
+it
+works now</pre>
+      </item>
+    </sect1>
+  </page>
+  <book id="book1">
+    <title>Book Title Text</title>
+    <cvs-source/>
+    <cvs-date/>
+    <pub-date/>
+    <meta-description/>
+    <meta-keywords/>
+    <edition/>
+    <author/>
+    <email/>
+    <url/>
+    <dir/>
+    <file-prefix/>
+    <def-who id="who1"/>
+    <def-where id="where1"/>
+    <def-thread id="main"/>
+    <teaser/>
+    <preface/>
+    <epilog/>
+    <ch-preface/>
+    <chapter id="">
+      <title>chapter title text</title>
+      <cvs-source/>
+      <cvs-revision/>
+      <cvs-date/>
+      <pub-date/>
+      <ch-no/>
+      <prolog/>
+      <postlog>
+        <p>post log text</p>
+        <p>second para in postlog.</p>
+      </postlog>
+      <unit id="unit1" type="sequel" status="done" viewpoint="who1">
+        <title>Unit</title>
+        <when>
+          <start-date/>
+          <duration/>
+        </when>
+        <when>
+          <start-date/>
+          <end-date/>
+        </when>
+        <where ref="where1"/>
+        <outline>
+          <p>pppp dsf s d fsd s s fs fs fsf rew w er wrw r r r f sdf f sf f f f sdf sd f ds x vc xc vx v vxv xv xv v v vxv x vcxdsfsfsdfsddsf ds f sdf sd f sd f sd fsd f sd f sd f sd f ds fsd f sd fsd s fsd f sd fsd fsd f fsdfdsfdsf dsfsdfdsf sdfsdfs d f sdf sd f s</p>
+          <p>ppppppp sdf sd f sdf sd ewr wer wr ewre rew r rew wr wer wer wrw erew r wer wer wer ew rew we w rw er we rwe r we rw e.</p>
+        </outline>
+        <thread ref="main">
+          <s>sssss sfs fsd fs df sdf sd f sdf sd f sdf sdf sd fsd f saf f dsf fwe r wer rwe rwer we rew rew ew esf sd fs dw ew rew rwe rw er fds f sdf sdf sd sd sd s f sdf sd f sdf sdf sd f sdf </s>
+          <p>ppppp sf sd fsd f sd f sd f sd fsd f ds fs df sdf sd f dsf sd fds sd f sdf sd f sd f sdf sd f ds f sd f sdf sd f sdf sd f sd sdf sd sd fsd f rfew ew we rwer wer we r rew r rr wr we rew rw e r ww r</p>
+          <s>sssss wer wer we e ew ewr ew we we rwe rwe rwe rw er wer wer w re rw e rwe rw r werdsf sd fsd f sd fsd fs f sf sdf sdf sd f sd fs df sdf sf sdf f sf fs f fsf fs fsf f s sfs fslk lkj l kj lkj lkj lkj lkj j oi oi io ijo oji jo j oii oj ijo o oi oij joi oijjj we rw w rwe we rwe rwe </s>
+          <s>sss sfs f sd fsd fds fs fds wer wer ew er r r r we rw r wr r w rwer wr r r wrjrwjrwrwr r r rw r we rwe w rw w rw rwe rw rw rw w w rew</s>
+          <s>ssssss slfjsdfsdnf sdfsdnfnsdnfsndnf ss sfs fsd fs df sdf sd f sdf sd f sdf sdf sd fsd f saf f dsf fwe r wer rwe rwer we rew rew ew ew ew rew rwe rw er fds f sdf sdf sd sd sd s f sdf sd f sdf sdf sd f sd</s>
+          <s>sssss fsdfds fsd f sdf sdf sd f ds f sdf dsf ds f ss fsd f sdf sd f sd fdsfsd f ds f fs f fs dsf sd f dsf ds f ds sf sdf ds fsd f sd f sdf ds f dsf ds f sdf sd fsd f sd fsd f sdf sd fd sd fdf sdf</s>
+          <s>sfldjfsdfsdfsd fsd f sd ff </s>
+          <t ref="who1">text</t>
+          <s/>
+          <s/>
+        </thread>
+        <thread ref="main"/>
+      </unit>
+    </chapter>
+  </book>
+</content>
+

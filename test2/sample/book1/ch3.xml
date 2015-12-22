@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<chapter id="3" status="done">
+<title>title3</title>
+<ch-no>3</ch-no>
+<cvs-revision>$Revision: 1.1 $</cvs-revision>
+<cvs-date>$Date: 2005/06/09 06:44:59 $</cvs-date>
+<pub-date>2005-01-01</pub-date>
+
+<prolog>
+<text type="block">
+<p>prolog, text, block, p</p>
+<p>p</p>
+</text>
+</prolog>
+
+<postlog>
+<text type="block">
+<p>prolog, text, block, p</p>
+<p>p</p>
+</text>
+</postlog>
+
+<!-- ********************************** -->
+<unit id="u4" type="scene" viewpoint="def-who-joe" *
+<title>unit4 title</title>
+
+<when>
+<start-date>yyyy-mm-dd(Thh:mmZ(-)nnn)</start-date>
+<duration>PyyyyYmmMddD(ThhHmmM)</duration>
+</when>
+
+<where ref="def-where-loc1">
+<text type="block">
+<p>where, text, block, p</p>
+<p>p</p>
+</text>
+</where>
+
+<who ref="def-who-joe">
+<text type="block">
+<p>who, text, block, p</p>
+<p>p</p>
+</text>
+</who>
+
+<outline>
+<text type="pre">
+<p>outline
+line2
+line3
+</p>
+</text>
+</outline>
+
+<thread ref="thread-default">
+<text type="block">
+<p>thread, text, p</p>
+</text>
+</thread>
+
+<text type="block">
+<p>text, p1</p>
+<p>text, p2</p>
+<p>text, p3</p>
+</text>
+
+</unit>
+
+<!-- ********************************** -->
+<unit id="u5" type="sequel" viewpoint="def-who-jane">
+<title>unit5 title</title>
+<when>
+<start-date>yyyy-mm-dd(Thh:mmZ(-)nnn)</start-date>
+<end-date>yyyy-mm-dd(Thh:mmZ(-)nnn)</end-date>
+</when>
+
+<text type="block">
+<p>text, p1</p>
+<p>text, p2</p>
+<p>text, p3</p>
+</text>
+</unit>
+
+</chapter>

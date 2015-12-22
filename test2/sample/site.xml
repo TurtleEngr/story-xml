@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<site>
+
+<style bgcolor="#eeeeff" text="#000000"/>
+
+<img ref="bg"/>
+
+<def-img id="bg" url="image/paper.gif">paper background</def-img>
+<def-img id="file" url="image/generic.png">file</def-img>
+<def-img id="folder" url="image/folder.png">folder</def-img>
+<def-img id="hr" url="image/rainbow_thinline.gif">horizontal rule</def-img>
+<def-img id="link" url="image/link.png">external link</def-img>
+<def-img id="next" url="image/right.png">next</def-img>
+<def-img id="prev" url="image/left.png">previous</def-img>
+<def-img id="text" url="image/text.png">text page</def-img>
+
+<def-link id="google" url="http://www.google.com" ref-img="link">Google</def-link>
+<def-link id="yahoo" url="http://www.yahoo.com" ref-img="link">Yahoo</def-link>
+
+</site>

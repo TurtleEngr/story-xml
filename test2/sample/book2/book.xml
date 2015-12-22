@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<book id="2" status="done">
+<!-- status: draft, in-progress, done -->
+
+<title>title book2</title>
+<author>author name</author>
+<email>email@domain.com</email>
+<url>http://server.com/url</url>
+<cvs-source>$Source: /repo/local.cvs/app/story-xml/old/test2/sample/book2/book.xml,v $</cvs-source>
+<cvs-revision>$Revision: 1.2 $</cvs-revision>
+<pub-date>2005-01-01</pub-date>
+<dir>dir</dir>
+
+<preface>
+<text type="block">
+<p>preface, text, block, p</p>
+<p>p</p>
+</text>
+
+<text type="block" active="no">
+<p>text, block, active=no, p</p>
+<p>p</p>
+</text>
+</preface>
+
+<epilog>
+<text type="block">
+<p>epilog, text, block, p</p>
+<p>p</p>
+</text>
+</epilog>
+
+<ch-preface>
+<text type="block">
+<p>ch-preface, text, block, p</p>
+<p>p</p>
+</text>
+</ch-preface>
+
+<def-who id="def-who-joe">
+<text type="indent">
+<p>text, indent, p</p>
+<p>p</p>
+</text>
+</def-who>
+
+<def-who id="def-who-jane">
+<text type="pre">
+<p>text, pre, p, line1
+line2
+line3</p>
+<p>line4
+line5</p>
+</text>
+</def-who>
+
+<def-where id="def-where-loc1">
+<text type="block">
+<p>text, block, p</p>
+<p>p</p>
+</text>
+</def-where>
+
+<def-where id="def-where-loc2">
+<text type="block">
+<p>text, block, p</p>
+<p>p</p>
+</text>
+</def-where>
+
+<def-thread id="thread-default" default="yes">
+<text type="block">
+<p>text, block, p</p>
+<p>p</p>
+</text>
+</def-thread>
+
+<def-thread id="thread-alt" default="no">
+<text type="block">
+<p>text, block, p</p>
+<p>p</p>
+</text>
+</def-thread>
+
+&ch1;
+&ch2;
+
+</book>
+
+</content>

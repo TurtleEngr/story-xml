@@ -1,0 +1,203 @@
+<!--
+$Header: /repo/local.cvs/app/story-xml/old/src/serna/dtds/story.dtd,v 1.3 2006/02/18 22:59:13 bruce Exp $
+-->
+
+<!-- ************************************** -->
+<!-- Common Elements -->
+
+<!ENTITY % cvs "cvs-source?, cvs-revision?, cvs-date?, pub-date">
+<!ELEMENT cvs-source (#PCDATA)>		<!-- $Source: /repo/local.cvs/app/story-xml/old/src/serna/dtds/story.dtd,v $ -->
+<!ELEMENT cvs-revision (#PCDATA)>	<!-- $Revision: 1.3 $ -->
+<!ELEMENT cvs-date (#PCDATA)>		<!-- $Date: 2006/02/18 22:59:13 $ -->
+<!ELEMENT pub-date (#PCDATA)>		<!-- yyyy-mm-dd -->
+
+<!ENTITY % meta "meta-description?, meta-keywords?">
+<!ELEMENT meta-description (#PCDATA)>
+<!ELEMENT meta-keywords (#PCDATA)>
+
+<!ELEMENT title (#PCDATA)>
+
+<!-- Common Attributes -->
+<!ENTITY % id "id CDATA #REQUIRED">
+<!ENTITY % ref-i "ref CDATA #IMPLIED">
+<!ENTITY % ref-r "ref CDATA #REQUIRED">
+<!ENTITY % status "status (draft|in-progress|done) #IMPLIED">
+<!-- default status: done -->
+
+<!-- ************************************** -->
+<!ENTITY % text-type "(#PCDATA|link|img|b|i|tt)*">
+<!ELEMENT b (#PCDATA|link|i|tt)*>
+<!ELEMENT i (#PCDATA|link|b|tt)*>
+<!ELEMENT tt (#PCDATA|link|b|i)*>
+
+<!ELEMENT link (#PCDATA)>
+<!ATTLIST link
+	  %ref-r;
+	  style (title|label|url|all) #REQUIRED
+>
+<!-- ref - def-link-id -->
+
+<!ELEMENT img EMPTY>
+<!ATTLIST img
+	  %ref-r;
+>
+<!-- ref - def-img-id -->
+
+<!ENTITY % text "(p|pre|s|t)*">
+
+<!ELEMENT p %text-type;>
+h
+<!ELEMENT pre %text-type;>
+
+<!ELEMENT s %text-type;>
+<!ATTLIST s
+	  %ref-i;
+>
+<!--
+story, say - ref id is the person talking, optional
+-->
+
+<!ELEMENT t %text-type;>
+<!ATTLIST t
+	  %ref-r;
+>
+<!--
+thought - ref id = the viewpoint id.  Only the thoughts of the
+id, that match a thread's viewpoint id, will be printed.
+-->
+
+<!-- ************************************************************* -->
+<!ELEMENT content (site, (page|book)*)>
+
+<!-- ************************************** -->
+<!ELEMENT site (%cvs;, %meta;, style?, (def-img|def-link)*)>
+
+<!ELEMENT style (img)>
+<!ATTLIST style
+	  bgcolor CDATA #IMPLIED
+	  text CDATA #IMPLIED
+	  link CDATA #IMPLIED
+	  vlink CDATA #IMPLIED
+	  alink CDATA #IMPLIED
+>
+
+<!ELEMENT def-img (#PCDATA)>	<!-- alt text -->
+<!ATTLIST def-img
+	  %id;
+	  url CDATA #REQUIRED
+>
+
+<!ELEMENT def-link (#PCDATA)>	<!-- label -->
+<!ATTLIST def-link
+	  %id;
+	  url CDATA #REQUIRED
+	  %ref-i;
+>
+<!-- ref - img-id -->
+
+<!-- ************************************** -->
+<!ELEMENT page (title, %cvs;, %meta;, %text;, sect1*)
+>
+<!ATTLIST page
+	  %id;
+	  %status;
+>
+<!-- id - file name -->
+
+
+<!ELEMENT sect1 (title, item+)>
+<!ELEMENT item (title, %text;)>
+
+<!-- ************************************** -->
+<!ELEMENT book (title, %cvs;, %meta;, edition, author, email?, url?,
+		dir, file-prefix, def-who*, def-where*, def-thread*,
+		teaser?, preface?, epilog?, ch-preface?, chapter*)
+>
+<!ATTLIST book
+	  %id;
+	  %status;
+>
+
+<!ELEMENT edition (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT url (#PCDATA)>  <!-- there may be many (should probably be generated) -->
+<!ELEMENT dir (#PCDATA)>  <!-- suggested name of dir to put book and ch files in -->
+<!ELEMENT file-prefix (#PCDATA)> <!-- BOOK- prefix -->
+
+<!ELEMENT def-who %text;>
+<!ATTLIST def-who
+	  %id;
+>
+
+<!ELEMENT def-where %text;>
+<!ATTLIST def-where
+	  %id;
+>
+
+<!ELEMENT def-thread %text;>
+<!ATTLIST def-thread
+	  %id;
+	  viewpoint CDATA #REQUIRED
+	  default (yes|no) #IMPLIED
+	  start-unit CDATA #IMPLIED
+>
+<!--
+start-unit - unit-id
+viewpoint - def-who-id.  Defalut viewpoint.  It can be overridden.
+-->
+
+<!ELEMENT teaser %text;>
+<!ELEMENT preface %text;>
+<!ELEMENT epilog %text;>
+<!ELEMENT ch-preface %text;>
+
+<!-- ****************** -->
+<!ELEMENT chapter (title, %cvs;, ch-no,  prolog?, postlog?, unit*)>
+<!ATTLIST chapter
+	  %id;
+	  %status;
+>
+
+<!ELEMENT ch-no (#PCDATA)>	<!-- CH part of file prefix: BOOK-CH -->
+<!ELEMENT prolog %text;>
+<!ELEMENT postlog %text;>
+
+<!-- ****************** -->
+<!ELEMENT unit (title, when*, where*, who*, outline?, thread*)>
+<!ATTLIST unit
+	  %id;
+	  %status;
+	  type (scene|sequel) #REQUIRED
+>
+
+<!ELEMENT when (start-date, (duration|end-date))>
+<!ELEMENT start-date (#PCDATA)>	<!-- yyyy-mm-dd(Thh:mmZ(-)nnn) -->
+<!ELEMENT duration  (#PCDATA)>	<!-- PyyyyYmmMddD(ThhHmmM) ex: P0Y0M0DT2H5M -->
+<!ELEMENT end-date (#PCDATA)>	<!-- yyyy-mm-dd(Thh:mmZ(-)nnn) -->
+
+<!ELEMENT where %text;>
+<!ATTLIST where
+	  %ref-r;
+>
+<!-- ref - defwhere-id -->
+
+<!ELEMENT who %text;>
+<!ATTLIST who
+	  %ref-r;
+>
+<!-- ref - defwho-id -->
+
+<!ELEMENT outline %text;>
+
+<!ELEMENT thread %text;>
+<!ATTLIST thread
+	  %ref-r;
+	  %status;
+	  viewpoint CDATA #IMPLIED
+	  next-unit CDATA #IMPLIED
+>
+<!--
+ref - defthread-id
+next-unit - unit-id
+-->

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE t:document-template PUBLIC "-//Syntext/DTD Syntext Document Template V1.0//EN" "doctemplate.dtd" []>
+<t:document-template xmlns:t="http://www.syntext.com/Extensions/DocTemplate-1.0">
+  <t:name>Story/Full</t:name>
+  <t:xml-schema>$SERNA_SCHEMAS/story/story.xsd</t:xml-schema>
+  <t:xml-stylesheet>$SERNA_STYLESHEETS/story/story-style.xsl</t:xml-stylesheet>
+  <t:toc-stylesheet>$SERNA_STYLESHEETS/story/story-toc.xsl</t:toc-stylesheet>
+  <t:dtd-sysid>story/story.dtd</t:dtd-sysid>
+  <t:open-document/>
+  <t:document-root>
+    <content>
+       <site>
+       </site>
+    </content>
+  </t:document-root>
+  <t:publish>
+    <t:name>pdfFop</t:name>
+    <t:inscription>PDF (with FOP)</t:inscription>
+    <t:extension>pdf</t:extension>
+    <t:script>runFop</t:script>
+    <t:stylesheet>$SERNA_STYLESHEETS/story/story-pdf.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>html</t:name>
+    <t:inscription>HTML (with xsltproc)</t:inscription>
+    <t:extension>html</t:extension>
+    <t:script>runXsltProc</t:script>
+    <t:stylesheet>$SERNA_STYLESHEETS/story/story-html.xsl</t:stylesheet>
+  </t:publish>
+</t:document-template>

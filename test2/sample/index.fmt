@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<!DOCTYPE page [
+  <!ENTITY site SYSTEM "../site.xml">
+  <!ENTITY book SYSTEM "book.xml">
+  <!ENTITY ch1 SYSTEM "ch1.xml">
+  <!ENTITY ch2 SYSTEM "ch2.xml">
+  <!ENTITY ch3 SYSTEM "ch3.xml">
+]>
+<content>
+&site;
+&book;
+</content>
+<?xml version="1.0" ?>
+<!DOCTYPE page [
+  <!ENTITY site SYSTEM "../site.xml">
+  <!ENTITY book SYSTEM "book.xml">
+  <!ENTITY ch1 SYSTEM "ch1.xml">
+  <!ENTITY ch2 SYSTEM "ch2.xml">
+]>
+<content>
+&site;
+&book;
+</content>

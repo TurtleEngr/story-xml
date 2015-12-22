@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "docbookV4.2/docbookx.dtd" []>
+<book condition="" revision="">
+  <title>title</title>
+  <bookinfo>
+    <author>
+      <firstname/>
+      <surname/>
+    </author>
+    <edition/>
+  </bookinfo>
+  <chapter status="hghg" id="foo">
+    <title>hjhjhj</title>
+    <para role="jh">hhjhjhjhjh hj hj </para>
+    <formalpara>
+      <title/>
+      <para/>
+    </formalpara>
+    <simpara/>
+    <anchor id="HHH">JJJJJU</anchor>
+    <para role="jh">lj j j kj kj <computeroutput>JKLKJJHH H H H H H</computeroutput></para>
+    <para role="jh"/>
+  </chapter>
+</book>
+

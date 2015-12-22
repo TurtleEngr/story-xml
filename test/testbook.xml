@@ -1,0 +1,411 @@
+<?xml version="1.0"?>
+<!DOCTYPE book [
+<!ENTITY link SYSTEM "testlink.xml">
+<!ENTITY foo "footext">
+]>
+<!--
+$Header: /repo/local.cvs/app/story-xml/old/test/testbook.xml,v 1.1 2006/02/19 01:41:45 bruce Exp $
+-->
+<content>
+
+<site>
+	<title>Site title</title>
+	<url>www.foo.com</url>
+	<description><p>Text description</p></description>
+	<meta-description>Meta description</meta-description>
+	<meta-keywords>keyword1 keyword2</meta-keywords>
+	<style>
+		<bgcolor>#eeeeff</bgcolor>
+		<text>#000000</text>
+		<link>#0000ff</link>
+		<vlink>#9900ff</vlink>
+		<alink>#000000</alink>
+		<background>
+			<img ref="dynu"/>
+		</background>
+	</style>
+
+	&link;
+	<deflink id="dynu" url="http://www.dynu.com">DynuDNS</deflink>
+	<defimg id="bg" url="http://www.moria.dynu.com/icon/bg.gif">background</defimg>
+	<defimg id="hr" url="./image/rainbow_thinline.gif" offsite="yes">hr</defimg>
+	<defimg id="folder" url="./image/folder.png">hr</defimg>
+
+	<news>
+		<item date="May 25, 2003">
+			<p>News item1</p>
+		</item>
+		<item date="May 26, 2004">
+			<p>News item2 df sdf f sdf dsfdsfsdfds fsf  ff sd</p>
+			<p>News item2 lerrnwe rew rewwwer rr</p>
+		</item>
+	</news>
+
+</site>
+
+<book>
+
+<title>Title Foo</title>
+
+<source>$Source: /repo/local.cvs/app/story-xml/old/test/testbook.xml,v $</source>
+
+<edition>Edition 2</edition>
+
+<revision>$Revision: 1.1 $</revision>
+
+<revision-date>$Date: 2006/02/19 01:41:45 $</revision-date>
+
+<first-date>
+  <day>23</day>
+  <month>03</month>
+  <year>1999</year>
+</first-date>
+
+<copyright>1999</copyright>
+
+<status>Finished</status>
+
+<dir>dir1</dir>
+
+<author>bar</author>
+
+<email>bar@yahoo.com</email>
+
+<defwho id="bob">
+  <text>
+    <p>describe this character.</p>
+  </text>
+  <text type="indent">
+Line1 describe this character.
+	Line2 para should be indented.
+
+New para here.
+
+Another para.  Continue this line.
+  </text>
+</defwho>
+
+<defwho id="george">
+  <text type="indent">
+   <p>describe this character.</p>
+  </text>
+  <text type="block">
+Line1 describe another character.
+Line2 regular block para.
+
+New para here?
+
+Another para?  Continue this line.
+  </text>
+</defwho>
+
+<defwhere id="beach">
+  <text>
+    <p>describe this location.</p>
+  </text>
+</defwhere>
+
+<defwhere id="beach2">
+  <text>
+    <p>describe this location.</p>
+  </text>
+</defwhere>
+
+<defdraft id="beach2">
+  <text>
+    <p>describe this location.</p>
+  </text>
+</defdraft>
+
+<defthread id="main">
+  <text>
+    <p>describe this thread.</p>
+  </text>
+</defthread>
+
+<preface>
+  <text>
+    <p>Preface text</p>
+    <p>Text with link: <link ref="yahoo" type="title" icon="no"/></p>
+    <p>Text with link: <link ref="yahoo" type="url" icon="no"/></p>
+    <p>Text with link: <link ref="yahoo" type="all" icon="no"/></p>
+    <p>Text with link: <link ref="yahoo" type="title" icon="yes"/></p>
+    <p>Text with link: <link ref="yahoo" type="url" icon="yes"/></p>
+    <p>Text with link: <link ref="yahoo" type="all" icon="yes"/></p>
+
+    <p><icon ref="foo" align="left"/></p>
+  </text>
+</preface>
+
+<ch-preface>
+  <text>
+    <p>Chapter preface text</p>
+  </text>
+</ch-preface>
+
+<chapter id="id1">
+
+  <title>Chapter 1</title>
+  <type>(t/t) (hs) (rom)</type>
+  <source>$Source: /repo/local.cvs/app/story-xml/old/test/testbook.xml,v $</source>
+  <revision>$Revision: 1.1 $</revision>
+  <revision-date>$Date: 2006/02/19 01:41:45 $</revision-date>
+  <first-pub-date>1999/12/03</first-pub-date>
+
+  <prolog>
+    <text>
+  	<p>prolog text draft1</p>
+  
+  	<link ref="yahoo"/>
+  	<p>para prolog text <link ref="moria"/> <link ref="yahoo"/>
+  
+  	text <b>text</b> text <i>text</i> text text text text text
+  	text text text text &foo; text text text text text text text
+  	text text text text text text text text text text text text
+  	text text</p>
+  
+  	<p>para prolog <link ref="google"/> text text text text text
+  	text text text text text text
+  	text text text text text text text text text text text text
+  	text text text text text text text text text text text text</p>
+    </text>
+  </prolog>
+
+  <postlog>
+    <text>
+  	<p>para postlog text text text text text text text text text text text
+  	text text text text text text text text text text text text
+  	text text text text text text text text text text text text</p>
+    </text>
+  </postlog>
+  
+  <unit type="scene" id="id2">
+  	<title>Scene id2 title</title>
+  	<when type="abs">
+  	  <text>
+ 		<p>para when text text text text text text text text
+  		text text text</p>
+  		<p>text text text text text text text text text text
+  		text text</p>
+  
+  	  </text>
+  	</when>
+  	<where ref="id3">
+  	  <text>
+  		<p>para where text text text text text text text text
+  		text text text</p>
+  		<p>para text text text text text text text text text
+  		text text text</p>
+  
+  	  </text>
+  	</where>
+  	<who ref="id4">
+  	  <text>
+  		<p>para who text text text text text text text text
+  		text text text text text text text text text text text
+  		text text text text</p>
+  
+  	  </text>
+  	</who>
+  	<who ref="id4b">
+  	  <text>
+  		<p>para who text text text text text text text text
+  		text text text text text text text text text text text
+  		text text text text</p>
+  
+  	  </text>
+  	</who>
+  	<viewpoint ref="whoid"/>
+  	<outline>
+  Goal:
+  Conflict:
+  Disaster:
+  	</outline>
+  	<text active="1">
+  		<p>para draft1 text text text text text text text text
+  		text text text text text text text text text text text
+  		text text text text</p>
+  
+  		<p>para text text text text text text text text text
+  		text text text text text text text text text text text
+  		text text text</p>
+  
+  	</text>
+  	<text>
+  		<p>para draft2 text text text text text text text text
+  		text text text text text text text text text text text
+  		text text text text</p>
+  
+  		<p>para text text text text text text text text text text text
+  		text text text text text text text text text text text text</p>
+  	</text>
+  	<thread ref="alt1" next="ssid1">
+  	  <text>
+  		<p>para thread alt1 text text text text text text text
+  		text text text text text text text text text text text
+  		text text text text text</p>
+  
+  		<p>para text text text text text text text text text text text
+  		text text text text text text text text text text text text</p>
+  	  </text>
+  	</thread>
+  
+  	<thread ref="alt2" next="ssid2">
+  	  <text>
+  		<p>para thread alt2 text text text text text text text
+  		text text text text text text text text text text text
+  		text text text text text</p>
+  
+  		<p>para text text text text text text text text text text text
+  		text text text text text text text text text text text text</p>
+  	  </text>
+  	</thread>
+  </unit>
+  
+  <unit type="sequel" id="ssid1">
+  	<when type="abs"><p>when text</p></when>
+  	<where ref=""><p>where text</p></where>
+  	<who ref=""><p>who text</p></who>
+  	<viewpoint ref=""/>
+  	<outline>
+  Emotion:
+  	description, example, or discussion
+  Thought:
+  	review
+  	analysis
+  	planning
+  Decision
+  	</outline>
+  	<text>
+  	<p>text text</p>
+  	</text>
+  	<thread ref="alt1" next="ssid">
+  	  <text>
+  	    <p>text text</p>
+  	  </text>
+  	</thread>
+  </unit>
+  
+</chapter>
+  
+<chapter id="id5">
+  
+  <title>Chapter 2</title>
+  <type>(t/t) (Rom)</type>
+  <source>$Source: /repo/local.cvs/app/story-xml/old/test/testbook.xml,v $</source>
+  <revision>$Revision: 1.1 $</revision>
+  <revision-date>$Date: 2006/02/19 01:41:45 $</revision-date>
+  <first-pub-date>1999/12/04</first-pub-date>
+  
+  <prolog active="1">
+    <text>
+  	<p>prolog text draft2, active</p>
+    </text>
+  </prolog>
+  <postlog>
+    <text>
+  	<p>para postlog text text text text text text text text text
+  	text text</p>
+    </text>
+  </postlog>
+  
+  <unit type="scene" id="id6">
+  	<when type="id7">
+  		<text>
+  		</text>
+          </when>
+  	<where ref="id8">
+  		<text>
+  		</text>
+  	</where>
+  	<who ref="id9">
+  		<text>
+  		</text>
+  	</who>
+  	<viewpoint ref="whoid"/>
+  	<outline>
+  Goal:
+  Conflict:
+  Disaster:
+  	</outline>
+  	<text active="1">
+  	<p>text text</p>
+  	</text>
+  	<text>
+  	<p>text text</p>
+  	</text>
+  	<thread ref="alt1" next="ssid">
+  		<text>
+  			<p>text text</p>
+  		</text>
+  	</thread>
+  </unit>
+  
+  <unit type="sequel" id="foo2">
+  	<when type="abs">
+  		<text>
+  		</text>
+  	</when>
+  	<where ref="id10">
+  		<text>
+  		</text>
+  	</where>
+  	<who ref="id11">
+  		<text>
+  		</text>
+  	</who>
+  	<viewpoint ref="id12"/>
+  	<outline>
+  Emotion:
+  	description, example, or discussion
+  Thought:
+  	review
+  	analysis
+  	planning
+  Decision
+  	</outline>
+  	<text>
+  	<p>text text</p>
+  	</text>
+  	<thread ref="alt1" next="ssid">
+  		<text>
+  			<p>text text</p>
+  		</text>
+  	</thread>
+  </unit>
+  
+</chapter>
+  
+</book>
+
+<book>
+
+<title>Title Foo2</title>
+
+<source>$Source: /repo/local.cvs/app/story-xml/old/test/testbook.xml,v $</source>
+
+<edition>Edition 3</edition>
+
+<revision>$Revision: 1.1 $</revision>
+
+<revision-date>$Date: 2006/02/19 01:41:45 $</revision-date>
+
+<first-date>
+  <day>20</day>
+  <month>03</month>
+  <year>2003</year>
+</first-date>
+
+<copyright>1999</copyright>
+
+<status>In progress</status>
+
+<dir>dir2</dir>
+
+<author>bar</author>
+
+<email>bar2@yahoo.com</email>
+
+</book>
+
+</content>
