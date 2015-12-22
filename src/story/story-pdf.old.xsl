@@ -9,7 +9,7 @@
 		xmlns:date="http://exslt.org/dates-and-times"
 		extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story3/story-pdf.old.xsl,v 1.3 2008/02/19 06:44:15 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story4/story-pdf.old.xsl,v 1.1 2008/02/24 21:38:26 bruce Exp $
 -->
   <!-- ************************************************** -->
   <xsl:import href="fo/fo.xsl" />

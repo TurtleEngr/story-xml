@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
-		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:date="http://exslt.org/dates-and-times"
-		xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
-		exclude-result-prefixes="doc"
-		xmlns:exsl="http://exslt.org/common"
-		xmlns:str="http://exslt.org/strings"
-		extension-element-prefixes="date doc exsl str">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:date="http://exslt.org/dates-and-times"
+                xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
+                exclude-result-prefixes="doc"
+                xmlns:exsl="http://exslt.org/common"
+                xmlns:str="http://exslt.org/strings"
+                extension-element-prefixes="date doc exsl str">
   <!--
-	extension-element-prefixes="date doc exsl str"
-$Header: /repo/local.cvs/app/story-xml/src/story3/story-html.xsl,v 1.9 2008/02/24 19:21:46 bruce Exp $
+        extension-element-prefixes="date doc exsl str"
+$Header: /repo/local.cvs/app/story-xml/src/story4/story-html.xsl,v 1.4 2008/03/23 07:57:15 bruce Exp $
 -->
   <xsl:output method="html"
-	      indent="yes" />
-  <xsl:param name="gDraft" select="boolean(number('0'))" />
+              indent="yes" />
+  <xsl:param name="gDraft"
+             select="boolean(number('0'))" />
   <xsl:include href="story-com-param.xsl" />
   <xsl:include href="story-com-html.xsl" />
   <xsl:include href="story-com.xsl" />
@@ -25,41 +26,42 @@ $Header: /repo/local.cvs/app/story-xml/src/story3/story-html.xsl,v 1.9 2008/02/2
   <!-- ************************************************** -->
   <xsl:template name="fOutputList">
     <exsl:document method="text"
-		   href="output-list.txt">
+                   href="output-list.txt">
       <xsl:apply-templates select="book"
-			   mode="output-list" />
+                           mode="output-list" />
     </exsl:document>
   </xsl:template>
   <xsl:template match="book"
-		mode="output-list">
+                mode="output-list">
     <xsl:value-of select="concat(@id,'.html')" />
     <xsl:value-of select="$gNL" />
   </xsl:template>
   <!-- ************************************************** -->
   <xsl:template match="book">
-<!--
+    <!--
     <xsl:if test="$gDebug">
       <xsl:message>
-	<xsl:value-of select="concat('Debug: text=', $gPrintRef/@text)" />
+        <xsl:value-of select="concat('Debug: text=', $gPrintRef/@text)" />
       </xsl:message>
     </xsl:if>
 -->
     <!-- ************************ -->
     <exsl:document method="html"
-		   href="{concat(@id, '.html')}">
+                   href="{concat(@id, '.html')}">
       <html>
         <head>
           <title>
             <xsl:value-of select="title" />
           </title>
           <xsl:call-template name="fMetaHead" />
-	  <xsl:call-template name="fHtmlStyle"/>
+          <xsl:call-template name="fHtmlStyle" />
         </head>
         <body>
           <xsl:call-template name="fBodyAttr" />
           <xsl:call-template name="fTitlePage" />
           <xsl:call-template name="fCopyrightPage" />
           <xsl:call-template name="fTocPage" />
+          <xsl:apply-templates select="story-info/ch-preface" />
           <xsl:apply-templates select="preface" />
           <xsl:apply-templates select="chapter" />
           <xsl:apply-templates select="epilog" />
@@ -77,7 +79,7 @@ Book
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <xsl:if test="$gPrintRef/@auto-break = '1' and position() != 1">
-        <hr class="break"/>
+        <hr class="break" />
       </xsl:if>
       <xsl:apply-templates select="thread" />
     </xsl:if>
@@ -100,9 +102,9 @@ Block
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
-    <p>
-      <xsl:call-template name="fRevisionFlag"/>
-    </p>
+      <p>
+        <xsl:call-template name="fRevisionFlag" />&#160;
+      </p>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -111,9 +113,11 @@ Block
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
-    <pre>
-      <xsl:call-template name="fRevisionFlag"/>
-    </pre>
+      <pre>
+      
+<xsl:call-template name="fRevisionFlag" />
+    
+</pre>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -122,9 +126,9 @@ Block
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
-    <p class="quote">
-      <xsl:call-template name="fRevisionFlag"/>
-    </p>
+      <p class="quote">
+        <xsl:call-template name="fRevisionFlag" />&#160;
+      </p>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -133,9 +137,9 @@ Block
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
-    <p>
-      <xsl:call-template name="fRevisionFlag"/>
-    </p>
+      <p>
+        <xsl:call-template name="fRevisionFlag" />&#160;
+      </p>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -145,7 +149,7 @@ Block
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <p>
-        <xsl:call-template name="fRevisionFlag"/>
+        <xsl:call-template name="fRevisionFlag" />&#160;
       </p>
     </xsl:if>
   </xsl:template>

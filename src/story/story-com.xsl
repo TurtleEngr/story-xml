@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
-		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:date="http://exslt.org/dates-and-times"
-		xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
-		exclude-result-prefixes="doc"
-		xmlns:exsl="http://exslt.org/common"
-		xmlns:str="http://exslt.org/strings"
-		extension-element-prefixes="date doc exsl str">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:date="http://exslt.org/dates-and-times"
+                xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
+                exclude-result-prefixes="doc"
+                xmlns:exsl="http://exslt.org/common"
+                xmlns:str="http://exslt.org/strings"
+                extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story3/story-com.xsl,v 1.12 2008/02/24 19:21:46 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story4/story-com.xsl,v 1.3 2008/02/25 00:18:17 bruce Exp $
 -->
   <!-- ************************************************************
 Utility Templates
 -->
+  <!-- ******************** -->
+  <xsl:template match="story-dtd">
+    <xsl:if test="number(@version) &lt; $gDTDVer">
+      <xsl:message>
+        <xsl:value-of select="concat('You may upgrade your document to story-dtd version ', $gDTDVer)" />
+      </xsl:message>
+    </xsl:if>
+  </xsl:template>
   <!-- ******************** -->
   <xsl:template name="fShowContent">
     <!--
@@ -23,77 +31,79 @@ Utility Templates
     Else return 1
     -->
     <xsl:choose>
-       <xsl:when test="not($gDraft) and @revision-flag='deleted'">
-         <xsl:value-of select="'0'"/>
-       </xsl:when>
-       <xsl:when test="$gDraft and @revision-flag='deleted' and $gDraftRef/@deleted = '0'">
-         <xsl:value-of select="'0'"/>
-       </xsl:when>
-       <xsl:when test="name() = 't'">
-	<xsl:choose>
-	  <xsl:when test="contains(concat(' ', ../@who-refs, ' '), concat(' ', @who-ref, ' '))">
+      <xsl:when test="not($gDraft) and @revision-flag='deleted'">
+        <xsl:value-of select="'0'" />
+      </xsl:when>
+      <xsl:when test="$gDraft and @revision-flag='deleted' and $gDraftRef/@deleted = '0'">
 
-	    <xsl:value-of select="'1'"/>
-	  </xsl:when>
-	  <xsl:otherwise>
-	    <xsl:value-of select="'0'"/>
-	  </xsl:otherwise>
-	</xsl:choose>
+        <xsl:value-of select="'0'" />
+      </xsl:when>
+      <xsl:when test="name() = 't'">
+        <xsl:choose>
+          <xsl:when test="contains(concat(' ', ../@who-refs, ' '), concat(' ', @who-ref, ' '))">
+
+            <xsl:value-of select="'1'" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="'0'" />
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:when test="name()= 'thread'">
-	<xsl:choose>
-	  <xsl:when test="contains($gThreads, concat(' ', @ref, ' '))">
-	    <xsl:value-of select="'1'"/>
-	  </xsl:when>
-	  <xsl:otherwise>
-	    <xsl:value-of select="'0'"/>
-	  </xsl:otherwise>
-	</xsl:choose>
+        <xsl:choose>
+          <xsl:when test="contains($gThreads, concat(' ', @ref, ' '))">
+            <xsl:value-of select="'1'" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="'0'" />
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:when test="name() = 'unit'">
-	<xsl:choose>
-	  <xsl:when test="@revision = ''">
-	    <xsl:value-of select="'1'"/>
-	  </xsl:when>
-	  <xsl:when test="contains($gUnitStatus, @revision)">
-	    <xsl:value-of select="'1'"/>
-	  </xsl:when>
-	  <xsl:when test="contains(concat(' ', $gContentRef/@unit-refs, ' '), concat(' ', @id, ' '))">
-	    <xsl:value-of select="'1'"/>
-	  </xsl:when>
-	  <xsl:otherwise>
-	    <xsl:value-of select="'0'"/>
-	  </xsl:otherwise>
-	</xsl:choose>
+        <xsl:choose>
+          <xsl:when test="@revision = ''">
+            <xsl:value-of select="'1'" />
+          </xsl:when>
+          <xsl:when test="contains($gUnitStatus, @revision)">
+            <xsl:value-of select="'1'" />
+          </xsl:when>
+          <xsl:when test="contains(concat(' ', $gContentRef/@unit-refs, ' '), concat(' ', @id, ' '))">
+
+            <xsl:value-of select="'1'" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="'0'" />
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:when test="name() = 'prolog' or name() = 'postlog'">
-	<xsl:value-of select="$gContentRef/@prolog" />
+        <xsl:value-of select="$gContentRef/@prolog" />
       </xsl:when>
       <xsl:when test="name() = 'chapter'">
-	<xsl:choose>
-	  <xsl:when test="not(@revision)">
-	    <xsl:value-of select="'1'"/>
-	  </xsl:when>
-	  <xsl:when test="contains($gChStatus, @revision)">
-	    <xsl:value-of select="'1'"/>
-	  </xsl:when>
-	  <xsl:when test="contains(concat(' ', $gContentRef/@ch-refs, ' '), concat(' ', @id, ' '))">
+        <xsl:choose>
+          <xsl:when test="not(@revision)">
+            <xsl:value-of select="'1'" />
+          </xsl:when>
+          <xsl:when test="contains($gChStatus, @revision)">
+            <xsl:value-of select="'1'" />
+          </xsl:when>
+          <xsl:when test="contains(concat(' ', $gContentRef/@ch-refs, ' '), concat(' ', @id, ' '))">
 
-	    <xsl:value-of select="'1'"/>
-	  </xsl:when>
-	  <xsl:otherwise>
-	    <xsl:value-of select="'0'"/>
-	  </xsl:otherwise>
-	</xsl:choose>
+            <xsl:value-of select="'1'" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="'0'" />
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
       <xsl:when test="name() = 'preface' or name() = 'epilog'">
-	<xsl:value-of select="$gContentRef/@preface" />
+        <xsl:value-of select="$gContentRef/@preface" />
       </xsl:when>
       <xsl:when test="name() = 'ch-preface'">
-	<xsl:value-of select="$gContentRef/@ch-preface" />
+        <xsl:value-of select="$gContentRef/@ch-preface" />
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="'1'"/>
+        <xsl:value-of select="'1'" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -102,153 +112,85 @@ Utility Templates
     <xsl:param name="pNode" />
     <xsl:param name="pDefNode1" />
     <xsl:param name="pDefNode2" />
-
     <xsl:variable name="tY">
       <xsl:choose>
         <xsl:when test="$pNode/@year != ''">
-          <xsl:value-of select="$pNode/@year"/>
+          <xsl:value-of select="$pNode/@year" />
         </xsl:when>
         <xsl:when test="$pDefNode1/@year != ''">
-          <xsl:value-of select="$pDefNode1/@year"/>
+          <xsl:value-of select="$pDefNode1/@year" />
         </xsl:when>
         <xsl:when test="$pDefNode2/@year != ''">
-          <xsl:value-of select="$pDefNode2/@year"/>
+          <xsl:value-of select="$pDefNode2/@year" />
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-
     <xsl:variable name="tM">
       <xsl:choose>
         <xsl:when test="$pNode/@month != ''">
-          <xsl:value-of select="$pNode/@month"/>
+          <xsl:value-of select="format-number($pNode/@month,'00')" />
         </xsl:when>
         <xsl:when test="$pDefNode1/@month != ''">
-          <xsl:value-of select="$pDefNode1/@month"/>
+          <xsl:value-of select="format-number($pDefNode1/@month,'00')" />
         </xsl:when>
         <xsl:when test="$pDefNode2/@month != ''">
-          <xsl:value-of select="$pDefNode2/@month"/>
+          <xsl:value-of select="format-number($pDefNode2/@month,'00')" />
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-
     <xsl:variable name="tD">
       <xsl:choose>
         <xsl:when test="$pNode/@day != ''">
-          <xsl:value-of select="$pNode/@day"/>
+          <xsl:value-of select="format-number($pNode/@day,'00')" />
         </xsl:when>
         <xsl:when test="$pDefNode1/@day != ''">
-          <xsl:value-of select="$pDefNode1/@day"/>
+          <xsl:value-of select="format-number($pDefNode1/@day,'00')" />
         </xsl:when>
         <xsl:when test="$pDefNode2/@day != ''">
-          <xsl:value-of select="$pDefNode2/@day"/>
+          <xsl:value-of select="format-number($pDefNode2/@day,'00')" />
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-
     <xsl:variable name="tH">
       <xsl:choose>
         <xsl:when test="$pNode/@hour != ''">
-          <xsl:value-of select="$pNode/@hour"/>
+          <xsl:value-of select="format-number($pNode/@hour,'00')" />
         </xsl:when>
         <xsl:when test="$pDefNode1/@hour != ''">
-          <xsl:value-of select="$pDefNode1/@hour"/>
+          <xsl:value-of select="format-number($pDefNode1/@hour,'00')" />
         </xsl:when>
         <xsl:when test="$pDefNode2/@hour != ''">
-          <xsl:value-of select="$pDefNode2/@hour"/>
+          <xsl:value-of select="format-number($pDefNode2/@hour,'00')" />
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-
     <xsl:variable name="tm">
       <xsl:choose>
         <xsl:when test="$pNode/@min != ''">
-          <xsl:value-of select="$pNode/@min"/>
+          <xsl:value-of select="format-number($pNode/@min,'00')" />
         </xsl:when>
         <xsl:when test="$pDefNode1/@min != ''">
-          <xsl:value-of select="$pDefNode1/@min"/>
+          <xsl:value-of select="format-number($pDefNode1/@min,'00')" />
         </xsl:when>
         <xsl:when test="$pDefNode2/@min != ''">
-          <xsl:value-of select="$pDefNode2/@min"/>
+          <xsl:value-of select="format-number($pDefNode2/@min,'00')" />
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-
     <xsl:variable name="tG">
       <xsl:choose>
         <xsl:when test="$pNode/@gmt != ''">
-          <xsl:value-of select="$pNode/@gmt"/>
+          <xsl:value-of select="$pNode/@gmt" />
         </xsl:when>
         <xsl:when test="$pDefNode1/@gmt != ''">
-          <xsl:value-of select="$pDefNode1/@gmt"/>
+          <xsl:value-of select="$pDefNode1/@gmt" />
         </xsl:when>
         <xsl:when test="$pDefNode2/@gmt != ''">
-          <xsl:value-of select="$pDefNode2/@gmt"/>
+          <xsl:value-of select="$pDefNode2/@gmt" />
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
-
-    <xsl:value-of select="concat($tY, '-', $tM, '-', $tD, 'T', $tH, ':', $tm, $tG)"/>
-  </xsl:template>
-  <!-- ******************** -->
-  <xsl:template name="fToXMLDuration">
-    <xsl:param name="pNode" />
-
-    <xsl:variable name="tY">
-      <xsl:choose>
-        <xsl:when test="$pNode/@year = ''">
-          <xsl:value-of select="'0'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$pNode/@year"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-
-    <xsl:variable name="tM">
-      <xsl:choose>
-        <xsl:when test="$pNode/@month = ''">
-          <xsl:value-of select="'0'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$pNode/@month"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-
-    <xsl:variable name="tD">
-      <xsl:choose>
-        <xsl:when test="$pNode/@day = ''">
-          <xsl:value-of select="'0'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$pNode/@day"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-
-    <xsl:variable name="tH">
-      <xsl:choose>
-        <xsl:when test="$pNode/@hour = ''">
-          <xsl:value-of select="'0'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$pNode/@hour"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-
-    <xsl:variable name="tm">
-      <xsl:choose>
-        <xsl:when test="$pNode/@min = ''">
-          <xsl:value-of select="'0'"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$pNode/@min"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-
-    <xsl:value-of select="concat('P', $tY, 'Y', $tM, 'M', $tD, 'DT', $tH, 'H', $tm, 'M')"/>
+    <xsl:value-of select="concat($tY, '-', $tM, '-', $tD, 'T', $tH, ':', $tm, ':00', $tG, ':00')" />
   </xsl:template>
   <!-- ******************** -->
   <xsl:template name="fUnits">
@@ -262,96 +204,96 @@ Utility Templates
 -->
     <xsl:choose>
       <xsl:when test="$pFrom = 0">
-	<xsl:value-of select="0" />
+        <xsl:value-of select="0" />
       </xsl:when>
       <xsl:when test="$pFrom = '0'">
-	<xsl:value-of select="'0'" />
+        <xsl:value-of select="'0'" />
       </xsl:when>
       <xsl:otherwise>
-	<!-- Get the tFromUnits: last two char. of pFrom -->
-	<xsl:variable name="tFromUnits"
-		      select="substring($pFrom, string-length($pFrom) - 1, 2)" />
-	<xsl:variable name="tFrom"
-		      select="number(substring-before($pFrom, $tFromUnits))" />
-	<!--
+        <!-- Get the tFromUnits: last two char. of pFrom -->
+        <xsl:variable name="tFromUnits"
+                      select="substring($pFrom, string-length($pFrom) - 1, 2)" />
+        <xsl:variable name="tFrom"
+                      select="number(substring-before($pFrom, $tFromUnits))" />
+        <!--
 <xsl:message>
   <xsl:value-of select="concat('Debug units: tFromUnits=', $tFromUnits, $gNL)"/>
   <xsl:value-of select="concat('Debug units: tFrom=', $tFrom, $gNL)"/>
 </xsl:message>
 -->
-	<xsl:choose>
-	  <xsl:when test="$tFromUnits = $pTo">
-	    <xsl:value-of select="$tFrom" />
-	  </xsl:when>
-	  <xsl:otherwise>
-	    <xsl:choose>
-	      <xsl:when test="$tFromUnits = 'in'">
-		<xsl:choose>
-		  <xsl:when test="$pTo = 'mm'">
-		    <xsl:value-of select="$tFrom * 25.4" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'cm'">
-		    <xsl:value-of select="$tFrom * 2.54" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'pc'">
-		    <xsl:value-of select="$tFrom * 6" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'pt'">
-		    <xsl:value-of select="ceiling($tFrom * 72)" />
-		  </xsl:when>
-		</xsl:choose>
-	      </xsl:when>
-	      <xsl:when test="$tFromUnits = 'cm'">
-		<xsl:choose>
-		  <xsl:when test="$pTo = 'mm'">
-		    <xsl:value-of select="$tFrom * 10" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'in'">
-		    <xsl:value-of select="$tFrom div 2.54" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'pc'">
-		    <xsl:value-of select="$tFrom div 2.54 * 6" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'pt'">
-		    <xsl:value-of select="ceiling($tFrom div 2.54 * 72)" />
-		  </xsl:when>
-		</xsl:choose>
-	      </xsl:when>
-	      <xsl:when test="$tFromUnits = 'pc'">
-		<xsl:choose>
-		  <xsl:when test="$pTo = 'mm'">
-		    <xsl:value-of select="$tFrom div 12 * 25.4" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'cm'">
-		    <xsl:value-of select="$tFrom div 12 * 2.54" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'in'">
-		    <xsl:value-of select="$tFrom div 6" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'pt'">
-		    <xsl:value-of select="ceiling($tFrom * 6)" />
-		  </xsl:when>
-		</xsl:choose>
-	      </xsl:when>
-	      <xsl:when test="$tFromUnits = 'pt'">
-		<xsl:choose>
-		  <xsl:when test="$pTo = 'mm'">
-		    <xsl:value-of select="$tFrom div 72 * 25.4" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'cm'">
-		    <xsl:value-of select="$tFrom div 72 * 2.54" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'pc'">
-		    <xsl:value-of select="$tFrom div 6" />
-		  </xsl:when>
-		  <xsl:when test="$pTo = 'in'">
-		    <xsl:value-of select="$tFrom div 72" />
-		  </xsl:when>
-		</xsl:choose>
-	      </xsl:when>
-	    </xsl:choose>
-	  </xsl:otherwise>
-	</xsl:choose>
+        <xsl:choose>
+          <xsl:when test="$tFromUnits = $pTo">
+            <xsl:value-of select="$tFrom" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:choose>
+              <xsl:when test="$tFromUnits = 'in'">
+                <xsl:choose>
+                  <xsl:when test="$pTo = 'mm'">
+                    <xsl:value-of select="$tFrom * 25.4" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'cm'">
+                    <xsl:value-of select="$tFrom * 2.54" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'pc'">
+                    <xsl:value-of select="$tFrom * 6" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'pt'">
+                    <xsl:value-of select="ceiling($tFrom * 72)" />
+                  </xsl:when>
+                </xsl:choose>
+              </xsl:when>
+              <xsl:when test="$tFromUnits = 'cm'">
+                <xsl:choose>
+                  <xsl:when test="$pTo = 'mm'">
+                    <xsl:value-of select="$tFrom * 10" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'in'">
+                    <xsl:value-of select="$tFrom div 2.54" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'pc'">
+                    <xsl:value-of select="$tFrom div 2.54 * 6" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'pt'">
+                    <xsl:value-of select="ceiling($tFrom div 2.54 * 72)" />
+                  </xsl:when>
+                </xsl:choose>
+              </xsl:when>
+              <xsl:when test="$tFromUnits = 'pc'">
+                <xsl:choose>
+                  <xsl:when test="$pTo = 'mm'">
+                    <xsl:value-of select="$tFrom div 12 * 25.4" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'cm'">
+                    <xsl:value-of select="$tFrom div 12 * 2.54" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'in'">
+                    <xsl:value-of select="$tFrom div 6" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'pt'">
+                    <xsl:value-of select="ceiling($tFrom * 6)" />
+                  </xsl:when>
+                </xsl:choose>
+              </xsl:when>
+              <xsl:when test="$tFromUnits = 'pt'">
+                <xsl:choose>
+                  <xsl:when test="$pTo = 'mm'">
+                    <xsl:value-of select="$tFrom div 72 * 25.4" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'cm'">
+                    <xsl:value-of select="$tFrom div 72 * 2.54" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'pc'">
+                    <xsl:value-of select="$tFrom div 6" />
+                  </xsl:when>
+                  <xsl:when test="$pTo = 'in'">
+                    <xsl:value-of select="$tFrom div 72" />
+                  </xsl:when>
+                </xsl:choose>
+              </xsl:when>
+            </xsl:choose>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

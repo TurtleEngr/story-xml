@@ -1,64 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
-		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:date="http://exslt.org/dates-and-times"
-		xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
-		exclude-result-prefixes="doc"
-		xmlns:exsl="http://exslt.org/common"
-		xmlns:str="http://exslt.org/strings"
-		extension-element-prefixes="date doc exsl str">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:date="http://exslt.org/dates-and-times"
+                xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
+                exclude-result-prefixes="doc"
+                xmlns:exsl="http://exslt.org/common"
+                xmlns:str="http://exslt.org/strings"
+                extension-element-prefixes="date doc exsl str">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story3/story-com-param.xsl,v 1.3 2008/02/24 19:32:37 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story4/story-com-param.xsl,v 1.4 2008/03/23 01:17:26 bruce Exp $
 -->
   <!-- ************************************************** -->
   <!-- External parameters -->
   <xsl:param name="style"
-	     select="''" />
+             select="''" />
   <xsl:strip-space elements="*" />
   <xsl:preserve-space elements="pre pre-fmt" />
   <!-- ************************************************** -->
   <xsl:key name="style-index"
-	   match="def-style"
-	   use="@id" />
+           match="def-style"
+           use="@id" />
   <xsl:key name="content-index"
-	   match="def-content"
-	   use="@id" />
+           match="def-content"
+           use="@id" />
   <xsl:key name="draft-index"
-	   match="def-draft"
-	   use="@id" />
+           match="def-draft"
+           use="@id" />
   <xsl:key name="print-index"
-	   match="def-print"
-	   use="@id" />
+           match="def-print"
+           use="@id" />
   <xsl:key name="chapter-index"
-	   match="chapter"
-	   use="@id" />
+           match="chapter"
+           use="@id" />
   <xsl:key name="unit-index"
-	   match="unit"
-	   use="@id" />
+           match="unit"
+           use="@id" />
   <xsl:key name="def-base-index"
-	   match="def-base"
-	   use="@id" />
+           match="def-base"
+           use="@id" />
   <xsl:key name="def-img-index"
-	   match="def-img"
-	   use="@id" />
+           match="def-img"
+           use="@id" />
   <xsl:key name="def-link-index"
-	   match="def-link"
-	   use="@id" />
+           match="def-link"
+           use="@id" />
   <xsl:key name="def-thread-index"
-	   match="def-thread"
-	   use="@id" />
+           match="def-thread"
+           use="@id" />
   <xsl:key name="def-where-index"
-	   match="def-where"
-	   use="@id" />
+           match="def-where"
+           use="@id" />
   <xsl:key name="def-who-index"
-	   match="def-who"
-	   use="@id" />
+           match="def-who"
+           use="@id" />
   <!-- ************************************************** -->
   <!-- Global Parameters -->
-  <xsl:param name="gDTDVer" select="'4'"/>
+  <xsl:param name="gDTDVer"
+             select="'4'" />
   <xsl:param name="gNL">
-    <xsl:text>
-</xsl:text>
+    <xsl:value-of disable-output-escaping="yes" select="'&#10;'"/>
   </xsl:param>
   <!--
   The content style can be selected by defining the 'style'
@@ -68,40 +68,40 @@ $Header: /repo/local.cvs/app/story-xml/src/story3/story-com-param.xsl,v 1.3 2008
   <xsl:param name="gStyleName">
     <xsl:choose>
       <xsl:when test="$style = ''">
-	<xsl:value-of select="/content/book/style-info/@style-ref" />
+        <xsl:value-of select="/content/book/style-info/@style-ref" />
       </xsl:when>
       <xsl:otherwise>
-	<xsl:value-of select="$style" />
+        <xsl:value-of select="$style" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:param>
   <!-- ******************** -->
   <xsl:param name="gStyleRef"
-	     select="key('style-index', $gStyleName)" />
+             select="key('style-index', $gStyleName)" />
   <!-- ******************** -->
   <xsl:param name="gContentRef"
-	     select="key('content-index', $gStyleRef/@content-ref)" />
+             select="key('content-index', $gStyleRef/@content-ref)" />
   <!--
   Use: test="$gContentRef/@preface = '1'"
   -->
   <!-- ******************** -->
   <xsl:param name="gPrintRef"
-	     select="key('print-index', $gStyleRef/@print-ref)" />
+             select="key('print-index', $gStyleRef/@print-ref)" />
   <!-- ******************** -->
   <xsl:param name="gDraftRef"
-	     select="key('draft-index', $gStyleRef/@draft-ref)" />
+             select="key('draft-index', $gStyleRef/@draft-ref)" />
   <!-- ******************** -->
   <xsl:param name="gDraft"
-	     select="boolean(number($gStyleRef/@draft))" />
+             select="boolean(number($gStyleRef/@draft))" />
   <!--
   Use: test="$gDraft"
   -->
   <!-- ******************** -->
   <xsl:param name="gDebug"
-	     select="boolean(number($gStyleRef/@debug))" />
+             select="boolean(number($gStyleRef/@debug))" />
   <!-- ******************** -->
   <xsl:param name="gThreads"
-	     select="concat(' ', $gContentRef/@thread-refs, ' ')" />
+             select="concat(' ', $gContentRef/@thread-refs, ' ')" />
   <!--
   Use: test="contains($gThreads, concat(' ', ../@ref, ' '))"
   -->
@@ -116,7 +116,7 @@ $Header: /repo/local.cvs/app/story-xml/src/story3/story-com-param.xsl,v 1.3 2008
     <xsl:if test="$gContentRef/@ch-in-progress = '1'">
       <xsl:value-of select="' in-progress'" />
     </xsl:if>
-    <xsl:value-of select="' '"/>
+    <xsl:value-of select="' '" />
   </xsl:param>
   <!--
   Use: test="contains($gChStatus, @revision)"
@@ -132,7 +132,7 @@ $Header: /repo/local.cvs/app/story-xml/src/story3/story-com-param.xsl,v 1.3 2008
     <xsl:if test="$gContentRef/@unit-in-progress = '1'">
       <xsl:value-of select="' in-progress '" />
     </xsl:if>
-    <xsl:value-of select="' '"/>
+    <xsl:value-of select="' '" />
   </xsl:param>
   <!-- ******************** -->
   <xsl:param name="gContentLink">

@@ -961,7 +961,7 @@
 	<xs:simpleType>
 	  <xs:restriction base='xs:string'>
 	    <xs:enumeration value='3.47x4.54in' />
-	    <xs:enumeration value='4.25x6.875in' />
+	    <xs:enumeration value='4.25x5.5in' />
 	    <xs:enumeration value='6x9in' />
 	    <xs:enumeration value='8.5x11in' />
 	  </xs:restriction>
