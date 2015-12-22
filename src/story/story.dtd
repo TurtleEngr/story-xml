@@ -1,5 +1,5 @@
 <!--
-$Header: /repo/local.cvs/app/story-xml/src/story3/story.dtd,v 1.8 2008/02/24 19:21:46 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story4/story.dtd,v 1.16 2009/03/15 18:43:34 bruce Exp $
 -->
 
 <!-- ************************************** -->
@@ -21,7 +21,7 @@ revision (in-progress|draft|final) #IMPLIED
 revision-flag (changed|added|deleted|off) #IMPLIED
 ">
 
-<!ENTITY % req-com-attr "
+<!ENTITY % com-attr-req "
 condition CDATA #IMPLIED
 id CDATA #REQUIRED
 lang CDATA #IMPLIED
@@ -31,10 +31,11 @@ revision-flag (changed|added|deleted|off) #IMPLIED
 
 <!ENTITY % date-time "
 year CDATA #IMPLIED
-month CDATA #IMPLIED
+month (1|2|3|4|5|6|7|8|9|10|11|12) #IMPLIED
 day CDATA #IMPLIED
 hour CDATA #IMPLIED
-min CDATA #IMPLIED
+min CDATA #REQUIRED
+gmt CDATA #IMPLIED
 ">
 <!--
 year - any integer
@@ -42,7 +43,7 @@ month - 1-12
 day - 1-31
 hour - 0-23
 min - 0-59
-gmt - -NNNN or NNNN (GMT-8 = -0800)
+gmt - -HH or +HH (GMT-8 = -08, HH is -12 to +11)
 -->
 
 <!ENTITY % font-family "helvetica|courier|times">
@@ -73,21 +74,25 @@ Internal use:
 
 <!ENTITY % com-person "honorific?, first-name, surname, linage?, other-name?, affiliation?, email?, author-blurb?">
 
+<!ENTITY % simple-text "(p|para|pre|pre-fmt|quote|br)*">
+
+<!ENTITY % thread-text "(p|para|pre|pre-fmt|quote|br|s|t)*">
+
 <!ELEMENT author-group (author|coauthor|editor)*>
 
 <!ELEMENT author (%com-person;)>
 <!ATTLIST author
-	%com-attr;
+	%com-attr-req;
 >
 
 <!ELEMENT coauthor (%com-person;)>
 <!ATTLIST coauthor
-	%com-attr;
+	%com-attr-req;
 >
 
 <!ELEMENT editor (%com-person;)>
 <!ATTLIST editor
-	%com-attr;
+	%com-attr-req;
 >
 
 <!ELEMENT honorific (#PCDATA)>
@@ -124,7 +129,7 @@ Internal use:
 	%com-attr;
 >
 
-<!ELEMENT author-blurb (#PCDATA)>
+<!ELEMENT author-blurb %simple-text;>
 <!ATTLIST author-blurb
 	%com-attr;
 >
@@ -143,9 +148,9 @@ Internal use:
 <!--
 root - for example: :ext:LOGNAME@moria.dynu.com:/data/public.cvs
 repository - for example: app/story-xml/src
-source - $Source: /repo/local.cvs/app/story-xml/src/story3/story.dtd,v $
-rev - $Revision: 1.8 $
-date -$Date: 2008/02/24 19:21:46 $
+source - $Source: /repo/local.cvs/app/story-xml/src/story4/story.dtd,v $
+rev - $Revision: 1.16 $
+date -$Date: 2009/03/15 18:43:34 $
 -->
 <!ELEMENT pub-date (#PCDATA)>		<!-- yyyy-mm-dd -->
 <!ATTLIST pub-date
@@ -205,12 +210,15 @@ url - (def-link url)
 <!ELEMENT img EMPTY>
 <!ATTLIST img
 	%ref-r;
+	float (%bool;) #IMPLIED
 >
-<!-- ref - def-img-id -->
-
-<!ENTITY % simple-text "(para|pre-fmt|quote)*">
-
-<!ENTITY % thread-text "(p|pre|s|t|quote|br)*">
+<!--
+ref - def-img-id
+float - Let text flow around the image?  If the value is 1,
+        and the output is non-html, and the image is > 2/3
+        of the page width, then don't float the image.
+        Default: 0
+-->
 
 <!ELEMENT para %text-style;>
 <!ATTLIST para
@@ -275,14 +283,14 @@ Section break.  Either a blank line (print) or a short rule line (html).
 <!-- ************************************** -->
 <!ELEMENT story-dtd EMPTY>
 <!ATTLIST story-dtd
-	version CDATA #REQUIRED
+	version (1|2|3|4) #REQUIRED
 >
 
 <!-- ************************************** -->
 <!ELEMENT book (%com-title;, book-info, style-info, story-info, preface?, chapter*, epilog?)
 >
 <!ATTLIST book
-	%req-com-attr;
+	%com-attr-req;
 >
 
 <!ELEMENT book-info (%com-info;, copyright?, publisher?, legal-notice?, edition?, biblio-id*, keyword-set?, abstract?)>
@@ -293,6 +301,10 @@ Section break.  Either a blank line (print) or a short rule line (html).
 <!ELEMENT holder (#PCDATA)>
 
 <!ELEMENT publisher (publisher-name, address?)>
+<!ATTLIST publisher
+	%com-attr-req;
+>
+
 <!ELEMENT publisher-name (#PCDATA)>
 <!ELEMENT address (street*, pob?, city?, state?, post-code?, country?, phone*, fax?, email*, other-addr*)>
 <!ELEMENT street (#PCDATA)>
@@ -325,8 +337,8 @@ Section break.  Either a blank line (print) or a short rule line (html).
 	thread-refs CDATA #REQUIRED
 >
 <!--
-preview-thread - editor content view
 style-ref - def-style id
+thread-refs - editor content view
 -->
 
 <!ELEMENT def-style (%simple-text;)>
@@ -405,7 +417,7 @@ link-fmt -
 Default: no, for missing attributes.
 deleted - show deleted content?
 thread-content - print content of threads
-thread-all - show all treads, not just the thread defined in content.
+thread-all - show all threads, not just the thread defined in content.
 thread-ref - show thread reference ids?
 thread-id-vp - show thread viewpoint id?
 thread-all-vp - output all viewpoint thoughts
@@ -428,10 +440,10 @@ timeline - show the when times across all active units
 	ch-title-family (%font-family;) #REQUIRED
 	ch-title-size (%font-size;) #REQUIRED
 	ch-page-break (none|some-odd|all-odd) #REQUIRED
-	copyright-type (none|standard|commons|gnu) #REQUIRED
+	copyright-type (none|standard|commons) #REQUIRED
 	draft CDATA #REQUIRED
 	duplex (%bool;) #REQUIRED
-	gutter (0|0.2in|0.25in|0.3in|3.5in|0.375in|0.4in) #REQUIRED
+	gutter (0|0.2in|0.25in|0.3in|0.35in|0.375in|0.4in) #REQUIRED
 	head-align (left|right|center) #REQUIRED
 	head-family (%font-family;) #REQUIRED
 	head-location (top|bottom) #REQUIRED
@@ -440,11 +452,13 @@ timeline - show the when times across all active units
 	img-ref CDATA #IMPLIED
 	line-height (100|110|120|130|150|200|220|240|260|280|300) #REQUIRED
 	link CDATA #IMPLIED
-	margin (0.25in|0.5in|0.75in|1in) #REQUIRED
+	margin (0.15in|0.25in|0.5in|0.75in|1in) #REQUIRED
 	multi-file (%bool;) #REQUIRED
 	next-prev (%bool;) #IMPLIED
 	output-type (html|pdf|ps|docbook|txt)  #REQUIRED
-	page (4.25x5.5in|6x9in|8.5x11in) #REQUIRED
+	page (3.47x4.54in|4.25x6.875in|6x9in|8.5x11in) #REQUIRED
+	page-height CDATA #IMPLIED
+	page-width CDATA #IMPLIED
 	text CDATA #REQUIRED
 	title-family (%font-family;) #REQUIRED
 	title-size (%font-size;) #REQUIRED
@@ -462,7 +476,6 @@ Default: 0 or "", for missing attributes (unless noted otherwise)
 	head-family - head font name
 	head-size - html: h3 size in css
 	line-height - percent, recommend 120 for single space, 240 for double
-	multi-file - yes: each ch in a file; no: single file
 	output-type - htmlpdf|ps|docbook|txt
 	title-size - html: h1 size in css
 	toc - html: name link to ch. or create toc file of links, if muli-file
@@ -470,6 +483,8 @@ Default: 0 or "", for missing attributes (unless noted otherwise)
 
 non-html only:
 	page - final page size, in inches (lulu sizes)
+	page-height - if non-zero, will override page (include units)
+	page-width - if non-zero, will override page (include units)
 	margin - top, bottom, left, right margins
 	gutter - space for binding, recommend 0.2in or 0.3in (inside edge)
 	bleed-left - left page crop (usually 0)
@@ -481,8 +496,8 @@ non-html only:
 	head-type -
 		page-no - only page numbers
 		title - numbers outside, title inside
-		author-title - numbers outside, author even, title odd
-		title-chapter - numbers outside, title even, chapter odd
+		title-author - numbers outside, author even, title odd
+		title-chapter - numbers outside, chapter even, title odd
 	head-align
 		- page no. is aways on outside edge, if there is
 		  other text.  If just page-no head-type, then
@@ -500,6 +515,7 @@ html only:
 	draft - draft color
 	img-ref - html: def-img id (background image)
 	link
+	multi-file - yes: each ch in a file; no: single file
 	next-prev - html: create next/prev chapter links, only if muli-file
 	text - text color
 	vlink
@@ -523,7 +539,15 @@ file:///home/george/ver/public/app/story/src/
 	%id;
 	url CDATA #REQUIRED
 	base-ref CDATA #REQUIRED
+	width CDATA #REQUIRED
+	height CDATA #REQUIRED
 >
+<!--
+width and height units should not be specified in px
+(pixels).  For html output the image size is converted
+to pixes, from the width/height attr., with the ratio 72dpi
+(which corresponds to the ratio of 72pt per inch)
+-->
 
 <!ELEMENT def-link (#PCDATA)>	<!-- label -->
 <!ATTLIST def-link
@@ -539,21 +563,19 @@ file:///home/george/ver/public/app/story/src/
 <!ELEMENT file-prefix (#PCDATA)>
 <!-- Prefix for ch files -->
 
-<!ELEMENT story-info ((def-when|de-where|def-who|def-thread)*, ch-preface?)>
+<!ELEMENT story-info (def-when, (def-where|def-who|def-thread)*, ch-preface?)>
 
 <!ELEMENT def-when EMPTY>
 <!ATTLIST def-when
-	%date-time;
-	gmt CDATA #IMPLIED
-	d-year CDATA #IMPLIED
-	d-month CDATA #IMPLIED
-	d-day CDATA #IMPLIED
-	d-hour CDATA #IMPLIED
-	d-min CDATA #IMPLIED
+	year CDATA #REQUIRED
+	month CDATA #REQUIRED
+	day CDATA #REQUIRED
+	hour CDATA #REQUIRED
+	min CDATA #REQUIRED
+	gmt CDATA #REQUIRED
 >
 <!--
-Defaults, if attr is not specified in "when" start-date.
-If no duration or end-date, then use the d-* values for default duration.
+Defaults, for attr not specified in "when" start-date's.
 -->
 
 <!ELEMENT def-where %simple-text;>
@@ -572,14 +594,24 @@ If no duration or end-date, then use the d-* values for default duration.
 >
 
 <!ELEMENT preface (%com-title;, %simple-text;)>
+<!ATTLIST preface
+	%com-attr-req;
+>
+
 <!ELEMENT epilog (%com-title;, %simple-text;)>
+<!ATTLIST epilog
+	%com-attr-req;
+>
 
 <!ELEMENT ch-preface (title, %simple-text;)>
+<!ATTLIST ch-preface
+	%com-attr-req;
+>
 
 <!-- ****************** -->
-<!ELEMENT chapter (%com-title;, chapter-info, prolog?, unit+, postlog?)>
+<!ELEMENT chapter (%com-title;, chapter-info?, prolog?, unit+, postlog?)>
 <!ATTLIST chapter
-	%req-com-attr;
+	%com-attr-req;
 >
 
 <!ELEMENT chapter-info (%com-info;)>
@@ -597,35 +629,24 @@ If no duration or end-date, then use the d-* values for default duration.
 <!-- ****************** -->
 <!ELEMENT unit (title, outline?, thread+)>
 <!ATTLIST unit
-	%req-com-attr;
-	type (scene|sequel) #REQUIRED
+	%com-attr-req;
+	type (scene|sequel|other) #REQUIRED
 >
 
 <!ELEMENT outline (when?, where?, who*, description?)>
 
-<!ELEMENT when (start-date, duration?, end-date?, description?)>
-<!ELEMENT start-date (#PCDATA)>	<!-- yyyy-mm-dd(Thh:mmZ(-)nnn) -->
+<!ELEMENT when (start-date, end-date, description?)>
+<!ELEMENT start-date (#PCDATA)>
 <!ATTLIST start-date
 	%date-time;
-	gmt CDATA #IMPLIED
 >
-<!ELEMENT duration  (#PCDATA)>	<!-- PyyyyYmmMddD(ThhHmmM) ex: P0Y0M0DT2H5M -->
-<!ATTLIST duration
-	%date-time;
->
-<!ELEMENT end-date (#PCDATA)>	<!-- yyyy-mm-dd(Thh:mmZ(-)nnn) -->
+<!ELEMENT end-date (#PCDATA)>
 <!ATTLIST end-date
 	%date-time;
-	gmt CDATA #IMPLIED
 >
 <!--
-If duration is missing, calc duration from end-date.
-If both duration and end-date are present, use duration (ignore end-date)
-   (time fix routine: update end-date)
-If both duration and end-date are missing see def-when attr. for def. duration
-If attr are missing from start-date, see def-when.
+If attr are missing from start-date, use def-when.
 If attr are missing from end-date, get them from start-date.
-If attr are missing from duration, see def-when d-* attr. defaults
 -->
 
 <!ELEMENT where %simple-text;>

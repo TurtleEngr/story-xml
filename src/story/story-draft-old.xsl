@@ -4,7 +4,7 @@
 		xmlns:doc="http://nwalsh.com/xsl/documentation/1.0"
 		exclude-result-prefixes="doc">
   <!--
-$Header: /repo/local.cvs/app/story-xml/src/story3/story-draft-old.xsl,v 1.3 2008/02/19 06:44:15 bruce Exp $
+$Header: /repo/local.cvs/app/story-xml/src/story4/story-draft-old.xsl,v 1.1 2008/02/24 21:38:26 bruce Exp $
 -->
   <xsl:output method="html"
 	      indent="yes" />

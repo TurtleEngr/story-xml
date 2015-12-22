@@ -1,163 +1,303 @@
 <?xml version='1.0' encoding='utf-8'?>
-<!DOCTYPE 
-t:document-template PUBLIC "-//Syntext/DTD Syntext Document Template V1.0//EN"
-"doctemplate.dtd"
-[]>
 <t:document-template xmlns:t="http://www.syntext.com/Extensions/DocTemplate-1.0">
-
-  <t:name>Story/Full</t:name>
-  <t:xml-schema>$SERNA_SCHEMAS/story/story.xsd</t:xml-schema>
-  <t:xml-stylesheet>$SERNA_STYLESHEETS/story/story-style.xsl</t:xml-stylesheet>
-  <t:toc-stylesheet>$SERNA_STYLESHEETS/story/story-toc.xsl</t:toc-stylesheet>
-  <t:dtd-sysid>story/story.dtd</t:dtd-sysid>
-  <t:open-document />
-  <t:document-root>
-    <book id="book" status="in-progress">
-      <title>book title</title>
-      <bookinfo>
-        <releaseinfo rev="$Revision: 1.1 $" date="$Date: 2007/12/24 02:53:58 $"
-        source="$Source: /repo/local.cvs/app/story-xml/src/story3/story-template2.sdt,v $" />
-        <pub-date>YYYY-MM-DD</pub-date>
-        <meta-description>book description</meta-description>
-        <keywordset>word, word</keywordset>
-        <edition>1</edition>
-        <authorgroup>
-          <author>
-            <firstname></firstname>
-            <surname></surname>
-            <authorblurb />
-          </author>
-        </authorgroup>
-      </bookinfo>
-      <def-book>
-        <style preview-thread="main" style-ref="main" />
-        <def-style id="main" content-ref="main" print-ref="main"
-        draft-ref="main" draft="0" debug="0" />
-        <def-content id="main" ch-preface="1" preface="1" prolog="1"
-        thread="main" page-draft="0" page-in-progress="0" page-done="1"
-        book-draft="0" book-in-progress="0" book-done="1" ch-draft="0"
-        ch-in-progress="0" ch-done="1" unit-draft="0" unit-in-progress="0"
-        unit-done="1" link-fmt="default" />
-        <def-content id="manuscript" ch-preface="0" preface="1" prolog="1"
-        thread="main" page-draft="0" page-in-progress="0" page-done="1"
-        book-draft="0" book-in-progress="0" book-done="1" ch-draft="0"
-        ch-in-progress="0" ch-done="1" unit-draft="0" unit-in-progress="0"
-        unit-done="1" link-fmt="text" />
-        <def-draft id="main" def-base="1" def-img="1" def-link="1" def-who="1"
-        def-where="1" def-thread="1" unit-title="1" unit-when="1"
-        unit-where="1" unit-who="1" unit-outline="1" thread-all="0"
-        thread-ref="1" thread-id-vp="1" thread-all-vp="1" timeline="0" />
-        <def-draft id="manuscript" def-base="0" def-img="0" def-link="0"
-        def-who="0" def-where="0" def-thread="0" unit-title="0" unit-when="0"
-        unit-where="0" unit-who="0" unit-outline="0" thread-ref="0"
-        thread-id-vp="0" thread-all-vp="0" />
-        <def-print id="main" content-ref="main" draft-ref="main" multi-file="0"
-        output-type="ps" toc="1" copyright="standard" page="6x9in"
-        margin="0.5in" gutter="0.3in" body-size="15" body-family="times"
-        head-size="20" title-size="25" head-family="times" ch-title-size="20"
-        ch-title-family="times" line-height="120" duplex="1"
-        header-type="title-author" bgcolor="white" text="black" draft="$ff6600"
-        next-prev="1" link="#0000ff" alink="#0000ff" vlink="#ff00ff" />
-        <def-print id="manuscript" content-ref="manuscript"
-        draft-ref="manuscript" multi-file="0" output-type="pdf" toc="0"
-        copyright="none" page="8.5x11in" margin="1in" gutter="0" font-size="15"
-        font-family="times" line-height="240" duplex="0"
-        header-type="page-no" />
-        <def-base id="ext" />
-        <def-base id="main">http://www.moria.dynu.com/</def-base>
-        <def-base id="test">file:///home/george/story/src/</def-base>
-        <def-img id="offsite" url="icon/link.png" base="main">offsite
-        link</def-img>
-        <def-img id="folder" url="icon/folder.png" base="main">folder</def-img>
-        <def-link id="google" url="http://www.google.com" base="ext"
-        ref="offsite">Google</def-link>
-        <def-who id="hero">
-          <p>describe a character</p>
-        </def-who>
-        <def-where id="where1">
-          <p>describe a location</p>
-        </def-where>
-        <def-thread id="main">
-          <p>describe the thread</p>
-        </def-thread>
-        <file-prefix>ch</file-prefix>
-        <ch-preface>
-          <title>Disclamer</title>
-          <p>placed before preface, if single file, or each chapter, if chapter
-          files are output</p>
-        </ch-preface>
-      </def-book>
-      <preface>
-        <title>Preface</title>
-        <p>placed before all chapters</p>
-      </preface>
-      <chapter id="1" status="in-progress">
-        <title>chapter title</title>
-        <chapterinfo>
-          <releaseinfo rev="$Revision: 1.1 $"
-          date="$Date: 2007/12/24 02:53:58 $"
-          source="$Source: /repo/local.cvs/app/story-xml/src/story3/story-template2.sdt,v $" />
-          <pub-date>YYYY-MM-DD</pub-date>
-        </chapterinfo>
-        <prolog>
-          <title>Prolog</title>
-          <p>placed at beginning of chapter</p>
-        </prolog>
-        <unit id="1" status="in-progress" type="sequel">
-        <title>summary title</title>
+  <!--
+If there are problems, be sure there are no spaces at beginning or
+end of attribute values.
+-->
+  <t:name>Story4</t:name>
+  <t:xml-schema>$SERNA_TEMPLATE_DIR/story-schema.xsd</t:xml-schema>
+  <t:xml-stylesheet>$SERNA_TEMPLATE_DIR/story-serna-2.xsl</t:xml-stylesheet>
+  <t:toc-stylesheet>$SERNA_TEMPLATE_DIR/story-toc.xsl</t:toc-stylesheet>
+  <t:dtd-sysid>story4/story.dtd</t:dtd-sysid>
+  <t:dtd-guess-string>story-dtd version=&quot;4&quot;</t:dtd-guess-string>
+  <t:show-tags>1</t:show-tags>
+  <t:spellcheck>
+    <t:skip-elements> */id release-info def-style def-content def-print def-draft </t:skip-elements>
+  </t:spellcheck>
+  <t:element-help>$SERNA_TEMPLATE_DIR/story-help.xml</t:element-help>
+  <t:root-elements>content</t:root-elements>
+  <t:document-skeleton>
+    <t:name>Minimal</t:name>
+    <t:content>
+<content>
+  <story-dtd version="4"/>
+  <book id="book" revision="in-progress">
+    <title/>
+    <subtitle/>
+    <title-abbrev/>
+    <book-info>
+      <author-group>
+        <author>
+          <first-name/>
+          <surname/>
+        </author>
+      </author-group>
+      <release-info date="$Date: 2008/06/24 05:35:39 $" rev="$Revision: 1.7 $"/>
+      <pub-date>2008</pub-date>
+      <copyright>
+        <year>2008</year>
+        <holder>AuthorName</holder>
+      </copyright>
+      <biblio-id class="isbn">123456-123456</biblio-id>
+      <biblio-id class="uri">http:://books.lulu.com/content/1234567</biblio-id>
+      <keyword-set>word, word</keyword-set>
+      <abstract>
+        <para>Brief description.</para>
+      </abstract>
+    </book-info>
+    <style-info style-ref="main" thread-refs="main">
+      <def-style content-ref="main" debug="0" draft="0" draft-ref="main" print-ref="main" id="main"/>
+      <def-content link-fmt="default" thread-refs="main" id="main"/>
+      <def-draft id="main"/>
+      <def-print bgcolor="white" body-family="times" body-size="12pt" ch-title-family="times" ch-title-size="20pt" ch-page-break="some-odd" copyright-type="standard" draft="red" duplex="1" gutter="0.3in" head-align="left" head-family="times" head-location="top" head-size="16pt" head-type="title" line-height="110" margin="0.5in" multi-file="0" output-type="pdf" page="6x9in" text="black" title-family="times" title-size="24pt" toc="1" id="main"/>
+      <meta-description>html meta description</meta-description>
+      <file-prefix/>
+    </style-info>
+    <story-info>
+      <def-when year="2008" month="01" day="01" hour="08" min="00" gmt="-08"/>
+      <def-thread id="main"/>
+      <def-who id="hero">
+        <para>Describe the hero</para>
+      </def-who>
+      <def-who id="villain">
+        <para>Describe</para>
+      </def-who>
+      <def-where id="beach">
+        <para>Describe scene location</para>
+      </def-where>
+      <ch-preface>
+        <title>Disclaimer</title>
+        <para>This is put at the beginning of multi-file book chapter files.</para>
+      </ch-preface>
+    </story-info>
+    <preface>
+      <title>Preface</title>
+      <para>Printed before all chapters.</para>
+    </preface>
+    <chapter id="ch1" revision="in-progress">
+      <title/>
+      <subtitle/>
+      <title-abbrev/>
+      <chapter-info>
+        <release-info date="$Date: 2008/06/24 05:35:39 $" rev="$Revision: 1.7 $"/>
+        <pub-date>2008</pub-date>
+      </chapter-info>
+      <prolog>
+        <title>Prolog</title>
+      </prolog>
+      <unit type="scene" id="u1" revision="in-progress">
+        <title>Unit title</title>
         <outline>
           <when>
-            <!--
-  start-date: yyyy-mm-dd(Thh:mmZ(-)nnnn)
-  duration: PyyyyYmmMddD(ThhHmmM) or
-  end-date: yyyy-mm-dd(Thh:mmZ(-)nnn)
-  -->
-            <start-date>2006-01-01T13:00Z-0800</start-date>
-            <duration>P0Y0M0DT2H5M</duration>
+            <start-date min="0"/>
+            <end-date min="0"/>
             <description>
-              <p>describe when</p>
+              <para/>
             </description>
           </when>
-          <where ref="where1">
-            <p>additional description, differences</p>
+          <where ref="beach">
+            <para>additional description</para>
           </where>
           <who ref="hero">
-            <p>additional description, differences</p>
+            <para>additional description.</para>
           </who>
           <description>
-            <p>This text will only be output with 'drafts'</p>
+            <para>Describe this unit.</para>
           </description>
         </outline>
-        <thread refs="main" who-refs="hero">
-          <s who-ref="hero">Say text example (ref is optional).</s>
+        <thread ref="main" who-refs="hero">
+          <p>Paragraph</p>
+          <s who-ref="hero">&quot;What?&quot; said the hero.</s>
+          <t who-ref="hero">Thought text.</t>
+          <t who-ref="bob">Non-view point character thought (not printed.)</t>
         </thread>
-        <thread refs="main" who-refs="hero">
-          <t who-ref="hero">Thought text example (ref is required).</t>
-          <p>Paragraph text example.</p>
-        </thread>p</unit>
-        <postlog>
-          <title>Postlog</title>
-          <p>placed at end of chapter</p>
-        </postlog>
-      </chapter>
-      <epilog>
-        <title>Epilog</title>
-        <p>placed after all chapters</p>
-      </epilog>
-    </book>
-  </t:document-root>
+      </unit>
+      <postlog>
+        <title>Postlog</title>
+      </postlog>
+    </chapter>
+  </book>
+</content>
+    </t:content>
+  </t:document-skeleton>
+  <t:document-skeleton>
+    <t:name>Full</t:name>
+    <t:content>
+<content>
+  <story-dtd version="4" />
+  <book id="book" revision="in-progress">
+    <title>Book Title</title>
+    <subtitle>subtitle</subtitle>
+    <title-abbrev>abbrev</title-abbrev>
+    <book-info>
+      <author-group>
+        <author>
+          <first-name />
+          <surname />
+          <email />
+          <author-blurb>
+            <para />
+          </author-blurb>
+        </author>
+      </author-group>
+      <release-info date="$Date: 2008/06/24 05:35:39 $"  rev="$Revision: 1.7 $" file="file.name.xml" repository="fiction/book1" root="/data/local.cvs" source="$Source: /repo/local.cvs/app/story-xml/src/story4/story-template2.sdt,v $" />
+      <pub-date>2008</pub-date>
+      <copyright>
+        <year>2008</year>
+        <holder>AuthorName</holder>
+      </copyright>
+      <biblio-id class="isbn">123456-123456</biblio-id>
+      <biblio-id class="uri">http:://books.lulu.com/content/1234567</biblio-id>
+      <keyword-set>word, word</keyword-set>
+      <abstract>
+        <para>Brief description.</para>
+      </abstract>
+    </book-info>
+    <style-info style-ref="main" thread-refs="main">
+      <def-style content-ref="main" debug="0" draft="0" draft-ref="main" print-ref="main" id="main">
+        <para>Optional: define this style.</para>
+      </def-style>
+      <def-content link-fmt="default" thread-refs="main" id="main" ch-draft="1" ch-final="1" ch-in-progress="1" ch-preface="1" preface="1" prolog="1" unit-draft="1" unit-final="1" unit-in-progress="1">
+        <para>Optional: define this content setting.</para>
+      </def-content>
+      <def-draft id="main" def-base="0" def-img="1" def-link="1" def-thread="1" def-when="1" def-where="1" def-who="1" deleted="1" thread-all="1" thread-all-vp="1" thread-content="1" thread-id-vp="1" thread-ref="1" timeline="1" unit-outline="1" unit-title="1" unit-when="1" unit-where="1" unit-who="1">
+        <para>Optional: define the draft setting.</para>
+      </def-draft>
+      <def-print bgcolor="white" body-family="times" body-size="12pt" ch-title-family="times" ch-title-size="20pt" ch-page-break="some-odd" copyright-type="standard" draft="red" duplex="1" gutter="0.3in" head-align="left" head-family="times" head-location="top" head-size="16pt" head-type="title" line-height="110" margin="0.5in" multi-file="0" output-type="pdf" page="6x9in" text="black" title-family="times" title-size="24pt" toc="1" id="main" alink="purple" auto-break="0" bleed-bottom="0" bleed-left="0" bleed-right="0" bleed-top="0" link="blue" next-prev="1" vlink="red">
+        <para>Optional: define the print setting.</para>
+      </def-print>
+      <meta-description>html meta description</meta-description>
+      <file-prefix />
+    </style-info>
+    <story-info>
+      <def-when year="2008" month="01" day="01" hour="08" min="00" gmt="-08" />
+      <def-thread id="main">
+        <para>Describe the plot thread.</para>
+      </def-thread>
+      <def-who id="hero">
+        <para>Describe the hero</para>
+      </def-who>
+      <def-who id="villain">
+        <para>Describe</para>
+      </def-who>
+      <def-where id="beach">
+        <para>Describe scene location</para>
+      </def-where>
+      <ch-preface>
+        <title>Disclaimer</title>
+        <para>This is put at the beginning of multi-file book chapter
+        files.</para>
+      </ch-preface>
+    </story-info>
+    <preface>
+      <title>Preface</title>
+      <para>Printed before all chapters.</para>
+    </preface>
+    <chapter id="ch1" revision="in-progress">
+      <title>Chaper Title</title>
+      <subtitle>subtitle</subtitle>
+      <title-abbrev>ch-abbrev</title-abbrev>
+      <chapter-info>
+        <release-info date="$Date: 2008/06/24 05:35:39 $" rev="$Revision: 1.7 $" svn-path="$URL$" />
+        <pub-date>2008</pub-date>
+      </chapter-info>
+      <prolog>
+        <title>Prolog</title>
+        <para>Prolog text prints at beginning of chapter.</para>
+      </prolog>
+      <unit type="scene" id="u1" revision="in-progress">
+        <title>Unit title</title>
+        <outline>
+          <when>
+            <start-date min="0" hour="9" day="5" month="2" />
+            <end-date min="0" hour="13" />
+            <description>
+              <para>More details about this time.</para>
+            </description>
+          </when>
+          <where ref="beach">
+            <para>additional description</para>
+          </where>
+          <who ref="hero">
+            <para>additional description.</para>
+          </who>
+          <description>
+            <para>Describe this unit.</para>
+            <pre-fmt>This is where the scene or sequel is
+            outlined.</pre-fmt>
+          </description>
+        </outline>
+        <thread ref="main" who-refs="hero" revision-flag="added">
+          <p>Paragraph</p>
+          <s who-ref="hero">"What?" said the hero.</s>
+          <t who-ref="hero">Thought text.</t>
+          <t who-ref="bob">Non-view point character thought (not
+          printed.)</t>
+        </thread>
+      </unit>
+      <postlog>
+        <title>Postlog</title>
+        <para>This is printed at the end of the chapter.</para>
+      </postlog>
+    </chapter>
+  </book>
+</content>
+    </t:content>
+  </t:document-skeleton>
   <t:publish>
-    <t:name>pdfFop</t:name>
-    <t:inscription>PDF (with FOP)</t:inscription>
-    <t:extension>pdf</t:extension>
-    <t:script>runFop</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story/story-pdf.xsl</t:stylesheet>
+    <t:name>draft</t:name>
+    <t:inscription>Draft only html files</t:inscription>
+    <t:extension>draft.html</t:extension>
+    <t:script>pub-xsltproc-multi</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-draft.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>html</t:name>
-    <t:inscription>HTML (with xsltproc)</t:inscription>
+    <t:inscription>Single html file</t:inscription>
     <t:extension>html</t:extension>
-    <t:script>runXsltProc</t:script>
-    <t:stylesheet>$SERNA_STYLESHEETS/story/story-html.xsl</t:stylesheet>
+    <t:script>pub-xsltproc</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-html.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>MultipleHTML</t:name>
+    <t:inscription>Multiple html files</t:inscription>
+    <t:extension>multi.html</t:extension>
+    <t:script>pub-xsltproc-multi</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-ch-html.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>pdf</t:name>
+    <t:inscription>Single PDF</t:inscription>
+    <t:extension>pdf</t:extension>
+    <t:script>pub-fop-pdf</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-pdf.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>ps</t:name>
+    <t:inscription>Single PS</t:inscription>
+    <t:extension>ps</t:extension>
+    <t:script>pub-fop-ps</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-pdf.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>Project</t:name>
+    <t:inscription>OpenProj (MS Project)</t:inscription>
+    <t:extension>proj.xml</t:extension>
+    <t:script>pub-xsltproc</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-project.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>docbook</t:name>
+    <t:inscription>Translate story xml to docbook xml</t:inscription>
+    <t:extension>docbook.xml</t:extension>
+    <t:script>pub-xsltproc</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/story-docbook.xsl</t:stylesheet>
+  </t:publish>
+  <t:publish>
+    <t:name>Convert-3to4</t:name>
+    <t:inscription>Convert story Ver3 dtd to Ver4 dtd</t:inscription>
+    <t:extension>ver4.xml</t:extension>
+    <t:script>convert-3to4</t:script>
+    <t:stylesheet>$SERNA_TEMPLATE_DIR/convert-3to4.xsl</t:stylesheet>
   </t:publish>
 </t:document-template>

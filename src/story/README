@@ -1,0 +1,78 @@
+src/story4/README - describe file contents and use.
+
+Makefile - generate schema.xsd from story.dtd
+story.dtd
+schema.xsd - modified to create: story-schema.xsd
+
+Serna1
+------
+story-template1.xml
+story-schema.xsd - uses serna xslbricks to format editor view
+story-serna.xsl
+story-toc.xsl
+
+Serna3
+------
+story-template2.sdt
+story-schema.xsd
+story-serna.xsl - uses serna xslbricks to format editor view
+story-toc.xsl - a basic default toc
+story-help.xml - help tip text for elements and attributes
+
+editix
+------
+
+Include Files
+-------------
+story-com-param.xsl - only params are defined in this file
+story-com-html.xsl - some params are defined at beginning of file
+story-com.xsl - mostly utility call-templates
+story-timeline.xsl - timeline call-templates
+
+Print Templates
+---------------
+
+story-ch-html.xsl - print multi-file html output
+	story-com-param.xsl
+	story-com-html.xsl
+	story-com.xsl
+
+story-docbook.xsl - print a docbook version of the story (filtered)
+	story-com-param.xsl
+	story-com.xsl
+
+story-draft.xsl - print a draft html version of the book,
+                  for all of the parts defined in def-draft,
+                  def-content, and def-print.  Also print an
+                  HTML timeline table.
+	story-com-param.xsl
+	story-com-html.xsl
+	story-com.xsl
+	story-timeline.xsl
+
+story-html.xsl - print an html version of the book
+	story-com-param.xsl
+	story-com-html.xsl
+	story-com.xsl
+
+story-pdf.xsl - print a pdf or ps version of the book
+	story-com-param.xsl
+	story-com.xsl
+
+story-planner.xsl - generate a "planner" (MrProject)
+                   application file.  (Note, the
+                   story-project is better and available on
+                   all platforms.)
+	story-com-param.xsl
+	story-com-html.xsl
+	story-com.xsl
+	story-timeline.xsl
+
+story-project.xsl - generate a MS Project 2003 application
+                    file.  This file can also be imported to
+                    OpenProj, which is available on all
+                    platforms.
+	story-com-param.xsl
+	story-com-html.xsl
+	story-com.xsl
+	story-timeline.xsl
