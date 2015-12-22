@@ -1,0 +1,426 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>xslt10.dtd</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
+<STYLE TYPE="text/css">
+  STRONG { font-weight: bold; color: red;}
+  .COMMENT { font-style:italic; color: #A8A8A8;}
+</STYLE>
+</HEAD>
+<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>xslt10.dtd</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
+<PRE><SPAN CLASS="COMMENT">&lt;!--*
+    * XSLT DTD.  Mostly copied from appendix C of the XSLT spec
+    * (http://www.w3.org/TR/xslt#dtd), but with some minor changes by
+    * CMSMcQ, mostly added commentary.
+    * Revisions:
+    * 2006-12-31 : MSM : move to /People/cmsmcq/lib
+    * 2006-12-30 : MSM : move to www.w3.org/XML/Public
+    * 2001-10-27 : MSM : add pe to allow adding attributes to top level,
+    *   to allow use of Saxon-specific elements
+    * 2001-07-06 : MSM : copy to SGML/Public/W3C, add to .emacs
+    * 2001-02-01/02 : MSM : made file (Bergen) as part of schemas for specs TF
+    *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!--* PEs intended for modification by user: *--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.result-elements"><STRONG>result-elements</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.non-xsl-instructions"><STRONG>non-xsl-instructions</STRONG></A> ""&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--*
+    * From here, copied without change except for adding comments on
+    * MSM's test schema for XSLT.
+    *--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!--* make char-instruction an abstract element, head of a 
+    * substitution group, and member of substitution group of 'instruction'.
+    *--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.char-instructions"><STRONG>char-instructions</STRONG></A> "
+  | <A HREF="xslt10.dtd.html#ElementDef15">xsl:apply-templates</A>
+  | <A HREF="xslt10.dtd.html#ElementDef24">xsl:call-template</A>
+  | <A HREF="xslt10.dtd.html#ElementDef16">xsl:apply-imports</A>
+  | <A HREF="xslt10.dtd.html#ElementDef17">xsl:for-each</A>
+  | <A HREF="xslt10.dtd.html#ElementDef12">xsl:value-of</A>
+  | <A HREF="xslt10.dtd.html#ElementDef13">xsl:copy-of</A>
+  | <A HREF="xslt10.dtd.html#ElementDef14">xsl:number</A>
+  | <A HREF="xslt10.dtd.html#ElementDef20">xsl:choose</A>
+  | <A HREF="xslt10.dtd.html#ElementDef19">xsl:if</A>
+  | <A HREF="xslt10.dtd.html#ElementDef28">xsl:text</A>
+  | <A HREF="xslt10.dtd.html#ElementDef33">xsl:copy</A>
+  | <A HREF="xslt10.dtd.html#ElementDef26">xsl:variable</A>
+  | <A HREF="xslt10.dtd.html#ElementDef34">xsl:message</A>
+  | <A HREF="xslt10.dtd.html#ElementDef35">xsl:fallback</A>
+"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make instruction an abstract element, head of a 
+    * substitution group
+    *--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.instructions"><STRONG>instructions</STRONG></A> "
+  <A HREF="xslt10.dtd.html#EntityDef.char-instructions">%char-instructions;</A>
+  | <A HREF="xslt10.dtd.html#ElementDef29">xsl:processing-instruction</A>
+  | <A HREF="xslt10.dtd.html#ElementDef32">xsl:comment</A>
+  | <A HREF="xslt10.dtd.html#ElementDef30">xsl:element</A>
+  | <A HREF="xslt10.dtd.html#ElementDef31">xsl:attribute</A>
+  <A HREF="xslt10.dtd.html#EntityDef.non-xsl-instructions">%non-xsl-instructions;</A>
+"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make char-template a complex type *--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.char-template"><STRONG>char-template</STRONG></A> "
+ (#PCDATA
+  <A HREF="xslt10.dtd.html#EntityDef.char-instructions">%char-instructions;</A>)*
+"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make template a complex type *--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.template"><STRONG>template</STRONG></A> "
+ (#PCDATA
+  <A HREF="xslt10.dtd.html#EntityDef.instructions">%instructions;</A>
+  <A HREF="xslt10.dtd.html#EntityDef.result-elements">%result-elements;</A>)*
+"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* use simple type xsd:uriReference *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Used for the type of an attribute value that is a URI reference.--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.URI"><STRONG>URI</STRONG></A> "CDATA"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make simple type xslt:Pattern *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Used for the type of an attribute value that is a pattern.--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.pattern"><STRONG>pattern</STRONG></A> "CDATA"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make simple type xslt:avt *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Used for the type of an attribute value that is an
+     attribute value template.--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.avt"><STRONG>avt</STRONG></A> "CDATA"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make simple type xslt:QName from simple type xsd:QName *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Used for the type of an attribute value that is a QName; the prefix
+     gets expanded by the XSLT processor. --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.qname"><STRONG>qname</STRONG></A> "NMTOKEN"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make simple type xslt:QNameList *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Like qname but a whitespace-separated list of QNames. --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.qnames"><STRONG>qnames</STRONG></A> "NMTOKENS"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make simple type xslt:Expression from simple type XPath:Expr *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Used for the type of an attribute value that is an expression.--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.expr"><STRONG>expr</STRONG></A> "CDATA"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make simple type xslt:Char from simple type xsd:string *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Used for the type of an attribute value that consists
+     of a single character.--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.char"><STRONG>char</STRONG></A> "CDATA"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make simple type xslt:Priority from simple type xsd:float *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Used for the type of an attribute value that is a priority. --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.priority"><STRONG>priority</STRONG></A> "NMTOKEN"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* do nothing with this.  Just refer in appropriate places to
+    * xml:space
+    *--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.space-att"><STRONG>space-att</STRONG></A> "xml:space (default|preserve) #IMPLIED"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make named model group xslt:non-xsl-top-level (empty choice) *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- This may be overridden to customize the set of elements allowed
+at the top-level. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.non-xsl-top-level"><STRONG>non-xsl-top-level</STRONG></A> ""&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make complex type top-level, for stylesheet and transform *--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.top-level"><STRONG>top-level</STRONG></A> "
+ (<A HREF="xslt10.dtd.html#ElementDef3">xsl:import</A>*,
+  (<A HREF="xslt10.dtd.html#ElementDef4">xsl:include</A>
+  | <A HREF="xslt10.dtd.html#ElementDef5">xsl:strip-space</A>
+  | <A HREF="xslt10.dtd.html#ElementDef6">xsl:preserve-space</A>
+  | <A HREF="xslt10.dtd.html#ElementDef7">xsl:output</A>
+  | <A HREF="xslt10.dtd.html#ElementDef8">xsl:key</A>
+  | <A HREF="xslt10.dtd.html#ElementDef9">xsl:decimal-format</A>
+  | <A HREF="xslt10.dtd.html#ElementDef23">xsl:attribute-set</A>
+  | <A HREF="xslt10.dtd.html#ElementDef26">xsl:variable</A>
+  | <A HREF="xslt10.dtd.html#ElementDef27">xsl:param</A>
+  | <A HREF="xslt10.dtd.html#ElementDef11">xsl:template</A>
+  | <A HREF="xslt10.dtd.html#ElementDef10">xsl:namespace-alias</A>
+  <A HREF="xslt10.dtd.html#EntityDef.non-xsl-top-level">%non-xsl-top-level;</A>)*)
+"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.x-top-level-atts"><STRONG>x-top-level-atts</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.top-level-atts"><STRONG>top-level-atts</STRONG></A> '
+  extension-element-prefixes CDATA #IMPLIED
+  exclude-result-prefixes CDATA #IMPLIED
+  id ID #IMPLIED
+  version NMTOKEN #REQUIRED
+  xmlns:xsl CDATA #FIXED "http://www.w3.org/1999/XSL/Transform"
+  <A HREF="xslt10.dtd.html#EntityDef.x-top-level-atts">%x-top-level-atts;</A>
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+'&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make attribute group, for target-NS elements *--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- This entity is defined for use in the ATTLIST declaration
+for result elements. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.result-element-atts"><STRONG>result-element-atts</STRONG></A> '
+  xsl:extension-element-prefixes CDATA #IMPLIED
+  xsl:exclude-result-prefixes CDATA #IMPLIED
+  xsl:use-attribute-sets <A HREF="xslt10.dtd.html#EntityDef.qnames">%qnames;</A> #IMPLIED
+  xsl:version NMTOKEN #IMPLIED
+'&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--* make top level elements *--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef1"></A><STRONG>xsl:stylesheet</STRONG> <A HREF="xslt10.dtd.html#EntityDef.top-level">%top-level;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef1"></A><STRONG>xsl:stylesheet</STRONG> <A HREF="xslt10.dtd.html#EntityDef.top-level-atts">%top-level-atts;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef2"></A><STRONG>xsl:transform</STRONG> <A HREF="xslt10.dtd.html#EntityDef.top-level">%top-level;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef2"></A><STRONG>xsl:transform</STRONG> <A HREF="xslt10.dtd.html#EntityDef.top-level-atts">%top-level-atts;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef3"></A><STRONG>xsl:import</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef3"></A><STRONG>xsl:import</STRONG> href <A HREF="xslt10.dtd.html#EntityDef.URI">%URI;</A> #REQUIRED&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef4"></A><STRONG>xsl:include</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef4"></A><STRONG>xsl:include</STRONG> href <A HREF="xslt10.dtd.html#EntityDef.URI">%URI;</A> #REQUIRED&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef5"></A><STRONG>xsl:strip-space</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef5"></A><STRONG>xsl:strip-space</STRONG> elements CDATA #REQUIRED&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef6"></A><STRONG>xsl:preserve-space</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef6"></A><STRONG>xsl:preserve-space</STRONG> elements CDATA #REQUIRED&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef7"></A><STRONG>xsl:output</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef7"></A><STRONG>xsl:output</STRONG>
+  method <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #IMPLIED
+  version NMTOKEN #IMPLIED
+  encoding CDATA #IMPLIED
+  omit-xml-declaration (yes|no) #IMPLIED
+  standalone (yes|no) #IMPLIED
+  doctype-public CDATA #IMPLIED
+  doctype-system CDATA #IMPLIED
+  cdata-section-elements <A HREF="xslt10.dtd.html#EntityDef.qnames">%qnames;</A> #IMPLIED
+  indent (yes|no) #IMPLIED
+  media-type CDATA #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef8"></A><STRONG>xsl:key</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef8"></A><STRONG>xsl:key</STRONG>
+  name <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #REQUIRED
+  match <A HREF="xslt10.dtd.html#EntityDef.pattern">%pattern;</A> #REQUIRED
+  use <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #REQUIRED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef9"></A><STRONG>xsl:decimal-format</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef9"></A><STRONG>xsl:decimal-format</STRONG>
+  name <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #IMPLIED
+  decimal-separator <A HREF="xslt10.dtd.html#EntityDef.char">%char;</A> "."
+  grouping-separator <A HREF="xslt10.dtd.html#EntityDef.char">%char;</A> ","
+  infinity CDATA "Infinity"
+  minus-sign <A HREF="xslt10.dtd.html#EntityDef.char">%char;</A> "-"
+  NaN CDATA "NaN"
+  percent <A HREF="xslt10.dtd.html#EntityDef.char">%char;</A> "&amp;#x25;"
+  per-mille <A HREF="xslt10.dtd.html#EntityDef.char">%char;</A> "&amp;#x2030;"
+  zero-digit <A HREF="xslt10.dtd.html#EntityDef.char">%char;</A> "0"
+  digit <A HREF="xslt10.dtd.html#EntityDef.char">%char;</A> "#"
+  pattern-separator <A HREF="xslt10.dtd.html#EntityDef.char">%char;</A> ";"
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--* default value of percent was "%", indirection added to get
+    * it past Saxon *--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef10"></A><STRONG>xsl:namespace-alias</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef10"></A><STRONG>xsl:namespace-alias</STRONG>
+  stylesheet-prefix CDATA #REQUIRED
+  result-prefix CDATA #REQUIRED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef11"></A><STRONG>xsl:template</STRONG>
+ (#PCDATA
+  <A HREF="xslt10.dtd.html#EntityDef.instructions">%instructions;</A>
+  <A HREF="xslt10.dtd.html#EntityDef.result-elements">%result-elements;</A>
+  | <A HREF="xslt10.dtd.html#ElementDef27">xsl:param</A>)*
+&gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef11"></A><STRONG>xsl:template</STRONG>
+  match <A HREF="xslt10.dtd.html#EntityDef.pattern">%pattern;</A> #IMPLIED
+  name <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #IMPLIED
+  priority <A HREF="xslt10.dtd.html#EntityDef.priority">%priority;</A> #IMPLIED
+  mode <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #IMPLIED
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef12"></A><STRONG>xsl:value-of</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef12"></A><STRONG>xsl:value-of</STRONG>
+  select <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #REQUIRED
+  disable-output-escaping (yes|no) "no"
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef13"></A><STRONG>xsl:copy-of</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef13"></A><STRONG>xsl:copy-of</STRONG> select <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #REQUIRED&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef14"></A><STRONG>xsl:number</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef14"></A><STRONG>xsl:number</STRONG>
+   level (single|multiple|any) "single"
+   count <A HREF="xslt10.dtd.html#EntityDef.pattern">%pattern;</A> #IMPLIED
+   from <A HREF="xslt10.dtd.html#EntityDef.pattern">%pattern;</A> #IMPLIED
+   value <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #IMPLIED
+   format <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> '1'
+   lang <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #IMPLIED
+   letter-value <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #IMPLIED
+   grouping-separator <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #IMPLIED
+   grouping-size <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef15"></A><STRONG>xsl:apply-templates</STRONG> (<A HREF="xslt10.dtd.html#ElementDef18">xsl:sort</A>|<A HREF="xslt10.dtd.html#ElementDef25">xsl:with-param</A>)*&gt;
+&lt;!ATTLIST <A NAME="AttlistDef15"></A><STRONG>xsl:apply-templates</STRONG>
+  select <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> "node()"
+  mode <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef16"></A><STRONG>xsl:apply-imports</STRONG> EMPTY&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- xsl:sort cannot occur after any other elements or
+any non-whitespace character --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef17"></A><STRONG>xsl:for-each</STRONG>
+ (#PCDATA
+  <A HREF="xslt10.dtd.html#EntityDef.instructions">%instructions;</A>
+  <A HREF="xslt10.dtd.html#EntityDef.result-elements">%result-elements;</A>
+  | <A HREF="xslt10.dtd.html#ElementDef18">xsl:sort</A>)*
+&gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef16"></A><STRONG>xsl:for-each</STRONG>
+  select <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #REQUIRED
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef18"></A><STRONG>xsl:sort</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef17"></A><STRONG>xsl:sort</STRONG>
+  select <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> "."
+  lang <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #IMPLIED
+  data-type <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> "text"
+  order <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> "ascending"
+  case-order <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef19"></A><STRONG>xsl:if</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef18"></A><STRONG>xsl:if</STRONG>
+  test <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #REQUIRED
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef20"></A><STRONG>xsl:choose</STRONG> (<A HREF="xslt10.dtd.html#ElementDef21">xsl:when</A>+, <A HREF="xslt10.dtd.html#ElementDef22">xsl:otherwise</A>?)&gt;
+&lt;!ATTLIST <A NAME="AttlistDef19"></A><STRONG>xsl:choose</STRONG> <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef21"></A><STRONG>xsl:when</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef20"></A><STRONG>xsl:when</STRONG>
+  test <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #REQUIRED
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef22"></A><STRONG>xsl:otherwise</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef21"></A><STRONG>xsl:otherwise</STRONG> <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef23"></A><STRONG>xsl:attribute-set</STRONG> (<A HREF="xslt10.dtd.html#ElementDef31">xsl:attribute</A>)*&gt;
+&lt;!ATTLIST <A NAME="AttlistDef22"></A><STRONG>xsl:attribute-set</STRONG>
+  name <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #REQUIRED
+  use-attribute-sets <A HREF="xslt10.dtd.html#EntityDef.qnames">%qnames;</A> #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef24"></A><STRONG>xsl:call-template</STRONG> (<A HREF="xslt10.dtd.html#ElementDef25">xsl:with-param</A>)*&gt;
+&lt;!ATTLIST <A NAME="AttlistDef23"></A><STRONG>xsl:call-template</STRONG>
+  name <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #REQUIRED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef25"></A><STRONG>xsl:with-param</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef24"></A><STRONG>xsl:with-param</STRONG>
+  name <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #REQUIRED
+  select <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef26"></A><STRONG>xsl:variable</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef25"></A><STRONG>xsl:variable</STRONG> 
+  name <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #REQUIRED
+  select <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef27"></A><STRONG>xsl:param</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef26"></A><STRONG>xsl:param</STRONG> 
+  name <A HREF="xslt10.dtd.html#EntityDef.qname">%qname;</A> #REQUIRED
+  select <A HREF="xslt10.dtd.html#EntityDef.expr">%expr;</A> #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef28"></A><STRONG>xsl:text</STRONG> (#PCDATA)&gt;
+&lt;!ATTLIST <A NAME="AttlistDef27"></A><STRONG>xsl:text</STRONG>
+  disable-output-escaping (yes|no) "no"
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef29"></A><STRONG>xsl:processing-instruction</STRONG> <A HREF="xslt10.dtd.html#EntityDef.char-template">%char-template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef28"></A><STRONG>xsl:processing-instruction</STRONG> 
+  name <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #REQUIRED
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef30"></A><STRONG>xsl:element</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef29"></A><STRONG>xsl:element</STRONG> 
+  name <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #REQUIRED
+  namespace <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #IMPLIED
+  use-attribute-sets <A HREF="xslt10.dtd.html#EntityDef.qnames">%qnames;</A> #IMPLIED
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef31"></A><STRONG>xsl:attribute</STRONG> <A HREF="xslt10.dtd.html#EntityDef.char-template">%char-template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef30"></A><STRONG>xsl:attribute</STRONG> 
+  name <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #REQUIRED
+  namespace <A HREF="xslt10.dtd.html#EntityDef.avt">%avt;</A> #IMPLIED
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef32"></A><STRONG>xsl:comment</STRONG> <A HREF="xslt10.dtd.html#EntityDef.char-template">%char-template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef31"></A><STRONG>xsl:comment</STRONG> <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef33"></A><STRONG>xsl:copy</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef32"></A><STRONG>xsl:copy</STRONG>
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+  use-attribute-sets <A HREF="xslt10.dtd.html#EntityDef.qnames">%qnames;</A> #IMPLIED
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef34"></A><STRONG>xsl:message</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef33"></A><STRONG>xsl:message</STRONG>
+  <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>
+  terminate (yes|no) "no"
+&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef35"></A><STRONG>xsl:fallback</STRONG> <A HREF="xslt10.dtd.html#EntityDef.template">%template;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef34"></A><STRONG>xsl:fallback</STRONG> <A HREF="xslt10.dtd.html#EntityDef.space-att">%space-att;</A>&gt;
+<?LIVEDTD EOF?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE></BODY></HTML>

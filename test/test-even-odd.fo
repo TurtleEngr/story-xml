@@ -1,0 +1,370 @@
+<!--
+Book layout 8.5x11, double sided
+	Title page
+		Title, author, contact email
+	Copyright page
+		disclamer...
+		edition
+		copyright years
+	Regular pages:
+		Sides 1in
+		Top/bottom: 3cm, 85pt
+		10pt font
+		single space
+		justify
+		odd pages:
+			book title, top left of each page
+			page numbers, top right of each page
+		even pages:
+			book title, top right of each page
+			page numbers, top left of each page
+		blank line between header and body
+-->
+
+<fo:root
+	xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	font-family="'Times New Roman', 'Times', 'serif'"
+	font-size="15pt"
+	line-height="120%"
+	text-align="start"
+>
+
+<fo:layout-master-set>
+
+  <fo:simple-page-master master-name="Title"
+	page-width="8.5in" page-height="5in"
+	margin-top="0.75in" margin-bottom="0.75in"
+	margin-left="1.25in" margin-right="0.75in"
+  >
+    <fo:region-body
+	margin-top="1in"
+	margin-bottom="0pt"
+    />
+  </fo:simple-page-master>
+
+  <fo:simple-page-master master-name="Copyright"
+	page-width="8.5in" page-height="5in"
+	margin-top="0.75in" margin-bottom="0.75in"
+	margin-left="1.25in" margin-right="0.75in"
+  >
+    <fo:region-body
+	margin-top="2in"
+	margin-bottom="40pt"
+    />
+  </fo:simple-page-master>
+
+  <fo:simple-page-master master-name="TOC"
+	page-width="8.5in" page-height="5in"
+	margin-top="0.75in" margin-bottom="0.75in"
+	margin-left="1.25in" margin-right="0.75in"
+  >
+    <fo:region-body
+	margin-top="40pt"
+	margin-bottom="0pt"
+    />
+  </fo:simple-page-master>
+
+  <fo:simple-page-master master-name="ChOdd"
+	page-width="8.5in" page-height="5in"
+	margin-top="0.75in" margin-bottom="0.75in"
+	margin-left="1.25in" margin-right="0.75in"
+  >
+    <fo:region-body
+	margin-top="40pt"
+	margin-bottom="0pt"
+    />
+    <fo:region-before extent="40pt" region-name="ChOddBefore"/>
+  </fo:simple-page-master>
+
+  <fo:simple-page-master master-name="ChEven"
+	page-width="8.5in" page-height="5in"
+	margin-top="0.75in" margin-bottom="0.75in"
+	margin-left="0.75in" margin-right="1.25in"
+  >
+    <fo:region-body
+	margin-top="40pt"
+	margin-bottom="0pt"
+    />
+    <fo:region-before extent="40pt" region-name="ChEvenBefore"/>
+  </fo:simple-page-master>
+
+
+  <fo:page-sequence-master master-name="Book">
+    <fo:single-page-master-reference master-reference="Title"/>
+    <fo:single-page-master-reference master-reference="Copyright"/>
+    <fo:single-page-master-reference master-reference="TOC"/>
+
+    <fo:repeatable-page-master-alternatives>
+
+      <fo:conditional-page-master-reference master-reference="ChOdd"
+        page-position="any" 
+        odd-or-even="odd"
+      />
+
+      <fo:conditional-page-master-reference master-reference="ChEven"
+        page-position="any" 
+        odd-or-even="even"
+      />
+
+    </fo:repeatable-page-master-alternatives>
+
+  </fo:page-sequence-master>
+
+</fo:layout-master-set>
+
+
+<fo:page-sequence master-reference="Book">
+
+  <!-- Page Numbering -->
+  <fo:static-content flow-name="ChOddBefore">
+    <fo:table table-layout="fixed" width="6.5in" border-collapse="collapse">
+      <fo:table-column column-width="3.25in"/>
+      <fo:table-column column-width="3.25in"/>
+      <fo:table-body>
+        <fo:table-row>
+          <fo:table-cell>
+            <fo:block text-align="left" line-height="60%">
+Book Title
+            </fo:block>
+          </fo:table-cell>
+          <fo:table-cell>
+            <fo:block text-align="right" line-height="60%">
+Page <fo:page-number/>
+            </fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+    <fo:block text-align="left" line-height="60%">
+      <fo:leader leader-pattern="rule" leader-length="6.5in"/>
+    </fo:block>
+  </fo:static-content>
+
+  <fo:static-content flow-name="ChEvenBefore">
+    <fo:table table-layout="fixed" width="6.5in" border-collapse="collapse">
+      <fo:table-column column-width="3.25in"/>
+      <fo:table-column column-width="3.25in"/>
+      <fo:table-body>
+        <fo:table-row>
+          <fo:table-cell>
+            <fo:block text-align="left" line-height="60%">
+Page <fo:page-number/>
+            </fo:block>
+          </fo:table-cell>
+          <fo:table-cell>
+            <fo:block text-align="right" line-height="60%">
+Book Title
+            </fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+    <fo:block text-align="left" line-height="60%">
+      <fo:leader leader-pattern="rule" leader-length="6.5in"/>
+    </fo:block>
+  </fo:static-content>
+
+  <!-- Title Page -->
+  <fo:flow flow-name="xsl-region-body">
+    <fo:block text-align="center" font-size="25pt" font-weight="bold">
+Book Title
+    </fo:block>
+    <fo:block text-align="center" font-size="15pt" font-weight="bold" break-after="page">
+by John Doe
+  </fo:block>
+
+  <!-- Copyright Page -->
+  <fo:block>
+Copyright 2003-2006
+  </fo:block>
+  <fo:block text-align="justify">
+Disclamer text. fsf sdf sdf sd f sdf ds sdf sd fsd f sf sdf sf sf sf sf sf sdf sf sfsd fsd fsf sf sf sfs fs fsf sdf f sfs fs fs fs fsf sdf sf sf sf f er ewr wr r r rew rwe rwe rew rwr r wr werw rw jjjj.
+  </fo:block>
+
+  <!-- TOC Page -->
+  <fo:block text-align="center" font-size="25pt" font-weight="bold" space-after="0.5in">
+Table of Contents
+  </fo:block>
+  <fo:block text-align-last="justify">
+Chapter 1 - A really really really really really really really long title
+    <fo:leader leader-length.minimum="12pt" leader-length.optimum="40pt"
+      leader-length.maximum="100%" leader-pattern="dots"/>
+    <fo:page-number-citation ref-id="N5"/>
+  </fo:block>
+  <fo:block break-after="odd-page" text-align-last="justify">
+Chapter 2 - Title
+    <fo:leader leader-length.minimum="12pt" leader-length.optimum="40pt"
+      leader-length.maximum="100%" leader-pattern="dots"/>
+    <fo:page-number-citation ref-id="N6"/>
+  </fo:block>
+
+
+  <!-- Chapter Pages -->
+  <fo:block id="N5" text-align="left" font-size="20pt" font-weight="bold">
+Chapter 1
+  </fo:block>
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewdf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block id="N6" font-size="20pt" font-weight="bold" break-before="page">
+Chapter 2
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+  <fo:block text-indent="30pt" text-align="justify" line-height="120%" orphans="3" widows="3">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+  </fo:block>
+
+</fo:flow>
+
+</fo:page-sequence>
+
+</fo:root>

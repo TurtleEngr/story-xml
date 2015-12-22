@@ -1,0 +1,125 @@
+<!--
+Book layout 8.5x11, double sided
+	Title page
+		Title, author, contact email
+	Copyright page
+		disclamer...
+		edition
+		copyright years
+	Regular pages:
+		Sides 1in
+		Top/bottom: 3cm, 85pt
+		10pt font
+		single space
+		justify
+		odd pages:
+			book title, top left of each page
+			page numbers, top right of each page
+		even pages:
+			book title, top right of each page
+			page numbers, top left of each page
+		blank line between header and body
+-->
+
+<fo:root
+	xmlns:fo="http://www.w3.org/1999/XSL/Format"
+	font-family="Times"
+	font-size="20pt"
+	text-align="start"
+>
+
+<fo:layout-master-set>
+  <fo:simple-page-master master-name="body"
+	page-width="5.5in" page-height="8.5in"
+	margin-top="0.75in" margin-bottom="0.75in"
+	margin-left="1.25in" margin-right="0.75in"
+  >
+    <fo:region-body region-name="xsl-region-body"
+	margin-top="40pt"
+	margin-bottom="0pt"
+    />
+    <fo:region-before extent="40pt"/>
+  </fo:simple-page-master>
+</fo:layout-master-set>
+
+<fo:page-sequence master-reference="body">
+
+  <fo:static-content flow-name="xsl-region-before">
+    <fo:table table-layout="fixed" width="3.5in" border-collapse="collapse">
+      <fo:table-column column-width="1.75in"/>
+      <fo:table-column column-width="1.75in"/>
+      <fo:table-body>
+        <fo:table-row>
+          <fo:table-cell>
+            <fo:block text-align="left" line-height="60%">
+Book Title
+            </fo:block>
+          </fo:table-cell>
+          <fo:table-cell>
+            <fo:block text-align="right" line-height="60%">
+Page <fo:page-number/>
+            </fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+    <fo:block text-align="left" line-height="60%">
+      <fo:leader leader-pattern="rule" leader-length="3.5in"/>
+    </fo:block>
+  </fo:static-content>
+
+  <fo:flow flow-name="xsl-region-body">
+    <fo:block id="N5">1. Chapter</fo:block>
+    <fo:block>Text</fo:block>
+    <fo:block id="N13">2. Chapter</fo:block>
+     <fo:block text-indent="30pt" text-align="justify" line-height="100%">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+    </fo:block>
+
+     <fo:block text-indent="30pt" text-align="justify" line-height="100%">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+    </fo:block>
+
+     <fo:block text-indent="30pt" text-align="justify" line-height="100%">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+    </fo:block>
+
+     <fo:block text-indent="30pt" text-align="justify" line-height="100%">
+For a description of X see page <fo:page-number-citation
+ref-id="N5"/>. sdf sd fsd f sdf ds fds f dsf sd fds f dsf dsf dsf dsf
+df ds fds fds fd sfds fsd fsd f sdf f df sd f df sdf sd ds fsd f sfs f
+fsfsd df ds fsd fsd fsd f ewf wer er r r rw r wer werwerwe rwer wer
+wer wer wer we rwe rrtgrgsghds fh gsfd fdg gf dfs f sdf sd sd d df d
+fJOJOJoJOHs fs df af ds fs gfds ghrthrt h e jh f sgfd hd hjd hgf d hfd
+gh dgfh fds hdgf jdhs gf hfg dfg h fg dfg hgf hg dfhj tfhjk yuk yu kui
+k h jgf hj k k fj hgd gs gs g rtsh rtsg rst hdrt htyd hrts hstr hdr
+hdr h rth ht hjyt jyt jyt h djh dty
+    </fo:block>
+
+  </fo:flow>
+</fo:page-sequence>
+</fo:root>

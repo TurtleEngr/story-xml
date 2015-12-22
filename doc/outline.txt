@@ -1,0 +1,63 @@
+html
+	single file
+		draft mode
+	multiple file (toc, chapters)
+		draft mode
+text
+	
+ps,pdf
+	single file
+	manuscript
+serna
+	xslbricks
+
+content (root)
+select-style
+	@style-ref
+	@preview-thread-ref
+style *
+	@id="Name"
+	@content-ref
+	@draft-ref
+	@html-ref
+	@print-ref
+	@format-ref
+def-content *
+	@ch-preface y/n
+	@preface y/n
+	@prolog y/n
+	@toc y/n
+	@thread-ref id
+	@book-ver-low
+	@book-ver-high
+	@ch-ver-low
+	@ch-ver-high
+	@unit-ver-low
+	@unit-ver-high
+	
+def-draft *
+def-html *
+def-print *
+def-format *
+	@link
+	@ch-id none|id|order
+	@ch-title y/n
+
+def-base *
+def-img *
+def-link *
+
+book *
+	abstract
+	ISBN
+
+------------
+
+Tools:
+	Output unit/when timeline in csv format
+	cvs to stylsheet that will update unit/when times (key: id)
+	sort unit/when by start times, use @content-ref to limit scope
+
+	Output minimal book meta, chapter meta (use style-select to limit)
+		(use this for making html pages for book links)
+	Output meta info in Lulu project order (text)

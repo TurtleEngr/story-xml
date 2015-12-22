@@ -1,0 +1,162 @@
+Todo
+----
+
+Where did I stop?  What is next?
+
+2009-05-09
+
+Add a man page for fop pkg - point to the installed doc files, and
+the web home.
+
+Add a man page for story-xml pkg - point to the install doc files, and
+the web home (initiallly moria, the Source Forge).
+
+To epm pkg, add man page for mkver.  Add a symlink mkver -> mkver.pl
+
+---------------
+
+* the multi-ch output needs a lot of re-work.
+
+* Move @draft and @debug from def-style to def-content.
+  - actually, remove @draft,  Leave @debug, and make it
+    toggle message output.
+
+* Remove pre-fmt (only pre is needed)
+
+* Get RenderX working better:
+
+	* The Courier font is proportional.  Type in spec file? - done
+
+	* The Copyright page flows into the next pages. - done
+
+	* Images are indented rather than being left justified.
+
+	* Document the changes needed to get fonts embedded.  Setup
+	  scripts which can hook up all the configurations needed.
+
+* Fix links in pdf file.  Also, (maybe url shouldn't always be in ().
+
+* img - inline or flow
+  html flow: align="left" style="margin: 1em"
+
+* Fix serna display of start/end dates, add def-when
+
+* Get the chapter file output mode working.
+
+* Take time valued from planner, and replace the times in the story
+
+* Clean up the Serna publish targets (pdf, ps, html, docbook, text)
+
+	* Modularize the template file: different story templates, and
+	  differenct publish backends
+
+* Get it running with newer Serna versions
+
+* Get this running in editix (i.e. with schema)
+
+* Clean up the docbook print
+
+* Fix up the def-content, def-draft, and def-print so that values can
+  be inherited from a previously defined default set.  This can be
+  recursive, but not circular.  Of course this could be simulated with
+  entities.
+
+* Publish the tool
+
+	* Create a complete sample book, from a non-copyrighted work.
+
+	* Create a book example with this tool, i.e. a user guide,
+	  tutorial, developer guide.  Publish on lulu.
+
+	* Put tool in sourceforge? (GNU license?)
+
+	* Submit tool to SynText (Serna)
+
+	* Submit tool to Lulu (show how it can be used with Serna and editix)
+	  Show how it can output Docbook
+
+* Add footnote support.
+
+      * html style: end of chapter, or end of book (after epilog)
+
+      * pdf style: end of page, end of chapter, or end of book
+
+* Add "Part I", "Part II", ... or "Book 1", "Book 2", ... headings?
+(This can be simulated with a chapter)
+
+* Try to get &#160; working, rather than indent, just in case
+browsers don't implement indent.  Actually provide the nbsp and br
+tag as a fmt option for browsers that don't use css.
+
+<style type="text/css">
+    <!--
+    body {
+	text-align: justify;
+	margin:     5%;
+    }
+    P { 
+	text-indent:   2em;
+        margin-top:    .1em;
+        margin-bottom: .1em;
+    }
+    H1,H2,H3,H4,H5,H6 {
+	text-align: left;
+	margin:     5%;
+    }
+    PRE {
+	font-size:   90%;
+	margin-left: 5%;
+    }
+    .indent {
+	text-indent:   2em;
+        margin-top:    .1em;
+        margin-bottom: .1em;
+    }
+    // -->
+</style>
+
+<p class="indent"></p>
+
+--------------
+pdf: "rev"
+    <xsl:choose>
+      <xsl:when test="@revision-flag='changed'">
+	<!-- if draft: ?, blue, else just text. FIX -->
+	<fo:inline text-decoration="underline"
+		   color="blue">
+	  <xsl:apply-templates />
+	</fo:inline>
+      </xsl:when>
+      <xsl:when test="@revision-flag='added'">
+	<!-- if draft: underine, green, else just text. FIX -->
+	<fo:inline text-decoration="underline"
+		   color="green">
+	  <xsl:apply-templates />
+	</fo:inline>
+      </xsl:when>
+      <xsl:when test="@revision-flag='deleted'">
+	<!-- if draft: strike, red, else no output FIX -->
+	<fo:inline text-decoration="line-through"
+		   color="red">
+	  <xsl:apply-templates />
+	</fo:inline>
+      </xsl:when>
+    </xsl:choose>
+
+=======================================================
+DONE
+
+* Get timeline working completely (there's a bug with duration) - done
+
+* Graph the timeline--import into planner project? - done
+
+* Put all "who" and "where" ids in timeline for each "when" period
+  (optional, and filter?) - done
+
+* Are there draft filters for just listing the who and where ids, or
+  the who and where ids and descriptions? - yes
+
+* Get draft HTML ouput working. - done
+
+* Apply the paragraph style with css, for html?  Done.
+

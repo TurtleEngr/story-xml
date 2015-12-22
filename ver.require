@@ -1,0 +1,8 @@
+%provides story-xml
+#%requires fop
+%requires xsltproc
+%requires perl
+#%requires perl-Config-General
+%requires libconfig-general-perl
+%requires tidy
+#%requires xdialog

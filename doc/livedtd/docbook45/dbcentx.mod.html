@@ -1,0 +1,437 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>dbcentx.mod</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
+<STYLE TYPE="text/css">
+  STRONG { font-weight: bold; color: red;}
+  .COMMENT { font-style:italic; color: #A8A8A8;}
+</STYLE>
+</HEAD>
+<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>dbcentx.mod</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
+<PRE><SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- DocBook character entities module V4.5 ............................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- File dbcentx.mod ..................................................... --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- Copyright 1992-2004 HaL Computer Systems, Inc.,
+     O'Reilly &amp; Associates, Inc., ArborText, Inc., Fujitsu Software
+     Corporation, Norman Walsh, Sun Microsystems, Inc., and the
+     Organization for the Advancement of Structured Information
+     Standards (OASIS).
+
+     $Id: dbcentx.mod.html,v 1.1 2009/04/21 07:29:47 bruce Exp $
+
+     Permission to use, copy, modify and distribute the DocBook DTD
+     and its accompanying documentation for any purpose and without fee
+     is hereby granted in perpetuity, provided that the above copyright
+     notice and this paragraph appear in all copies.  The copyright
+     holders make no representation about the suitability of the DTD for
+     any purpose.  It is provided "as is" without expressed or implied
+     warranty.
+
+     If you modify the DocBook DTD in any way, except for declaring and
+     referencing additional sets of general entities and declaring
+     additional notations, label your DTD as a variant of DocBook.  See
+     the maintenance documentation for more information.
+
+     Please direct all questions, bug reports, or suggestions for
+     changes to the docbook@lists.oasis-open.org mailing list. For more
+     information, see http://www.oasis-open.org/docbook/.
+--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- This module contains the entity declarations for the standard ISO
+     entity sets used by DocBook.
+
+     In DTD driver files referring to this module, please use an entity
+     declaration that uses the public identifier shown below:
+
+     &lt;!ENTITY % dbcent PUBLIC
+     "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN"
+     "dbcentx.mod"&gt;
+     %dbcent;
+
+     See the documentation for detailed information on the parameter
+     entity and module scheme used in DocBook, customizing DocBook and
+     planning for interchange, and changes made since the last release
+     of DocBook.
+--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+
+&lt;!<A NAME="MS10"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+
+&lt;!ENTITY % ISOamsa.module "INCLUDE"&gt;
+&lt;![ %ISOamsa.module; [
+&lt;!ENTITY % ISOamsa PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Arrow Relations//EN"&gt;
+&lt;!--end of ISOamsa.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOamsb.module "INCLUDE"&gt;
+&lt;![ %ISOamsb.module; [
+&lt;!ENTITY % ISOamsb PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Binary Operators//EN"&gt;
+&lt;!--end of ISOamsb.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOamsc.module "INCLUDE"&gt;
+&lt;![ %ISOamsc.module; [
+&lt;!ENTITY % ISOamsc PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Delimiters//EN"&gt;
+&lt;!--end of ISOamsc.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOamsn.module "INCLUDE"&gt;
+&lt;![ %ISOamsn.module; [
+&lt;!ENTITY % ISOamsn PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Negated Relations//EN"&gt;
+&lt;!--end of ISOamsn.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOamso.module "INCLUDE"&gt;
+&lt;![ %ISOamso.module; [
+&lt;!ENTITY % ISOamso PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Ordinary//EN"&gt;
+&lt;!--end of ISOamso.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOamsr.module "INCLUDE"&gt;
+&lt;![ %ISOamsr.module; [
+&lt;!ENTITY % ISOamsr PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Relations//EN"&gt;
+&lt;!--end of ISOamsr.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISObox.module "INCLUDE"&gt;
+&lt;![ %ISObox.module; [
+&lt;!ENTITY % ISObox PUBLIC
+"ISO 8879:1986//ENTITIES Box and Line Drawing//EN"&gt;
+&lt;!--end of ISObox.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOcyr1.module "INCLUDE"&gt;
+&lt;![ %ISOcyr1.module; [
+&lt;!ENTITY % ISOcyr1 PUBLIC
+"ISO 8879:1986//ENTITIES Russian Cyrillic//EN"&gt;
+&lt;!--end of ISOcyr1.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOcyr2.module "INCLUDE"&gt;
+&lt;![ %ISOcyr2.module; [
+&lt;!ENTITY % ISOcyr2 PUBLIC
+"ISO 8879:1986//ENTITIES Non-Russian Cyrillic//EN"&gt;
+&lt;!--end of ISOcyr2.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOdia.module "INCLUDE"&gt;
+&lt;![ %ISOdia.module; [
+&lt;!ENTITY % ISOdia PUBLIC
+"ISO 8879:1986//ENTITIES Diacritical Marks//EN"&gt;
+&lt;!--end of ISOdia.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOgrk1.module "INCLUDE"&gt;
+&lt;![ %ISOgrk1.module; [
+&lt;!ENTITY % ISOgrk1 PUBLIC
+"ISO 8879:1986//ENTITIES Greek Letters//EN"&gt;
+&lt;!--end of ISOgrk1.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOgrk2.module "INCLUDE"&gt;
+&lt;![ %ISOgrk2.module; [
+&lt;!ENTITY % ISOgrk2 PUBLIC
+"ISO 8879:1986//ENTITIES Monotoniko Greek//EN"&gt;
+&lt;!--end of ISOgrk2.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOgrk3.module "INCLUDE"&gt;
+&lt;![ %ISOgrk3.module; [
+&lt;!ENTITY % ISOgrk3 PUBLIC
+"ISO 8879:1986//ENTITIES Greek Symbols//EN"&gt;
+&lt;!--end of ISOgrk3.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOgrk4.module "INCLUDE"&gt;
+&lt;![ %ISOgrk4.module; [
+&lt;!ENTITY % ISOgrk4 PUBLIC
+"ISO 8879:1986//ENTITIES Alternative Greek Symbols//EN"&gt;
+&lt;!--end of ISOgrk4.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOlat1.module "INCLUDE"&gt;
+&lt;![ %ISOlat1.module; [
+&lt;!ENTITY % ISOlat1 PUBLIC
+"ISO 8879:1986//ENTITIES Added Latin 1//EN"&gt;
+&lt;!--end of ISOlat1.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOlat2.module "INCLUDE"&gt;
+&lt;![ %ISOlat2.module; [
+&lt;!ENTITY % ISOlat2 PUBLIC
+"ISO 8879:1986//ENTITIES Added Latin 2//EN"&gt;
+&lt;!--end of ISOlat2.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOnum.module "INCLUDE"&gt;
+&lt;![ %ISOnum.module; [
+&lt;!ENTITY % ISOnum PUBLIC
+"ISO 8879:1986//ENTITIES Numeric and Special Graphic//EN"&gt;
+&lt;!--end of ISOnum.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOpub.module "INCLUDE"&gt;
+&lt;![ %ISOpub.module; [
+&lt;!ENTITY % ISOpub PUBLIC
+"ISO 8879:1986//ENTITIES Publishing//EN"&gt;
+&lt;!--end of ISOpub.module--&gt;]]&gt;
+
+&lt;!ENTITY % ISOtech.module "INCLUDE"&gt;
+&lt;![ %ISOtech.module; [
+&lt;!ENTITY % ISOtech PUBLIC
+"ISO 8879:1986//ENTITIES General Technical//EN"&gt;
+&lt;!--end of ISOtech.module--&gt;]]&gt;
+
+&lt;!--end of sgml.features--&gt;]]&gt;
+
+&lt;!<A NAME="MS11"></A>[<A HREF="docbookx.dtd.html#EntityDef.xml.features">%xml.features;</A>[
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsa.module"><STRONG>ISOamsa.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS12"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOamsa.module">%ISOamsa.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsa"><STRONG>ISOamsa</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Arrow Relations//EN//XML"
+"ent/isoamsa.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOamsa.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsb.module"><STRONG>ISOamsb.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS13"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOamsb.module">%ISOamsb.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsb"><STRONG>ISOamsb</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Binary Operators//EN//XML"
+"ent/isoamsb.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOamsb.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsc.module"><STRONG>ISOamsc.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS14"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOamsc.module">%ISOamsc.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsc"><STRONG>ISOamsc</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Delimiters//EN//XML"
+"ent/isoamsc.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOamsc.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsn.module"><STRONG>ISOamsn.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS15"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOamsn.module">%ISOamsn.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsn"><STRONG>ISOamsn</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Negated Relations//EN//XML"
+"ent/isoamsn.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOamsn.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOamso.module"><STRONG>ISOamso.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS16"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOamso.module">%ISOamso.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOamso"><STRONG>ISOamso</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Ordinary//EN//XML"
+"ent/isoamso.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOamso.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsr.module"><STRONG>ISOamsr.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS17"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOamsr.module">%ISOamsr.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOamsr"><STRONG>ISOamsr</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Added Math Symbols: Relations//EN//XML"
+"ent/isoamsr.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOamsr.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISObox.module"><STRONG>ISObox.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS18"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISObox.module">%ISObox.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISObox"><STRONG>ISObox</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Box and Line Drawing//EN//XML"
+"ent/isobox.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISObox.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOcyr1.module"><STRONG>ISOcyr1.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS19"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOcyr1.module">%ISOcyr1.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOcyr1"><STRONG>ISOcyr1</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Russian Cyrillic//EN//XML"
+"ent/isocyr1.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOcyr1.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOcyr2.module"><STRONG>ISOcyr2.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS20"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOcyr2.module">%ISOcyr2.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOcyr2"><STRONG>ISOcyr2</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Non-Russian Cyrillic//EN//XML"
+"ent/isocyr2.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOcyr2.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOdia.module"><STRONG>ISOdia.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS21"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOdia.module">%ISOdia.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOdia"><STRONG>ISOdia</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Diacritical Marks//EN//XML"
+"ent/isodia.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOdia.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOgrk1.module"><STRONG>ISOgrk1.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS22"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOgrk1.module">%ISOgrk1.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOgrk1"><STRONG>ISOgrk1</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Greek Letters//EN//XML"
+"ent/isogrk1.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOgrk1.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOgrk2.module"><STRONG>ISOgrk2.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS23"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOgrk2.module">%ISOgrk2.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOgrk2"><STRONG>ISOgrk2</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Monotoniko Greek//EN//XML"
+"ent/isogrk2.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOgrk2.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOgrk3.module"><STRONG>ISOgrk3.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS24"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOgrk3.module">%ISOgrk3.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOgrk3"><STRONG>ISOgrk3</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Greek Symbols//EN//XML"
+"ent/isogrk3.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOgrk3.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOgrk4.module"><STRONG>ISOgrk4.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS25"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOgrk4.module">%ISOgrk4.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOgrk4"><STRONG>ISOgrk4</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Alternative Greek Symbols//EN//XML"
+"ent/isogrk4.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOgrk4.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOlat1.module"><STRONG>ISOlat1.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS26"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOlat1.module">%ISOlat1.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOlat1"><STRONG>ISOlat1</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Added Latin 1//EN//XML"
+"ent/isolat1.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOlat1.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOlat2.module"><STRONG>ISOlat2.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS27"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOlat2.module">%ISOlat2.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOlat2"><STRONG>ISOlat2</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Added Latin 2//EN//XML"
+"ent/isolat2.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOlat2.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOnum.module"><STRONG>ISOnum.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS28"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOnum.module">%ISOnum.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOnum"><STRONG>ISOnum</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Numeric and Special Graphic//EN//XML"
+"ent/isonum.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOnum.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOpub.module"><STRONG>ISOpub.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS29"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOpub.module">%ISOpub.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOpub"><STRONG>ISOpub</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES Publishing//EN//XML"
+"ent/isopub.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOpub.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.ISOtech.module"><STRONG>ISOtech.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS30"></A>[<A HREF="dbcentx.mod.html#EntityDef.ISOtech.module">%ISOtech.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ISOtech"><STRONG>ISOtech</STRONG></A> PUBLIC
+"ISO 8879:1986//ENTITIES General Technical//EN//XML"
+"ent/isotech.ent"&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of ISOtech.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--end of xml.features--&gt;</SPAN>]]&gt;
+
+&lt;!<A NAME="MS31"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOamsa.module">%ISOamsa.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOamsa">%ISOamsa;</A>
+]]&gt;
+
+&lt;!<A NAME="MS32"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOamsb.module">%ISOamsb.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOamsb">%ISOamsb;</A>
+]]&gt;
+
+&lt;!<A NAME="MS33"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOamsc.module">%ISOamsc.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOamsc">%ISOamsc;</A>
+]]&gt;
+
+&lt;!<A NAME="MS34"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOamsn.module">%ISOamsn.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOamsn">%ISOamsn;</A>
+]]&gt;
+
+&lt;!<A NAME="MS35"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOamso.module">%ISOamso.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOamso">%ISOamso;</A>
+]]&gt;
+
+&lt;!<A NAME="MS36"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOamsr.module">%ISOamsr.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOamsr">%ISOamsr;</A>
+]]&gt;
+
+&lt;!<A NAME="MS37"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISObox.module">%ISObox.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISObox">%ISObox;</A>
+]]&gt;
+
+&lt;!<A NAME="MS38"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOcyr1.module">%ISOcyr1.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOcyr1">%ISOcyr1;</A>
+]]&gt;
+
+&lt;!<A NAME="MS39"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOcyr2.module">%ISOcyr2.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOcyr2">%ISOcyr2;</A>
+]]&gt;
+
+&lt;!<A NAME="MS40"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOdia.module">%ISOdia.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOdia">%ISOdia;</A>
+]]&gt;
+
+&lt;!<A NAME="MS41"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOgrk1.module">%ISOgrk1.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOgrk1">%ISOgrk1;</A>
+]]&gt;
+
+&lt;!<A NAME="MS42"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOgrk2.module">%ISOgrk2.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOgrk2">%ISOgrk2;</A>
+]]&gt;
+
+&lt;!<A NAME="MS43"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOgrk3.module">%ISOgrk3.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOgrk3">%ISOgrk3;</A>
+]]&gt;
+
+&lt;!<A NAME="MS44"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOgrk4.module">%ISOgrk4.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOgrk4">%ISOgrk4;</A>
+]]&gt;
+
+&lt;!<A NAME="MS45"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOlat1.module">%ISOlat1.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOlat1">%ISOlat1;</A>
+]]&gt;
+
+&lt;!<A NAME="MS46"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOlat2.module">%ISOlat2.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOlat2">%ISOlat2;</A>
+]]&gt;
+
+&lt;!<A NAME="MS47"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOnum.module">%ISOnum.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOnum">%ISOnum;</A>
+]]&gt;
+
+&lt;!<A NAME="MS48"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOpub.module">%ISOpub.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOpub">%ISOpub;</A>
+]]&gt;
+
+&lt;!<A NAME="MS49"></A>[ <A HREF="dbcentx.mod.html#EntityDef.ISOtech.module">%ISOtech.module;</A> [
+<A HREF="dbcentx.mod.html#EntityDef.ISOtech">%ISOtech;</A>
+]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- End of DocBook character entity sets module V4.5 ..................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<?LIVEDTD EOF?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE></BODY></HTML>

@@ -1,0 +1,50 @@
+<!--
+Manuscript layout 8.4x11, single sided
+	Title page:
+		Title, author, contact email
+		page 1 at top right
+	Regular pages:
+		Sides 1in, 72pt
+		Top/bottom: 3cm, 85pt
+		10pt font
+		double space
+		no justify
+		book title, top left of each page
+		page numbers, top right of each page
+		blank line between header and body
+Book layout 8.5x11, double sided
+	Title page
+		Title, author, contact email
+	Regular pages:
+		Sides 1in
+		Top/bottom: 3cm, 85pt
+		10pt font
+		single space
+		justify
+		odd pages:
+			book title, top left of each page
+			page numbers, top right of each page
+		even pages:
+			book title, top right of each page
+			page numbers, top left of each page
+		blank line between header and body
+Booklet layout 8.5x11, single sided (converted double later)
+	Title page
+		Title, author, contact email
+	Regular pages:
+		Top/bottom: 3cm, 85pt
+		20pt font
+		single space
+		justify
+		odd pages:
+			left margin: 1.25in, 90pt
+			right margin: 1in, 72pt
+			book title, top left of each page
+			page numbers, top right of each page
+		even pages:
+			left margin: 1in, 72pt
+			right margin: 1.25in, 90pt
+			book title, top right of each page
+			page numbers, top left of each page
+		blank line between header and body
+-->

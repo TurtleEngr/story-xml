@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>docbookx.dtd</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
+<STYLE TYPE="text/css">
+  STRONG { font-weight: bold; color: red;}
+  .COMMENT { font-style:italic; color: #A8A8A8;}
+</STYLE>
+</HEAD>
+<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>docbookx.dtd</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
+<PRE><SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- DocBook XML DTD V4.5 ................................................. --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- File docbookx.dtd .................................................... --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- Copyright 1992-2006 HaL Computer Systems, Inc.,
+     O'Reilly &amp; Associates, Inc., ArborText, Inc., Fujitsu Software
+     Corporation, Norman Walsh, Sun Microsystems, Inc., and the
+     Organization for the Advancement of Structured Information
+     Standards (OASIS).
+
+     See also http://docbook.org/specs/
+
+     $Id: docbookx.dtd.html,v 1.1 2009/04/21 07:29:47 bruce Exp $
+
+     Permission to use, copy, modify and distribute the DocBook XML DTD
+     and its accompanying documentation for any purpose and without fee
+     is hereby granted in perpetuity, provided that the above copyright
+     notice and this paragraph appear in all copies.  The copyright
+     holders make no representation about the suitability of the DTD for
+     any purpose.  It is provided "as is" without expressed or implied
+     warranty.
+
+     If you modify the DocBook DTD in any way, except for declaring and
+     referencing additional sets of general entities and declaring
+     additional notations, label your DTD as a variant of DocBook.  See
+     the maintenance documentation for more information.
+
+     Please direct all questions, bug reports, or suggestions for
+     changes to the docbook@lists.oasis-open.org mailing list. For more
+     information, see http://www.oasis-open.org/docbook/.
+--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- This is the driver file for V4.5 of the DocBook DTD.
+     Please use the following formal public identifier to identify it:
+
+     "-//OASIS//DTD DocBook XML V4.5//EN"
+
+     For example, if your document's top-level element is Book, and
+     you are using DocBook directly, use the FPI in the DOCTYPE
+     declaration:
+
+     &lt;!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"
+                    [...]&gt;
+
+     Or, if you have a higher-level driver file that customizes DocBook,
+     use the FPI in the parameter entity declaration:
+
+     &lt;!ENTITY % DocBookDTD PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd"&gt;
+     %DocBookDTD;
+
+     See the documentation for detailed information on the parameter
+     entity and module scheme used in DocBook, customizing DocBook and
+     planning for interchange, and changes made since the last release
+     of DocBook.
+--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Enable SGML features ................................................. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.sgml.features"><STRONG>sgml.features</STRONG></A> "IGNORE"&gt;
+&lt;!<A NAME="MS1"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+&lt;!ENTITY % xml.features "IGNORE"&gt;
+]]&gt;
+&lt;!ENTITY % <A NAME="EntityDef.xml.features"><STRONG>xml.features</STRONG></A> "INCLUDE"&gt;
+
+&lt;!<A NAME="MS2"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+&lt;![%xml.features;[
+
+&lt;!-- ERROR: Exactly one of xml.features and sgml.features must be turned on! --&gt;
+&lt;!ENTITY % dbnotn SYSTEM "http://www.oasis-open.org/docbook/xml/configerror.txt"&gt;
+&lt;!ENTITY % dbcent SYSTEM "http://www.oasis-open.org/docbook/xml/configerror.txt"&gt;
+&lt;!ENTITY % dbpool SYSTEM "http://www.oasis-open.org/docbook/xml/configerror.txt"&gt;
+&lt;!ENTITY % dbhier SYSTEM "http://www.oasis-open.org/docbook/xml/configerror.txt"&gt;
+&lt;!ENTITY % dbgenent SYSTEM "http://www.oasis-open.org/docbook/xml/configerror.txt"&gt;
+
+]]&gt;
+]]&gt;
+
+&lt;!<A NAME="MS3"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+&lt;!ENTITY % ho "- O"&gt;
+&lt;!ENTITY % hh "- -"&gt;
+]]&gt;
+
+&lt;!<A NAME="MS4"></A>[<A HREF="docbookx.dtd.html#EntityDef.xml.features">%xml.features;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.ho"><STRONG>ho</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.hh"><STRONG>hh</STRONG></A> ""&gt;
+]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Notation declarations ................................................ --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.dbnotn.module"><STRONG>dbnotn.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS5"></A>[<A HREF="docbookx.dtd.html#EntityDef.dbnotn.module">%dbnotn.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.dbnotn"><STRONG>dbnotn</STRONG></A> PUBLIC
+"-//OASIS//ENTITIES DocBook Notations V4.5//EN"
+"dbnotnx.mod"&gt;
+<A HREF="docbookx.dtd.html#EntityDef.dbnotn">%dbnotn;</A>
+]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- ISO character entity sets ............................................ --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.dbcent.module"><STRONG>dbcent.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS6"></A>[<A HREF="docbookx.dtd.html#EntityDef.dbcent.module">%dbcent.module;</A>[
+
+&lt;!ENTITY % <A NAME="EntityDef.dbcent.euro"><STRONG>dbcent.euro</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS7"></A>[<A HREF="docbookx.dtd.html#EntityDef.dbcent.euro">%dbcent.euro;</A>[
+&lt;!<A NAME="MS8"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+&lt;!ENTITY euro SDATA "[euro  ]"&gt;&lt;!-- euro sign --&gt;
+]]&gt;
+&lt;!<A NAME="MS9"></A>[<A HREF="docbookx.dtd.html#EntityDef.xml.features">%xml.features;</A>[
+&lt;!ENTITY euro "&amp;#x20AC;"&gt;<SPAN CLASS="COMMENT">&lt;!-- euro sign, U+20AC NEW --&gt;</SPAN>
+]]&gt;
+]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.dbcent"><STRONG>dbcent</STRONG></A> PUBLIC
+"-//OASIS//ENTITIES DocBook Character Entities V4.5//EN"
+"dbcentx.mod"&gt;
+<A HREF="docbookx.dtd.html#EntityDef.dbcent">%dbcent;</A>
+]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- DTD modules .......................................................... --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- Information pool .............. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.dbpool.module"><STRONG>dbpool.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS50"></A>[ <A HREF="docbookx.dtd.html#EntityDef.dbpool.module">%dbpool.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.dbpool"><STRONG>dbpool</STRONG></A> PUBLIC
+"-//OASIS//ELEMENTS DocBook Information Pool V4.5//EN"
+"dbpoolx.mod"&gt;
+<A HREF="docbookx.dtd.html#EntityDef.dbpool">%dbpool;</A>
+]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Redeclaration placeholder ..... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.intermod.redecl.module"><STRONG>intermod.redecl.module</STRONG></A> "IGNORE"&gt;
+&lt;!<A NAME="MS1017"></A>[<A HREF="docbookx.dtd.html#EntityDef.intermod.redecl.module">%intermod.redecl.module;</A>[
+&lt;!-- Defining rdbmods here makes some buggy XML parsers happy. --&gt;
+&lt;!ENTITY % rdbmods ""&gt;
+%rdbmods;
+&lt;!--end of intermod.redecl.module--&gt;]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Document hierarchy ............ --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.dbhier.module"><STRONG>dbhier.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1018"></A>[ <A HREF="docbookx.dtd.html#EntityDef.dbhier.module">%dbhier.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.dbhier"><STRONG>dbhier</STRONG></A> PUBLIC
+"-//OASIS//ELEMENTS DocBook Document Hierarchy V4.5//EN"
+"dbhierx.mod"&gt;
+<A HREF="docbookx.dtd.html#EntityDef.dbhier">%dbhier;</A>
+]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Other general entities ............................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.dbgenent.module"><STRONG>dbgenent.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1262"></A>[ <A HREF="docbookx.dtd.html#EntityDef.dbgenent.module">%dbgenent.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.dbgenent"><STRONG>dbgenent</STRONG></A> PUBLIC
+"-//OASIS//ENTITIES DocBook Additional General Entities V4.5//EN"
+"dbgenent.mod"&gt;
+<A HREF="docbookx.dtd.html#EntityDef.dbgenent">%dbgenent;</A>
+]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- End of DocBook XML DTD V4.5 .......................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<?LIVEDTD EOF?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE></BODY></HTML>

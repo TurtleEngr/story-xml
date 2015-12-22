@@ -1,0 +1,322 @@
+ids may contain the char: [-._a-zA-Z0-9]
+
+# Text elements (includes)
+
+p	[standard html p tag]
+
+s ref="who-id"?
+	ref - the ref id defines the person who is saying the paragraph content
+
+	[story or say tag.  Usually: outputs 5 spaces, then content,
+	then br tag.  Alternate format: std. p tag]
+
+t ref="who-id"
+	ref - the ref id defines the person who is thinking
+	[thought tag.  Output only if the ref id = the viewpoint id
+	defined for the unit.  Usually output the same as s tag, but
+	can be a std ptag]
+
+text: p|s|t|pre [can contain]
+	- preprocessed (all blanks seperate s text elements)
+	link *
+	img *
+	b *
+	i *
+	tt *
+	CHAR *
+
+link ref=(def-link id) type=(title|label|url|all) content=title
+
+img ref=(def-img id)
+
+# ---------------------------------
+# Main content
+
+content
+
+site
+	def-img id url >alt *
+
+	def-link id url ref-img content=label *
+
+	style bgcolor text link vlink alink
+		img ref=(defimg id)
+
+page id status="draft|in-progress|done" *	[id = file name]
+	cvs-revision ? - $Revision: 1.9 $
+	cvs-date ? - $Date: 2006/02/19 01:46:27 $
+	pub-date - YYYY-MM-DD
+	title
+	meta-description
+	meta-keywords
+	text *
+	sect1 *
+		title
+		item *
+			title
+			text *
+
+book id status="draft|in-progress|done" * 
+	title
+	url ? - there may be many (this should proably be generated)
+	file-prefix - BOOK- prefix
+	cvs-source ? - $Source: /repo/local.cvs/app/story-xml/doc/dtd.outline.txt,v $
+	cvs-revision ? - $Revision: 1.9 $
+	cvs-date ? - $Date: 2006/02/19 01:46:27 $
+	pub-date - YYYY-MM-DD (first edition pub date)
+	edition ?
+	dir ? - suggested name of directory to put the book and ch files in
+	author
+	email ?
+	def-who id *
+		p *
+	def-where id *
+		p *
+	def-thread id default="yes|no" start-unit="id" *
+		p *
+	teaser
+		text *
+	preface
+		text *
+	epilog
+		text *
+	ch-preface
+		text *
+	chapter id status="draft|in-progress|done" *
+		title
+		ch-no - CH part of file prefix: BOOK-CH
+		cvs-source ?
+		cvs-revision ?
+		cvs-date ? - $Date: 2006/02/19 01:46:27 $
+		pub-date ? - YYYY-MM-DD
+		prolog ?
+			text *
+		postlog ?
+			text *
+		unit id type="scene|sequel" viewpoint="def-who-id" *
+			title ?
+			when start-date=yyyy-mm-dd(Thh:mmZ(-)nnn)
+			     duration=PyyyyYmmMddD(ThhHmmM)  or
+			     end-date=yyyy-mm-dd(Thh:mmZ(-)nnn)
+				p *
+			where ref=(defwhere id) *
+				p *
+			who ref=(defwho id) *
+				p *
+			outline (pre) ?
+			thread ref=(defthread id) next-unit=(unit id) *
+				[ref and next-unit are optional]
+				text *
+
+----------------------------------
+FORMAT-DIR/ (xslt files) (src/)
+	web/
+		index.xsl - site index.html page (links to pages, books)
+		page.xsl - style for all <page> elements
+		book-toc.xsl - BOOK-toc.html, BOOK-CH.html (each ch, linked)
+		book-all.xsl - BOOK-all.html (all ch)
+		book-min.xsl - BOOK.html (all ch, no ch pre/post)
+	text/
+		book-ch.xsl - BOOK-CH.txt (stand alone ch)
+		book.xsl - BOOK.txt (one file, plain manuscript, no pre/post)
+		book-ch-web.xsl - BOOK-CH.html (each ch, stand alone)
+		com/
+	draft/
+		index.xsl - index.html (links to books)
+		book-outline.xsl - BOOK-outline.html
+		book-draft.xsl - BOOK-draft.html, BOOK-CH-draft.html
+		com/
+	util/
+		inc-key.xsl - index all elements with ids. book id is a prefix
+		inc-html.xsl - text elements and below
+		inc-text.xsl - text elements and below
+		inc-util.xsl - all subroutine templates (mainly parsers)
+
+CONTENT-DIR/ (xml files) (test/sample/)
+	Makefile
+	page.fmt - entities for: site.xml, and all "page" files
+	index.fmt - all site, page, book, and ch entities (ch are not used)
+	site.xml
+	news.xml
+	old-news.xml
+	ref.xml
+	other.xml
+	contact.xml
+	image/
+	book1/
+		book.fmt - include entities ../site.xml and all chapters
+		book.xml
+		ch1.html
+		ch2.html
+	book2/
+		book.fmt - include entities ../site.xml and all chapters
+		book.xml
+		ch1.xml
+		ch2.xml
+	short/
+		book.fmt - include entities ../site.xml and all "chapters"
+		short.xml
+		story1.xml
+		story2.xml
+
+../gen/web/	(test/sample/ -> test/gen/web/)
+	index.html
+	PAGE.html
+	BOOK-toc.html
+	BOOK-CH.html
+	BOOK-all.html
+	BOOK.html
+	image/
+../gen/text/
+	BOOK.txt
+	BOOK-ch.txt
+	BOOK-CH.html
+../gen/draft/
+	index.html
+	PAGE.html
+	BOOK-outline.html
+	BOOK-draft.html
+	BOOK-CH-draft.html
+	image/
+
+----------------------------------
+Directory
+
+site/
+	index.html <- def-page.fmt <- site.xml, def.xml
+	ref.html <- def-page.fmt <- ref.xml, site.xml
+	news.html <- def-page.fmt <- news.xml, site.xml
+	link.html <- def2-page.fmt <- link.xml, site.xml
+	story/
+		index.html <- index.fmt <- index.xml, ../site.xml, story*/book.xml
+		story1/
+			index.html <- index.fmt <- book.xml, ch*.xml
+			ch1.html <- ch.fmt <- book.xml, ch1.xml
+			ch2.html <- ch.fmt <- book.xml, ch2.xml
+			ch3.html <- ch.fmt <- book.xml, ch3.xml
+			plain.html <- plain.fmt <- book.xml, ch*.xml
+			all.html <- all.fmt <- book.xml, ch*.xml
+		story2/
+			index.html <- index.fmt <- book.xml, ch*.xml
+			ch1.html <- ch.fmt <- book.xml, ch1.xml
+			plain.html <- plain.fmt <- book.xml, ch*.xml
+			all.html <- all.fmt <- book.xml, ch*.xml
+		story3/
+			index.html <- index.fmt <- book.xml, ch*.xml
+			ch1.html <- ch.fmt <- book.xml, ch1.xml
+			ch2.html <- ch.fmt <- book.xml, ch2.xml
+			plain.html <- plain.fmt <- book.xml, ch*.xml
+			all.html <- all.fmt <- book.xml, ch*.xml
+
+----------------------------------
+Includes for all:
+	inc-text.xsl
+	inc-util.xsl
+
+series-toc.xsl
+	Description:
+	Output:
+	Input: site.xml, book.xml, ch*.xml
+
+series-ch.xsl
+	Description:
+		TOC only has file name links.
+		Chap. files, no next/prev, all notes/pref, no icons,
+		url links Include ch-preface before each chapter.
+		Book preface is put in the first chapter file.
+		Book epilog is put in last chapter file (only if book
+		status is: done).
+	Output:
+		series/<file-prefix>-toc.html
+		series/<file-prefix>-<ch-no>.html
+	Input: site.xml, book.xml, ch*.xml
+
+web-page.xsl
+	Description:
+		Generate general web pages (site style)
+	Output:
+		web/<page-id>.html
+	Input: site.xml, page*.xml
+
+web-index.xsl
+	Description:
+		Index of with links to all book-index files (status:
+		in-progress, done)
+	Output:
+		web/book-index.html
+	Input: site.xml, book.xml
+
+web-book.xsl
+	Description:
+		master index with links to: chapter-toc, manuscript, ...
+		(if status: in-progress or done)
+	Output:
+		web/<file-prefix>-index.html
+	Input: site.xml, book.xml
+
+web-toc.xsl
+	Description:
+		Create the book's toc, based on chapter heading.
+		Include the book's preface.
+	Output:
+		web/<file-prefix>-toc.html
+	Input: site.xml, book.xml, ch*.xml
+
+web-chapter.xsl
+	Description:
+		Chapter html files with links to toc, chapter files,
+		next/prev/toc/site-home.
+		(if status: done)
+	Output:
+		web/<file-prefix>-<ch-no>.html
+	Input: site.xml, book.xml, ch*.xml
+
+web-one-file.xml
+	Description:
+		toc, preface, notes.  (ch status: done)
+	Output:
+		web/<file-prefix>.html
+	Input: site.xml, book.xml, ch*.xml
+
+web-manuscript.xsl
+	Description:
+		No toc, simple headings, no preface, no notes
+		(ch status: done)
+	Output:
+		web/<file-prefix>-manuscript.html
+	Input: site.xml, book.xml, ch*.xml
+
+pdf-manuscript.xsl
+	Description:
+		No toc, no preface, no notes, double space, pages
+		(ch status: user selects)
+	Output:
+		print/<file-prefix>-manuscript.pdf
+	Input: site.xml, book.xml, ch*.xml
+
+draft-series.xsl
+	Description:
+		Only chapters with status: draft or in-progress.
+		Only file name links in toc.
+	Output:
+		draft/<file-prefix>-toc.html
+		draft/<file-prefix>-<ch-no>.html
+	Input: site.xml, book.xml, ch*.xml
+
+outline-only.xsl
+	Description:
+		No text content, no preface, no notes, everything else.
+		TOC file only has file name links.
+	Output:
+		outline/<file-prefix>-toc.html
+		outline/<file-prefix>-<ch-no>.html
+	Input: site.xml, book.xml, ch*.xml
+
+outline-draft.xsl
+	Description:
+		All outline and text
+		TOC file only has file name links.
+	Output:
+		outline/<file-prefix>-toc.html
+		outline/<file-prefix>-<ch-no>.html
+	Input: site.xml, book.xml, ch*.xml

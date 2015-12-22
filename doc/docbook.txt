@@ -1,0 +1,687 @@
+http://www.docbook.org/tdg/en/html/quickref.html
+
+DocBook V3.1
+Element	Brief Description
+Abbrev	An abbreviation, especially one followed by a period
+Abstract	A summary
+Accel	A graphical user interface (GUI) keyboard shortcut
+Ackno	Acknowledgements in an Article
+Acronym	An often pronounceable word made from the initial (or selected) letters of a name or phrase
+Action	A response to a user event
+Address	A real-world address, generally a postal address
+Affiliation	The institutional affiliation of an individual
+Alt	Text representation for a graphical element
+Anchor	A spot in the document
+Answer	An answer to a question posed in a QandASet
+Appendix	An appendix in a Book or Article
+Application	The name of a software program
+Area	A region defined for a Callout in a graphic or code example
+AreaSet	A set of related areas in a graphic or code example
+AreaSpec	A collection of regions in a graphic or code example
+Arg	An argument in a CmdSynopsis
+ArtHeader	Meta-information for an Article
+ArtPageNums	The page numbers of an article as published
+Article	An article
+Attribution	The source of a block quote or epigraph
+AudioData	Pointer to external audio data
+AudioObject	A wrapper for audio data and its associated meta-information
+Author	The name of an individual author
+AuthorBlurb	A short description or note about an author
+AuthorGroup	Wrapper for author information when a document has multiple authors or collabarators
+AuthorInitials	The initials or other short identifier for an author
+BeginPage	The location of a page break in a print version of the document
+BiblioDiv	A section of a Bibliography
+BiblioEntry	An entry in a Bibliography
+BiblioMSet	A \x{201C}cooked\x{201D} container for related bibliographic information
+BiblioMisc	Untyped bibliographic information
+BiblioMixed	An entry in a Bibliography
+BiblioSet	A \x{201C}raw\x{201D} container for related bibliographic information
+Bibliography	A bibliography
+BlockQuote	A quotation set off from the main text
+Book	A book
+BookBiblio	Meta-information about a book used in a bibliographical citation
+BookInfo	Meta-information for a Book
+BridgeHead	A free-floating heading
+CO	The location of a callout embedded in text
+Callout	A \x{201C}called out\x{201D} description of a marked Area
+CalloutList	A list of Callouts
+Caption	A caption
+Caution	A note of caution
+Chapter	A chapter, as of a book
+Citation	An inline bibliographic reference to another published work
+CiteRefEntry	A citation to a reference page
+CiteTitle	The title of a cited work
+City	The name of a city in an address
+ClassName	The name of a class, in the object-oriented programming sense
+CmdSynopsis	A syntax summary for a software command
+ColSpec	Specifications for a column in a table
+Collab	Identifies a collaborator
+CollabName	The name of a collaborator
+Colophon	Text at the back of a book describing facts about its production
+Command	The name of an executable program or other software command
+Comment	A comment intended for presentation in a draft manuscript
+ComputerOutput	Data, generally text, displayed or presented by a computer
+ConfDates	The dates of a conference for which a document was written
+ConfGroup	A wrapper for document meta-information about a conference
+ConfNum	An identifier, frequently numerical, associated with a conference for which a document was written
+ConfSponsor	The sponsor of a conference for which a document was written
+ConfTitle	The title of a conference for which a document was written
+Constant	A programming or system constant
+ContractNum	The contract number of a document
+ContractSponsor	The sponsor of a contract
+Contrib	A summary of the contributions made to a document by a credited source
+Copyright	Copyright information about a document
+CorpAuthor	A corporate author, as opposed to an individual
+CorpName	The name of a corporation
+Country	The name of a country
+Database	The name of a database, or part of a database
+Date	The date of publication or revision of a document
+Dedication	A wrapper for the dedication section of a book
+DocInfo	Meta-data for a book component
+Edition	The name or number of an edition of a document
+Editor	The name of the editor of a document
+Email	An email address
+Emphasis	Emphasized text
+EnVar	A software environment variable
+Entry	A cell in a table
+EntryTbl	A subtable appearing in place of an Entry in a table
+Epigraph	A short inscription at the beginning of a document or component
+Equation	A displayed mathematical equation
+ErrorCode	An error code
+ErrorName	An error name
+ErrorType	The classification of an error message
+Example	A formal example, with a title
+Fax	A fax number
+Figure	A formal figure, generally an illustration, with a title
+Filename	The name of a file
+FirstName	The first name of a person
+FirstTerm	The first occurrence of a term
+Footnote	A footnote
+FootnoteRef	A cross reference to a footnote (a footnote mark)
+ForeignPhrase	A word or phrase in a language other than the primary language of the document
+FormalPara	A paragraph with a title
+FuncDef	A function (subroutine) name and its return type
+FuncParams	Parameters for a function referenced through a function pointer in a synopsis
+FuncPrototype	The prototype of a function
+FuncSynopsis	The syntax summary for a function definition
+FuncSynopsisInfo	Information supplementing the FuncDefs of a FuncSynopsis
+Function	The name of a function or subroutine, as in a programming language
+GUIButton	The text on a button in a GUI
+GUIIcon	Graphic and/or text appearing as a icon in a GUI
+GUILabel	The text of a label in a GUI
+GUIMenu	The name of a menu in a GUI
+GUIMenuItem	The name of a terminal menu item in a GUI
+GUISubmenu	The name of a submenu in a GUI
+GlossDef	A definition in a GlossEntry
+GlossDiv	A division in a Glossary
+GlossEntry	An entry in a Glossary or GlossList
+GlossList	A wrapper for a set of GlossEntrys
+GlossSee	A cross-reference from one GlossEntry to another
+GlossSeeAlso	A cross-reference from one GlossEntry to another
+GlossTerm	A glossary term
+Glossary	A glossary
+Graphic	A displayed graphical object (not an inline)
+GraphicCO	A graphic that contains callout areas
+Group	A group of elements in a CmdSynopsis
+Hardware	A physical part of a computer system
+Highlights	A summary of the main points of the discussed component
+Holder	The name of the individual or organization that holds a copyright
+Honorific	The title of a person
+ISBN	The International Standard Book Number of a document
+ISSN	The International Standard Serial Number of a periodical
+ITermSet	A set of index terms in the meta-information of a document
+ImageData	Pointer to external image data
+ImageObject	A wrapper for image data and its associated meta-information
+ImageObjectCO	A wrapper for an image object with callouts
+Important	An admonition set off from the text
+Index	An index
+IndexDiv	A division in an index
+IndexEntry	An entry in an index
+IndexTerm	A wrapper for terms to be indexed
+InformalEquation	A displayed mathematical equation without a title
+InformalExample	A displayed example without a title
+InformalFigure	A untitled figure
+InformalTable	A table without a title
+InlineEquation	A mathematical equation or expression occurring inline
+InlineGraphic	An object containing or pointing to graphical data that will be rendered inline
+InlineMediaObject	An inline media object (video, audio, image, and so on)
+Interface	An element of a GUI
+InterfaceDefinition	The name of a formal specification of a GUI
+InvPartNumber	An inventory part number
+IssueNum	The number of an issue of a journal
+ItemizedList	A list in which each entry is marked with a bullet or other dingbat
+JobTitle	The title of an individual in an organization
+KeyCap	The text printed on a key on a keyboard
+KeyCode	The internal, frequently numeric, identifier for a key on a keyboard
+KeyCombo	A combination of input actions
+KeySym	The symbolic name of a key on a keyboard
+Keyword	One of a set of keywords describing the content of a document
+KeywordSet	A set of keywords describing the content of a document
+LegalNotice	A statement of legal obligations or requirements
+LineAnnotation	A comment on a line in a verbatim listing
+Lineage	The portion of a person's name indicating a relationship to ancestors
+Link	A hypertext link
+ListItem	A wrapper for the elements of a list item
+Literal	Inline text that is some literal value
+LiteralLayout	A block of text in which line breaks and white space are to be reproduced faithfully
+LoT	A list of the titles of formal objects (as tables or figures) in a document
+LoTentry	An entry in a list of titles
+ManVolNum	A reference volume number
+Markup	A string of formatting markup in text that is to be represented literally
+MediaLabel	A name that identifies the physical medium on which some information resides
+MediaObject	A displayed media object (video, audio, image, etc.)
+MediaObjectCO	A media object that contains callouts
+Member	An element of a simple list
+MenuChoice	A selection or series of selections from a menu
+ModeSpec	Application-specific information necessary for the completion of an OLink
+MouseButton	The conventional name of a mouse button
+Msg	A message in a message set
+MsgAud	The audience to which a message in a message set is relevant
+MsgEntry	A wrapper for an entry in a message set
+MsgExplan	Explanatory material relating to a message in a message set
+MsgInfo	Information about a message in a message set
+MsgLevel	The level of importance or severity of a message in a message set
+MsgMain	The primary component of a message in a message set
+MsgOrig	The origin of a message in a message set
+MsgRel	A related component of a message in a message set
+MsgSet	A detailed set of messages, usually error messages
+MsgSub	A subcomponent of a message in a message set
+MsgText	The actual text of a message component in a message set
+Note	A message set off from the text
+OLink	A link that addresses its target indirectly, through an entity
+ObjectInfo	Meta-information for an object
+Option	An option for a software command
+Optional	Optional information
+OrderedList	A list in which each entry is marked with a sequentially incremented label
+OrgDiv	A division of an organization
+OrgName	The name of an organization other than a corporation
+OtherAddr	Uncategorized information in address
+OtherCredit	A person or entity, other than an author or editor, credited in a document
+OtherName	A component of a persons name that is not a first name, surname, or lineage
+POB	A post office box in an address
+PageNums	The numbers of the pages in a book, for use in a bibliographic entry
+Para	A paragraph
+ParamDef	Information about a function parameter in a programming language
+Parameter	A value or a symbolic reference to a value
+Part	A division in a book
+PartIntro	An introduction to the contents of a part
+Phone	A telephone number
+Phrase	A span of text
+Postcode	A postal code in an address
+Preface	Introductory matter preceding the first chapter of a book
+Primary	The primary word or phrase under which an index term should be sorted
+PrimaryIE	A primary term in an index entry, not in the text
+PrintHistory	The printing history of a document
+Procedure	A list of operations to be performed in a well-defined sequence
+ProductName	The formal name of a product
+ProductNumber	A number assigned to a product
+ProgramListing	A literal listing of all or part of a program
+ProgramListingCO	A program listing with associated areas used in callouts
+Prompt	A character or string indicating the start of an input field in a computer display
+Property	A unit of data associated with some part of a computer system
+PubDate	The date of publication of a document
+Publisher	The publisher of a document
+PublisherName	The name of the publisher of a document
+PubsNumber	A number assigned to a publication other than an ISBN or ISSN or inventory part number
+QandADiv	A titled division in a QandASet
+QandAEntry	A question/answer set within a QandASet
+QandASet	A question-and-answer set
+Question	A question in a QandASet
+Quote	An inline quotation
+RefClass	The scope or other indication of applicability of a reference entry
+RefDescriptor	A description of the topic of a reference page
+RefEntry	A reference page (originally a UNIX man-style reference page)
+RefEntryTitle	The title of a reference page
+RefMeta	Meta-information for a reference entry
+RefMiscInfo	Meta-information for a reference entry other than the title and volume number
+RefName	The name of (one of) the subject(s) of a reference page
+RefNameDiv	The name, purpose, and classification of a reference page
+RefPurpose	A short (one sentence) synopsis of the topic of a reference page
+RefSect1	A major subsection of a reference entry
+RefSect1Info	Meta-information for a RefSect1
+RefSect2	A subsection of a RefSect1
+RefSect2Info	Meta-information for a RefSect2
+RefSect3	A subsection of a RefSect2
+RefSect3Info	Meta-information for a RefSect3
+RefSynopsisDiv	A syntactic synopsis of the subject of the reference page
+RefSynopsisDivInfo	Meta-information for a RefSynopsisDiv
+Reference	A collection of reference entries
+ReleaseInfo	Information about a particular release of a document
+Replaceable	Content that may or must be replaced by the user
+ReturnValue	The value returned by a function
+RevHistory	A history of the revisions to a document
+RevNumber	A document revision number
+RevRemark	A description of a revision to a document
+Revision	An entry describing a single revision in the history of the revisions to a document
+Row	A row in a table
+SBR	An explicit line break in a command synopsis
+SGMLTag	A component of SGML markup
+Screen	Text that a user sees or might see on a computer screen
+ScreenCO	A screen with associated areas used in callouts
+ScreenInfo	Information about how a screen shot was produced
+ScreenShot	A representation of what the user sees or might see on a computer screen
+Secondary	A secondary word or phrase in an index term
+SecondaryIE	A secondary term in an index entry, rather than in the text
+Sect1	A top-level section of document
+Sect1Info	Meta-information for a Sect1
+Sect2	A subsection within a Sect1
+Sect2Info	Meta-information for a Sect2
+Sect3	A subsection within a Sect2
+Sect3Info	Meta-information for a Sect3
+Sect4	A subsection within a Sect3
+Sect4Info	Meta-information for a Sect4
+Sect5	A subsection within a Sect4
+Sect5Info	Meta-information for a Sect5
+Section	A recursive section
+SectionInfo	Meta-information for a recursive section
+See	Part of an index term directing the reader instead to another entry in the index
+SeeAlso	Part of an index term directing the reader also to another entry in the index
+SeeAlsoIE	A \x{201C}See also\x{201D} entry in an index, rather than in the text
+SeeIE	A \x{201C}See\x{201D} entry in an index, rather than in the text
+Seg	An element of a list item in a segmented list
+SegListItem	A list item in a segmented list
+SegTitle	The title of an element of a list item in a segmented list
+SegmentedList	A segmented list, a list of sets of elements
+SeriesInfo	Information about the publication series of which a book is a part
+SeriesVolNums	Numbers of the volumes in a series of books
+Set	A collection of books
+SetIndex	An index to a set of books
+SetInfo	Meta-information for a Set
+ShortAffil	A brief description of an affiliation
+Shortcut	A key combination for an action that is also accessible through a menu
+Sidebar	A portion of a document that is isolated from the main narrative flow
+SimPara	A paragraph that contains only text and inline markup, no block elements
+SimpleList	An undecorated list of single words or short phrases
+SimpleSect	A section of a document with no subdivisions
+SpanSpec	Formatting information for a spanned column in a table
+State	A state or province in an address
+Step	A unit of action in a procedure
+Street	A street address in an address
+StructField	A field in a structure (in the programming language sense)
+StructName	The name of a structure (in the programming language sense)
+SubSteps	A wrapper for steps that occur within steps in a procedure
+Subject	One of a group of terms describing the subject matter of a document
+SubjectSet	A set of terms describing the subject matter of a document
+SubjectTerm	A term in a group of terms describing the subject matter of a document
+Subscript	A subscript (as in H2O, the molecular formula for water)
+Subtitle	The subtitle of a document
+Superscript	A superscript (as in x2, the mathematical notation for x multiplied by itself)
+Surname	A family name; in western cultures the \x{201C}last name\x{201D}
+Symbol	A name that is replaced by a value before processing
+SynopFragment	A portion of a CmdSynopsis broken out from the main body of the synopsis
+SynopFragmentRef	A reference to a fragment of a command synopsis
+Synopsis	A general-purpose element for representing the syntax of commands or functions
+SystemItem	A system-related item or term
+TBody	A wrapper for the rows of a table or informal table
+TFoot	A table footer consisting of one or more rows
+TGroup	A wrapper for the main content of a table, or part of a table
+THead	A table header consisting of one or more rows
+Table	A formal table in a document
+Term	The word or phrase being defined or described in a variable list
+Tertiary	A tertiary word or phrase in an index term
+TertiaryIE	A tertiary term in an index entry, rather than in the text
+TextObject	A wrapper for a text description of an object and its associated meta-information
+Tip	A suggestion to the user, set off from the text
+Title	The text of the title of a section of a document or of a formal block-level element
+TitleAbbrev	The abbreviation of a Title
+ToC	A table of contents
+ToCback	An entry in a table of contents for a back matter component
+ToCchap	An entry in a table of contents for a component in the body of a document
+ToCentry	A component title in a table of contents
+ToCfront	An entry in a table of contents for a front matter component
+ToClevel1	A top-level entry within a table of contents entry for a chapter-like component
+ToClevel2	A second-level entry within a table of contents entry for a chapter-like component
+ToClevel3	A third-level entry within a table of contents entry for a chapter-like component
+ToClevel4	A fourth-level entry within a table of contents entry for a chapter-like component
+ToClevel5	A fifth-level entry within a table of contents entry for a chapter-like component
+ToCpart	An entry in a table of contents for a part of a book
+Token	A unit of information
+Trademark	A trademark
+Type	The classification of a value
+ULink	A link that addresses its target by means of a URL (Uniform Resource Locator)
+UserInput	Data entered by the user
+VarArgs	An empty element in a function synopsis indicating a variable number of arguments
+VarListEntry	A wrapper for a set of terms and the associated description in a variable list
+VarName	The name of a variable
+VariableList	A list in which each entry is composed of a set of one or more terms and an associated description
+VideoData	Pointer to external video data
+VideoObject	A wrapper for video data and its associated meta-information
+Void	An empty element in a function synopsis indicating that the function in question takes no arguments
+VolumeNum	The volume number of a document in a set (as of books in a set or articles in a journal)
+Warning	An admonition set off from the text
+WordAsWord	A word meant specifically as a word and not representing anything else
+XRef	A cross reference to another part of the document
+Year	The year of publication of a document
+DocBook V4.1.2
+
+All of the elements in DocBook V3.1 except ArtHeader, BookBiblio, Comment, DocInfo, InterfaceDefinition, SeriesInfo plus the following additional elements:
+Element	Brief Description
+appendixinfo	Meta-information for an Appendix
+articleinfo	Meta-information for an Article
+bibliographyinfo	Meta-information for a Bibliography
+chapterinfo	Meta-information for a Chapter
+classsynopsis	The syntax summary for a class definition
+classsynopsisinfo	Information supplementing the contents of a ClassSynopsis
+constructorsynopsis	A syntax summary for a constructor
+destructorsynopsis	A syntax summary for a destructor
+exceptionname	The name of an exception
+fieldsynopsis	The name of a field in a class definition
+glossaryinfo	Meta-information for a Glossary
+indexinfo	Meta-information for an Index
+initializer	The initializer for a FieldSynopsis
+interfacename	The name of an interface
+methodname	The name of a method
+methodparam	Parameters to a method
+methodsynopsis	A syntax summary for a method
+modifier	Modifiers in a synopsis
+ooclass	A class in an object-oriented programming language
+ooexception	An exception in an object-oriented programming language
+oointerface	An interface in an object-oriented programming language
+partinfo	Meta-information for a Part
+prefaceinfo	Meta-information for a Preface
+refentryinfo	Meta-information for a Refentry
+referenceinfo	Meta-information for a Reference
+remark	A remark (or comment) intended for presentation in a draft manuscript
+revdescription	A extended description of a revision to a document
+setindexinfo	Meta-information for a SetIndex
+sidebarinfo	Meta-information for a Sidebar
+simplemsgentry	A wrapper for a simpler entry in a message set
+
+-----------------------
+biblioentry ::=
+((articleinfo | 
+  (abbrev | abstract | address | artpagenums | author | authorgroup | 
+   authorinitials | bibliomisc | biblioset | collab | confgroup | 
+   contractnum | contractsponsor | copyright | corpauthor | corpname | 
+   corpcredit | date | edition | editor | invpartnumber | isbn | issn | 
+   issuenum | orgname | biblioid | citebiblioid | bibliosource | 
+   bibliorelation | bibliocoverage | othercredit | pagenums | 
+   printhistory | productname | productnumber | pubdate | publisher | 
+   publishername | pubsnumber | releaseinfo | revhistory | seriesvolnums | 
+   subtitle | title | titleabbrev | volumenum | citetitle | personname | 
+   honorific | firstname | surname | lineage | othername | affiliation | 
+   authorblurb | contrib | indexterm))+)
+
+biblioid ::=
+ (#PCDATA | link | olink | ulink | emphasis | trademark |
+  replaceable | remark | subscript | superscript |
+  inlinegraphic | inlinemediaobject | indexterm)*
+
+Attributes:
+otherclass	CDATA	None
+class	Enumeration: doi isbn isrn issn libraryofcongress other pubnumber uri
+
+-----------------------
+
+Common Attributes
+
+The following attributes occur on all elements. They are summarized here once for brevity and to make the additional attributes that occur on many elements stand out.
+
+Name
+	Type	Default
+Arch	CDATA	None
+Condition	CDATA	None
+Conformance	NMTOKENS	None
+ID	ID	
+
+None/Required[a]
+Lang	CDATA	None
+OS	CDATA	None
+Remap	CDATA	None
+Role	CDATA	None
+Revision	CDATA	None
+RevisionFlag	
+	Enumeration:
+	Changed
+	Added
+	Deleted
+	Off
+	None
+Security	CDATA	None
+UserLevel	CDATA	None
+Vendor	CDATA	None
+XrefLabel	CDATA	None
+
+[a] On a few elements, the ID is required, but on most it is not.
+
+Arch
+
+    Arch designates the computer or chip architecture to which the element applies.
+Condition
+
+    [4.0] Condition is a general-purpose effectivity attribute with no specified semantics. Many DocBook users observed that in order to add an effectivity condition that was unique to their environment required \x{201C}abusing\x{201D} the semantics of one of the existing attributes, or adding their own, making their customization an extension rather than a subset.
+
+    The Condition attribute provides a standard place for application-specific effectivity.
+Conformance
+
+    Conformance indicates standards conformance characteristics of the item contained in the element. These characteristics are application-specific. DocBook provides no defaults.
+ID
+
+    ID is an identifying string for the element. It must be unique at least within the document and must begin with a letter.
+Lang
+
+    Lang should be a language code drawn from ISO 639 (perhaps extended with a country code drawn from ISO 3166, as en-US). Use it when you need to signal your application to change hyphenation and other display characteristics.
+OS
+
+    OS indicates the operating system to which the element is applicable. 
+Remap
+
+    Remap contains an element name or similar semantic identifier assigned to the content in a previous markup scheme.
+Role
+
+    Role contains a string used to classify or subclassify an element.
+
+    While Role is a common attribute in the sense that it occurs on almost all elements, it is not part of either of the common attributes parameter entities (%common.attrib; or %idreq.common.attrib;). It is parameterized differently because it is useful to be able to subclass Role independently on different elements.
+Revision
+
+    Revision indicates the editorial revision to which the element belongs. 
+RevisionFlag
+
+    RevisionFlag indicates the revision status of element; the default is that the element hasn't been revised. RevisionFlag is intended only for simple revision management: to track the entire history of a document use a proper revision control system. Use RevisionFlag for indicating changes from one version to the next, no more.
+Security
+
+    [4.0] Security identifies something about the security level associated with the element to which it applies. 
+UserLevel
+
+    UserLevel indicates the level of user experience to which element applies. 
+Vendor
+
+    Vendor indicates the computer vendor to which the element applies.
+XrefLabel
+
+    XrefLabel holds text to be used when a cross reference (XRef) is made to the element.
+
+
+Attribute Types
+
+SGML offers a small selection of attribute types. (XML offers a subset of these.) For convenience, a brief description of each of these types is provided here:
+
+CDATA
+
+    A string of characters.
+NUMBER
+
+    A number. Numbers must begin with a hyphen or digit and can include the decimal point.
+NMTOKEN
+
+    A sequence of name characters (letters, digits, hyphens, and periods). This differs from a CDATA attribute because it cannot contain spaces, punctuation, or other non-name characters.
+NMTOKENS
+
+    A sequence of one or more space-delimited NMTOKEN values.
+NUTOKEN
+
+    A sequence of number characters (digits, hyphens, and periods). This differs from a NUMBER field because it is not required to begin with a digit or a hyphen.
+ENTITY
+
+    An entity name. The value of an ENTITY attribute must be the name of a declared entity.
+NAME
+
+    A name. A name must begin with a letter and can consist of letters, digits, hyphens, and periods.
+NAMES
+
+    A sequence of one or more space-delimited NAME values.
+ID
+
+    An ID. IDs are names that must be globally unique within the document. The ID attribute declares the ID.
+IDREF
+
+    An single ID. IDs are names that must be globally unique within the document. The value of an IDREF attribute must be the name of an ID attribute defined in the document.
+IDREFS
+
+    A sequence of one or more space-delimited ID values.
+
+==============================
+
+book ::=
+((title,subtitle?,titleabbrev?)?,
+ bookinfo?,
+ (dedication | toc | lot | glossary | bibliography | preface | chapter | 
+  reference | part | article | appendix | index | setindex | colophon)*)
+
+Attributes
+
+fpi
+
+    FPI holds the Formal Public Identifier for the Book. 
+label
+
+    Label specifies an identifying string for presentation purposes. The third Book in a Set might be labeled \x{201C}Volume III\x{201D}, for example.
+
+    Generally, an explicit Label attribute is used only if the processing system is incapable of generating the label automatically. If present, the Label is normative; it will used even if the processing system is capable of automatic labelling. 
+status
+
+    Status identifies the editorial or publication status of the Book.
+
+    Publication status might be used to control formatting (for example, printing a \x{201C}draft\x{201D} watermark on drafts) or processing (perhaps a document with a status of \x{201C}final\x{201D} should not include any components that are not final). 
+
+
+bookinfo ::=
+((graphic | mediaobject | legalnotice | modespec | subjectset | keywordset | 
+  itermset | abbrev | abstract | address | artpagenums | author | authorgroup | 
+  authorinitials | bibliomisc | biblioset | collab | confgroup | 
+  contractnum | contractsponsor | copyright | corpauthor | corpname | 
+  corpcredit | date | edition | editor | invpartnumber | isbn | issn | issuenum | 
+  orgname | biblioid | citebiblioid | bibliosource | bibliorelation | 
+  bibliocoverage | othercredit | pagenums | printhistory | productname | 
+  productnumber | pubdate | publisher | publishername | pubsnumber | 
+  releaseinfo | revhistory | seriesvolnums | subtitle | title | titleabbrev | 
+  volumenum | citetitle | personname | honorific | firstname | surname | 
+  lineage | othername | affiliation | authorblurb | contrib | indexterm)+)
+
+author ::=
+((personname | 
+  (honorific | firstname | surname | lineage | othername | affiliation | 
+   authorblurb | contrib)+),
+ (personblurb | email | address)*)
+
+authorgroup ::=
+((author | editor | collab | corpauthor | corpcredit | othercredit)+)
+
+publisher ::=
+(publishername,address*)
+
+address ::=
+(#PCDATA | personname | honorific | firstname | surname | lineage | othername | 
+ affiliation | authorblurb | contrib | street | pob | postcode | city | state | 
+ country | phone | fax | email | otheraddr)*
+
+copyright ::=
+(year+,holder*)
+
+pubdate ::=
+(#PCDATA | link | olink | ulink | emphasis | trademark | replaceable | remark | 
+ subscript | superscript | inlinegraphic | inlinemediaobject | indexterm)*
+
+exmaple:
+	<legalnotice>
+	  <title>Legal Notices</title>
+	
+	  <para>
+	    Permission is granted to copy, distribute and/or modify this
+	    document under the terms of the GNU Free Documentation
+	    License (GFDL), Version 1.1 or any later version published
+	    by the Free Software Foundation with no Invariant Sections,
+	    no Front-Cover Texts, and no Back-Cover Texts.  You can find
+	    a copy of the GFDL at this <ulink type="help"
+	    url="ghelp:fdl">link</ulink> or in the file COPYING-DOCS
+	    distributed with this manual.
+	  </para>
+	</legalnotice>
+	
+	<releaseinfo>
+	  This is version 1.0.0 of DocBook Basics documenting version 4.1.2 of
+	  DocBook XML.
+	</releaseinfo>
+
+chapter ::=
+(beginpage?,chapterinfo?,
+ (title,subtitle?,titleabbrev?),
+ (toc | lot | index | glossary | bibliography)*,
+ tocchap?,
+ (((calloutlist | glosslist | bibliolist | itemizedlist | orderedlist | 
+    segmentedlist | simplelist | variablelist | caution | important | note | 
+    tip | warning | literallayout | programlisting | programlistingco | 
+    screen | screenco | screenshot | synopsis | cmdsynopsis | funcsynopsis | 
+    classsynopsis | fieldsynopsis | constructorsynopsis | 
+    destructorsynopsis | methodsynopsis | formalpara | para | simpara | 
+    address | blockquote | graphic | graphicco | mediaobject | 
+    mediaobjectco | informalequation | informalexample | informalfigure | 
+    informaltable | equation | example | figure | table | msgset | procedure | 
+    sidebar | qandaset | task | productionset | constraintdef | anchor | 
+    bridgehead | remark | highlights | abstract | authorblurb | epigraph | 
+    indexterm | beginpage)+,
+   (sect1* | 
+    (refentry)* | 
+    simplesect* | 
+    (section)*)) | 
+  (sect1+ | 
+   (refentry)+ | 
+   simplesect+ | 
+   (section)+)),
+ (toc | lot | index | glossary | bibliography)*)
+
+Attributes
+
+Common attributes
+
+Name	Type	Default
+status	CDATA	None
+label	CDATA	None
+
+==============================
+
+http://wiki.docbook.org/topic/DocBookTutorials
+
+exmaple, from:
+http://opensource.bureau-cornavin.com/crash-course/en/doc-structure.html
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN">
+ 
+<book id="hello-world" lang="en">
+ 
+<bookinfo>
+<title>Hello, world</title>
+</bookinfo>
+ 
+<chapter id="introduction">
+<title>Introduction</title>
+ 
+<para>This is the introduction. It has two sections</para>
+ 
+<sect1 id="about-this-book">
+<title>About this book</title>
+
+<para>This is my first DocBook file.</para>
+
+</sect1>
+
+<sect1 id="work-in-progress">
+<title>Warning</title>
+
+<para>This is still under construction.</para>
+
+</sect1>
+
+</chapter>
+</book>

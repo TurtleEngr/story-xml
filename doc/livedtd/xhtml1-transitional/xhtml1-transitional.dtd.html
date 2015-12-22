@@ -1,0 +1,1254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>xhtml1-transitional.dtd</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
+<STYLE TYPE="text/css">
+  STRONG { font-weight: bold; color: red;}
+  .COMMENT { font-style:italic; color: #A8A8A8;}
+</STYLE>
+</HEAD>
+<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>xhtml1-transitional.dtd</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
+<PRE><SPAN CLASS="COMMENT">&lt;!--
+   Extensible HTML version 1.0 Transitional DTD
+
+   This is the same as HTML 4 Transitional except for
+   changes due to the differences between XML and SGML.
+
+   Namespace = http://www.w3.org/1999/xhtml
+
+   For further information, see: http://www.w3.org/TR/xhtml1
+
+   Copyright (c) 1998-2002 W3C (MIT, INRIA, Keio),
+   All Rights Reserved. 
+
+   This DTD module is identified by the PUBLIC and SYSTEM identifiers:
+
+   PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+
+   $Revision: 1.1 $
+   $Date: 2009/04/21 07:29:47 $
+
+--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!--================ Character mnemonic entities =========================--&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.HTMLlat1"><STRONG>HTMLlat1</STRONG></A> PUBLIC
+   "-//W3C//ENTITIES Latin 1 for XHTML//EN"
+   "xhtml-lat1.ent"&gt;
+<A HREF="xhtml1-transitional.dtd.html#EntityDef.HTMLlat1">%HTMLlat1;</A>
+
+&lt;!ENTITY % <A NAME="EntityDef.HTMLsymbol"><STRONG>HTMLsymbol</STRONG></A> PUBLIC
+   "-//W3C//ENTITIES Symbols for XHTML//EN"
+   "xhtml-symbol.ent"&gt;
+<A HREF="xhtml1-transitional.dtd.html#EntityDef.HTMLsymbol">%HTMLsymbol;</A>
+
+&lt;!ENTITY % <A NAME="EntityDef.HTMLspecial"><STRONG>HTMLspecial</STRONG></A> PUBLIC
+   "-//W3C//ENTITIES Special for XHTML//EN"
+   "xhtml-special.ent"&gt;
+<A HREF="xhtml1-transitional.dtd.html#EntityDef.HTMLspecial">%HTMLspecial;</A>
+
+<SPAN CLASS="COMMENT">&lt;!--================== Imported Names ====================================--&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.ContentType"><STRONG>ContentType</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- media type, as per [RFC2045] --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.ContentTypes"><STRONG>ContentTypes</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- comma-separated list of media types, as per [RFC2045] --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Charset"><STRONG>Charset</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- a character encoding, as per [RFC2045] --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Charsets"><STRONG>Charsets</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- a space separated list of character encodings, as per [RFC2045] --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.LanguageCode"><STRONG>LanguageCode</STRONG></A> "NMTOKEN"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- a language code, as per [RFC3066] --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Character"><STRONG>Character</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- a single character, as per section 2.2 of [XML] --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Number"><STRONG>Number</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- one or more digits --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.LinkTypes"><STRONG>LinkTypes</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- space-separated list of link types --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.MediaDesc"><STRONG>MediaDesc</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- single or comma-separated list of media descriptors --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.URI"><STRONG>URI</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- a Uniform Resource Identifier, see [RFC2396] --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.UriList"><STRONG>UriList</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- a space separated list of Uniform Resource Identifiers --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Datetime"><STRONG>Datetime</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- date and time information. ISO date format --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Script"><STRONG>Script</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- script expression --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.StyleSheet"><STRONG>StyleSheet</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- style sheet data --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Text"><STRONG>Text</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- used for titles etc. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.FrameTarget"><STRONG>FrameTarget</STRONG></A> "NMTOKEN"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- render in this frame --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Length"><STRONG>Length</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- nn for pixels or nn% for percentage length --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.MultiLength"><STRONG>MultiLength</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- pixel, percentage, or relative --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Pixels"><STRONG>Pixels</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- integer representing length in pixels --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- these are used for image maps --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.Shape"><STRONG>Shape</STRONG></A> "(rect|circle|poly|default)"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.Coords"><STRONG>Coords</STRONG></A> "CDATA"&gt;
+    <SPAN CLASS="COMMENT">&lt;!-- comma separated list of lengths --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- used for object, applet, img, input and iframe --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.ImgAlign"><STRONG>ImgAlign</STRONG></A> "(top|middle|bottom|left|right)"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- a color using sRGB: #RRGGBB as Hex values --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.Color"><STRONG>Color</STRONG></A> "CDATA"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- There are also 16 widely known color names with their sRGB values:
+
+    Black  = #000000    Green  = #008000
+    Silver = #C0C0C0    Lime   = #00FF00
+    Gray   = #808080    Olive  = #808000
+    White  = #FFFFFF    Yellow = #FFFF00
+    Maroon = #800000    Navy   = #000080
+    Red    = #FF0000    Blue   = #0000FF
+    Purple = #800080    Teal   = #008080
+    Fuchsia= #FF00FF    Aqua   = #00FFFF
+--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Generic Attributes ===============================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- core attributes common to most elements
+  id       document-wide unique id
+  class    space separated list of classes
+  style    associated style info
+  title    advisory title/amplification
+--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.coreattrs"><STRONG>coreattrs</STRONG></A>
+ "id          ID             #IMPLIED
+  class       CDATA          #IMPLIED
+  <A HREF="xhtml1-transitional.dtd.html#ElementDef7">style</A>       <A HREF="xhtml1-transitional.dtd.html#EntityDef.StyleSheet">%StyleSheet;</A>   #IMPLIED
+  <A HREF="xhtml1-transitional.dtd.html#ElementDef3">title</A>       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED"
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- internationalization attributes
+  lang        language code (backwards compatible)
+  xml:lang    language code (as per XML 1.0 spec)
+  dir         direction for weak/neutral text
+--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.i18n"><STRONG>i18n</STRONG></A>
+ "lang        <A HREF="xhtml1-transitional.dtd.html#EntityDef.LanguageCode">%LanguageCode;</A> #IMPLIED
+  xml:lang    <A HREF="xhtml1-transitional.dtd.html#EntityDef.LanguageCode">%LanguageCode;</A> #IMPLIED
+  <A HREF="xhtml1-transitional.dtd.html#ElementDef24">dir</A>         (ltr|rtl)      #IMPLIED"
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- attributes for common UI events
+  onclick     a pointer button was clicked
+  ondblclick  a pointer button was double clicked
+  onmousedown a pointer button was pressed down
+  onmouseup   a pointer button was released
+  onmousemove a pointer was moved onto the element
+  onmouseout  a pointer was moved away from the element
+  onkeypress  a key was pressed and released
+  onkeydown   a key was pressed down
+  onkeyup     a key was released
+--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.events"><STRONG>events</STRONG></A>
+ "onclick     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  ondblclick  <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onmousedown <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onmouseup   <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onmouseover <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onmousemove <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onmouseout  <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onkeypress  <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onkeydown   <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onkeyup     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED"
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- attributes for elements that can get the focus
+  accesskey   accessibility key character
+  tabindex    position in tabbing order
+  onfocus     the element got the focus
+  onblur      the element lost the focus
+--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.focus"><STRONG>focus</STRONG></A>
+ "accesskey   <A HREF="xhtml1-transitional.dtd.html#EntityDef.Character">%Character;</A>    #IMPLIED
+  tabindex    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #IMPLIED
+  onfocus     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onblur      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED"
+  &gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.attrs"><STRONG>attrs</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#EntityDef.coreattrs">%coreattrs;</A> <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A> <A HREF="xhtml1-transitional.dtd.html#EntityDef.events">%events;</A>"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- text alignment for p, div, h1-h6. The default is
+     align="left" for ltr headings, "right" for rtl --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.TextAlign"><STRONG>TextAlign</STRONG></A> "align (left|<A HREF="xhtml1-transitional.dtd.html#ElementDef33">center</A>|right|justify) #IMPLIED"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Text Elements ====================================--&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.special.extra"><STRONG>special.extra</STRONG></A>
+   "<A HREF="xhtml1-transitional.dtd.html#ElementDef63">object</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef65">applet</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef66">img</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef67">map</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef10">iframe</A>"&gt;
+	
+&lt;!ENTITY % <A NAME="EntityDef.special.basic"><STRONG>special.basic</STRONG></A>
+	"<A HREF="xhtml1-transitional.dtd.html#ElementDef39">br</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef37">span</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef38">bdo</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.special"><STRONG>special</STRONG></A>
+   "<A HREF="xhtml1-transitional.dtd.html#EntityDef.special.basic">%special.basic;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.special.extra">%special.extra;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.fontstyle.extra"><STRONG>fontstyle.extra</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef56">big</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef57">small</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef62">font</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef61">basefont</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.fontstyle.basic"><STRONG>fontstyle.basic</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef53">tt</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef54">i</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef55">b</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef58">u</A>
+                      | <A HREF="xhtml1-transitional.dtd.html#ElementDef59">s</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef60">strike</A> "&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.fontstyle"><STRONG>fontstyle</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#EntityDef.fontstyle.basic">%fontstyle.basic;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.fontstyle.extra">%fontstyle.extra;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.phrase.extra"><STRONG>phrase.extra</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef51">sub</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef52">sup</A>"&gt;
+&lt;!ENTITY % <A NAME="EntityDef.phrase.basic"><STRONG>phrase.basic</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef40">em</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef41">strong</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef42">dfn</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef43">code</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef50">q</A> |
+                   <A HREF="xhtml1-transitional.dtd.html#ElementDef44">samp</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef45">kbd</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef46">var</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef47">cite</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef48">abbr</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef49">acronym</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.phrase"><STRONG>phrase</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#EntityDef.phrase.basic">%phrase.basic;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.phrase.extra">%phrase.extra;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.inline.forms"><STRONG>inline.forms</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef71">input</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef72">select</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef75">textarea</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef70">label</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef78">button</A>"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- these can occur at block or inline level --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.misc.inline"><STRONG>misc.inline</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef34">ins</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef35">del</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef8">script</A>"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- these can only occur at block level --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.misc"><STRONG>misc</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef9">noscript</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc.inline">%misc.inline;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.inline"><STRONG>inline</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef36">a</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.special">%special;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.fontstyle">%fontstyle;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.phrase">%phrase;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline.forms">%inline.forms;</A>"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- %Inline; covers inline or "text-level" elements --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.Inline"><STRONG>Inline</STRONG></A> "(#PCDATA | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline">%inline;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc.inline">%misc.inline;</A>)*"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--================== Block level elements ==============================--&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.heading"><STRONG>heading</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef15">h1</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef16">h2</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef17">h3</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef18">h4</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef19">h5</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef20">h6</A>"&gt;
+&lt;!ENTITY % <A NAME="EntityDef.lists"><STRONG>lists</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef21">ul</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef22">ol</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef26">dl</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef23">menu</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef24">dir</A>"&gt;
+&lt;!ENTITY % <A NAME="EntityDef.blocktext"><STRONG>blocktext</STRONG></A> "<A HREF="xhtml1-transitional.dtd.html#ElementDef31">pre</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef30">hr</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef32">blockquote</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef29">address</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef33">center</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef11">noframes</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.block"><STRONG>block</STRONG></A>
+    "<A HREF="xhtml1-transitional.dtd.html#ElementDef14">p</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.heading">%heading;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef13">div</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.lists">%lists;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.blocktext">%blocktext;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef79">isindex</A> |<A HREF="xhtml1-transitional.dtd.html#ElementDef76">fieldset</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef80">table</A>"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- %Flow; mixes block and inline and is used for list items etc. --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.Flow"><STRONG>Flow</STRONG></A> "(#PCDATA | <A HREF="xhtml1-transitional.dtd.html#EntityDef.block">%block;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef69">form</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline">%inline;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc">%misc;</A>)*"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--================== Content models for exclusions =====================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- a elements use %Inline; excluding a --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.a.content"><STRONG>a.content</STRONG></A>
+   "(#PCDATA | <A HREF="xhtml1-transitional.dtd.html#EntityDef.special">%special;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.fontstyle">%fontstyle;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.phrase">%phrase;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline.forms">%inline.forms;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc.inline">%misc.inline;</A>)*"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- pre uses %Inline excluding img, object, applet, big, small,
+     font, or basefont --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.pre.content"><STRONG>pre.content</STRONG></A>
+   "(#PCDATA | <A HREF="xhtml1-transitional.dtd.html#ElementDef36">a</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.special.basic">%special.basic;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.fontstyle.basic">%fontstyle.basic;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.phrase.basic">%phrase.basic;</A> |
+	   <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline.forms">%inline.forms;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc.inline">%misc.inline;</A>)*"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- form uses %Flow; excluding form --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.form.content"><STRONG>form.content</STRONG></A> "(#PCDATA | <A HREF="xhtml1-transitional.dtd.html#EntityDef.block">%block;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline">%inline;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc">%misc;</A>)*"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- button uses %Flow; but excludes a, form, form controls, iframe --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.button.content"><STRONG>button.content</STRONG></A>
+   "(#PCDATA | <A HREF="xhtml1-transitional.dtd.html#ElementDef14">p</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.heading">%heading;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef13">div</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.lists">%lists;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.blocktext">%blocktext;</A> |
+      <A HREF="xhtml1-transitional.dtd.html#ElementDef80">table</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef39">br</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef37">span</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef38">bdo</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef63">object</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef65">applet</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef66">img</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef67">map</A> |
+      <A HREF="xhtml1-transitional.dtd.html#EntityDef.fontstyle">%fontstyle;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.phrase">%phrase;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc">%misc;</A>)*"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--================ Document Structure ==================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- the namespace URI designates the document profile --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef1"></A><STRONG>html</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef2">head</A>, <A HREF="xhtml1-transitional.dtd.html#ElementDef12">body</A>)&gt;
+&lt;!ATTLIST <A NAME="AttlistDef1"></A><STRONG>html</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A>
+  id          ID             #IMPLIED
+  xmlns       <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #FIXED 'http://www.w3.org/1999/xhtml'
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--================ Document Head =======================================--&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.head.misc"><STRONG>head.misc</STRONG></A> "(<A HREF="xhtml1-transitional.dtd.html#ElementDef8">script</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef7">style</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef5">meta</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef6">link</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef63">object</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef79">isindex</A>)*"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- content model is %head.misc; combined with a single
+     title and an optional base element in any order --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef2"></A><STRONG>head</STRONG> (<A HREF="xhtml1-transitional.dtd.html#EntityDef.head.misc">%head.misc;</A>,
+     ((<A HREF="xhtml1-transitional.dtd.html#ElementDef3">title</A>, <A HREF="xhtml1-transitional.dtd.html#EntityDef.head.misc">%head.misc;</A>, (<A HREF="xhtml1-transitional.dtd.html#ElementDef4">base</A>, <A HREF="xhtml1-transitional.dtd.html#EntityDef.head.misc">%head.misc;</A>)?) |
+      (<A HREF="xhtml1-transitional.dtd.html#ElementDef4">base</A>, <A HREF="xhtml1-transitional.dtd.html#EntityDef.head.misc">%head.misc;</A>, (<A HREF="xhtml1-transitional.dtd.html#ElementDef3">title</A>, <A HREF="xhtml1-transitional.dtd.html#EntityDef.head.misc">%head.misc;</A>))))&gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef2"></A><STRONG>head</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A>
+  id          ID             #IMPLIED
+  profile     <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- The title element is not considered part of the flow of text.
+       It should be displayed, for example as the page header or
+       window title. Exactly one title is required per document.
+    --&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef3"></A><STRONG>title</STRONG> (#PCDATA)&gt;
+&lt;!ATTLIST <A NAME="AttlistDef3"></A><STRONG>title</STRONG> 
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A>
+  id          ID             #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- document base URI --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef4"></A><STRONG>base</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef4"></A><STRONG>base</STRONG>
+  id          ID             #IMPLIED
+  href        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  target      <A HREF="xhtml1-transitional.dtd.html#EntityDef.FrameTarget">%FrameTarget;</A>  #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- generic metainformation --&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef5"></A><STRONG>meta</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef5"></A><STRONG>meta</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A>
+  id          ID             #IMPLIED
+  http-equiv  CDATA          #IMPLIED
+  name        CDATA          #IMPLIED
+  content     CDATA          #REQUIRED
+  scheme      CDATA          #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+  Relationship values can be used in principle:
+
+   a) for document specific toolbars/menus when used
+      with the link element in document head e.g.
+        start, contents, previous, next, index, end, help
+   b) to link to a separate style sheet (rel="stylesheet")
+   c) to make a link to a script (rel="script")
+   d) by stylesheets to control how collections of
+      html nodes are rendered into printed documents
+   e) to make a link to a printable version of this document
+      e.g. a PostScript or PDF version (rel="alternate" media="print")
+--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef6"></A><STRONG>link</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef6"></A><STRONG>link</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  charset     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Charset">%Charset;</A>      #IMPLIED
+  href        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  hreflang    <A HREF="xhtml1-transitional.dtd.html#EntityDef.LanguageCode">%LanguageCode;</A> #IMPLIED
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentType">%ContentType;</A>  #IMPLIED
+  rel         <A HREF="xhtml1-transitional.dtd.html#EntityDef.LinkTypes">%LinkTypes;</A>    #IMPLIED
+  rev         <A HREF="xhtml1-transitional.dtd.html#EntityDef.LinkTypes">%LinkTypes;</A>    #IMPLIED
+  media       <A HREF="xhtml1-transitional.dtd.html#EntityDef.MediaDesc">%MediaDesc;</A>    #IMPLIED
+  target      <A HREF="xhtml1-transitional.dtd.html#EntityDef.FrameTarget">%FrameTarget;</A>  #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- style info, which may include CDATA sections --&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef7"></A><STRONG>style</STRONG> (#PCDATA)&gt;
+&lt;!ATTLIST <A NAME="AttlistDef7"></A><STRONG>style</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A>
+  id          ID             #IMPLIED
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentType">%ContentType;</A>  #REQUIRED
+  media       <A HREF="xhtml1-transitional.dtd.html#EntityDef.MediaDesc">%MediaDesc;</A>    #IMPLIED
+  title       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  xml:space   (preserve)     #FIXED 'preserve'
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- script statements, which may include CDATA sections --&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef8"></A><STRONG>script</STRONG> (#PCDATA)&gt;
+&lt;!ATTLIST <A NAME="AttlistDef8"></A><STRONG>script</STRONG>
+  id          ID             #IMPLIED
+  charset     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Charset">%Charset;</A>      #IMPLIED
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentType">%ContentType;</A>  #REQUIRED
+  language    CDATA          #IMPLIED
+  src         <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  defer       (defer)        #IMPLIED
+  xml:space   (preserve)     #FIXED 'preserve'
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- alternate content container for non script-based rendering --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef9"></A><STRONG>noscript</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef9"></A><STRONG>noscript</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--======================= Frames =======================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- inline subwindow --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef10"></A><STRONG>iframe</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef10"></A><STRONG>iframe</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.coreattrs">%coreattrs;</A>
+  longdesc    <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  name        NMTOKEN        #IMPLIED
+  src         <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  frameborder (1|0)          "1"
+  marginwidth <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  marginheight <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>      #IMPLIED
+  scrolling   (yes|no|auto)  "auto"
+  align       <A HREF="xhtml1-transitional.dtd.html#EntityDef.ImgAlign">%ImgAlign;</A>     #IMPLIED
+  height      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- alternate content container for non frame-based rendering --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef11"></A><STRONG>noframes</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef11"></A><STRONG>noframes</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Document Body ====================================--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef12"></A><STRONG>body</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef12"></A><STRONG>body</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  onload      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onunload    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  background  <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  bgcolor     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  text        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  link        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  vlink       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  alink       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef13"></A><STRONG>div</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;  <SPAN CLASS="COMMENT">&lt;!-- generic language/style container --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef13"></A><STRONG>div</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.TextAlign">%TextAlign;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Paragraphs =======================================--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef14"></A><STRONG>p</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef14"></A><STRONG>p</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.TextAlign">%TextAlign;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Headings =========================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!--
+  There are six levels of headings from h1 (the most important)
+  to h6 (the least important).
+--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef15"></A><STRONG>h1</STRONG>  <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef15"></A><STRONG>h1</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.TextAlign">%TextAlign;</A>
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef16"></A><STRONG>h2</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef16"></A><STRONG>h2</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.TextAlign">%TextAlign;</A>
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef17"></A><STRONG>h3</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef17"></A><STRONG>h3</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.TextAlign">%TextAlign;</A>
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef18"></A><STRONG>h4</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef18"></A><STRONG>h4</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.TextAlign">%TextAlign;</A>
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef19"></A><STRONG>h5</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef19"></A><STRONG>h5</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.TextAlign">%TextAlign;</A>
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef20"></A><STRONG>h6</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef20"></A><STRONG>h6</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.TextAlign">%TextAlign;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Lists ============================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- Unordered list bullet styles --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.ULStyle"><STRONG>ULStyle</STRONG></A> "(disc|square|circle)"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Unordered list --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef21"></A><STRONG>ul</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef25">li</A>)+&gt;
+&lt;!ATTLIST <A NAME="AttlistDef21"></A><STRONG>ul</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.ULStyle">%ULStyle;</A>     #IMPLIED
+  compact     (compact)     #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Ordered list numbering style
+
+    1   arabic numbers      1, 2, 3, ...
+    a   lower alpha         a, b, c, ...
+    A   upper alpha         A, B, C, ...
+    i   lower roman         i, ii, iii, ...
+    I   upper roman         I, II, III, ...
+
+    The style is applied to the sequence number which by default
+    is reset to 1 for the first list item in an ordered list.
+--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.OLStyle"><STRONG>OLStyle</STRONG></A> "CDATA"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Ordered (numbered) list --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef22"></A><STRONG>ol</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef25">li</A>)+&gt;
+&lt;!ATTLIST <A NAME="AttlistDef22"></A><STRONG>ol</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.OLStyle">%OLStyle;</A>      #IMPLIED
+  compact     (compact)      #IMPLIED
+  start       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- single column list (DEPRECATED) --&gt;</SPAN> 
+&lt;!ELEMENT <A NAME="ElementDef23"></A><STRONG>menu</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef25">li</A>)+&gt;
+&lt;!ATTLIST <A NAME="AttlistDef23"></A><STRONG>menu</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  compact     (compact)     #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- multiple column list (DEPRECATED) --&gt;</SPAN> 
+&lt;!ELEMENT <A NAME="ElementDef24"></A><STRONG>dir</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef25">li</A>)+&gt;
+&lt;!ATTLIST <A NAME="AttlistDef24"></A><STRONG>dir</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  compact     (compact)     #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- LIStyle is constrained to: "(%ULStyle;|%OLStyle;)" --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.LIStyle"><STRONG>LIStyle</STRONG></A> "CDATA"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- list item --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef25"></A><STRONG>li</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef25"></A><STRONG>li</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.LIStyle">%LIStyle;</A>      #IMPLIED
+  value       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- definition lists - dt for term, dd for its definition --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef26"></A><STRONG>dl</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef27">dt</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef28">dd</A>)+&gt;
+&lt;!ATTLIST <A NAME="AttlistDef26"></A><STRONG>dl</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  compact     (compact)      #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef27"></A><STRONG>dt</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef27"></A><STRONG>dt</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef28"></A><STRONG>dd</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef28"></A><STRONG>dd</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Address ==========================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- information on author --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef29"></A><STRONG>address</STRONG> (#PCDATA | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline">%inline;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc.inline">%misc.inline;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef14">p</A>)*&gt;
+&lt;!ATTLIST <A NAME="AttlistDef29"></A><STRONG>address</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Horizontal Rule ==================================--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef30"></A><STRONG>hr</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef30"></A><STRONG>hr</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  align       (left|center|right) #IMPLIED
+  noshade     (noshade)      #IMPLIED
+  size        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Preformatted Text ================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- content is %Inline; excluding 
+        "img|object|applet|big|small|sub|sup|font|basefont" --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef31"></A><STRONG>pre</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.pre.content">%pre.content;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef31"></A><STRONG>pre</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>      #IMPLIED
+  xml:space   (preserve)    #FIXED 'preserve'
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Block-like Quotes ================================--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef32"></A><STRONG>blockquote</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef32"></A><STRONG>blockquote</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  cite        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Text alignment ===================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- center content --&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef33"></A><STRONG>center</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef33"></A><STRONG>center</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Inserted/Deleted Text ============================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!--
+  ins/del are allowed in block and inline content, but its
+  inappropriate to include block content within an ins element
+  occurring in inline content.
+--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef34"></A><STRONG>ins</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef34"></A><STRONG>ins</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  cite        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  datetime    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Datetime">%Datetime;</A>     #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef35"></A><STRONG>del</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef35"></A><STRONG>del</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  cite        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  datetime    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Datetime">%Datetime;</A>     #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--================== The Anchor Element ================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- content is %Inline; except that anchors shouldn't be nested --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef36"></A><STRONG>a</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.a.content">%a.content;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef36"></A><STRONG>a</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.focus">%focus;</A>
+  charset     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Charset">%Charset;</A>      #IMPLIED
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentType">%ContentType;</A>  #IMPLIED
+  name        NMTOKEN        #IMPLIED
+  href        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  hreflang    <A HREF="xhtml1-transitional.dtd.html#EntityDef.LanguageCode">%LanguageCode;</A> #IMPLIED
+  rel         <A HREF="xhtml1-transitional.dtd.html#EntityDef.LinkTypes">%LinkTypes;</A>    #IMPLIED
+  rev         <A HREF="xhtml1-transitional.dtd.html#EntityDef.LinkTypes">%LinkTypes;</A>    #IMPLIED
+  shape       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Shape">%Shape;</A>        "rect"
+  coords      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Coords">%Coords;</A>       #IMPLIED
+  target      <A HREF="xhtml1-transitional.dtd.html#EntityDef.FrameTarget">%FrameTarget;</A>  #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--===================== Inline Elements ================================--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef37"></A><STRONG>span</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt; <SPAN CLASS="COMMENT">&lt;!-- generic language/style container --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef37"></A><STRONG>span</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef38"></A><STRONG>bdo</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;  <SPAN CLASS="COMMENT">&lt;!-- I18N BiDi over-ride --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef38"></A><STRONG>bdo</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.coreattrs">%coreattrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.events">%events;</A>
+  lang        <A HREF="xhtml1-transitional.dtd.html#EntityDef.LanguageCode">%LanguageCode;</A> #IMPLIED
+  xml:lang    <A HREF="xhtml1-transitional.dtd.html#EntityDef.LanguageCode">%LanguageCode;</A> #IMPLIED
+  dir         (ltr|rtl)      #REQUIRED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef39"></A><STRONG>br</STRONG> EMPTY&gt;   <SPAN CLASS="COMMENT">&lt;!-- forced line break --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef39"></A><STRONG>br</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.coreattrs">%coreattrs;</A>
+  clear       (left|all|right|none) "none"
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef40"></A><STRONG>em</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- emphasis --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef40"></A><STRONG>em</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef41"></A><STRONG>strong</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- strong emphasis --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef41"></A><STRONG>strong</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef42"></A><STRONG>dfn</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- definitional --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef42"></A><STRONG>dfn</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef43"></A><STRONG>code</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- program code --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef43"></A><STRONG>code</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef44"></A><STRONG>samp</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- sample --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef44"></A><STRONG>samp</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef45"></A><STRONG>kbd</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;  <SPAN CLASS="COMMENT">&lt;!-- something user would type --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef45"></A><STRONG>kbd</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef46"></A><STRONG>var</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- variable --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef46"></A><STRONG>var</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef47"></A><STRONG>cite</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- citation --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef47"></A><STRONG>cite</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef48"></A><STRONG>abbr</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- abbreviation --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef48"></A><STRONG>abbr</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef49"></A><STRONG>acronym</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- acronym --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef49"></A><STRONG>acronym</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef50"></A><STRONG>q</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- inlined quote --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef50"></A><STRONG>q</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  cite        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef51"></A><STRONG>sub</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt; <SPAN CLASS="COMMENT">&lt;!-- subscript --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef51"></A><STRONG>sub</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef52"></A><STRONG>sup</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt; <SPAN CLASS="COMMENT">&lt;!-- superscript --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef52"></A><STRONG>sup</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef53"></A><STRONG>tt</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- fixed pitch font --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef53"></A><STRONG>tt</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef54"></A><STRONG>i</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- italic font --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef54"></A><STRONG>i</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef55"></A><STRONG>b</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- bold font --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef55"></A><STRONG>b</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef56"></A><STRONG>big</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- bigger font --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef56"></A><STRONG>big</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef57"></A><STRONG>small</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- smaller font --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef57"></A><STRONG>small</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef58"></A><STRONG>u</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- underline --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef58"></A><STRONG>u</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef59"></A><STRONG>s</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- strike-through --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef59"></A><STRONG>s</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef60"></A><STRONG>strike</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- strike-through --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef60"></A><STRONG>strike</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef61"></A><STRONG>basefont</STRONG> EMPTY&gt;  <SPAN CLASS="COMMENT">&lt;!-- base font size --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef61"></A><STRONG>basefont</STRONG>
+  id          ID             #IMPLIED
+  size        CDATA          #REQUIRED
+  color       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  face        CDATA          #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef62"></A><STRONG>font</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt; <SPAN CLASS="COMMENT">&lt;!-- local change to font --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef62"></A><STRONG>font</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.coreattrs">%coreattrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A>
+  size        CDATA          #IMPLIED
+  color       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  face        CDATA          #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--==================== Object ======================================--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!--
+  object is used to embed objects as part of HTML pages.
+  param elements should precede other content. Parameters
+  can also be expressed as attribute/value pairs on the
+  object element itself when brevity is desired.
+--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef63"></A><STRONG>object</STRONG> (#PCDATA | <A HREF="xhtml1-transitional.dtd.html#ElementDef64">param</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.block">%block;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef69">form</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline">%inline;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc">%misc;</A>)*&gt;
+&lt;!ATTLIST <A NAME="AttlistDef63"></A><STRONG>object</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  declare     (declare)      #IMPLIED
+  classid     <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  codebase    <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  data        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentType">%ContentType;</A>  #IMPLIED
+  codetype    <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentType">%ContentType;</A>  #IMPLIED
+  archive     <A HREF="xhtml1-transitional.dtd.html#EntityDef.UriList">%UriList;</A>      #IMPLIED
+  standby     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  height      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  usemap      <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  name        NMTOKEN        #IMPLIED
+  tabindex    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #IMPLIED
+  align       <A HREF="xhtml1-transitional.dtd.html#EntityDef.ImgAlign">%ImgAlign;</A>     #IMPLIED
+  border      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  hspace      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  vspace      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+  param is used to supply a named property value.
+  In XML it would seem natural to follow RDF and support an
+  abbreviated syntax where the param elements are replaced
+  by attribute value pairs on the object start tag.
+--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef64"></A><STRONG>param</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef64"></A><STRONG>param</STRONG>
+  id          ID             #IMPLIED
+  name        CDATA          #REQUIRED
+  value       CDATA          #IMPLIED
+  valuetype   (data|ref|object) "data"
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentType">%ContentType;</A>  #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Java applet ==================================--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!--
+  One of code or object attributes must be present.
+  Place param elements before other content.
+--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef65"></A><STRONG>applet</STRONG> (#PCDATA | <A HREF="xhtml1-transitional.dtd.html#ElementDef64">param</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.block">%block;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef69">form</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline">%inline;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc">%misc;</A>)*&gt;
+&lt;!ATTLIST <A NAME="AttlistDef65"></A><STRONG>applet</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.coreattrs">%coreattrs;</A>
+  codebase    <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  archive     CDATA          #IMPLIED
+  code        CDATA          #IMPLIED
+  object      CDATA          #IMPLIED
+  alt         <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  name        NMTOKEN        #IMPLIED
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #REQUIRED
+  height      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #REQUIRED
+  align       <A HREF="xhtml1-transitional.dtd.html#EntityDef.ImgAlign">%ImgAlign;</A>     #IMPLIED
+  hspace      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  vspace      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--=================== Images ===========================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!--
+   To avoid accessibility problems for people who aren't
+   able to see the image, you should provide a text
+   description using the alt and longdesc attributes.
+   In addition, avoid the use of server-side image maps.
+--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef66"></A><STRONG>img</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef66"></A><STRONG>img</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  src         <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #REQUIRED
+  alt         <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #REQUIRED
+  name        NMTOKEN        #IMPLIED
+  longdesc    <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  height      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  usemap      <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  ismap       (ismap)        #IMPLIED
+  align       <A HREF="xhtml1-transitional.dtd.html#EntityDef.ImgAlign">%ImgAlign;</A>     #IMPLIED
+  border      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  hspace      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  vspace      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- usemap points to a map element which may be in this document
+  or an external document, although the latter is not widely supported --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!--================== Client-side image maps ============================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- These can be placed in the same document or grouped in a
+     separate document although this isn't yet widely supported --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef67"></A><STRONG>map</STRONG> ((<A HREF="xhtml1-transitional.dtd.html#EntityDef.block">%block;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef69">form</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc">%misc;</A>)+ | <A HREF="xhtml1-transitional.dtd.html#ElementDef68">area</A>+)&gt;
+&lt;!ATTLIST <A NAME="AttlistDef67"></A><STRONG>map</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.events">%events;</A>
+  id          ID             #REQUIRED
+  class       CDATA          #IMPLIED
+  style       <A HREF="xhtml1-transitional.dtd.html#EntityDef.StyleSheet">%StyleSheet;</A>   #IMPLIED
+  title       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  name        CDATA          #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef68"></A><STRONG>area</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef68"></A><STRONG>area</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.focus">%focus;</A>
+  shape       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Shape">%Shape;</A>        "rect"
+  coords      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Coords">%Coords;</A>       #IMPLIED
+  href        <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  nohref      (nohref)       #IMPLIED
+  alt         <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #REQUIRED
+  target      <A HREF="xhtml1-transitional.dtd.html#EntityDef.FrameTarget">%FrameTarget;</A>  #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--================ Forms ===============================================--&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef69"></A><STRONG>form</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.form.content">%form.content;</A>&gt;   <SPAN CLASS="COMMENT">&lt;!-- forms shouldn't be nested --&gt;</SPAN>
+
+&lt;!ATTLIST <A NAME="AttlistDef69"></A><STRONG>form</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  action      <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #REQUIRED
+  method      (get|post)     "get"
+  name        NMTOKEN        #IMPLIED
+  enctype     <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentType">%ContentType;</A>  "application/x-www-form-urlencoded"
+  onsubmit    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onreset     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  accept      <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentTypes">%ContentTypes;</A> #IMPLIED
+  accept-charset <A HREF="xhtml1-transitional.dtd.html#EntityDef.Charsets">%Charsets;</A>  #IMPLIED
+  target      <A HREF="xhtml1-transitional.dtd.html#EntityDef.FrameTarget">%FrameTarget;</A>  #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+  Each label must not contain more than ONE field
+  Label elements shouldn't be nested.
+--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef70"></A><STRONG>label</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ATTLIST <A NAME="AttlistDef70"></A><STRONG>label</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  for         IDREF          #IMPLIED
+  accesskey   <A HREF="xhtml1-transitional.dtd.html#EntityDef.Character">%Character;</A>    #IMPLIED
+  onfocus     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onblur      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  &gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.InputType"><STRONG>InputType</STRONG></A>
+  "(text | password | checkbox |
+    radio | submit | reset |
+    file | hidden | image | <A HREF="xhtml1-transitional.dtd.html#ElementDef78">button</A>)"
+   &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- the name attribute is required for all but submit &amp; reset --&gt;</SPAN>
+
+&lt;!ELEMENT <A NAME="ElementDef71"></A><STRONG>input</STRONG> EMPTY&gt;     <SPAN CLASS="COMMENT">&lt;!-- form control --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef71"></A><STRONG>input</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.focus">%focus;</A>
+  type        <A HREF="xhtml1-transitional.dtd.html#EntityDef.InputType">%InputType;</A>    "text"
+  name        CDATA          #IMPLIED
+  value       CDATA          #IMPLIED
+  checked     (checked)      #IMPLIED
+  disabled    (disabled)     #IMPLIED
+  readonly    (readonly)     #IMPLIED
+  size        CDATA          #IMPLIED
+  maxlength   <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #IMPLIED
+  src         <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  alt         CDATA          #IMPLIED
+  usemap      <A HREF="xhtml1-transitional.dtd.html#EntityDef.URI">%URI;</A>          #IMPLIED
+  onselect    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onchange    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  accept      <A HREF="xhtml1-transitional.dtd.html#EntityDef.ContentTypes">%ContentTypes;</A> #IMPLIED
+  align       <A HREF="xhtml1-transitional.dtd.html#EntityDef.ImgAlign">%ImgAlign;</A>     #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef72"></A><STRONG>select</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef73">optgroup</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef74">option</A>)+&gt;  <SPAN CLASS="COMMENT">&lt;!-- option selector --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef72"></A><STRONG>select</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  name        CDATA          #IMPLIED
+  size        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #IMPLIED
+  multiple    (multiple)     #IMPLIED
+  disabled    (disabled)     #IMPLIED
+  tabindex    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #IMPLIED
+  onfocus     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onblur      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onchange    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef73"></A><STRONG>optgroup</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef74">option</A>)+&gt;   <SPAN CLASS="COMMENT">&lt;!-- option group --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef73"></A><STRONG>optgroup</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  disabled    (disabled)     #IMPLIED
+  label       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #REQUIRED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef74"></A><STRONG>option</STRONG> (#PCDATA)&gt;     <SPAN CLASS="COMMENT">&lt;!-- selectable choice --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef74"></A><STRONG>option</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  selected    (selected)     #IMPLIED
+  disabled    (disabled)     #IMPLIED
+  label       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  value       CDATA          #IMPLIED
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef75"></A><STRONG>textarea</STRONG> (#PCDATA)&gt;     <SPAN CLASS="COMMENT">&lt;!-- multi-line text field --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef75"></A><STRONG>textarea</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.focus">%focus;</A>
+  name        CDATA          #IMPLIED
+  rows        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #REQUIRED
+  cols        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       #REQUIRED
+  disabled    (disabled)     #IMPLIED
+  readonly    (readonly)     #IMPLIED
+  onselect    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  onchange    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Script">%Script;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+  The fieldset element is used to group form fields.
+  Only one legend element should occur in the content
+  and if present should only be preceded by whitespace.
+--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef76"></A><STRONG>fieldset</STRONG> (#PCDATA | <A HREF="xhtml1-transitional.dtd.html#ElementDef77">legend</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.block">%block;</A> | <A HREF="xhtml1-transitional.dtd.html#ElementDef69">form</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.inline">%inline;</A> | <A HREF="xhtml1-transitional.dtd.html#EntityDef.misc">%misc;</A>)*&gt;
+&lt;!ATTLIST <A NAME="AttlistDef76"></A><STRONG>fieldset</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  &gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.LAlign"><STRONG>LAlign</STRONG></A> "(top|bottom|left|right)"&gt;
+
+&lt;!ELEMENT <A NAME="ElementDef77"></A><STRONG>legend</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;     <SPAN CLASS="COMMENT">&lt;!-- fieldset label --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef77"></A><STRONG>legend</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  accesskey   <A HREF="xhtml1-transitional.dtd.html#EntityDef.Character">%Character;</A>    #IMPLIED
+  align       <A HREF="xhtml1-transitional.dtd.html#EntityDef.LAlign">%LAlign;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+ Content is %Flow; excluding a, form, form controls, iframe
+--&gt;</SPAN> 
+&lt;!ELEMENT <A NAME="ElementDef78"></A><STRONG>button</STRONG> <A HREF="xhtml1-transitional.dtd.html#EntityDef.button.content">%button.content;</A>&gt;  <SPAN CLASS="COMMENT">&lt;!-- push button --&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef78"></A><STRONG>button</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.focus">%focus;</A>
+  name        CDATA          #IMPLIED
+  value       CDATA          #IMPLIED
+  type        (button|submit|reset) "submit"
+  disabled    (disabled)     #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- single-line text input control (DEPRECATED) --&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef79"></A><STRONG>isindex</STRONG> EMPTY&gt;
+&lt;!ATTLIST <A NAME="AttlistDef79"></A><STRONG>isindex</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.coreattrs">%coreattrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.i18n">%i18n;</A>
+  prompt      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--======================= Tables =======================================--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- Derived from IETF HTML table standard, see [RFC1942] --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!--
+ The border attribute sets the thickness of the frame around the
+ table. The default units are screen pixels.
+
+ The frame attribute specifies which parts of the frame around
+ the table should be rendered. The values are not the same as
+ CALS to avoid a name clash with the valign attribute.
+--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.TFrame"><STRONG>TFrame</STRONG></A> "(void|above|below|hsides|lhs|rhs|vsides|box|border)"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+ The rules attribute defines which rules to draw between cells:
+
+ If rules is absent then assume:
+     "none" if border is absent or border="0" otherwise "all"
+--&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.TRules"><STRONG>TRules</STRONG></A> "(none | groups | rows | cols | all)"&gt;
+  
+<SPAN CLASS="COMMENT">&lt;!-- horizontal placement of table relative to document --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.TAlign"><STRONG>TAlign</STRONG></A> "(left|<A HREF="xhtml1-transitional.dtd.html#ElementDef33">center</A>|right)"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- horizontal alignment attributes for cell contents
+
+  char        alignment char, e.g. char=':'
+  charoff     offset for alignment char
+--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.cellhalign"><STRONG>cellhalign</STRONG></A>
+  "align      (left|<A HREF="xhtml1-transitional.dtd.html#ElementDef33">center</A>|right|justify|char) #IMPLIED
+   char       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Character">%Character;</A>    #IMPLIED
+   charoff    <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED"
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- vertical alignment attributes for cell contents --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.cellvalign"><STRONG>cellvalign</STRONG></A>
+  "valign     (top|middle|bottom|baseline) #IMPLIED"
+  &gt;
+
+&lt;!ELEMENT <A NAME="ElementDef80"></A><STRONG>table</STRONG>
+     (<A HREF="xhtml1-transitional.dtd.html#ElementDef81">caption</A>?, (<A HREF="xhtml1-transitional.dtd.html#ElementDef86">col</A>*|<A HREF="xhtml1-transitional.dtd.html#ElementDef85">colgroup</A>*), <A HREF="xhtml1-transitional.dtd.html#ElementDef82">thead</A>?, <A HREF="xhtml1-transitional.dtd.html#ElementDef83">tfoot</A>?, (<A HREF="xhtml1-transitional.dtd.html#ElementDef84">tbody</A>+|<A HREF="xhtml1-transitional.dtd.html#ElementDef87">tr</A>+))&gt;
+&lt;!ELEMENT <A NAME="ElementDef81"></A><STRONG>caption</STRONG>  <A HREF="xhtml1-transitional.dtd.html#EntityDef.Inline">%Inline;</A>&gt;
+&lt;!ELEMENT <A NAME="ElementDef82"></A><STRONG>thead</STRONG>    (<A HREF="xhtml1-transitional.dtd.html#ElementDef87">tr</A>)+&gt;
+&lt;!ELEMENT <A NAME="ElementDef83"></A><STRONG>tfoot</STRONG>    (<A HREF="xhtml1-transitional.dtd.html#ElementDef87">tr</A>)+&gt;
+&lt;!ELEMENT <A NAME="ElementDef84"></A><STRONG>tbody</STRONG>    (<A HREF="xhtml1-transitional.dtd.html#ElementDef87">tr</A>)+&gt;
+&lt;!ELEMENT <A NAME="ElementDef85"></A><STRONG>colgroup</STRONG> (<A HREF="xhtml1-transitional.dtd.html#ElementDef86">col</A>)*&gt;
+&lt;!ELEMENT <A NAME="ElementDef86"></A><STRONG>col</STRONG>      EMPTY&gt;
+&lt;!ELEMENT <A NAME="ElementDef87"></A><STRONG>tr</STRONG>       (<A HREF="xhtml1-transitional.dtd.html#ElementDef88">th</A>|<A HREF="xhtml1-transitional.dtd.html#ElementDef89">td</A>)+&gt;
+&lt;!ELEMENT <A NAME="ElementDef88"></A><STRONG>th</STRONG>       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+&lt;!ELEMENT <A NAME="ElementDef89"></A><STRONG>td</STRONG>       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Flow">%Flow;</A>&gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef80"></A><STRONG>table</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  summary     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  border      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Pixels">%Pixels;</A>       #IMPLIED
+  frame       <A HREF="xhtml1-transitional.dtd.html#EntityDef.TFrame">%TFrame;</A>       #IMPLIED
+  rules       <A HREF="xhtml1-transitional.dtd.html#EntityDef.TRules">%TRules;</A>       #IMPLIED
+  cellspacing <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  cellpadding <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  align       <A HREF="xhtml1-transitional.dtd.html#EntityDef.TAlign">%TAlign;</A>       #IMPLIED
+  bgcolor     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  &gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.CAlign"><STRONG>CAlign</STRONG></A> "(top|bottom|left|right)"&gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef81"></A><STRONG>caption</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  align       <A HREF="xhtml1-transitional.dtd.html#EntityDef.CAlign">%CAlign;</A>       #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+colgroup groups a set of col elements. It allows you to group
+several semantically related columns together.
+--&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef82"></A><STRONG>colgroup</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  span        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       "1"
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.MultiLength">%MultiLength;</A>  #IMPLIED
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellhalign">%cellhalign;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellvalign">%cellvalign;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+ col elements define the alignment properties for cells in
+ one or more columns.
+
+ The width attribute specifies the width of the columns, e.g.
+
+     width=64        width in screen pixels
+     width=0.5*      relative width of 0.5
+
+ The span attribute causes the attributes of one
+ col element to apply to more than one column.
+--&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef83"></A><STRONG>col</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  span        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       "1"
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.MultiLength">%MultiLength;</A>  #IMPLIED
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellhalign">%cellhalign;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellvalign">%cellvalign;</A>
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!--
+    Use thead to duplicate headers when breaking table
+    across page boundaries, or for static headers when
+    tbody sections are rendered in scrolling panel.
+
+    Use tfoot to duplicate footers when breaking table
+    across page boundaries, or for static footers when
+    tbody sections are rendered in scrolling panel.
+
+    Use multiple tbody sections when rules are needed
+    between groups of table rows.
+--&gt;</SPAN>
+&lt;!ATTLIST <A NAME="AttlistDef84"></A><STRONG>thead</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellhalign">%cellhalign;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellvalign">%cellvalign;</A>
+  &gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef85"></A><STRONG>tfoot</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellhalign">%cellhalign;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellvalign">%cellvalign;</A>
+  &gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef86"></A><STRONG>tbody</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellhalign">%cellhalign;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellvalign">%cellvalign;</A>
+  &gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef87"></A><STRONG>tr</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellhalign">%cellhalign;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellvalign">%cellvalign;</A>
+  bgcolor     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  &gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Scope is simpler than headers attribute for common tables --&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.Scope"><STRONG>Scope</STRONG></A> "(row|<A HREF="xhtml1-transitional.dtd.html#ElementDef86">col</A>|rowgroup|<A HREF="xhtml1-transitional.dtd.html#ElementDef85">colgroup</A>)"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- th is for headers, td for data and for cells acting as both --&gt;</SPAN>
+
+&lt;!ATTLIST <A NAME="AttlistDef88"></A><STRONG>th</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  abbr        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  axis        CDATA          #IMPLIED
+  headers     IDREFS         #IMPLIED
+  scope       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Scope">%Scope;</A>        #IMPLIED
+  rowspan     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       "1"
+  colspan     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       "1"
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellhalign">%cellhalign;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellvalign">%cellvalign;</A>
+  nowrap      (nowrap)       #IMPLIED
+  bgcolor     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  height      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  &gt;
+
+&lt;!ATTLIST <A NAME="AttlistDef89"></A><STRONG>td</STRONG>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.attrs">%attrs;</A>
+  abbr        <A HREF="xhtml1-transitional.dtd.html#EntityDef.Text">%Text;</A>         #IMPLIED
+  axis        CDATA          #IMPLIED
+  headers     IDREFS         #IMPLIED
+  scope       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Scope">%Scope;</A>        #IMPLIED
+  rowspan     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       "1"
+  colspan     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Number">%Number;</A>       "1"
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellhalign">%cellhalign;</A>
+  <A HREF="xhtml1-transitional.dtd.html#EntityDef.cellvalign">%cellvalign;</A>
+  nowrap      (nowrap)       #IMPLIED
+  bgcolor     <A HREF="xhtml1-transitional.dtd.html#EntityDef.Color">%Color;</A>        #IMPLIED
+  width       <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  height      <A HREF="xhtml1-transitional.dtd.html#EntityDef.Length">%Length;</A>       #IMPLIED
+  &gt;
+
+<?LIVEDTD EOF?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE></BODY></HTML>

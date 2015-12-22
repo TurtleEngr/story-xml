@@ -1,0 +1,2246 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>dbhierx.mod</TITLE>
+<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
+<STYLE TYPE="text/css">
+  STRONG { font-weight: bold; color: red;}
+  .COMMENT { font-style:italic; color: #A8A8A8;}
+</STYLE>
+</HEAD>
+<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>dbhierx.mod</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
+<PRE><SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- DocBook document hierarchy module V4.5 ............................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- File dbhierx.mod ..................................................... --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- Copyright 1992-2004 HaL Computer Systems, Inc.,
+     O'Reilly &amp; Associates, Inc., ArborText, Inc., Fujitsu Software
+     Corporation, Norman Walsh, Sun Microsystems, Inc., and the
+     Organization for the Advancement of Structured Information
+     Standards (OASIS).
+
+     $Id: dbhierx.mod.html,v 1.1 2009/04/21 07:29:47 bruce Exp $
+
+     Permission to use, copy, modify and distribute the DocBook DTD
+     and its accompanying documentation for any purpose and without fee
+     is hereby granted in perpetuity, provided that the above copyright
+     notice and this paragraph appear in all copies.  The copyright
+     holders make no representation about the suitability of the DTD for
+     any purpose.  It is provided "as is" without expressed or implied
+     warranty.
+
+     If you modify the DocBook DTD in any way, except for declaring and
+     referencing additional sets of general entities and declaring
+     additional notations, label your DTD as a variant of DocBook.  See
+     the maintenance documentation for more information.
+
+     Please direct all questions, bug reports, or suggestions for
+     changes to the docbook@lists.oasis-open.org mailing list. For more
+     information, see http://www.oasis-open.org/docbook/.
+--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- This module contains the definitions for the overall document
+     hierarchies of DocBook documents.  It covers computer documentation
+     manuals and manual fragments, as well as reference entries (such as
+     man pages) and technical journals or anthologies containing
+     articles.
+
+     This module depends on the DocBook information pool module.  All
+     elements and entities referenced but not defined here are assumed
+     to be defined in the information pool module.
+
+     In DTD driver files referring to this module, please use an entity
+     declaration that uses the public identifier shown below:
+
+     &lt;!ENTITY % dbhier PUBLIC
+     "-//OASIS//ELEMENTS DocBook Document Hierarchy V4.5//EN"
+     "dbhierx.mod"&gt;
+     %dbhier;
+
+     See the documentation for detailed information on the parameter
+     entity and module scheme used in DocBook, customizing DocBook and
+     planning for interchange, and changes made since the last release
+     of DocBook.
+--&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Entities for module inclusions ....................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.dbhier.redecl.module"><STRONG>dbhier.redecl.module</STRONG></A>		"IGNORE"&gt;
+&lt;!ENTITY % <A NAME="EntityDef.dbhier.redecl2.module"><STRONG>dbhier.redecl2.module</STRONG></A>	"IGNORE"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Entities for element classes ......................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.local.appendix.class"><STRONG>local.appendix.class</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.appendix.class"><STRONG>appendix.class</STRONG></A>	"<A HREF="dbhierx.mod.html#ElementDef346">appendix</A> <A HREF="dbhierx.mod.html#EntityDef.local.appendix.class">%local.appendix.class;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.article.class"><STRONG>local.article.class</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.article.class"><STRONG>article.class</STRONG></A>	"<A HREF="dbhierx.mod.html#ElementDef406">article</A> <A HREF="dbhierx.mod.html#EntityDef.local.article.class">%local.article.class;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.book.class"><STRONG>local.book.class</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.book.class"><STRONG>book.class</STRONG></A>		"<A HREF="dbhierx.mod.html#ElementDef329">book</A> <A HREF="dbhierx.mod.html#EntityDef.local.book.class">%local.book.class;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.chapter.class"><STRONG>local.chapter.class</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.chapter.class"><STRONG>chapter.class</STRONG></A>	"<A HREF="dbhierx.mod.html#ElementDef347">chapter</A> <A HREF="dbhierx.mod.html#EntityDef.local.chapter.class">%local.chapter.class;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.index.class"><STRONG>local.index.class</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.index.class"><STRONG>index.class</STRONG></A>		"<A HREF="dbhierx.mod.html#ElementDef384">index</A>|<A HREF="dbhierx.mod.html#ElementDef385">setindex</A> <A HREF="dbhierx.mod.html#EntityDef.local.index.class">%local.index.class;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.refentry.class"><STRONG>local.refentry.class</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refentry.class"><STRONG>refentry.class</STRONG></A>	"<A HREF="dbhierx.mod.html#ElementDef393">refentry</A> <A HREF="dbhierx.mod.html#EntityDef.local.refentry.class">%local.refentry.class;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.section.class"><STRONG>local.section.class</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.section.class"><STRONG>section.class</STRONG></A>	"<A HREF="dbhierx.mod.html#ElementDef372">section</A> <A HREF="dbhierx.mod.html#EntityDef.local.section.class">%local.section.class;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.nav.class"><STRONG>local.nav.class</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.nav.class"><STRONG>nav.class</STRONG></A>		"<A HREF="dbhierx.mod.html#ElementDef333">toc</A>|<A HREF="dbhierx.mod.html#ElementDef344">lot</A>|<A HREF="dbhierx.mod.html#ElementDef384">index</A>|<A HREF="dbhierx.mod.html#ElementDef382">glossary</A>|<A HREF="dbhierx.mod.html#ElementDef380">bibliography</A>
+				<A HREF="dbhierx.mod.html#EntityDef.local.nav.class">%local.nav.class;</A>"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Redeclaration placeholder ............................................ --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- For redeclaring entities that are declared after this point while
+     retaining their references to the entities that are declared before
+     this point --&gt;</SPAN>
+
+&lt;!<A NAME="MS1019"></A>[<A HREF="dbhierx.mod.html#EntityDef.dbhier.redecl.module">%dbhier.redecl.module;</A>[
+&lt;!-- Defining rdbhier here makes some buggy XML parsers happy. --&gt;
+&lt;!ENTITY % rdbhier ""&gt;
+%rdbhier;
+&lt;!--end of dbhier.redecl.module--&gt;]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Entities for element mixtures ........................................ --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.local.divcomponent.mix"><STRONG>local.divcomponent.mix</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.divcomponent.mix"><STRONG>divcomponent.mix</STRONG></A>
+		"<A HREF="dbpoolx.mod.html#EntityDef.list.class">%list.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.admon.class">%admon.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.linespecific.class">%linespecific.class;</A>	|<A HREF="dbpoolx.mod.html#EntityDef.synop.class">%synop.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.para.class">%para.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.informal.class">%informal.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.formal.class">%formal.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.compound.class">%compound.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.genobj.class">%genobj.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.descobj.class">%descobj.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.class">%ndxterm.class;</A>        |<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>
+                <A HREF="dbpoolx.mod.html#EntityDef.forms.hook">%forms.hook;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.divcomponent.mix">%local.divcomponent.mix;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.refcomponent.mix"><STRONG>local.refcomponent.mix</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refcomponent.mix"><STRONG>refcomponent.mix</STRONG></A>
+		"<A HREF="dbpoolx.mod.html#EntityDef.list.class">%list.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.admon.class">%admon.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.linespecific.class">%linespecific.class;</A>	|<A HREF="dbpoolx.mod.html#EntityDef.synop.class">%synop.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.para.class">%para.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.informal.class">%informal.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.formal.class">%formal.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.compound.class">%compound.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.genobj.class">%genobj.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.descobj.class">%descobj.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.class">%ndxterm.class;</A>        |<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.forms.hook">%forms.hook;</A>
+                <A HREF="dbhierx.mod.html#EntityDef.local.refcomponent.mix">%local.refcomponent.mix;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.indexdivcomponent.mix"><STRONG>local.indexdivcomponent.mix</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.indexdivcomponent.mix"><STRONG>indexdivcomponent.mix</STRONG></A>
+		"<A HREF="dbpoolx.mod.html#ElementDef69">itemizedlist</A>|<A HREF="dbpoolx.mod.html#ElementDef70">orderedlist</A>|<A HREF="dbpoolx.mod.html#ElementDef78">variablelist</A>|<A HREF="dbpoolx.mod.html#ElementDef76">simplelist</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.linespecific.class">%linespecific.class;</A>	|<A HREF="dbpoolx.mod.html#EntityDef.synop.class">%synop.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.para.class">%para.class;</A>		|<A HREF="dbpoolx.mod.html#EntityDef.informal.class">%informal.class;</A>
+		|<A HREF="dbpoolx.mod.html#ElementDef319">anchor</A>|<A HREF="dbpoolx.mod.html#ElementDef52">remark</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.link.char.class">%link.char.class;</A>
+ 		                        |<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.indexdivcomponent.mix">%local.indexdivcomponent.mix;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.refname.char.mix"><STRONG>local.refname.char.mix</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refname.char.mix"><STRONG>refname.char.mix</STRONG></A>
+		"#PCDATA
+		|<A HREF="dbpoolx.mod.html#EntityDef.tech.char.class">%tech.char.class;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refname.char.mix">%local.refname.char.mix;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.partcontent.mix"><STRONG>local.partcontent.mix</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.partcontent.mix"><STRONG>partcontent.mix</STRONG></A>
+		"<A HREF="dbhierx.mod.html#EntityDef.appendix.class">%appendix.class;</A>|<A HREF="dbhierx.mod.html#EntityDef.chapter.class">%chapter.class;</A>|<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>|<A HREF="dbhierx.mod.html#EntityDef.article.class">%article.class;</A>
+		|<A HREF="dbhierx.mod.html#ElementDef349">preface</A>|<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>|<A HREF="dbhierx.mod.html#ElementDef350">reference</A> <A HREF="dbhierx.mod.html#EntityDef.local.partcontent.mix">%local.partcontent.mix;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.refinline.char.mix"><STRONG>local.refinline.char.mix</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refinline.char.mix"><STRONG>refinline.char.mix</STRONG></A>
+		"#PCDATA
+		|<A HREF="dbpoolx.mod.html#EntityDef.xref.char.class">%xref.char.class;</A>	|<A HREF="dbpoolx.mod.html#EntityDef.gen.char.class">%gen.char.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.link.char.class">%link.char.class;</A>	|<A HREF="dbpoolx.mod.html#EntityDef.tech.char.class">%tech.char.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.base.char.class">%base.char.class;</A>	|<A HREF="dbpoolx.mod.html#EntityDef.docinfo.char.class">%docinfo.char.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.other.char.class">%other.char.class;</A>
+		|<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.class">%ndxterm.class;</A>        |<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refinline.char.mix">%local.refinline.char.mix;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.refclass.char.mix"><STRONG>local.refclass.char.mix</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refclass.char.mix"><STRONG>refclass.char.mix</STRONG></A>
+		"#PCDATA
+		|<A HREF="dbpoolx.mod.html#ElementDef240">application</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refclass.char.mix">%local.refclass.char.mix;</A>"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Redeclaration placeholder 2 .......................................... --&gt;</SPAN>
+
+<SPAN CLASS="COMMENT">&lt;!-- For redeclaring entities that are declared after this point while
+     retaining their references to the entities that are declared before
+     this point --&gt;</SPAN>
+
+&lt;!<A NAME="MS1020"></A>[<A HREF="dbhierx.mod.html#EntityDef.dbhier.redecl2.module">%dbhier.redecl2.module;</A>[
+&lt;!-- Defining rdbhier2 here makes some buggy XML parsers happy. --&gt;
+&lt;!ENTITY % rdbhier2 ""&gt;
+%rdbhier2;
+&lt;!--end of dbhier.redecl2.module--&gt;]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Entities for content models .......................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.div.title.content"><STRONG>div.title.content</STRONG></A>
+	"<A HREF="dbpoolx.mod.html#ElementDef1">title</A>, <A HREF="dbpoolx.mod.html#ElementDef3">subtitle</A>?, <A HREF="dbpoolx.mod.html#ElementDef2">titleabbrev</A>?"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bookcomponent.title.content"><STRONG>bookcomponent.title.content</STRONG></A>
+	"<A HREF="dbpoolx.mod.html#ElementDef1">title</A>, <A HREF="dbpoolx.mod.html#ElementDef3">subtitle</A>?, <A HREF="dbpoolx.mod.html#ElementDef2">titleabbrev</A>?"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect.title.content"><STRONG>sect.title.content</STRONG></A>
+	"<A HREF="dbpoolx.mod.html#ElementDef1">title</A>, <A HREF="dbpoolx.mod.html#ElementDef3">subtitle</A>?, <A HREF="dbpoolx.mod.html#ElementDef2">titleabbrev</A>?"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect.title.content"><STRONG>refsect.title.content</STRONG></A>
+	"<A HREF="dbpoolx.mod.html#ElementDef1">title</A>, <A HREF="dbpoolx.mod.html#ElementDef3">subtitle</A>?, <A HREF="dbpoolx.mod.html#ElementDef2">titleabbrev</A>?"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bookcomponent.content"><STRONG>bookcomponent.content</STRONG></A>
+	"((<A HREF="dbhierx.mod.html#EntityDef.divcomponent.mix">%divcomponent.mix;</A>)+,
+	(<A HREF="dbhierx.mod.html#ElementDef374">sect1</A>*|(<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)*|<A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>*|(<A HREF="dbhierx.mod.html#EntityDef.section.class">%section.class;</A>)*))
+	| (<A HREF="dbhierx.mod.html#ElementDef374">sect1</A>+|(<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)+|<A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>+|(<A HREF="dbhierx.mod.html#EntityDef.section.class">%section.class;</A>)+)"&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Set and SetInfo ...................................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.set.content.module"><STRONG>set.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1021"></A>[<A HREF="dbhierx.mod.html#EntityDef.set.content.module">%set.content.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.set.module"><STRONG>set.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1022"></A>[<A HREF="dbhierx.mod.html#EntityDef.set.module">%set.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.set.attrib"><STRONG>local.set.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.set.role.attrib"><STRONG>set.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.set.element"><STRONG>set.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1023"></A>[<A HREF="dbhierx.mod.html#EntityDef.set.element">%set.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A collection of books.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef327"></A><STRONG>set</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.div.title.content">%div.title.content;</A>)?, <A HREF="dbhierx.mod.html#ElementDef328">setinfo</A>?, <A HREF="dbhierx.mod.html#ElementDef333">toc</A>?, (<A HREF="dbhierx.mod.html#ElementDef327">set</A>|<A HREF="dbhierx.mod.html#EntityDef.book.class">%book.class;</A>)+,
+		<A HREF="dbhierx.mod.html#ElementDef385">setindex</A>?)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of set.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- FPI: SGML formal public identifier --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.set.attlist"><STRONG>set.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1024"></A>[<A HREF="dbhierx.mod.html#EntityDef.set.attlist">%set.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef327"></A><STRONG>set</STRONG>
+		fpi		CDATA		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.set.role.attrib">%set.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.set.attrib">%local.set.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of set.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of set.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.setinfo.module"><STRONG>setinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1025"></A>[<A HREF="dbhierx.mod.html#EntityDef.setinfo.module">%setinfo.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.setinfo.attrib"><STRONG>local.setinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.setinfo.role.attrib"><STRONG>setinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.setinfo.element"><STRONG>setinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1026"></A>[<A HREF="dbhierx.mod.html#EntityDef.setinfo.element">%setinfo.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Set.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef328"></A><STRONG>setinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of setinfo.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Contents: IDs of the ToC, Books, and SetIndex that comprise
+		the set, in the order of their appearance --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.setinfo.attlist"><STRONG>setinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1027"></A>[<A HREF="dbhierx.mod.html#EntityDef.setinfo.attlist">%setinfo.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef328"></A><STRONG>setinfo</STRONG>
+		contents	IDREFS		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.setinfo.role.attrib">%setinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.setinfo.attrib">%local.setinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of setinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of setinfo.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of set.content.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Book and BookInfo .................................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.book.content.module"><STRONG>book.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1028"></A>[<A HREF="dbhierx.mod.html#EntityDef.book.content.module">%book.content.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.book.module"><STRONG>book.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1029"></A>[<A HREF="dbhierx.mod.html#EntityDef.book.module">%book.module;</A>[
+
+&lt;!ENTITY % <A NAME="EntityDef.local.book.attrib"><STRONG>local.book.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.book.role.attrib"><STRONG>book.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.book.element"><STRONG>book.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1030"></A>[<A HREF="dbhierx.mod.html#EntityDef.book.element">%book.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A book.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef329"></A><STRONG>book</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.div.title.content">%div.title.content;</A>)?, <A HREF="dbhierx.mod.html#ElementDef330">bookinfo</A>?,
+ 		(<A HREF="dbhierx.mod.html#ElementDef331">dedication</A> | <A HREF="dbhierx.mod.html#ElementDef333">toc</A> | <A HREF="dbhierx.mod.html#ElementDef344">lot</A>
+ 		| <A HREF="dbhierx.mod.html#ElementDef382">glossary</A> | <A HREF="dbhierx.mod.html#ElementDef380">bibliography</A> | <A HREF="dbhierx.mod.html#ElementDef349">preface</A>
+		| <A HREF="dbhierx.mod.html#EntityDef.chapter.class">%chapter.class;</A> | <A HREF="dbhierx.mod.html#ElementDef350">reference</A> | <A HREF="dbhierx.mod.html#ElementDef348">part</A>
+		| <A HREF="dbhierx.mod.html#EntityDef.article.class">%article.class;</A>
+ 		| <A HREF="dbhierx.mod.html#EntityDef.appendix.class">%appendix.class;</A>
+		| <A HREF="dbhierx.mod.html#EntityDef.index.class">%index.class;</A>
+		| <A HREF="dbhierx.mod.html#ElementDef332">colophon</A>)*)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of book.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- FPI: SGML formal public identifier --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.book.attlist"><STRONG>book.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1031"></A>[<A HREF="dbhierx.mod.html#EntityDef.book.attlist">%book.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef329"></A><STRONG>book</STRONG>		fpi		CDATA		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.book.role.attrib">%book.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.book.attrib">%local.book.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of book.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of book.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bookinfo.module"><STRONG>bookinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1032"></A>[<A HREF="dbhierx.mod.html#EntityDef.bookinfo.module">%bookinfo.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.bookinfo.attrib"><STRONG>local.bookinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.bookinfo.role.attrib"><STRONG>bookinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bookinfo.element"><STRONG>bookinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1033"></A>[<A HREF="dbhierx.mod.html#EntityDef.bookinfo.element">%bookinfo.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Book.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef330"></A><STRONG>bookinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bookinfo.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Contents: IDs of the ToC, LoTs, Prefaces, Parts, Chapters,
+		Appendixes, References, GLossary, Bibliography, and indexes
+		comprising the Book, in the order of their appearance --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.bookinfo.attlist"><STRONG>bookinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1034"></A>[<A HREF="dbhierx.mod.html#EntityDef.bookinfo.attlist">%bookinfo.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef330"></A><STRONG>bookinfo</STRONG>
+		contents	IDREFS		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.bookinfo.role.attrib">%bookinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.bookinfo.attrib">%local.bookinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bookinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bookinfo.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of book.content.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Dedication, ToC, and LoT ............................................. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.dedication.module"><STRONG>dedication.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1035"></A>[<A HREF="dbhierx.mod.html#EntityDef.dedication.module">%dedication.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.dedication.attrib"><STRONG>local.dedication.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.dedication.role.attrib"><STRONG>dedication.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.dedication.element"><STRONG>dedication.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1036"></A>[<A HREF="dbhierx.mod.html#EntityDef.dedication.element">%dedication.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A wrapper for the dedication section of a book.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef331"></A><STRONG>dedication</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>)?, (<A HREF="dbpoolx.mod.html#EntityDef.legalnotice.mix">%legalnotice.mix;</A>)+)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of dedication.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.dedication.attlist"><STRONG>dedication.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1037"></A>[<A HREF="dbhierx.mod.html#EntityDef.dedication.attlist">%dedication.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef331"></A><STRONG>dedication</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.dedication.role.attrib">%dedication.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.dedication.attrib">%local.dedication.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of dedication.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of dedication.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.colophon.module"><STRONG>colophon.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1038"></A>[ <A HREF="dbhierx.mod.html#EntityDef.colophon.module">%colophon.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.colophon.attrib"><STRONG>local.colophon.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.colophon.role.attrib"><STRONG>colophon.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.colophon.element"><STRONG>colophon.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1039"></A>[ <A HREF="dbhierx.mod.html#EntityDef.colophon.element">%colophon.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Text at the back of a book describing facts about its production.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef332"></A><STRONG>colophon</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>)?, (<A HREF="dbpoolx.mod.html#EntityDef.textobject.mix">%textobject.mix;</A>)+)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of colophon.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.colophon.attlist"><STRONG>colophon.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1040"></A>[ <A HREF="dbhierx.mod.html#EntityDef.colophon.attlist">%colophon.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef332"></A><STRONG>colophon</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.colophon.role.attrib">%colophon.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.colophon.attrib">%local.colophon.attrib;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of colophon.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of colophon.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toc.content.module"><STRONG>toc.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1041"></A>[<A HREF="dbhierx.mod.html#EntityDef.toc.content.module">%toc.content.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.toc.module"><STRONG>toc.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1042"></A>[<A HREF="dbhierx.mod.html#EntityDef.toc.module">%toc.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.toc.attrib"><STRONG>local.toc.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.toc.role.attrib"><STRONG>toc.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toc.element"><STRONG>toc.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1043"></A>[<A HREF="dbhierx.mod.html#EntityDef.toc.element">%toc.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A table of contents.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef333"></A><STRONG>toc</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>?,
+		(<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>)?,
+		<A HREF="dbhierx.mod.html#ElementDef334">tocfront</A>*,
+		(<A HREF="dbhierx.mod.html#ElementDef336">tocpart</A> | <A HREF="dbhierx.mod.html#ElementDef337">tocchap</A>)*, <A HREF="dbhierx.mod.html#ElementDef343">tocback</A>*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toc.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toc.attlist"><STRONG>toc.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1044"></A>[<A HREF="dbhierx.mod.html#EntityDef.toc.attlist">%toc.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef333"></A><STRONG>toc</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.pagenum.attrib">%pagenum.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.toc.role.attrib">%toc.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.toc.attrib">%local.toc.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toc.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toc.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocfront.module"><STRONG>tocfront.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1045"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocfront.module">%tocfront.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.tocfront.attrib"><STRONG>local.tocfront.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.tocfront.role.attrib"><STRONG>tocfront.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocfront.element"><STRONG>tocfront.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1046"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocfront.element">%tocfront.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An entry in a table of contents for a front matter component.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef334"></A><STRONG>tocfront</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.para.char.mix">%para.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocfront.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- to element that this entry represents --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.tocfront.attlist"><STRONG>tocfront.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1047"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocfront.attlist">%tocfront.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef334"></A><STRONG>tocfront</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkend.attrib">%linkend.attrib;</A>		<A HREF="dbpoolx.mod.html#EntityDef.pagenum.attrib">%pagenum.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.tocfront.role.attrib">%tocfront.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.tocfront.attrib">%local.tocfront.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocfront.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocfront.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocentry.module"><STRONG>tocentry.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1048"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocentry.module">%tocentry.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.tocentry.attrib"><STRONG>local.tocentry.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.tocentry.role.attrib"><STRONG>tocentry.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocentry.element"><STRONG>tocentry.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1049"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocentry.element">%tocentry.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A component title in a table of contents.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef335"></A><STRONG>tocentry</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.para.char.mix">%para.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocentry.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- to element that this entry represents --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.tocentry.attlist"><STRONG>tocentry.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1050"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocentry.attlist">%tocentry.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef335"></A><STRONG>tocentry</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkend.attrib">%linkend.attrib;</A>		<A HREF="dbpoolx.mod.html#EntityDef.pagenum.attrib">%pagenum.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.tocentry.role.attrib">%tocentry.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.tocentry.attrib">%local.tocentry.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocentry.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocentry.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocpart.module"><STRONG>tocpart.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1051"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocpart.module">%tocpart.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.tocpart.attrib"><STRONG>local.tocpart.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.tocpart.role.attrib"><STRONG>tocpart.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocpart.element"><STRONG>tocpart.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1052"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocpart.element">%tocpart.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An entry in a table of contents for a part of a book.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef336"></A><STRONG>tocpart</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef335">tocentry</A>+, <A HREF="dbhierx.mod.html#ElementDef337">tocchap</A>*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocpart.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocpart.attlist"><STRONG>tocpart.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1053"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocpart.attlist">%tocpart.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef336"></A><STRONG>tocpart</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.tocpart.role.attrib">%tocpart.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.tocpart.attrib">%local.tocpart.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocpart.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocpart.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocchap.module"><STRONG>tocchap.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1054"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocchap.module">%tocchap.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.tocchap.attrib"><STRONG>local.tocchap.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.tocchap.role.attrib"><STRONG>tocchap.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocchap.element"><STRONG>tocchap.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1055"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocchap.element">%tocchap.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An entry in a table of contents for a component in the body of a document.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef337"></A><STRONG>tocchap</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef335">tocentry</A>+, <A HREF="dbhierx.mod.html#ElementDef338">toclevel1</A>*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocchap.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocchap.attlist"><STRONG>tocchap.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1056"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocchap.attlist">%tocchap.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef337"></A><STRONG>tocchap</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.tocchap.role.attrib">%tocchap.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.tocchap.attrib">%local.tocchap.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocchap.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocchap.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel1.module"><STRONG>toclevel1.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1057"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel1.module">%toclevel1.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.toclevel1.attrib"><STRONG>local.toclevel1.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.toclevel1.role.attrib"><STRONG>toclevel1.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel1.element"><STRONG>toclevel1.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1058"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel1.element">%toclevel1.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A top-level entry within a table of contents entry for a chapter-like component.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef338"></A><STRONG>toclevel1</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef335">tocentry</A>+, <A HREF="dbhierx.mod.html#ElementDef339">toclevel2</A>*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel1.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel1.attlist"><STRONG>toclevel1.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1059"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel1.attlist">%toclevel1.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef338"></A><STRONG>toclevel1</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.toclevel1.role.attrib">%toclevel1.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.toclevel1.attrib">%local.toclevel1.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel1.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel1.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel2.module"><STRONG>toclevel2.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1060"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel2.module">%toclevel2.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.toclevel2.attrib"><STRONG>local.toclevel2.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.toclevel2.role.attrib"><STRONG>toclevel2.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel2.element"><STRONG>toclevel2.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1061"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel2.element">%toclevel2.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A second-level entry within a table of contents entry for a chapter-like component.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef339"></A><STRONG>toclevel2</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef335">tocentry</A>+, <A HREF="dbhierx.mod.html#ElementDef340">toclevel3</A>*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel2.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel2.attlist"><STRONG>toclevel2.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1062"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel2.attlist">%toclevel2.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef339"></A><STRONG>toclevel2</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.toclevel2.role.attrib">%toclevel2.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.toclevel2.attrib">%local.toclevel2.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel2.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel2.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel3.module"><STRONG>toclevel3.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1063"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel3.module">%toclevel3.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.toclevel3.attrib"><STRONG>local.toclevel3.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.toclevel3.role.attrib"><STRONG>toclevel3.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel3.element"><STRONG>toclevel3.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1064"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel3.element">%toclevel3.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A third-level entry within a table of contents entry for a chapter-like component.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef340"></A><STRONG>toclevel3</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef335">tocentry</A>+, <A HREF="dbhierx.mod.html#ElementDef341">toclevel4</A>*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel3.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel3.attlist"><STRONG>toclevel3.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1065"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel3.attlist">%toclevel3.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef340"></A><STRONG>toclevel3</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.toclevel3.role.attrib">%toclevel3.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.toclevel3.attrib">%local.toclevel3.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel3.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel3.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel4.module"><STRONG>toclevel4.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1066"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel4.module">%toclevel4.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.toclevel4.attrib"><STRONG>local.toclevel4.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.toclevel4.role.attrib"><STRONG>toclevel4.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel4.element"><STRONG>toclevel4.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1067"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel4.element">%toclevel4.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A fourth-level entry within a table of contents entry for a chapter-like component.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef341"></A><STRONG>toclevel4</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef335">tocentry</A>+, <A HREF="dbhierx.mod.html#ElementDef342">toclevel5</A>*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel4.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel4.attlist"><STRONG>toclevel4.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1068"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel4.attlist">%toclevel4.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef341"></A><STRONG>toclevel4</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.toclevel4.role.attrib">%toclevel4.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.toclevel4.attrib">%local.toclevel4.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel4.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel4.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel5.module"><STRONG>toclevel5.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1069"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel5.module">%toclevel5.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.toclevel5.attrib"><STRONG>local.toclevel5.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.toclevel5.role.attrib"><STRONG>toclevel5.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel5.element"><STRONG>toclevel5.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1070"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel5.element">%toclevel5.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A fifth-level entry within a table of contents entry for a chapter-like component.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef342"></A><STRONG>toclevel5</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef335">tocentry</A>+)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel5.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.toclevel5.attlist"><STRONG>toclevel5.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1071"></A>[<A HREF="dbhierx.mod.html#EntityDef.toclevel5.attlist">%toclevel5.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef342"></A><STRONG>toclevel5</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.toclevel5.role.attrib">%toclevel5.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.toclevel5.attrib">%local.toclevel5.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel5.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toclevel5.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocback.module"><STRONG>tocback.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1072"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocback.module">%tocback.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.tocback.attrib"><STRONG>local.tocback.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.tocback.role.attrib"><STRONG>tocback.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tocback.element"><STRONG>tocback.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1073"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocback.element">%tocback.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An entry in a table of contents for a back matter component.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef343"></A><STRONG>tocback</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.para.char.mix">%para.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocback.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- to element that this entry represents --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.tocback.attlist"><STRONG>tocback.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1074"></A>[<A HREF="dbhierx.mod.html#EntityDef.tocback.attlist">%tocback.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef343"></A><STRONG>tocback</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkend.attrib">%linkend.attrib;</A>		<A HREF="dbpoolx.mod.html#EntityDef.pagenum.attrib">%pagenum.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.tocback.role.attrib">%tocback.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.tocback.attrib">%local.tocback.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocback.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tocback.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of toc.content.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.lot.content.module"><STRONG>lot.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1075"></A>[<A HREF="dbhierx.mod.html#EntityDef.lot.content.module">%lot.content.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.lot.module"><STRONG>lot.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1076"></A>[<A HREF="dbhierx.mod.html#EntityDef.lot.module">%lot.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.lot.attrib"><STRONG>local.lot.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.lot.role.attrib"><STRONG>lot.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.lot.element"><STRONG>lot.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1077"></A>[<A HREF="dbhierx.mod.html#EntityDef.lot.element">%lot.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A list of the titles of formal objects (as tables or figures) in a document.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef344"></A><STRONG>lot</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>?, (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>)?, <A HREF="dbhierx.mod.html#ElementDef345">lotentry</A>*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of lot.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.lot.attlist"><STRONG>lot.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1078"></A>[<A HREF="dbhierx.mod.html#EntityDef.lot.attlist">%lot.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef344"></A><STRONG>lot</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.lot.role.attrib">%lot.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.lot.attrib">%local.lot.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of lot.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of lot.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.lotentry.module"><STRONG>lotentry.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1079"></A>[<A HREF="dbhierx.mod.html#EntityDef.lotentry.module">%lotentry.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.lotentry.attrib"><STRONG>local.lotentry.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.lotentry.role.attrib"><STRONG>lotentry.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.lotentry.element"><STRONG>lotentry.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1080"></A>[<A HREF="dbhierx.mod.html#EntityDef.lotentry.element">%lotentry.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An entry in a list of titles.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef345"></A><STRONG>lotentry</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.para.char.mix">%para.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of lotentry.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- SrcCredit: Information about the source of the entry,
+		as for a list of illustrations --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- linkend: to element that this entry represents--&gt;</SPAN>
+&lt;!ENTITY % <A NAME="EntityDef.lotentry.attlist"><STRONG>lotentry.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1081"></A>[<A HREF="dbhierx.mod.html#EntityDef.lotentry.attlist">%lotentry.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef345"></A><STRONG>lotentry</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkend.attrib">%linkend.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.pagenum.attrib">%pagenum.attrib;</A>
+		srccredit	CDATA		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.lotentry.role.attrib">%lotentry.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.lotentry.attrib">%local.lotentry.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of lotentry.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of lotentry.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of lot.content.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Appendix, Chapter, Part, Preface, Reference, PartIntro ............... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.appendix.module"><STRONG>appendix.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1082"></A>[<A HREF="dbhierx.mod.html#EntityDef.appendix.module">%appendix.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.appendix.attrib"><STRONG>local.appendix.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.appendix.role.attrib"><STRONG>appendix.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.appendix.element"><STRONG>appendix.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1083"></A>[<A HREF="dbhierx.mod.html#EntityDef.appendix.element">%appendix.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An appendix in a Book or Article.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef346"></A><STRONG>appendix</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>?,
+                     <A HREF="dbhierx.mod.html#ElementDef352">appendixinfo</A>?,
+                     (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>),
+                     (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+                     <A HREF="dbhierx.mod.html#ElementDef337">tocchap</A>?,
+                     (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.content">%bookcomponent.content;</A>),
+                     (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of appendix.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.appendix.attlist"><STRONG>appendix.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1084"></A>[<A HREF="dbhierx.mod.html#EntityDef.appendix.attlist">%appendix.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef346"></A><STRONG>appendix</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.appendix.role.attrib">%appendix.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.appendix.attrib">%local.appendix.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of appendix.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of appendix.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.chapter.module"><STRONG>chapter.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1085"></A>[<A HREF="dbhierx.mod.html#EntityDef.chapter.module">%chapter.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.chapter.attrib"><STRONG>local.chapter.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.chapter.role.attrib"><STRONG>chapter.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.chapter.element"><STRONG>chapter.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1086"></A>[<A HREF="dbhierx.mod.html#EntityDef.chapter.element">%chapter.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A chapter, as of a book.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef347"></A><STRONG>chapter</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>?,
+                    <A HREF="dbhierx.mod.html#ElementDef354">chapterinfo</A>?,
+                    (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>),
+                    (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+                    <A HREF="dbhierx.mod.html#ElementDef337">tocchap</A>?,
+                    (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.content">%bookcomponent.content;</A>),
+                    (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of chapter.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.chapter.attlist"><STRONG>chapter.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1087"></A>[<A HREF="dbhierx.mod.html#EntityDef.chapter.attlist">%chapter.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef347"></A><STRONG>chapter</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.chapter.role.attrib">%chapter.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.chapter.attrib">%local.chapter.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of chapter.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of chapter.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.part.module"><STRONG>part.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1088"></A>[<A HREF="dbhierx.mod.html#EntityDef.part.module">%part.module;</A>[
+
+<SPAN CLASS="COMMENT">&lt;!-- Note that Part was to have its content model reduced in V4.5.  This
+change will not be made after all. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.local.part.attrib"><STRONG>local.part.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.part.role.attrib"><STRONG>part.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.part.element"><STRONG>part.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1089"></A>[<A HREF="dbhierx.mod.html#EntityDef.part.element">%part.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A division in a book.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef348"></A><STRONG>part</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>?,
+                <A HREF="dbhierx.mod.html#ElementDef358">partinfo</A>?, (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>), <A HREF="dbhierx.mod.html#ElementDef351">partintro</A>?,
+		(<A HREF="dbhierx.mod.html#EntityDef.partcontent.mix">%partcontent.mix;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of part.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.part.attlist"><STRONG>part.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1090"></A>[<A HREF="dbhierx.mod.html#EntityDef.part.attlist">%part.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef348"></A><STRONG>part</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.part.role.attrib">%part.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.part.attrib">%local.part.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of part.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--ELEMENT PartIntro (defined below)--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!--end of part.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.preface.module"><STRONG>preface.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1091"></A>[<A HREF="dbhierx.mod.html#EntityDef.preface.module">%preface.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.preface.attrib"><STRONG>local.preface.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.preface.role.attrib"><STRONG>preface.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.preface.element"><STRONG>preface.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1092"></A>[<A HREF="dbhierx.mod.html#EntityDef.preface.element">%preface.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Introductory matter preceding the first chapter of a book.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef349"></A><STRONG>preface</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>?,
+                    <A HREF="dbhierx.mod.html#ElementDef359">prefaceinfo</A>?,
+                    (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>),
+                    (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+                    <A HREF="dbhierx.mod.html#ElementDef337">tocchap</A>?,
+                    (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.content">%bookcomponent.content;</A>),
+                    (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of preface.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.preface.attlist"><STRONG>preface.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1093"></A>[<A HREF="dbhierx.mod.html#EntityDef.preface.attlist">%preface.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef349"></A><STRONG>preface</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.preface.role.attrib">%preface.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.preface.attrib">%local.preface.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of preface.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of preface.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.reference.module"><STRONG>reference.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1094"></A>[<A HREF="dbhierx.mod.html#EntityDef.reference.module">%reference.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.reference.attrib"><STRONG>local.reference.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.reference.role.attrib"><STRONG>reference.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.reference.element"><STRONG>reference.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1095"></A>[<A HREF="dbhierx.mod.html#EntityDef.reference.element">%reference.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A collection of reference entries.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef350"></A><STRONG>reference</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>?,
+                     <A HREF="dbhierx.mod.html#ElementDef366">referenceinfo</A>?,
+                     (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>), <A HREF="dbhierx.mod.html#ElementDef351">partintro</A>?,
+                     (<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of reference.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.reference.attlist"><STRONG>reference.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1096"></A>[<A HREF="dbhierx.mod.html#EntityDef.reference.attlist">%reference.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef350"></A><STRONG>reference</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.reference.role.attrib">%reference.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.reference.attrib">%local.reference.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of reference.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--ELEMENT PartIntro (defined below)--&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!--end of reference.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.partintro.module"><STRONG>partintro.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1097"></A>[<A HREF="dbhierx.mod.html#EntityDef.partintro.module">%partintro.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.partintro.attrib"><STRONG>local.partintro.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.partintro.role.attrib"><STRONG>partintro.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.partintro.element"><STRONG>partintro.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1098"></A>[<A HREF="dbhierx.mod.html#EntityDef.partintro.element">%partintro.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An introduction to the contents of a part.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef351"></A><STRONG>partintro</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.div.title.content">%div.title.content;</A>)?, (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.content">%bookcomponent.content;</A>))
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of partintro.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.partintro.attlist"><STRONG>partintro.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1099"></A>[<A HREF="dbhierx.mod.html#EntityDef.partintro.attlist">%partintro.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef351"></A><STRONG>partintro</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.partintro.role.attrib">%partintro.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.partintro.attrib">%local.partintro.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of partintro.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of partintro.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Other Info elements .................................................. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.appendixinfo.module"><STRONG>appendixinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1100"></A>[ <A HREF="dbhierx.mod.html#EntityDef.appendixinfo.module">%appendixinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.appendixinfo.attrib"><STRONG>local.appendixinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.appendixinfo.role.attrib"><STRONG>appendixinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.appendixinfo.element"><STRONG>appendixinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1101"></A>[ <A HREF="dbhierx.mod.html#EntityDef.appendixinfo.element">%appendixinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for an Appendix.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef352"></A><STRONG>appendixinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of appendixinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.appendixinfo.attlist"><STRONG>appendixinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1102"></A>[ <A HREF="dbhierx.mod.html#EntityDef.appendixinfo.attlist">%appendixinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef352"></A><STRONG>appendixinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.appendixinfo.role.attrib">%appendixinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.appendixinfo.attrib">%local.appendixinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of appendixinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of appendixinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliographyinfo.module"><STRONG>bibliographyinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1103"></A>[ <A HREF="dbhierx.mod.html#EntityDef.bibliographyinfo.module">%bibliographyinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.bibliographyinfo.attrib"><STRONG>local.bibliographyinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.bibliographyinfo.role.attrib"><STRONG>bibliographyinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliographyinfo.element"><STRONG>bibliographyinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1104"></A>[ <A HREF="dbhierx.mod.html#EntityDef.bibliographyinfo.element">%bibliographyinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Bibliography.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef353"></A><STRONG>bibliographyinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliographyinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliographyinfo.attlist"><STRONG>bibliographyinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1105"></A>[ <A HREF="dbhierx.mod.html#EntityDef.bibliographyinfo.attlist">%bibliographyinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef353"></A><STRONG>bibliographyinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.bibliographyinfo.role.attrib">%bibliographyinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.bibliographyinfo.attrib">%local.bibliographyinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliographyinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliographyinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.chapterinfo.module"><STRONG>chapterinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1106"></A>[ <A HREF="dbhierx.mod.html#EntityDef.chapterinfo.module">%chapterinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.chapterinfo.attrib"><STRONG>local.chapterinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.chapterinfo.role.attrib"><STRONG>chapterinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.chapterinfo.element"><STRONG>chapterinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1107"></A>[ <A HREF="dbhierx.mod.html#EntityDef.chapterinfo.element">%chapterinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Chapter.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef354"></A><STRONG>chapterinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of chapterinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.chapterinfo.attlist"><STRONG>chapterinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1108"></A>[ <A HREF="dbhierx.mod.html#EntityDef.chapterinfo.attlist">%chapterinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef354"></A><STRONG>chapterinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.chapterinfo.role.attrib">%chapterinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.chapterinfo.attrib">%local.chapterinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of chapterinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of chapterinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.glossaryinfo.module"><STRONG>glossaryinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1109"></A>[ <A HREF="dbhierx.mod.html#EntityDef.glossaryinfo.module">%glossaryinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.glossaryinfo.attrib"><STRONG>local.glossaryinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.glossaryinfo.role.attrib"><STRONG>glossaryinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.glossaryinfo.element"><STRONG>glossaryinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1110"></A>[ <A HREF="dbhierx.mod.html#EntityDef.glossaryinfo.element">%glossaryinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Glossary.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef355"></A><STRONG>glossaryinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossaryinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.glossaryinfo.attlist"><STRONG>glossaryinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1111"></A>[ <A HREF="dbhierx.mod.html#EntityDef.glossaryinfo.attlist">%glossaryinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef355"></A><STRONG>glossaryinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.glossaryinfo.role.attrib">%glossaryinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.glossaryinfo.attrib">%local.glossaryinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossaryinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossaryinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexinfo.module"><STRONG>indexinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1112"></A>[ <A HREF="dbhierx.mod.html#EntityDef.indexinfo.module">%indexinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.indexinfo.attrib"><STRONG>local.indexinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.indexinfo.role.attrib"><STRONG>indexinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexinfo.element"><STRONG>indexinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1113"></A>[ <A HREF="dbhierx.mod.html#EntityDef.indexinfo.element">%indexinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for an Index.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef356"></A><STRONG>indexinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexinfo.attlist"><STRONG>indexinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1114"></A>[ <A HREF="dbhierx.mod.html#EntityDef.indexinfo.attlist">%indexinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef356"></A><STRONG>indexinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.indexinfo.role.attrib">%indexinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.indexinfo.attrib">%local.indexinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.setindexinfo.module"><STRONG>setindexinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1115"></A>[ <A HREF="dbhierx.mod.html#EntityDef.setindexinfo.module">%setindexinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.setindexinfo.attrib"><STRONG>local.setindexinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.setindexinfo.role.attrib"><STRONG>setindexinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.setindexinfo.element"><STRONG>setindexinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1116"></A>[ <A HREF="dbhierx.mod.html#EntityDef.setindexinfo.element">%setindexinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a SetIndex.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef357"></A><STRONG>setindexinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of setindexinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.setindexinfo.attlist"><STRONG>setindexinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1117"></A>[ <A HREF="dbhierx.mod.html#EntityDef.setindexinfo.attlist">%setindexinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef357"></A><STRONG>setindexinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.setindexinfo.role.attrib">%setindexinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.setindexinfo.attrib">%local.setindexinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of setindexinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of setindexinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.partinfo.module"><STRONG>partinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1118"></A>[ <A HREF="dbhierx.mod.html#EntityDef.partinfo.module">%partinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.partinfo.attrib"><STRONG>local.partinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.partinfo.role.attrib"><STRONG>partinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.partinfo.element"><STRONG>partinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1119"></A>[ <A HREF="dbhierx.mod.html#EntityDef.partinfo.element">%partinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Part.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef358"></A><STRONG>partinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of partinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.partinfo.attlist"><STRONG>partinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1120"></A>[ <A HREF="dbhierx.mod.html#EntityDef.partinfo.attlist">%partinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef358"></A><STRONG>partinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.partinfo.role.attrib">%partinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.partinfo.attrib">%local.partinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of partinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of partinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.prefaceinfo.module"><STRONG>prefaceinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1121"></A>[ <A HREF="dbhierx.mod.html#EntityDef.prefaceinfo.module">%prefaceinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.prefaceinfo.attrib"><STRONG>local.prefaceinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.prefaceinfo.role.attrib"><STRONG>prefaceinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.prefaceinfo.element"><STRONG>prefaceinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1122"></A>[ <A HREF="dbhierx.mod.html#EntityDef.prefaceinfo.element">%prefaceinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Preface.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef359"></A><STRONG>prefaceinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of prefaceinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.prefaceinfo.attlist"><STRONG>prefaceinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1123"></A>[ <A HREF="dbhierx.mod.html#EntityDef.prefaceinfo.attlist">%prefaceinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef359"></A><STRONG>prefaceinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.prefaceinfo.role.attrib">%prefaceinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.prefaceinfo.attrib">%local.prefaceinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of prefaceinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of prefaceinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refentryinfo.module"><STRONG>refentryinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1124"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refentryinfo.module">%refentryinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.refentryinfo.attrib"><STRONG>local.refentryinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refentryinfo.role.attrib"><STRONG>refentryinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refentryinfo.element"><STRONG>refentryinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1125"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refentryinfo.element">%refentryinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Refentry.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef360"></A><STRONG>refentryinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refentryinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refentryinfo.attlist"><STRONG>refentryinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1126"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refentryinfo.attlist">%refentryinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef360"></A><STRONG>refentryinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refentryinfo.role.attrib">%refentryinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refentryinfo.attrib">%local.refentryinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refentryinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refentryinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsectioninfo.module"><STRONG>refsectioninfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1127"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsectioninfo.module">%refsectioninfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.refsectioninfo.attrib"><STRONG>local.refsectioninfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsectioninfo.role.attrib"><STRONG>refsectioninfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsectioninfo.element"><STRONG>refsectioninfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1128"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsectioninfo.element">%refsectioninfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a refsection.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef361"></A><STRONG>refsectioninfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsectioninfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsectioninfo.attlist"><STRONG>refsectioninfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1129"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsectioninfo.attlist">%refsectioninfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef361"></A><STRONG>refsectioninfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsectioninfo.role.attrib">%refsectioninfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsectioninfo.attrib">%local.refsectioninfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsectioninfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsectioninfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect1info.module"><STRONG>refsect1info.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1130"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect1info.module">%refsect1info.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.refsect1info.attrib"><STRONG>local.refsect1info.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsect1info.role.attrib"><STRONG>refsect1info.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect1info.element"><STRONG>refsect1info.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1131"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect1info.element">%refsect1info.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a RefSect1.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef362"></A><STRONG>refsect1info</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect1info.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect1info.attlist"><STRONG>refsect1info.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1132"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect1info.attlist">%refsect1info.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef362"></A><STRONG>refsect1info</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsect1info.role.attrib">%refsect1info.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsect1info.attrib">%local.refsect1info.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect1info.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect1info.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect2info.module"><STRONG>refsect2info.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1133"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect2info.module">%refsect2info.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.refsect2info.attrib"><STRONG>local.refsect2info.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsect2info.role.attrib"><STRONG>refsect2info.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect2info.element"><STRONG>refsect2info.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1134"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect2info.element">%refsect2info.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a RefSect2.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef363"></A><STRONG>refsect2info</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect2info.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect2info.attlist"><STRONG>refsect2info.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1135"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect2info.attlist">%refsect2info.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef363"></A><STRONG>refsect2info</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsect2info.role.attrib">%refsect2info.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsect2info.attrib">%local.refsect2info.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect2info.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect2info.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect3info.module"><STRONG>refsect3info.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1136"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect3info.module">%refsect3info.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.refsect3info.attrib"><STRONG>local.refsect3info.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsect3info.role.attrib"><STRONG>refsect3info.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect3info.element"><STRONG>refsect3info.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1137"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect3info.element">%refsect3info.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a RefSect3.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef364"></A><STRONG>refsect3info</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect3info.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect3info.attlist"><STRONG>refsect3info.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1138"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsect3info.attlist">%refsect3info.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef364"></A><STRONG>refsect3info</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsect3info.role.attrib">%refsect3info.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsect3info.attrib">%local.refsect3info.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect3info.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect3info.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsynopsisdivinfo.module"><STRONG>refsynopsisdivinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1139"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsynopsisdivinfo.module">%refsynopsisdivinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.refsynopsisdivinfo.attrib"><STRONG>local.refsynopsisdivinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsynopsisdivinfo.role.attrib"><STRONG>refsynopsisdivinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsynopsisdivinfo.element"><STRONG>refsynopsisdivinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1140"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsynopsisdivinfo.element">%refsynopsisdivinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a RefSynopsisDiv.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef365"></A><STRONG>refsynopsisdivinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsynopsisdivinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsynopsisdivinfo.attlist"><STRONG>refsynopsisdivinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1141"></A>[ <A HREF="dbhierx.mod.html#EntityDef.refsynopsisdivinfo.attlist">%refsynopsisdivinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef365"></A><STRONG>refsynopsisdivinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsynopsisdivinfo.role.attrib">%refsynopsisdivinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsynopsisdivinfo.attrib">%local.refsynopsisdivinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsynopsisdivinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsynopsisdivinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.referenceinfo.module"><STRONG>referenceinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1142"></A>[ <A HREF="dbhierx.mod.html#EntityDef.referenceinfo.module">%referenceinfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.referenceinfo.attrib"><STRONG>local.referenceinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.referenceinfo.role.attrib"><STRONG>referenceinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.referenceinfo.element"><STRONG>referenceinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1143"></A>[ <A HREF="dbhierx.mod.html#EntityDef.referenceinfo.element">%referenceinfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Reference.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef366"></A><STRONG>referenceinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of referenceinfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.referenceinfo.attlist"><STRONG>referenceinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1144"></A>[ <A HREF="dbhierx.mod.html#EntityDef.referenceinfo.attlist">%referenceinfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef366"></A><STRONG>referenceinfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.referenceinfo.role.attrib">%referenceinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.referenceinfo.attrib">%local.referenceinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of referenceinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of referenceinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.sect1info.attrib"><STRONG>local.sect1info.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect1info.role.attrib"><STRONG>sect1info.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect1info.element"><STRONG>sect1info.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1145"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect1info.element">%sect1info.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Sect1.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef367"></A><STRONG>sect1info</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect1info.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect1info.attlist"><STRONG>sect1info.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1146"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect1info.attlist">%sect1info.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef367"></A><STRONG>sect1info</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect1info.role.attrib">%sect1info.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect1info.attrib">%local.sect1info.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect1info.attlist--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.sect2info.attrib"><STRONG>local.sect2info.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect2info.role.attrib"><STRONG>sect2info.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect2info.element"><STRONG>sect2info.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1147"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect2info.element">%sect2info.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Sect2.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef368"></A><STRONG>sect2info</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect2info.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect2info.attlist"><STRONG>sect2info.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1148"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect2info.attlist">%sect2info.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef368"></A><STRONG>sect2info</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect2info.role.attrib">%sect2info.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect2info.attrib">%local.sect2info.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect2info.attlist--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.sect3info.attrib"><STRONG>local.sect3info.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect3info.role.attrib"><STRONG>sect3info.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect3info.element"><STRONG>sect3info.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1149"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect3info.element">%sect3info.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Sect3.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef369"></A><STRONG>sect3info</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect3info.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect3info.attlist"><STRONG>sect3info.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1150"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect3info.attlist">%sect3info.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef369"></A><STRONG>sect3info</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect3info.role.attrib">%sect3info.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect3info.attrib">%local.sect3info.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect3info.attlist--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.sect4info.attrib"><STRONG>local.sect4info.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect4info.role.attrib"><STRONG>sect4info.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect4info.element"><STRONG>sect4info.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1151"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect4info.element">%sect4info.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Sect4.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef370"></A><STRONG>sect4info</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect4info.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect4info.attlist"><STRONG>sect4info.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1152"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect4info.attlist">%sect4info.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef370"></A><STRONG>sect4info</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect4info.role.attrib">%sect4info.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect4info.attrib">%local.sect4info.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect4info.attlist--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.local.sect5info.attrib"><STRONG>local.sect5info.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect5info.role.attrib"><STRONG>sect5info.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect5info.element"><STRONG>sect5info.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1153"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect5info.element">%sect5info.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a Sect5.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef371"></A><STRONG>sect5info</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect5info.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect5info.attlist"><STRONG>sect5info.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1154"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect5info.attlist">%sect5info.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef371"></A><STRONG>sect5info</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect5info.role.attrib">%sect5info.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect5info.attrib">%local.sect5info.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect5info.attlist--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Section (parallel to Sect*) ......................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.section.content.module"><STRONG>section.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1155"></A>[ <A HREF="dbhierx.mod.html#EntityDef.section.content.module">%section.content.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.section.module"><STRONG>section.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1156"></A>[ <A HREF="dbhierx.mod.html#EntityDef.section.module">%section.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.local.section.attrib"><STRONG>local.section.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.section.role.attrib"><STRONG>section.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.section.element"><STRONG>section.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1157"></A>[ <A HREF="dbhierx.mod.html#EntityDef.section.element">%section.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:A recursive section.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef372"></A><STRONG>section</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef373">sectioninfo</A>?,
+			(<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>),
+			(<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+			(((<A HREF="dbhierx.mod.html#EntityDef.divcomponent.mix">%divcomponent.mix;</A>)+,
+ 			  ((<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)*|(<A HREF="dbhierx.mod.html#EntityDef.section.class">%section.class;</A>)*|<A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>*))
+			 | (<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)+|(<A HREF="dbhierx.mod.html#EntityDef.section.class">%section.class;</A>)+|<A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>+),
+			(<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of section.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.section.attlist"><STRONG>section.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1158"></A>[ <A HREF="dbhierx.mod.html#EntityDef.section.attlist">%section.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef372"></A><STRONG>section</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.section.role.attrib">%section.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.section.attrib">%local.section.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of section.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of section.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sectioninfo.module"><STRONG>sectioninfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1159"></A>[ <A HREF="dbhierx.mod.html#EntityDef.sectioninfo.module">%sectioninfo.module;</A> [
+&lt;!ENTITY % <A NAME="EntityDef.sectioninfo.role.attrib"><STRONG>sectioninfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+&lt;!ENTITY % <A NAME="EntityDef.local.sectioninfo.attrib"><STRONG>local.sectioninfo.attrib</STRONG></A> ""&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sectioninfo.element"><STRONG>sectioninfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1160"></A>[ <A HREF="dbhierx.mod.html#EntityDef.sectioninfo.element">%sectioninfo.element;</A> [
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a recursive section.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef373"></A><STRONG>sectioninfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.info.class">%info.class;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sectioninfo.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sectioninfo.attlist"><STRONG>sectioninfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1161"></A>[ <A HREF="dbhierx.mod.html#EntityDef.sectioninfo.attlist">%sectioninfo.attlist;</A> [
+&lt;!ATTLIST <A NAME="AttlistDef373"></A><STRONG>sectioninfo</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sectioninfo.role.attrib">%sectioninfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sectioninfo.attrib">%local.sectioninfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sectioninfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sectioninfo.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of section.content.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Sect1, Sect2, Sect3, Sect4, Sect5 .................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.sect1.module"><STRONG>sect1.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1162"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect1.module">%sect1.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.sect1.attrib"><STRONG>local.sect1.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect1.role.attrib"><STRONG>sect1.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect1.element"><STRONG>sect1.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1163"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect1.element">%sect1.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A top-level section of document.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef374"></A><STRONG>sect1</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef367">sect1info</A>?, (<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+		(((<A HREF="dbhierx.mod.html#EntityDef.divcomponent.mix">%divcomponent.mix;</A>)+,
+		((<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)* | <A HREF="dbhierx.mod.html#ElementDef375">sect2</A>* | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>*))
+		| (<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)+ | <A HREF="dbhierx.mod.html#ElementDef375">sect2</A>+ | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>+), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect1.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Renderas: Indicates the format in which the heading should
+		appear --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.sect1.attlist"><STRONG>sect1.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1164"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect1.attlist">%sect1.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef374"></A><STRONG>sect1</STRONG>
+		renderas	(sect2
+				|sect3
+				|sect4
+				|sect5)		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect1.role.attrib">%sect1.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect1.attrib">%local.sect1.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect1.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect1.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect2.module"><STRONG>sect2.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1165"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect2.module">%sect2.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.sect2.attrib"><STRONG>local.sect2.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect2.role.attrib"><STRONG>sect2.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect2.element"><STRONG>sect2.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1166"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect2.element">%sect2.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A subsection within a Sect1.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef375"></A><STRONG>sect2</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef368">sect2info</A>?, (<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+		(((<A HREF="dbhierx.mod.html#EntityDef.divcomponent.mix">%divcomponent.mix;</A>)+,
+		((<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)* | <A HREF="dbhierx.mod.html#ElementDef376">sect3</A>* | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>*))
+		| (<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)+ | <A HREF="dbhierx.mod.html#ElementDef376">sect3</A>+ | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>+), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect2.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Renderas: Indicates the format in which the heading should
+		appear --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.sect2.attlist"><STRONG>sect2.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1167"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect2.attlist">%sect2.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef375"></A><STRONG>sect2</STRONG>
+		renderas	(sect1
+				|sect3
+				|sect4
+				|sect5)		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect2.role.attrib">%sect2.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect2.attrib">%local.sect2.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect2.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect2.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect3.module"><STRONG>sect3.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1168"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect3.module">%sect3.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.sect3.attrib"><STRONG>local.sect3.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect3.role.attrib"><STRONG>sect3.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect3.element"><STRONG>sect3.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1169"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect3.element">%sect3.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A subsection within a Sect2.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef376"></A><STRONG>sect3</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef369">sect3info</A>?, (<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+		(((<A HREF="dbhierx.mod.html#EntityDef.divcomponent.mix">%divcomponent.mix;</A>)+,
+		((<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)* | <A HREF="dbhierx.mod.html#ElementDef377">sect4</A>* | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>*))
+		| (<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)+ | <A HREF="dbhierx.mod.html#ElementDef377">sect4</A>+ | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>+), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect3.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Renderas: Indicates the format in which the heading should
+		appear --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.sect3.attlist"><STRONG>sect3.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1170"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect3.attlist">%sect3.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef376"></A><STRONG>sect3</STRONG>
+		renderas	(sect1
+				|sect2
+				|sect4
+				|sect5)		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect3.role.attrib">%sect3.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect3.attrib">%local.sect3.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect3.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect3.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect4.module"><STRONG>sect4.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1171"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect4.module">%sect4.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.sect4.attrib"><STRONG>local.sect4.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect4.role.attrib"><STRONG>sect4.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect4.element"><STRONG>sect4.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1172"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect4.element">%sect4.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A subsection within a Sect3.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef377"></A><STRONG>sect4</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef370">sect4info</A>?, (<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+		(((<A HREF="dbhierx.mod.html#EntityDef.divcomponent.mix">%divcomponent.mix;</A>)+,
+		((<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)* | <A HREF="dbhierx.mod.html#ElementDef378">sect5</A>* | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>*))
+		| (<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)+ | <A HREF="dbhierx.mod.html#ElementDef378">sect5</A>+ | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>+), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect4.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Renderas: Indicates the format in which the heading should
+		appear --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.sect4.attlist"><STRONG>sect4.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1173"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect4.attlist">%sect4.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef377"></A><STRONG>sect4</STRONG>
+		renderas	(sect1
+				|sect2
+				|sect3
+				|sect5)		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect4.role.attrib">%sect4.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect4.attrib">%local.sect4.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect4.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect4.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect5.module"><STRONG>sect5.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1174"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect5.module">%sect5.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.sect5.attrib"><STRONG>local.sect5.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.sect5.role.attrib"><STRONG>sect5.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.sect5.element"><STRONG>sect5.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1175"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect5.element">%sect5.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A subsection within a Sect4.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef378"></A><STRONG>sect5</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef371">sect5info</A>?, (<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*,
+		(((<A HREF="dbhierx.mod.html#EntityDef.divcomponent.mix">%divcomponent.mix;</A>)+, ((<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)* | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>*))
+		| (<A HREF="dbhierx.mod.html#EntityDef.refentry.class">%refentry.class;</A>)+ | <A HREF="dbhierx.mod.html#ElementDef379">simplesect</A>+), (<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>)*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect5.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Renderas: Indicates the format in which the heading should
+		appear --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.sect5.attlist"><STRONG>sect5.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1176"></A>[<A HREF="dbhierx.mod.html#EntityDef.sect5.attlist">%sect5.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef378"></A><STRONG>sect5</STRONG>
+		renderas	(sect1
+				|sect2
+				|sect3
+				|sect4)		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.label.attrib">%label.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.sect5.role.attrib">%sect5.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.sect5.attrib">%local.sect5.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect5.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of sect5.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.simplesect.module"><STRONG>simplesect.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1177"></A>[<A HREF="dbhierx.mod.html#EntityDef.simplesect.module">%simplesect.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.simplesect.attrib"><STRONG>local.simplesect.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.simplesect.role.attrib"><STRONG>simplesect.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.simplesect.element"><STRONG>simplesect.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1178"></A>[<A HREF="dbhierx.mod.html#EntityDef.simplesect.element">%simplesect.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A section of a document with no subdivisions.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef379"></A><STRONG>simplesect</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>), (<A HREF="dbhierx.mod.html#EntityDef.divcomponent.mix">%divcomponent.mix;</A>)+)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of simplesect.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.simplesect.attlist"><STRONG>simplesect.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1179"></A>[<A HREF="dbhierx.mod.html#EntityDef.simplesect.attlist">%simplesect.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef379"></A><STRONG>simplesect</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.simplesect.role.attrib">%simplesect.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.simplesect.attrib">%local.simplesect.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of simplesect.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of simplesect.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Bibliography ......................................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliography.content.module"><STRONG>bibliography.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1180"></A>[<A HREF="dbhierx.mod.html#EntityDef.bibliography.content.module">%bibliography.content.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.bibliography.module"><STRONG>bibliography.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1181"></A>[<A HREF="dbhierx.mod.html#EntityDef.bibliography.module">%bibliography.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.bibliography.attrib"><STRONG>local.bibliography.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.bibliography.role.attrib"><STRONG>bibliography.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliography.element"><STRONG>bibliography.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1182"></A>[<A HREF="dbhierx.mod.html#EntityDef.bibliography.element">%bibliography.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A bibliography.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef380"></A><STRONG>bibliography</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef353">bibliographyinfo</A>?,
+                        (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>)?,
+                        (<A HREF="dbpoolx.mod.html#EntityDef.component.mix">%component.mix;</A>)*,
+                        (<A HREF="dbhierx.mod.html#ElementDef381">bibliodiv</A>+ | (<A HREF="dbpoolx.mod.html#ElementDef5">biblioentry</A>|<A HREF="dbpoolx.mod.html#ElementDef6">bibliomixed</A>)+))&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliography.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliography.attlist"><STRONG>bibliography.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1183"></A>[<A HREF="dbhierx.mod.html#EntityDef.bibliography.attlist">%bibliography.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef380"></A><STRONG>bibliography</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.bibliography.role.attrib">%bibliography.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.bibliography.attrib">%local.bibliography.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliography.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliography.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliodiv.module"><STRONG>bibliodiv.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1184"></A>[<A HREF="dbhierx.mod.html#EntityDef.bibliodiv.module">%bibliodiv.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.bibliodiv.attrib"><STRONG>local.bibliodiv.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.bibliodiv.role.attrib"><STRONG>bibliodiv.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliodiv.element"><STRONG>bibliodiv.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1185"></A>[<A HREF="dbhierx.mod.html#EntityDef.bibliodiv.element">%bibliodiv.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A section of a Bibliography.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef381"></A><STRONG>bibliodiv</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>)?, (<A HREF="dbpoolx.mod.html#EntityDef.component.mix">%component.mix;</A>)*,
+		(<A HREF="dbpoolx.mod.html#ElementDef5">biblioentry</A>|<A HREF="dbpoolx.mod.html#ElementDef6">bibliomixed</A>)+)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliodiv.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.bibliodiv.attlist"><STRONG>bibliodiv.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1186"></A>[<A HREF="dbhierx.mod.html#EntityDef.bibliodiv.attlist">%bibliodiv.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef381"></A><STRONG>bibliodiv</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.bibliodiv.role.attrib">%bibliodiv.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.bibliodiv.attrib">%local.bibliodiv.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliodiv.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliodiv.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of bibliography.content.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Glossary ............................................................. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.glossary.content.module"><STRONG>glossary.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1187"></A>[<A HREF="dbhierx.mod.html#EntityDef.glossary.content.module">%glossary.content.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.glossary.module"><STRONG>glossary.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1188"></A>[<A HREF="dbhierx.mod.html#EntityDef.glossary.module">%glossary.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.glossary.attrib"><STRONG>local.glossary.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.glossary.role.attrib"><STRONG>glossary.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.glossary.element"><STRONG>glossary.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1189"></A>[<A HREF="dbhierx.mod.html#EntityDef.glossary.element">%glossary.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A glossary.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef382"></A><STRONG>glossary</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef355">glossaryinfo</A>?,
+                    (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>)?,
+                    (<A HREF="dbpoolx.mod.html#EntityDef.component.mix">%component.mix;</A>)*,
+                    (<A HREF="dbhierx.mod.html#ElementDef383">glossdiv</A>+ | <A HREF="dbpoolx.mod.html#ElementDef65">glossentry</A>+), <A HREF="dbhierx.mod.html#ElementDef380">bibliography</A>?)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossary.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.glossary.attlist"><STRONG>glossary.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1190"></A>[<A HREF="dbhierx.mod.html#EntityDef.glossary.attlist">%glossary.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef382"></A><STRONG>glossary</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.glossary.role.attrib">%glossary.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.glossary.attrib">%local.glossary.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossary.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossary.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.glossdiv.module"><STRONG>glossdiv.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1191"></A>[<A HREF="dbhierx.mod.html#EntityDef.glossdiv.module">%glossdiv.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.glossdiv.attrib"><STRONG>local.glossdiv.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.glossdiv.role.attrib"><STRONG>glossdiv.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.glossdiv.element"><STRONG>glossdiv.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1192"></A>[<A HREF="dbhierx.mod.html#EntityDef.glossdiv.element">%glossdiv.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A division in a Glossary.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef383"></A><STRONG>glossdiv</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>), (<A HREF="dbpoolx.mod.html#EntityDef.component.mix">%component.mix;</A>)*,
+		<A HREF="dbpoolx.mod.html#ElementDef65">glossentry</A>+)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossdiv.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.glossdiv.attlist"><STRONG>glossdiv.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1193"></A>[<A HREF="dbhierx.mod.html#EntityDef.glossdiv.attlist">%glossdiv.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef383"></A><STRONG>glossdiv</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.glossdiv.role.attrib">%glossdiv.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.glossdiv.attrib">%local.glossdiv.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossdiv.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossdiv.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of glossary.content.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Index and SetIndex ................................................... --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.index.content.module"><STRONG>index.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1194"></A>[<A HREF="dbhierx.mod.html#EntityDef.index.content.module">%index.content.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.indexes.module"><STRONG>indexes.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1195"></A>[<A HREF="dbhierx.mod.html#EntityDef.indexes.module">%indexes.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.indexes.attrib"><STRONG>local.indexes.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.indexes.role.attrib"><STRONG>indexes.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.index.element"><STRONG>index.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1196"></A>[<A HREF="dbhierx.mod.html#EntityDef.index.element">%index.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An index.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef384"></A><STRONG>index</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef356">indexinfo</A>?,
+                 (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>)?,
+                 (<A HREF="dbpoolx.mod.html#EntityDef.component.mix">%component.mix;</A>)*,
+                 (<A HREF="dbhierx.mod.html#ElementDef386">indexdiv</A>* | <A HREF="dbhierx.mod.html#ElementDef387">indexentry</A>*))
+		<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.exclusion">%ndxterm.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of index.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.index.attlist"><STRONG>index.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1197"></A>[<A HREF="dbhierx.mod.html#EntityDef.index.attlist">%index.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef384"></A><STRONG>index</STRONG>
+		type		CDATA		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.indexes.role.attrib">%indexes.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.indexes.attrib">%local.indexes.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of index.attlist--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.setindex.element"><STRONG>setindex.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1198"></A>[<A HREF="dbhierx.mod.html#EntityDef.setindex.element">%setindex.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An index to a set of books.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef385"></A><STRONG>setindex</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef357">setindexinfo</A>?,
+                    (<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.title.content">%bookcomponent.title.content;</A>)?,
+                    (<A HREF="dbpoolx.mod.html#EntityDef.component.mix">%component.mix;</A>)*,
+                    (<A HREF="dbhierx.mod.html#ElementDef386">indexdiv</A>* | <A HREF="dbhierx.mod.html#ElementDef387">indexentry</A>*))
+		<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.exclusion">%ndxterm.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of setindex.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.setindex.attlist"><STRONG>setindex.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1199"></A>[<A HREF="dbhierx.mod.html#EntityDef.setindex.attlist">%setindex.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef385"></A><STRONG>setindex</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.indexes.role.attrib">%indexes.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.indexes.attrib">%local.indexes.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of setindex.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexes.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexdiv.module"><STRONG>indexdiv.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1200"></A>[<A HREF="dbhierx.mod.html#EntityDef.indexdiv.module">%indexdiv.module;</A>[
+
+<SPAN CLASS="COMMENT">&lt;!-- SegmentedList in this content is useful for marking up permuted
+     indices. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.local.indexdiv.attrib"><STRONG>local.indexdiv.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.indexdiv.role.attrib"><STRONG>indexdiv.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexdiv.element"><STRONG>indexdiv.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1201"></A>[<A HREF="dbhierx.mod.html#EntityDef.indexdiv.element">%indexdiv.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A division in an index.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef386"></A><STRONG>indexdiv</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.sect.title.content">%sect.title.content;</A>)?, ((<A HREF="dbhierx.mod.html#EntityDef.indexdivcomponent.mix">%indexdivcomponent.mix;</A>)*,
+		(<A HREF="dbhierx.mod.html#ElementDef387">indexentry</A>+ | <A HREF="dbpoolx.mod.html#ElementDef72">segmentedlist</A>)))&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexdiv.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexdiv.attlist"><STRONG>indexdiv.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1202"></A>[<A HREF="dbhierx.mod.html#EntityDef.indexdiv.attlist">%indexdiv.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef386"></A><STRONG>indexdiv</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.indexdiv.role.attrib">%indexdiv.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.indexdiv.attrib">%local.indexdiv.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexdiv.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexdiv.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexentry.module"><STRONG>indexentry.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1203"></A>[<A HREF="dbhierx.mod.html#EntityDef.indexentry.module">%indexentry.module;</A>[
+<SPAN CLASS="COMMENT">&lt;!-- Index entries appear in the index, not the text. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.local.indexentry.attrib"><STRONG>local.indexentry.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.indexentry.role.attrib"><STRONG>indexentry.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexentry.element"><STRONG>indexentry.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1204"></A>[<A HREF="dbhierx.mod.html#EntityDef.indexentry.element">%indexentry.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An entry in an index.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef387"></A><STRONG>indexentry</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef388">primaryie</A>, (<A HREF="dbhierx.mod.html#ElementDef391">seeie</A>|<A HREF="dbhierx.mod.html#ElementDef392">seealsoie</A>)*,
+		(<A HREF="dbhierx.mod.html#ElementDef389">secondaryie</A>, (<A HREF="dbhierx.mod.html#ElementDef391">seeie</A>|<A HREF="dbhierx.mod.html#ElementDef392">seealsoie</A>|<A HREF="dbhierx.mod.html#ElementDef390">tertiaryie</A>)*)*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexentry.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.indexentry.attlist"><STRONG>indexentry.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1205"></A>[<A HREF="dbhierx.mod.html#EntityDef.indexentry.attlist">%indexentry.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef387"></A><STRONG>indexentry</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.indexentry.role.attrib">%indexentry.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.indexentry.attrib">%local.indexentry.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexentry.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of indexentry.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.primsecterie.module"><STRONG>primsecterie.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1206"></A>[<A HREF="dbhierx.mod.html#EntityDef.primsecterie.module">%primsecterie.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.primsecterie.attrib"><STRONG>local.primsecterie.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.primsecterie.role.attrib"><STRONG>primsecterie.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.primaryie.element"><STRONG>primaryie.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1207"></A>[<A HREF="dbhierx.mod.html#EntityDef.primaryie.element">%primaryie.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A primary term in an index entry, not in the text.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef388"></A><STRONG>primaryie</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.char.mix">%ndxterm.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of primaryie.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- to IndexTerms that these entries represent --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.primaryie.attlist"><STRONG>primaryie.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1208"></A>[<A HREF="dbhierx.mod.html#EntityDef.primaryie.attlist">%primaryie.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef388"></A><STRONG>primaryie</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkends.attrib">%linkends.attrib;</A>		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.primsecterie.role.attrib">%primsecterie.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.primsecterie.attrib">%local.primsecterie.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of primaryie.attlist--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.secondaryie.element"><STRONG>secondaryie.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1209"></A>[<A HREF="dbhierx.mod.html#EntityDef.secondaryie.element">%secondaryie.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A secondary term in an index entry, rather than in the text.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef389"></A><STRONG>secondaryie</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.char.mix">%ndxterm.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of secondaryie.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- to IndexTerms that these entries represent --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.secondaryie.attlist"><STRONG>secondaryie.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1210"></A>[<A HREF="dbhierx.mod.html#EntityDef.secondaryie.attlist">%secondaryie.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef389"></A><STRONG>secondaryie</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkends.attrib">%linkends.attrib;</A>		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.primsecterie.role.attrib">%primsecterie.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.primsecterie.attrib">%local.primsecterie.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of secondaryie.attlist--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.tertiaryie.element"><STRONG>tertiaryie.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1211"></A>[<A HREF="dbhierx.mod.html#EntityDef.tertiaryie.element">%tertiaryie.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A tertiary term in an index entry, rather than in the text.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef390"></A><STRONG>tertiaryie</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.char.mix">%ndxterm.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tertiaryie.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- to IndexTerms that these entries represent --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.tertiaryie.attlist"><STRONG>tertiaryie.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1212"></A>[<A HREF="dbhierx.mod.html#EntityDef.tertiaryie.attlist">%tertiaryie.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef390"></A><STRONG>tertiaryie</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkends.attrib">%linkends.attrib;</A>		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.primsecterie.role.attrib">%primsecterie.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.primsecterie.attrib">%local.primsecterie.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of tertiaryie.attlist--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!--end of primsecterie.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.seeie.module"><STRONG>seeie.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1213"></A>[<A HREF="dbhierx.mod.html#EntityDef.seeie.module">%seeie.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.seeie.attrib"><STRONG>local.seeie.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.seeie.role.attrib"><STRONG>seeie.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.seeie.element"><STRONG>seeie.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1214"></A>[<A HREF="dbhierx.mod.html#EntityDef.seeie.element">%seeie.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A See entry in an index, rather than in the text.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef391"></A><STRONG>seeie</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.char.mix">%ndxterm.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of seeie.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- to IndexEntry to look up --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.seeie.attlist"><STRONG>seeie.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1215"></A>[<A HREF="dbhierx.mod.html#EntityDef.seeie.attlist">%seeie.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef391"></A><STRONG>seeie</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkend.attrib">%linkend.attrib;</A>		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.seeie.role.attrib">%seeie.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.seeie.attrib">%local.seeie.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of seeie.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of seeie.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.seealsoie.module"><STRONG>seealsoie.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1216"></A>[<A HREF="dbhierx.mod.html#EntityDef.seealsoie.module">%seealsoie.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.seealsoie.attrib"><STRONG>local.seealsoie.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.seealsoie.role.attrib"><STRONG>seealsoie.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.seealsoie.element"><STRONG>seealsoie.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1217"></A>[<A HREF="dbhierx.mod.html#EntityDef.seealsoie.element">%seealsoie.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A See also entry in an index, rather than in the text.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef392"></A><STRONG>seealsoie</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.char.mix">%ndxterm.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of seealsoie.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- to related IndexEntries --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.seealsoie.attlist"><STRONG>seealsoie.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1218"></A>[<A HREF="dbhierx.mod.html#EntityDef.seealsoie.attlist">%seealsoie.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef392"></A><STRONG>seealsoie</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.linkends.attrib">%linkends.attrib;</A>		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.seealsoie.role.attrib">%seealsoie.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.seealsoie.attrib">%local.seealsoie.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of seealsoie.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of seealsoie.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of index.content.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- RefEntry ............................................................. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.refentry.content.module"><STRONG>refentry.content.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1219"></A>[<A HREF="dbhierx.mod.html#EntityDef.refentry.content.module">%refentry.content.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.refentry.module"><STRONG>refentry.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1220"></A>[<A HREF="dbhierx.mod.html#EntityDef.refentry.module">%refentry.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refentry.attrib"><STRONG>local.refentry.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refentry.role.attrib"><STRONG>refentry.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refentry.element"><STRONG>refentry.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1221"></A>[<A HREF="dbhierx.mod.html#EntityDef.refentry.element">%refentry.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A reference page (originally a UNIX man-style reference page).--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef393"></A><STRONG>refentry</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#ElementDef320">beginpage</A>?,
+                    (<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.class">%ndxterm.class;</A>)*,
+                    <A HREF="dbhierx.mod.html#ElementDef360">refentryinfo</A>?, <A HREF="dbhierx.mod.html#ElementDef394">refmeta</A>?, (<A HREF="dbpoolx.mod.html#ElementDef52">remark</A>|<A HREF="dbpoolx.mod.html#EntityDef.link.char.class">%link.char.class;</A>)*,
+                    <A HREF="dbhierx.mod.html#ElementDef396">refnamediv</A>+, <A HREF="dbhierx.mod.html#ElementDef401">refsynopsisdiv</A>?, (<A HREF="dbhierx.mod.html#ElementDef403">refsect1</A>+|<A HREF="dbhierx.mod.html#ElementDef402">refsection</A>+))
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refentry.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refentry.attlist"><STRONG>refentry.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1222"></A>[<A HREF="dbhierx.mod.html#EntityDef.refentry.attlist">%refentry.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef393"></A><STRONG>refentry</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refentry.role.attrib">%refentry.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refentry.attrib">%local.refentry.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refentry.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refentry.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refmeta.module"><STRONG>refmeta.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1223"></A>[<A HREF="dbhierx.mod.html#EntityDef.refmeta.module">%refmeta.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refmeta.attrib"><STRONG>local.refmeta.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refmeta.role.attrib"><STRONG>refmeta.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refmeta.element"><STRONG>refmeta.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1224"></A>[<A HREF="dbhierx.mod.html#EntityDef.refmeta.element">%refmeta.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a reference entry.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef394"></A><STRONG>refmeta</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.class">%ndxterm.class;</A>)*,
+                   <A HREF="dbpoolx.mod.html#ElementDef300">refentrytitle</A>, <A HREF="dbpoolx.mod.html#ElementDef301">manvolnum</A>?, <A HREF="dbhierx.mod.html#ElementDef395">refmiscinfo</A>*,
+                   (<A HREF="dbpoolx.mod.html#EntityDef.ndxterm.class">%ndxterm.class;</A>)*)
+		<A HREF="dbpoolx.mod.html#EntityDef.beginpage.exclusion">%beginpage.exclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refmeta.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refmeta.attlist"><STRONG>refmeta.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1225"></A>[<A HREF="dbhierx.mod.html#EntityDef.refmeta.attlist">%refmeta.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef394"></A><STRONG>refmeta</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refmeta.role.attrib">%refmeta.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refmeta.attrib">%local.refmeta.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refmeta.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refmeta.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refmiscinfo.module"><STRONG>refmiscinfo.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1226"></A>[<A HREF="dbhierx.mod.html#EntityDef.refmiscinfo.module">%refmiscinfo.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refmiscinfo.attrib"><STRONG>local.refmiscinfo.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refmiscinfo.role.attrib"><STRONG>refmiscinfo.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refmiscinfo.element"><STRONG>refmiscinfo.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1227"></A>[<A HREF="dbhierx.mod.html#EntityDef.refmiscinfo.element">%refmiscinfo.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:Meta-information for a reference entry other than the title and volume number.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef395"></A><STRONG>refmiscinfo</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbpoolx.mod.html#EntityDef.docinfo.char.mix">%docinfo.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refmiscinfo.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Class: Freely assignable parameter; no default --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.refmiscinfo.attlist"><STRONG>refmiscinfo.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1228"></A>[<A HREF="dbhierx.mod.html#EntityDef.refmiscinfo.attlist">%refmiscinfo.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef395"></A><STRONG>refmiscinfo</STRONG>
+		class		CDATA		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refmiscinfo.role.attrib">%refmiscinfo.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refmiscinfo.attrib">%local.refmiscinfo.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refmiscinfo.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refmiscinfo.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refnamediv.module"><STRONG>refnamediv.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1229"></A>[<A HREF="dbhierx.mod.html#EntityDef.refnamediv.module">%refnamediv.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refnamediv.attrib"><STRONG>local.refnamediv.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refnamediv.role.attrib"><STRONG>refnamediv.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refnamediv.element"><STRONG>refnamediv.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1230"></A>[<A HREF="dbhierx.mod.html#EntityDef.refnamediv.element">%refnamediv.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:The name, purpose, and classification of a reference page.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef396"></A><STRONG>refnamediv</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef397">refdescriptor</A>?, <A HREF="dbhierx.mod.html#ElementDef398">refname</A>+, <A HREF="dbhierx.mod.html#ElementDef399">refpurpose</A>, <A HREF="dbhierx.mod.html#ElementDef400">refclass</A>*,
+		(<A HREF="dbpoolx.mod.html#ElementDef52">remark</A>|<A HREF="dbpoolx.mod.html#EntityDef.link.char.class">%link.char.class;</A>)*)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refnamediv.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refnamediv.attlist"><STRONG>refnamediv.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1231"></A>[<A HREF="dbhierx.mod.html#EntityDef.refnamediv.attlist">%refnamediv.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef396"></A><STRONG>refnamediv</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refnamediv.role.attrib">%refnamediv.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refnamediv.attrib">%local.refnamediv.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refnamediv.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refnamediv.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refdescriptor.module"><STRONG>refdescriptor.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1232"></A>[<A HREF="dbhierx.mod.html#EntityDef.refdescriptor.module">%refdescriptor.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refdescriptor.attrib"><STRONG>local.refdescriptor.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refdescriptor.role.attrib"><STRONG>refdescriptor.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refdescriptor.element"><STRONG>refdescriptor.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1233"></A>[<A HREF="dbhierx.mod.html#EntityDef.refdescriptor.element">%refdescriptor.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A description of the topic of a reference page.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef397"></A><STRONG>refdescriptor</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#EntityDef.refname.char.mix">%refname.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refdescriptor.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refdescriptor.attlist"><STRONG>refdescriptor.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1234"></A>[<A HREF="dbhierx.mod.html#EntityDef.refdescriptor.attlist">%refdescriptor.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef397"></A><STRONG>refdescriptor</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refdescriptor.role.attrib">%refdescriptor.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refdescriptor.attrib">%local.refdescriptor.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refdescriptor.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refdescriptor.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refname.module"><STRONG>refname.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1235"></A>[<A HREF="dbhierx.mod.html#EntityDef.refname.module">%refname.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refname.attrib"><STRONG>local.refname.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refname.role.attrib"><STRONG>refname.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refname.element"><STRONG>refname.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1236"></A>[<A HREF="dbhierx.mod.html#EntityDef.refname.element">%refname.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:The name of (one of) the subject(s) of a reference page.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef398"></A><STRONG>refname</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#EntityDef.refname.char.mix">%refname.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refname.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refname.attlist"><STRONG>refname.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1237"></A>[<A HREF="dbhierx.mod.html#EntityDef.refname.attlist">%refname.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef398"></A><STRONG>refname</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refname.role.attrib">%refname.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refname.attrib">%local.refname.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refname.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refname.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refpurpose.module"><STRONG>refpurpose.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1238"></A>[<A HREF="dbhierx.mod.html#EntityDef.refpurpose.module">%refpurpose.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refpurpose.attrib"><STRONG>local.refpurpose.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refpurpose.role.attrib"><STRONG>refpurpose.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refpurpose.element"><STRONG>refpurpose.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1239"></A>[<A HREF="dbhierx.mod.html#EntityDef.refpurpose.element">%refpurpose.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A short (one sentence) synopsis of the topic of a reference page.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef399"></A><STRONG>refpurpose</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#EntityDef.refinline.char.mix">%refinline.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refpurpose.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refpurpose.attlist"><STRONG>refpurpose.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1240"></A>[<A HREF="dbhierx.mod.html#EntityDef.refpurpose.attlist">%refpurpose.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef399"></A><STRONG>refpurpose</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refpurpose.role.attrib">%refpurpose.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refpurpose.attrib">%local.refpurpose.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refpurpose.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refpurpose.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refclass.module"><STRONG>refclass.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1241"></A>[<A HREF="dbhierx.mod.html#EntityDef.refclass.module">%refclass.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refclass.attrib"><STRONG>local.refclass.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refclass.role.attrib"><STRONG>refclass.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refclass.element"><STRONG>refclass.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1242"></A>[<A HREF="dbhierx.mod.html#EntityDef.refclass.element">%refclass.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:The scope or other indication of applicability of a reference entry.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef400"></A><STRONG>refclass</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#EntityDef.refclass.char.mix">%refclass.char.mix;</A>)*&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refclass.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refclass.attlist"><STRONG>refclass.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1243"></A>[<A HREF="dbhierx.mod.html#EntityDef.refclass.attlist">%refclass.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef400"></A><STRONG>refclass</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refclass.role.attrib">%refclass.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refclass.attrib">%local.refclass.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refclass.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refclass.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsynopsisdiv.module"><STRONG>refsynopsisdiv.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1244"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsynopsisdiv.module">%refsynopsisdiv.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refsynopsisdiv.attrib"><STRONG>local.refsynopsisdiv.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsynopsisdiv.role.attrib"><STRONG>refsynopsisdiv.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsynopsisdiv.element"><STRONG>refsynopsisdiv.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1245"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsynopsisdiv.element">%refsynopsisdiv.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A syntactic synopsis of the subject of the reference page.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef401"></A><STRONG>refsynopsisdiv</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef365">refsynopsisdivinfo</A>?, (<A HREF="dbhierx.mod.html#EntityDef.refsect.title.content">%refsect.title.content;</A>)?,
+		(((<A HREF="dbhierx.mod.html#EntityDef.refcomponent.mix">%refcomponent.mix;</A>)+, <A HREF="dbhierx.mod.html#ElementDef404">refsect2</A>*) | (<A HREF="dbhierx.mod.html#ElementDef404">refsect2</A>+)))&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsynopsisdiv.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsynopsisdiv.attlist"><STRONG>refsynopsisdiv.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1246"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsynopsisdiv.attlist">%refsynopsisdiv.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef401"></A><STRONG>refsynopsisdiv</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsynopsisdiv.role.attrib">%refsynopsisdiv.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsynopsisdiv.attrib">%local.refsynopsisdiv.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsynopsisdiv.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsynopsisdiv.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsection.module"><STRONG>refsection.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1247"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsection.module">%refsection.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refsection.attrib"><STRONG>local.refsection.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsection.role.attrib"><STRONG>refsection.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsection.element"><STRONG>refsection.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1248"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsection.element">%refsection.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A recursive section in a refentry.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef402"></A><STRONG>refsection</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef361">refsectioninfo</A>?, (<A HREF="dbhierx.mod.html#EntityDef.refsect.title.content">%refsect.title.content;</A>),
+		(((<A HREF="dbhierx.mod.html#EntityDef.refcomponent.mix">%refcomponent.mix;</A>)+, <A HREF="dbhierx.mod.html#ElementDef402">refsection</A>*) | <A HREF="dbhierx.mod.html#ElementDef402">refsection</A>+))&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsection.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsection.attlist"><STRONG>refsection.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1249"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsection.attlist">%refsection.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef402"></A><STRONG>refsection</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsection.role.attrib">%refsection.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsection.attrib">%local.refsection.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsection.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsection.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect1.module"><STRONG>refsect1.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1250"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect1.module">%refsect1.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refsect1.attrib"><STRONG>local.refsect1.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsect1.role.attrib"><STRONG>refsect1.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect1.element"><STRONG>refsect1.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1251"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect1.element">%refsect1.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A major subsection of a reference entry.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef403"></A><STRONG>refsect1</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef362">refsect1info</A>?, (<A HREF="dbhierx.mod.html#EntityDef.refsect.title.content">%refsect.title.content;</A>),
+		(((<A HREF="dbhierx.mod.html#EntityDef.refcomponent.mix">%refcomponent.mix;</A>)+, <A HREF="dbhierx.mod.html#ElementDef404">refsect2</A>*) | <A HREF="dbhierx.mod.html#ElementDef404">refsect2</A>+))&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect1.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect1.attlist"><STRONG>refsect1.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1252"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect1.attlist">%refsect1.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef403"></A><STRONG>refsect1</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsect1.role.attrib">%refsect1.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsect1.attrib">%local.refsect1.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect1.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect1.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect2.module"><STRONG>refsect2.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1253"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect2.module">%refsect2.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refsect2.attrib"><STRONG>local.refsect2.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsect2.role.attrib"><STRONG>refsect2.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect2.element"><STRONG>refsect2.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1254"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect2.element">%refsect2.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A subsection of a RefSect1.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef404"></A><STRONG>refsect2</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef363">refsect2info</A>?, (<A HREF="dbhierx.mod.html#EntityDef.refsect.title.content">%refsect.title.content;</A>),
+	(((<A HREF="dbhierx.mod.html#EntityDef.refcomponent.mix">%refcomponent.mix;</A>)+, <A HREF="dbhierx.mod.html#ElementDef405">refsect3</A>*) | <A HREF="dbhierx.mod.html#ElementDef405">refsect3</A>+))&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect2.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect2.attlist"><STRONG>refsect2.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1255"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect2.attlist">%refsect2.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef404"></A><STRONG>refsect2</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsect2.role.attrib">%refsect2.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsect2.attrib">%local.refsect2.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect2.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect2.module--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect3.module"><STRONG>refsect3.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1256"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect3.module">%refsect3.module;</A>[
+&lt;!ENTITY % <A NAME="EntityDef.local.refsect3.attrib"><STRONG>local.refsect3.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.refsect3.role.attrib"><STRONG>refsect3.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect3.element"><STRONG>refsect3.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1257"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect3.element">%refsect3.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:A subsection of a RefSect2.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef405"></A><STRONG>refsect3</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> (<A HREF="dbhierx.mod.html#ElementDef364">refsect3info</A>?, (<A HREF="dbhierx.mod.html#EntityDef.refsect.title.content">%refsect.title.content;</A>),
+	(<A HREF="dbhierx.mod.html#EntityDef.refcomponent.mix">%refcomponent.mix;</A>)+)&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect3.element--&gt;</SPAN>]]&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.refsect3.attlist"><STRONG>refsect3.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1258"></A>[<A HREF="dbhierx.mod.html#EntityDef.refsect3.attlist">%refsect3.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef405"></A><STRONG>refsect3</STRONG>
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.refsect3.role.attrib">%refsect3.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.refsect3.attrib">%local.refsect3.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect3.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refsect3.module--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of refentry.content.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- Article .............................................................. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.article.module"><STRONG>article.module</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1259"></A>[<A HREF="dbhierx.mod.html#EntityDef.article.module">%article.module;</A>[
+<SPAN CLASS="COMMENT">&lt;!-- An Article is a chapter-level, stand-alone document that is often,
+     but need not be, collected into a Book. --&gt;</SPAN>
+
+&lt;!ENTITY % <A NAME="EntityDef.local.article.attrib"><STRONG>local.article.attrib</STRONG></A> ""&gt;
+&lt;!ENTITY % <A NAME="EntityDef.article.role.attrib"><STRONG>article.role.attrib</STRONG></A> "<A HREF="dbpoolx.mod.html#EntityDef.role.attrib">%role.attrib;</A>"&gt;
+
+&lt;!ENTITY % <A NAME="EntityDef.article.element"><STRONG>article.element</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1260"></A>[<A HREF="dbhierx.mod.html#EntityDef.article.element">%article.element;</A>[
+<SPAN CLASS="COMMENT">&lt;!--doc:An article.--&gt;</SPAN>
+&lt;!ELEMENT <A NAME="ElementDef406"></A><STRONG>article</STRONG> <A HREF="docbookx.dtd.html#EntityDef.ho">%ho;</A> ((<A HREF="dbhierx.mod.html#EntityDef.div.title.content">%div.title.content;</A>)?, <A HREF="dbpoolx.mod.html#ElementDef7">articleinfo</A>?, <A HREF="dbhierx.mod.html#ElementDef337">tocchap</A>?, <A HREF="dbhierx.mod.html#ElementDef344">lot</A>*,
+			(<A HREF="dbhierx.mod.html#EntityDef.bookcomponent.content">%bookcomponent.content;</A>),
+			(<A HREF="dbhierx.mod.html#EntityDef.nav.class">%nav.class;</A>|<A HREF="dbhierx.mod.html#EntityDef.appendix.class">%appendix.class;</A>|<A HREF="dbhierx.mod.html#ElementDef332">colophon</A>|<A HREF="dbpoolx.mod.html#ElementDef165">ackno</A>)*)
+		<A HREF="dbpoolx.mod.html#EntityDef.ubiq.inclusion">%ubiq.inclusion;</A>&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of article.element--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- Class: Indicates the type of a particular article;
+		all articles have the same structure and general purpose.
+		No default. --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- ParentBook: ID of the enclosing Book --&gt;</SPAN>
+
+
+&lt;!ENTITY % <A NAME="EntityDef.article.attlist"><STRONG>article.attlist</STRONG></A> "INCLUDE"&gt;
+&lt;!<A NAME="MS1261"></A>[<A HREF="dbhierx.mod.html#EntityDef.article.attlist">%article.attlist;</A>[
+&lt;!ATTLIST <A NAME="AttlistDef406"></A><STRONG>article</STRONG>
+		class		(journalarticle
+				|productsheet
+				|whitepaper
+				|techreport
+                                |specification
+				|faq)		#IMPLIED
+		parentbook	IDREF		#IMPLIED
+		<A HREF="dbpoolx.mod.html#EntityDef.status.attrib">%status.attrib;</A>
+		<A HREF="dbpoolx.mod.html#EntityDef.common.attrib">%common.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.article.role.attrib">%article.role.attrib;</A>
+		<A HREF="dbhierx.mod.html#EntityDef.local.article.attrib">%local.article.attrib;</A>
+&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of article.attlist--&gt;</SPAN>]]&gt;
+<SPAN CLASS="COMMENT">&lt;!--end of article.module--&gt;</SPAN>]]&gt;
+
+<SPAN CLASS="COMMENT">&lt;!-- End of DocBook document hierarchy module V4.5 ........................ --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<?LIVEDTD EOF?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE></BODY></HTML>

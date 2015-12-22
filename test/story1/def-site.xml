@@ -1,0 +1,53 @@
+<def-base id="rel"/>
+<def-base id="ext"/>
+<def-base id="test">http://www.moria.dynu.com/</def-base>
+<def-base id="main">file:///home/brucer/home/ver/local/app/story-xml/test/</def-base>
+
+<!-- standard images -->
+<def-img id="dt" url="image/grenbal2.gif/" base="main">green ball</def-img>
+<def-img id="file" url="image/generic.png" base="main">file</def-img>
+<def-img id="folder" url="image/folder.png" base="main">folder</def-img>
+<def-img id="offsite" url="image/link.png" base="main">offsite link</def-img>
+<def-img id="text" url="image/text.png" base="main">text file</def-img>
+
+<!-- image only -->
+<def-img id="hr1" url="image/rainbow_thinline.gif" base="main">hr</def-img>
+<def-img id="hr2" url="image/hr.gif" base="main">hr</def-img>
+<def-img id="next" url="image/right.png" base="main">right arrorw</def-img>
+<def-img id="paper" url="image/paper.gif" base="main">paper</def-img>
+<def-img id="previous" url="image/left.png" base="main">left arrow</def-img>
+
+<!--
+<def-img id="" url="image/" base="main"></def-img>
+-->
+
+<!-- link only -->
+<def-link id="aim" url="http://aim.aol.com/aimnew/Aim/register.adp" base="ext" ref="offsite">AIM Sign-up</def-link>
+<def-link id="gabber" url="http://gabber.sourceforge.net/" base="ext" ref="offsite">Gabber/Jabber Client (Linux)</def-link>
+<def-link id="gaim" url="http://gaim.sourceforge.net/oscar.shtml" base="ext" ref="offsite">GAIM Client (Linux)</def-link>
+<def-link id="gnome-icu" url="http://gnomeicu.sourceforge.net/" base="ext" ref="offsite">Gnome ICU Client (Linux)</def-link>
+<def-link id="google" url="http://www.google.com" base="ext" ref="offsite">Google</def-link>
+<def-link id="imeem" url="http://www.imeem.com" base="ext" ref="offsite">imeem Client</def-link>
+<def-link id="jabber" url="http://www.jabber.com/" base="ext" ref="offsite">Jabber</def-link>
+<def-link id="lambdamoo" url="telnet://lambda.moo.mud.org:8888" base="ext" ref="offsite">LambdaMOO Login</def-link>
+<def-link id="yahoo-messenger" url="http://messenger.yahoo.com" base="ext" ref="offsite">Yahoo Messenger</def-link>
+<def-link id="book1-ch" url="book1-ch" base="main" ref="folder">One page per chapter, with author comments</def-link>
+<def-link id="book1-all" url="book1.html" base="main" ref="text">All on one page, with author comments (between chapters)</def-link>
+<def-link id="book1-all-plain" url="book1-plain.html" base="main" ref="text">All on one page, with no author comments</def-link>
+
+<!--
+<def-link id="" url="" base="ext" ref="offsite"></def-link>
+-->
+
+<!-- image and link -->
+<def-img id="any-browser" url="image/bvwabao.gif" base="main">ANY Browser!</def-img>
+<def-link id="any-browser" url="http://www.anybrowser.org/campaign/" base="ext" ref="offsite">Best Viewed with ANY Browser!</def-link>
+<def-img id="blue-ribbon" url="image/br.gif" base="main">Blue Ribbon Online Free Speech Campaign</def-img>
+<def-link id="blue-ribbon" url="http://www.eff.org/blueribbon.html" base="ext" ref="blue-ribbon">Blue Ribbon Online Free Speech Campaign</def-link>
+<def-img id="white-ribbon" url="image/w_rib.jpg" base="main">White Ribbon Campaign</def-img>
+<def-link id="white-ribbon" url="http://xai_neptus.tripod.com/w_ribbon/" base="ext" ref="offsite">White Ribbon Campaign</def-link>
+
+<!--
+<def-img id="" url="image/" base="main"></def-img>
+<def-link id="" url="" base="ext" ref="offsite"></def-link>
+-->

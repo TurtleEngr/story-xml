@@ -1,0 +1,367 @@
+#!/usr/bin/perl
+# $Header: /repo/local.cvs/app/story-xml/src/publishing/story-fmt,v 1.9 2009/07/05 19:58:54 bruce Exp $
+
+# pod2html --noindex --title "mkconf.pl"
+
+=pod
+
+Copyright (c) 2009 Bruce Rafnel
+
+=head1 NAME
+
+story-fmt - DESCRIPTION
+
+=head1 SYNOPSIS
+
+ story-fmt {-tidy | -html | -draft | -chapter | -fobj | -pdf
+        | -fop | -renderx | -project | -docbook} -input FILE
+        [-style NAME] [-help]] [-v[erbose]] [-d[ebug] level]
+
+=head1 DESCRIPTION
+
+At least one output style must be selected (xml, html,
+draft, etc.).
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-tidy>
+
+Run tidy program on the inpuut xml file.
+
+Output FILE-tidy.xml
+
+=item B<-html>
+
+Output FILE.html 
+
+=item B<-draft>
+
+Output FILE.draft.html 
+
+=item B<-chapter>
+
+Output FILE.chN.html
+(Not implemented)
+
+=item B<-fobj>
+
+Output FILE.fo
+
+=item B<-pdf>
+
+Output FILE.pdf
+
+=item B<-fop>
+
+Output FILE.pdf
+
+=item B<-renderx>
+
+Output FILE.pdf
+(Not implemented)
+
+=item B<-project>
+
+Output FILE.proj.xml
+(Not tested)
+
+=item B<-docbook>
+
+Output FILE.docbook.xml
+(Not tested)
+
+=item B<-style NAME>
+
+Override the "style-ref" attribute in the "style-info" element, so
+that you can select a different "def-style" id.
+
+=item B<-input FILE>
+
+Input file name.
+
+=item B<-help>
+
+This help.
+
+=item B<-verbose>
+
+Verbose output.  Sent to stderr.
+
+=item B<-debug level>
+
+Debug level.
+
+6 - show the commands used to do the formatting
+
+=back
+
+=head1 RETURN VALUE
+
+=head1 ERRORS
+
+Many error messages may describe where the error is located, with the
+following: (FILE:LINE) [PROGRAM:LINE]
+
+Fatal Errors:
+
+ Can not read file: FILE
+
+ 	You need to specify the -input option before file name.
+
+=head1 EXAMPLES
+
+=head1 ENVIRONMENT
+
+$cmclient, $HOME
+
+=head1 FILES
+
+=head1 SEE ALSO
+
+=head1 NOTES
+
+=head1 CAVEATS
+
+=head1 DIAGNOSTICS
+
+=head1 BUGS
+
+You need to use the -verbose option if you want to see formatting
+errors.
+
+=head1 RESTRICTIONS
+
+=head1 AUTHOR
+
+Bruce Rafnel
+
+=head1 HISTORY
+
+$Date: 2009/07/05 19:58:54 $ UTC
+
+Copyright (c) 2009 Bruce Rafnel
+
+=cut
+
+# ---------------------------------------------------
+# Functions
+
+local $cFatal = 0;
+local $cError = 1;
+local $cWarning = 2;
+local $cInfo = 3;
+local $cVerbose = 4;
+local $cDebug = 5;
+
+sub fMsg {
+	# Input:
+	#	Args:
+	#	 	$pLevel
+	#			0 - fatal error, die
+	#			1 - error
+	#			2 - warning
+	#			3 - normal
+	#			4 - normal, output if $pVerbose
+	#			5 or more - output if $pDebug >= $pLevel
+	#		$pMsg - message text
+	#		[$pProg] - __FILE__ 
+	#		[$pLine] - __LINE__
+	#		[$pFile] - output $pFile and $. if specified
+	#	$gpDebug
+	#	$gpVerbose
+	# Output:
+	#	warn ...
+	my $pFile;
+	my $pLevel;
+	my $pLine;
+	my $pMsg;
+	my $pProg;
+	my $tFile;
+	my $tLoc;
+	my $tMsg;
+
+	($pLevel, $pMsg, $pProg, $pLine, $pFile) = @_;
+	if ($pLevel == $cFatal) {
+		$tLevel = "Fatal Error: ";
+	} elsif ($pLevel == $cError) {
+		$tLevel = "Error: ";
+	} elsif ($pLevel == $cWarning) {
+		$tLevel = "Warning: ";
+	} elsif ($pLevel == $cInfo) {
+		$tLevel = "";
+	} elsif ($pLevel == $cVerbose && $gpVerbose) {
+		$tLevel = "";
+	} elsif ($gpDebug >= $pLevel) {
+		$tLevel = "Debug" . $pLevel . ": ";
+	} else {
+		return;
+	}
+	$tLoc = "";
+	if ($pProg ne "") {
+		$pProg =~ s/.+\///;
+		$tLoc = " [" . $pProg . ":" . $pLine . "]";
+	}
+	$tFile = "";
+	if ($pFile ne "") {
+		$tFile =  " (" . $pFile . ":" . $. . ")";
+	}
+	$tMsg = $tLevel . $pMsg . $tFile . $tLoc . "\n";
+	if ($pLevel != 0) {
+		warn $tMsg;
+	} else {
+		die $tMsg;
+	}
+	return;
+} # fMsg
+
+# ---------------------------------------------------
+# Main
+
+$gPath = $0;
+$gPath =~ s![/][^/]*?$!!;
+$gCurDir = readpipe 'pwd';
+chomp $gCurDir;
+chdir $gPath;
+$gPath = readpipe 'pwd';
+chomp $gPath;
+chdir $gCurDir;
+
+push @INC,"/usr/local/bin";
+push @INC,"$gPath";
+
+use Env;
+use Getopt::Long;
+
+$cTidyOpt = "-q -xml -indent -wrap 78 --tidy-mark no --indent-attributes yes --new-pre-tags pre-fmt";
+
+$gpTidy = 0;
+$gpHtml = 0;
+$gpDraft = 0;
+$gpChapter = 0;
+$gpFobj = 0;
+$gpFop = 0;
+$gpRenderx = 0;
+$gpProject = 0;
+$gpDocbook = 0;
+$gpStyle = "";
+$gpInput = "";
+$gpDebug = 0;
+$gpHelp = 0;
+$gpVerbose = 0;
+&GetOptions(
+	"tidy" => \$gpTidy,
+	"html" => \$gpHtml,
+	"draft" => \$gpDraft,
+	"chapter" => \$gpChapter,
+	"fobj" => \$gpFobj,
+	"fop" => \$gpFop,
+	"render" => \$gpRenderx,
+	"pdf" => \$gpFop,
+	"project" => \$gpProject,
+	"docbook" => \$gpDocbook,
+	"style:s" => \$gpStyle,
+	"input:s" => \$gpInput,
+	"debug:s" => \$gpDebug,
+	"help" => \$gpHelp,
+	"verbose" => \$gpVerbose,
+);
+
+if ($gpHelp) {
+	system("pod2text $0 | more");
+	exit 1;
+}
+
+# Validate options
+if (! -r $gpInput) {
+	&fMsg($cFatal, "Can not read file: $gpInput", __FILE__, __LINE__);
+}
+
+if ($gpDebug and $gpDebug < 5) {
+	$gpDebug += 4;
+}
+
+# -------------------
+&fMsg($cVerbose, "Start", __FILE__, __LINE__);
+
+$tOut = $gpInput;
+$tOut =~ s/\.xml//;
+$tXslStyle = "/opt/story-xml/style";
+if ($gpStyle ne "") {
+	$gpStyle = "export gpStyle=$gpStyle; ";
+}
+
+if ($gpTidyy) {
+	&fMsg($cVerbose, "Output xml", __FILE__, __LINE__);
+	$tCmd = "tidy $cTidyOpt $gpInput >". $tOut . "-tidy.xml";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+if ($gpHtml) {
+	&fMsg($cVerbose, "Output html", __FILE__, __LINE__);
+	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-html.xsl $tOut.html";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+if ($gpDraft) {
+	&fMsg($cVerbose, "Output draft", __FILE__, __LINE__);
+	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-draft.xsl $tOut" . "-draft.html";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+if ($gpChapter) {
+	&fMsg($cVerbose, "Output multiple html", __FILE__, __LINE__);
+	$tCmd = $gpStyle . "pub-xsltproc-multi.sh $gpInput $tXslStyle/out-ch-html.xsl $tOut" . "-ch-index.html";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+if ($gpFobj) {
+	&fMsg($cVerbose, "Output fo", __FILE__, __LINE__);
+	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-pdf.xsl $tOut.fo";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+if ($gpFop) {
+	&fMsg($cVerbose, "Output pdf, fop", __FILE__, __LINE__);
+	$tCmd = $gpStyle . "pub-fop-pdf.sh $gpInput $tXslStyle/out-pdf.xsl $tOut.pdf";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+if ($gpRenderx) {
+	&fMsg($cVerbose, "Output pdf, renderx: not imp", __FILE__, __LINE__);
+	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-pdf.xsl $tOut.pdf";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+if ($gpProject) {
+	&fMsg($cVerbose, "Output project", __FILE__, __LINE__);
+	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-project.xsl $t{Out}-timeline.proj.xml";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+if ($gpDocbook) {
+	&fMsg($cVerbose, "Output docbook", __FILE__, __LINE__);
+	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-docbook.xsl $tOut" . "-docbook.xml";
+	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
+	$tErr = readpipe($tCmd . " 2>&1");
+	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
+}
+
+&fMsg($cVerbose, "Done", __FILE__, __LINE__);

@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>
+Story XML Reference Guide
+</title>
+</head>
+<body>
+<h1>
+Story XML Reference Guide
+</h1>
+
+<h2>Elements</h2>
+<dl>
+
+<dt><p><a href="#content" name="content"><b>content</b></a><dd>
+	(<a href="#story-dtd">"story-dtd?</a>, <a href="#book"><b>book+</b></a>)
+
+<dt><p><a href="#story-dtd" name="story-dtd">story-dtd</a><dd>
+	<p>Attributes:
+	<dl>
+	<dt><p><b>version</b> (1|2|3|4|5) #REQUIRED<dd>
+	</dl>
+
+<dt><p><a href="#book" name="book"><b>book</b></a><dd>
+	(<a href="#com-title">%com-title;</a>, <b>book-info, style-info, story-info,</b> preface?, chapter*, epilog?)
+	<p>Attributes:
+	<dl>
+	<dt><p><a href="#com-attr-req">%com-attr-req;</a><dd>
+	</dl>
+
+<dt><p><a href="#com-title" name="com-title">%com-title;</a><dd>
+	"<b>title</b>, subtitle?, title-abbrev?
+
+<dt><p><a href="#title" name="title">title</a><dd>
+	(<a href="#PCDATA">#PCDATA</a>)
+	<p>Attributes:
+	<dl>
+	<dt><p><a href="#com-attr">%com-attr;</a><dd>
+	</dl>
+
+<dt><p><a href="#subtitle" name="subtitle">subtitle</a><dd>
+	(<a href="#PCDATA">#PCDATA</a>)
+	<p>Attributes:
+	<dl>
+	<dt><p><a href="#com-attr">%com-attr;</a><dd>
+	</dl>
+
+
+<dt><p><a href="#title-abbrev" name="title-abbrev">title-abbrev</a><dd>
+	(<a href="#PCDATA">#PCDATA</a>)
+	<p>Attributes:
+	<dl>
+	<dt><p><a href="#com-attr">%com-attr;</a><dd>
+	</dl>
+</dl>
+
+<dt><p><a href="#PCDATA" name="PCDATA">#PCDATA</a><dd>
+	Plain Character Data
+
+<h2>Attributes</h2>
+<dl>
+
+<dt><p><a href="#com-attr" name="com-attr">%com-attr;</a><dd>
+	<dl>
+	<dt>condition CDATA #IMPLIED<dd>
+	<dt>id CDATA #IMPLIED<dd>
+	<dt>lang CDATA #IMPLIED<dd>
+	<dt>revision (in-progress|draft|final) #IMPLIED<dd>
+	<dt>revision-flag (changed|added|deleted|off) #IMPLIED<dd>
+	</dl>
+
+<dt><p><a href="#com-attr-req" name="com-attr-req">%com-attr-req;</a><dd>
+	<dl>
+	<dt>condition CDATA #IMPLIED<dd>
+	<dt><b>id</b> CDATA #REQUIRED<dd>
+	<dt>lang CDATA #IMPLIED<dd>
+	<dt><b>revision</b> (in-progress|draft|final) #REQUIRED<dd>
+	<dt>revision-flag (changed|added|deleted|off) #IMPLIED<dd>
+	</dl>
+</dl>
+
+<h2>Index</h2>
+
+</body>
+</html>

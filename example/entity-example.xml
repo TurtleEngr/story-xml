@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE story-xml [
+<!ENTITY book1 SYSTEM "book1.xml">
+<!ENTITY ch1 SYSTEM "ch1.xml">
+<!ENTITY ch2 SYSTEM "ch2.xml">
+<!ENTITY gpl "GNU General Public License">
+]>
+<content>
+  &book1;
+  &ch1;
+  &ch2;
+</content>

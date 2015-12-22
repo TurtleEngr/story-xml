@@ -1,0 +1,59 @@
+vHi,
+
+I'm just starting with Lulu.  I'm currenly using Linux tools
+with FOP generating the PDF, from my custom XML, with the
+Serna editor.
+
+I've gone through the help sections, and can't find the
+answers to these questions.
+
+1) When submitting a PDF file, embedded font are required.
+   This makes sense for the non-standard Adobe fonts.
+
+   * What if I only use the standard Adobe fonts, will that
+     be accepted?
+
+2) For Global Distribution, the help text says the copyright
+   page must include the ISBN number, but later it says that
+   the ISBN number is assigned after the PDF is published.
+
+   * So how is the ISBN number put in the copyright page?
+
+3) For Global Distribution, the help text says that only
+   Adobe Distiller generated PDF files are accepted.  Have
+   you seen how expensive that tool is?!!  Hardly compatible
+   with a free service like Lulu.
+
+   * The CreatePDF subscription service looks more
+     affordable, but will that fulfill the Adobe Distiller
+     requirement?
+
+   * More importantly, can I import my PDF, and have it
+     converted into the accepted output?
+
+If I can get this tool set to be compatable with Lulu's
+publishing requirments, I would like to share my authoring
+tools in the community area, with a link to a SourceForge
+project.  The tool helps fiction writers manage, in one
+structured document: plot threads, timelines, setting,
+characters, viewpoint, scene and sequel outlines, and the
+actual copy text.
+
+Best regards,
+
+Bruce Rafnel
+
+-----------------------
+
+Answers from forums and FOP mail list:
+
+Adobe PDFs ONLY.
+FOP can't generate an Adobe PDF directly.
+
+Route to LUL
+FOP -> ps
+upload ps, to have it convert to PDF
+
+Can't do full-bleed, becuase FOP doesn't embed fonts into ps files.
+If it did, an Adobe program can be used to convert the ps to PDF (but
+this is still tricky and windows only).

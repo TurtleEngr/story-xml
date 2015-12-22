@@ -1,0 +1,170 @@
+Open Source Software Project
+Porject Name: story-xml
+Project UNIX name : story-xml
+Public Description:
+
+This tool is more of a "batch" processing tool.  It helps you orgaize
+your story, keep track of the timeline, plot treads, scene/sequel
+structure, scene locations, back story, etc.  Your notes are defined
+inline with the text that is actually printed.  You can mark sections
+with a revision status: in-progress, draft, or final.  You control
+what threads, units, and revision levels print.
+
+Additional Notes:
+
+[In order to expedite your request, please provide additional details
+on your project which may include technical aspects which cause it to
+differ from similar, existing solutions.]
+
+
+Project Details
+	Project Admins : baraf
+	Developers : 1
+	Database Environment : NA
+	Development Status : 5 - Production/Stable
+	Intended Audience : Other Audience
+	License : GNU General Public License (GPL)
+	Operating System :
+		32-bit MS Windows (NT/2000/XP)
+		All POSIX (Linux/BSD/UNIX-like OSes)
+		OS Independent (Written in an interpreted language)
+		Linux
+		Vista
+		WinXP
+	Programming Language : xsl, xslt, fo
+	Topic :
+		Office/Business
+			Desktop Publishing
+		Printing
+		Text Editors
+			Text Processing
+		Formats and Protocols
+			XML
+	Translations : English
+	User Interface : NA
+	Donors : baraf
+
+Project
+	Summary
+
+story-xml is an xml based tool for authors writing fiction.  It
+supports structured writing and formatting from beginning to end.  If
+you like to write, and would like a professional layout, but you don't
+want to be bothered with the formatting work, then this tool is for
+you.  If you like fiddling with the layout, paging, and formatting,
+with WSIWIG tools, then this tool is NOT for you; there are many other
+execllent tools, such as OpenOfice Writer, that will meet your needs.
+
+This tool is more of a "batch" processing tool.  It helps you orgaize
+your story, keep track of the timeline, plot treads, scene/sequel
+structure, scene locations, back story, etc.  Your notes are defined
+inline with the text that is actually printed.  You can mark sections
+with a revision status: in-progress, draft, or final.  You control
+what threads, units, and revision levels print.
+
+When you are ready to print, ...
+
+
+	Website
+		LiveDTD
+		Manual
+		Samples
+	Screenshots
+		Serna
+		EditIX
+	News
+		releases
+	Statistics
+Tracker
+	Tracker Summary
+	Bugs
+	Feature Requests
+	Patches
+	Support Requests
+	Statistics
+	Search
+Mailing Lists
+	Mailing Lists Summary
+	Search
+Forums
+	Help
+	General Discussion
+	Statistics
+	Search
+Code
+	SVN
+	SVN Browse
+	Statistics
+Services
+	Get Services
+Download
+	Default
+	Windows
+	Linux
+		rpm: RH, CentOS, Fedora
+		deb: Debian
+	Max OS X
+	Browse All Files
+	Statistics
+Documentaion
+	Browse
+	Submit
+	Search
+Wiki
+	Developer Notes
+		Links to build tools
+Tasks
+	Tasks Summary (sub-projects)
+	core
+		Linux (rpm, dmg)
+		Windows
+		Max OSX
+	Command Line
+		Linux, Max OSX
+		Windows
+	Configure
+		Linux
+		Windows
+		Max OSX
+	HTML
+		frame views
+		multifile docs
+	Serna
+		Linux
+		Windows
+		Max OSX
+	EditIX
+		Linux
+		Windows
+		Max OSX?
+	RenderX
+		Linux
+		Windows
+		Max OSX
+	FOP
+		Linux
+		Windows
+		Max OSX
+	xsltproc
+		Linux
+		Windows?
+		Max OSX?
+	SAXON
+		Linux
+		Windows
+		Max OSX?
+	Outputs
+		html - single file
+		html - chapter files
+		html draft
+		html draft frame
+		pdf - base 14
+		pdf - embedded fonts
+		docbook - export only
+		OpenDocument - export only
+		OpenProj - timeline in OpenProj (MS Project) format
+		Planner - timeline in Planner (Mr Project) format (Linux only)
+		TaskJuggler - timeline (Linux only?)
+		GunPlot - timeline
+
+----------------------------------

@@ -1,0 +1,398 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE content [
+<!ENTITY def-site SYSTEM "def-site.xml">]>
+<content>
+  <site>
+    <style preview-thread="main" style-ref="main"/>
+
+    <def-style id="main" print-ref="main" content-ref="main"
+      draft-ref="main" draft="0" debug="1"/>
+
+    <def-content id="main" ch-preface="1" preface="1" prolog="1"
+      thread="main" page-draft="1" page-in-progress="1" page-done="1"
+      book-draft="1" book-in-progress="1" book-done="1" ch-draft="1"
+      ch-in-progress="1" ch-done="1" unit-draft="1"
+      unit-in-progress="1" unit-done="1" ch-list="id1 id2" link-fmt="default"/>
+
+    <def-draft id="main" def-base="1" def-img="1" def-link="1"
+      def-who="1" def-where="1" def-thread="1" unit-title="1"
+      unit-when="1" unit-where="1" unit-who="1"
+      unit-outline="1" thread-ref="1" thread-id-vp="1"
+      thread-all-vp="1" thread-content="1" timeline="1"/>
+
+    <def-print id="main" output-type="ps" toc="1"
+      copyright-type="standard" page="6x9in" margin="0.5in"
+      gutter="0.3in" font-size="12pt" line-height="120%" duplex="1"
+      body-size="12pt" body-family="times" head-size="18pt"
+      head-family="times" title-size="24pt" title-family="times"
+      ch-title-size="18pt" ch-title-family="times" bleed-left="0"
+      bleed-right="0" bleed-top="0" bleed-bottom="0"
+      header-type="title-author" bgcolor="white" text="black"
+      draft="#ff6600" ref="paper" link="#0000ff" alink="#0000ff"
+      vlink="#ff00ff" next-prev="0"/>
+
+&def-site;
+
+  </site>
+
+  <page id="page1" status="in-progress">
+    <title>page title</title>
+    <cvs
+      root=":ext:LOGNAME@moria.dynu.com:/data/public.cvs"
+      repository="app/story-xml/test"
+      file="test2.xml"
+      rev="$Revision: 1.1 $"
+      date="$Date: 2007/12/18 08:13:38 $"
+      source="$Source: /repo/local.cvs/app/story-xml/test/story1/book1.xml,v $"
+    />
+    <pub-date>2005-12-09</pub-date>
+    <meta-description>page description</meta-description>
+    <meta-keywords>word, word</meta-keywords>
+
+    <p>optional text</p>
+    <p>
+      <img ref="hr1"/>
+    </p>
+
+    <sect1 id="page1-1">
+      <title>section title</title>
+      <item>
+        <title>item title</title>
+        <p>item content</p>
+      </item>
+    </sect1>
+  </page>
+
+  <book id="book1" status="in-progress">
+    <title>book title</title>
+    <cvs root=":ext:LOGNAME@moria.dynu.com:/data/public.cvs" repository="app/story-xml/test" file="test2.xml" rev="$Revision: 1.1 $" date="$Date: 2007/12/18 08:13:38 $" source="$Source: /repo/local.cvs/app/story-xml/test/story1/book1.xml,v $"/>
+    <pub-date>2005-12-07</pub-date>
+    <meta-description>book description</meta-description>
+    <meta-keywords>word, word</meta-keywords>
+    <edition>1</edition>
+    <author>first last</author>
+    <email>author@domain.com</email>
+    <file-prefix>ch</file-prefix>
+
+    <def-book>
+
+      <def-who id="hero">
+        <p>describe a character</p>
+      </def-who>
+
+      <def-where id="where1">
+        <p>describe a location</p>
+      </def-where>
+
+      <def-thread id="main">
+        <p>describe the thread</p>
+      </def-thread>
+
+    </def-book>
+
+    <preface>
+      <title>Preface</title>
+      <p>placed before all chapters <b>bold text</b>.</p>
+      <p>jcjcjjjjjj <b>j jjjj</b> fff <link ref="book1-ch" img="1" title="1" url="1">Label: </link>jjjj</p>
+      <p>
+        <link ref="book1-all" img="1" title="1"/>
+      </p>
+      <p>
+        <link ref="book1-all-plain" img="1" title="1"/>
+      </p>
+    </preface>
+
+    <epilog>
+      <title>Epilog</title>
+      <p>placed after all chapters</p>
+    </epilog>
+
+    <ch-preface>
+      <title>Disclamer</title>
+      <p>placed before preface, if single file, or each chapter, if chapter files are output</p>
+    </ch-preface>
+
+    <chapter id="1" status="done">
+      <title>chapter one title</title>
+      <cvs root=":ext:LOGNAME@moria.dynu.com:/data/public.cvs" repository="app/story-xml/test" file="test2.xml" rev="$Revision: 1.1 $" date="$Date: 2007/12/18 08:13:38 $" source="$Source: /repo/local.cvs/app/story-xml/test/story1/book1.xml,v $"/>
+      <pub-date>2005-12-07</pub-date>
+      <ch-no>1</ch-no>
+      <prolog>
+        <title>Prolog</title>
+        <p>placed at beginning of chapter</p>
+        <p>Image folder: <img ref="folder"/></p>
+        <p>i=n, t=n, u=n c=n <link ref="blue-ribbon"/></p>
+        <p>i=n, t=n, u=n c=y <link ref="blue-ribbon">Freedom</link></p>
+        <p>i=y, t=n, u=n c=n <link ref="blue-ribbon" img="1"/></p>
+        <p>i=n, t=y, u=n c=n <link ref="blue-ribbon" title="1"/></p>
+        <p>i=n, t=n, u=y c=y <link ref="blue-ribbon" url="1">Freedom</link></p>
+        <p>
+          <b>i=y, t=y, u=y c=y </b>
+          <link ref="blue-ribbon" img="1" title="1" url="1">Freedom:</link>
+        </p>
+        <p>
+          <i>
+            <link ref="google" img="1" title="1"/>
+          </i>
+        </p>
+      </prolog>
+      <postlog>
+        <title>Postlog</title>
+        <p>placed at end of chapter</p>
+      </postlog>
+      <unit id="10" status="in-progress" type="sequel">
+        <title>summary title</title>
+        <outline>
+          <when>
+            <!--
+  start-date: yyyy-mm-dd(Thh:mm:ss)
+  duration: PyyyyYmmMddD(ThhHmmM) or
+  end-date: yyyy-mm-dd(Thh:mm)
+  -->            <start-date>2006-01-01T13:00:00</start-date>
+            <duration>P0M0DT2H33M</duration>
+            <description>
+              <p>describe when</p>
+            </description>
+          </when>
+          <where ref="where1">
+            <p>additional description, differences</p>
+          </where>
+          <who ref="hero">
+            <p>additional description, differences</p>
+          </who>
+          <description>
+            <p>This text will only be output with &apos;drafts&apos;</p>
+            <pre>line1
+line2
+line3</pre>
+          </description>
+        </outline>
+        <thread ref="other" viewpoint="hero">
+	  <s>Unit 10</s>
+
+          <s ref="hero"><ins>Say text example</ins> <del>(ref is
+          optional).</del> sf sd fsd fsd wert wer wr r r ew rw r rw er ewr
+          wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer
+          we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we
+          r wer we we r we rwe r we r ew r ewr we r we.</s>
+
+          <s>Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+        </thread>
+        <thread ref="main" viewpoint="hero">
+          <s ref="hero"><ins>Say text example</ins> <del>(ref is
+          optional).</del> sf sd fsd fsd wert wer wr r r ew rw r rw er ewr</s>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="foo">This should not print. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <p>Paragraph text example. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+          <p>Paragraph. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+          <p>Paragraph. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+          <p>Paragraph. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <pre>begin pre: line1
+line2
+line3 <b>bold</b>
+line4: pre done</pre>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+        </thread>
+      </unit>
+      <unit id="11" status="in-progress" type="scene">
+        <title>summary title</title>
+        <outline>
+          <when>
+            <!--
+  start-date: yyyy-mm-dd(Thh:mm)
+  duration: PyyyyYmmMddD(ThhHmmM) or
+  end-date: yyyy-mm-dd(Thh:mm)
+  -->            <start-date>2006-01-02T07:00:00</start-date>
+            <duration>P0Y0M0DT10H5M</duration>
+          </when>
+          <where ref="where1">
+            <p>additional description, differences</p>
+          </where>
+          <who ref="hero">
+            <p>additional description, differences</p>
+          </who>
+          <description>
+            <p>This text will only be output with &apos;drafts&apos;</p>
+          </description>
+        </outline>
+        <thread ref="main" viewpoint="hero">
+	  <s>Unit 11</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+        </thread>
+        <thread ref="other" viewpoint="hero">
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="none">Thought: This should not print. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <p>Paragraph text example. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+          <p>Paragraph. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+	  <s>Say text1:  sf sd f ds fds fd sd fsdf sd ewr ew rewr ew df sd fd f dsf ewf dsf sd fd gs gdsf gdf gdf  rs fgsd gfd df gsrd f gdf gdf gdf gdf df gdf gdf gdf gdf gd fgd fgd fgf gd gfd gdf g wer we wf sd fds fsd fsd fs fsdf sf sd fsd fs df sd ewwe rwe rwe rwe rwe sd g fg dfgd fg dfg.</s>
+	  <s>Say text2:  sf sd f ds fds fd sd fsdf sd ewr ew rewr ew df sd fd f dsf ewf dsf sd fd gs gdsf gdf gdf  rs fgsd gfd df gsrd f gdf gdf gdf gdf df gdf gdf gdf gdf gd fgd fgd fgf gd gfd gdf g wer we wf sd fds fsd fsd fs fsdf sf sd fsd fs df sd ewwe rwe rwe rwe rwe sd g fg dfgd fg dfg.</s>
+        </thread>
+      </unit>
+      <unit id="12" status="draft" type="sequel">
+        <title>draft summary title</title>
+        <outline>
+          <when>
+            <!--
+  start-date: yyyy-mm-dd(Thh:mm)
+  duration: PyyyyYmmMddD(ThhHmmM) or
+  end-date: yyyy-mm-dd(Thh:mm)
+  -->            <start-date>2006-02-01T15:30:00</start-date>
+            <end-date>2006-02-01T18:00:00</end-date>
+            <description>
+              <p>describe when</p>
+            </description>
+          </when>
+          <where ref="where1">
+            <p>additional description, differences</p>
+          </where>
+          <who ref="hero">
+            <p>additional description, differences</p>
+          </who>
+          <description>
+            <p>This text will only be output with &apos;drafts&apos;</p>
+          </description>
+        </outline>
+        <thread ref="main" viewpoint="hero">
+	  <s>Unit 12</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+          <s ref="other">New say text.</s>
+        </thread>
+        <thread ref="main" viewpoint="hero">
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="none">This should not print. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <p>Paragraph text example. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+          <p>Paragraph. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+	  <s>Say text1:  sf sd f ds fds fd sd fsdf sd ewr ew rewr ew df sd fd f dsf ewf dsf sd fd gs gdsf gdf gdf  rs fgsd gfd df gsrd f gdf gdf gdf gdf df gdf gdf gdf gdf gd fgd fgd fgf gd gfd gdf g wer we wf sd fds fsd fsd fs fsdf sf sd fsd fs df sd ewwe rwe rwe rwe rwe sd g fg dfgd fg dfg.</s>
+	  <s>Say text2:  sf sd f ds fds fd sd fsdf sd ewr ew rewr ew df sd fd f dsf ewf dsf sd fd gs gdsf gdf gdf  rs fgsd gfd df gsrd f gdf gdf gdf gdf df gdf gdf gdf gdf gd fgd fgd fgf gd gfd gdf g wer we wf sd fds fsd fsd fs fsdf sf sd fsd fs df sd ewwe rwe rwe rwe rwe sd g fg dfgd fg dfg.</s>
+        </thread>
+      </unit>
+    </chapter>
+    <chapter id="2" status="in-progress">
+      <title>chapter two title</title>
+      <cvs root=":ext:LOGNAME@moria.dynu.com:/data/public.cvs" repository="app/story-xml/test" file="test2.xml" rev="$Revision: 1.1 $" date="$Date: 2007/12/18 08:13:38 $" source="$Source: /repo/local.cvs/app/story-xml/test/story1/book1.xml,v $"/>
+      <pub-date>2006-01-14</pub-date>
+      <ch-no>2</ch-no>
+      <prolog>
+        <title>Prolog</title>
+        <p>placed at beginning of chapter</p>
+      </prolog>
+      <postlog>
+        <title>Postlog</title>
+        <p>placed at end of chapter</p>
+      </postlog>
+      <unit id="20" status="in-progress" type="sequel">
+        <title>summary title</title>
+        <outline>
+          <when>
+            <!--
+  start-date: yyyy-mm-dd(Thh:mm)
+  duration: PyyyyYmmMddD(ThhHmmM) or
+  end-date: yyyy-mm-dd(Thh:mm)
+  -->            <start-date>2006-03-31T23:30:00</start-date>
+            <duration>P0DT4H8M</duration>
+          </when>
+          <where ref="where1">
+            <p>additional description, differences</p>
+          </where>
+          <who ref="hero">
+            <p>additional description, differences</p>
+          </who>
+          <description>
+            <p>This text will only be output with &apos;drafts&apos;</p>
+          </description>
+        </outline>
+        <thread ref="main" viewpoint="hero">
+	  <s>Unit 20</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+        </thread>
+        <thread ref="main" viewpoint="hero">
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="none">This should not print. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <p>Paragraph text example. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+          <p>Paragraph. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+        </thread>
+      </unit>
+    </chapter>
+    <chapter id="3" status="draft">
+      <title>chapter three title</title>
+      <cvs root=":ext:LOGNAME@moria.dynu.com:/data/public.cvs" repository="app/story-xml/test" file="test2.xml" rev="$Revision: 1.1 $" date="$Date: 2007/12/18 08:13:38 $" source="$Source: /repo/local.cvs/app/story-xml/test/story1/book1.xml,v $"/>
+      <pub-date>2006-01-25</pub-date>
+      <ch-no>3</ch-no>
+      <prolog>
+        <title>Prolog</title>
+        <p>placed at beginning of chapter</p>
+      </prolog>
+      <postlog>
+        <title>Postlog</title>
+        <p>placed at end of chapter</p>
+      </postlog>
+      <unit id="30" status="in-progress" type="sequel">
+        <title>summary title</title>
+        <outline>
+          <when>
+            <!--
+  start-date: yyyy-mm-dd(Thh:mm)
+  duration: PyyyyYmmMddD(ThhHmmM) or
+  end-date: yyyy-mm-dd(Thh:mm)
+  -->            <start-date>2006-04-01T12:00:00</start-date>
+            <duration>P1DT0H0M</duration>
+            <description>
+              <p>describe when</p>
+            </description>
+          </when>
+          <where ref="where1">
+            <p>additional description, differences</p>
+          </where>
+          <who ref="hero">
+            <p>additional description, differences</p>
+          </who>
+          <description>
+            <p>This text will only be output with &apos;drafts&apos;</p>
+          </description>
+        </outline>
+        <thread ref="main" viewpoint="hero">
+	  <s>Unit 30</s>
+          <s ref="hero">Say text example (ref is optional). sf sd fsd fsd wert wer wr r r ew rw r rw er ewr wer w rwrwerew rwe rwe rwe r we rwe rwe r wer wer ew rwe wer we rwe rwe r wer ew rew r ew rwer we r we rwe r we r wer we r wer we we r we rwe r we r ew r ewr we r we.</s>
+        </thread>
+        <thread ref="main" viewpoint="hero">
+          <t ref="hero">Thought text example (ref is required). ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <t ref="none">This should not print. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</t>
+          <p>Paragraph text example. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+          <p>Paragraph. ssfsd fdsf sd fsdfds f sdf ds f sdf dsfsd fsd fs d fsd f sd fsd f sdf sdf sdf sd fsd f sdf sdf sdf sdf sd fe r wer w rwr wer w rwe rw er wer were wrwerewrewr wer we rwe r wer wer we rw er.</p>
+        </thread>
+      </unit>
+      <unit id="22" status="in-progress" type="scene">
+        <title>title</title>
+        <outline>
+          <when>
+            <start-date>2006-04-05</start-date>
+            <duration>P2D</duration>
+            <description>
+              <p>describe when</p>
+            </description>
+          </when>
+        </outline>
+        <thread ref="main" viewpoint="hero">
+	  <s>Unit 22</s>
+          <s>ggggg</s>
+          <s>wwwww</s>
+          <p>jjjjj</p>
+        </thread>
+      </unit>
+    </chapter>
+  </book>
+</content>

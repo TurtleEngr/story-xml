@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>
+Developer Notes
+</title>
+</head>
+<body>
+<h1>
+Developer Notes
+</h1>
+
+<h2>XSL Coding Style</h2>
+<ol>
+
+<li><p>The different output styles are defined with "top"
+style files.  Common coded may be put in include files.  But
+the code needs to be 100% common across the output style
+that use the code.  "flags" or other content clues should
+not be used, to select different behavior based the output
+style.  Better to copy the "almost common" code.  Maybe the
+code can be refactored so that a large part can be
+common.</p>
+
+<p>This is done to reduce the number of "if" can "choose"
+code, which can make the code harder to read and debug.</p>
+
+<li><p>Before checking in html, xml, or xls code, run tidy
+with the following options:</p>
+
+<pre>
+tTidyOpt="-modify -q --show-warnings no --tidy-mark no \
+--drop-empty-paras no -indent -wrap 75 --indent-spaces 2 \
+--indent-attributes yes --new-pre-tags pre-fmt"
+
+tidy -xml $tTidyOpt FILE.xml
+tidy -xml $tTidyOpt FILE.xsl
+tidy -asxhtml $tTidyOpt FILE.html
+</pre>
+
+<p>This will reduce the white space differences between versions.</p>
+</li>
+
+<li><p>The tidy options for the serna 'story-template*'
+files are different.  Mainly the tags and content should not
+be wrapped, because line breaks between attributes can cause
+problems.</p>
+<pre>
+tTidyOpt="-modify -q --show-warnings no --tidy-mark no \
+--drop-empty-paras no -indent -wrap 2000 --indent-spaces 2 \
+--indent-attributes no --quote-nbsp no --quote-ampersand no"
+tidy -xml $tTidyOpt story-template*
+</pre>
+
+<li><p>Do not use "xsl:text", use "xsl:value-of" for plain
+text output.  If "xsl:text" is used the "tidy" program
+mangles the text line breaks.</p>
+
+<li><p>Where ever possible, use "select" when setting variables.</p>
+
+<li><p>When setting element attributes use {} to set the
+attribute directly, rather than the xsl:attribute.  However
+use xsl:attribute, if the content is "complex".</p>
+
+<li><p>Element names are all lower case with proper words or
+abbreviations separated by hyphens (-).</p>
+
+<li><p>Put complex logic, which may be common across lots of
+elements, in named templates.  For examples see the
+"fShowContent" in story-com.xml, "fRevisionFlag" in
+story-com-html.xml, and "fPageBreak" template in
+story-pdf.xsl.</p>
+
+<li><p>Naming conventions.  Use camel case for internal
+template and variable names.  The prefix char. helps with
+describing the scope of the variable, and where it came
+from.  Not using hyphens or underscores, make it easier to
+see the variables in expressions, and to not confuse them
+with element names.</p>
+
+<pre>
+fNameName - named template
+gNameName - global variable or param (i.e. global to whole stylesheet)
+pNameName - param passed a template
+tNameName - local variable
+</pre>
+
+</ol>
+
+</body>
+</html>

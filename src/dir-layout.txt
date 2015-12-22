@@ -1,0 +1,415 @@
+Esc-x set-variable tab-width 4
+
+f - final (html, pdf)
+d - draft only
+s - serial only
+C - control
+c - conditional
+
+<content>
+	<site>
+ C		<content-style ref="main" preview-thread="main"/>
+f		<html-style bgcolor="white" text="black" />
+f		<pdf-style bgcolor="white" text="black" />
+ C		*<def-content id="main" preface="yes" prolog="yes" ...
+f 		*<def-pdf id="main" ...
+f 		<def-site>
+f			*<def-base id="ext"/>
+f			*<def-base id="main">http://www.moria.dynu.com/</def-base>
+f			*<def-base id="test">file:///home/george/story/src/</def-base>
+f			*<def-img id="offsite" url="icon/link.png" base="main">Title</def-img>
+f			*<def-link id="google" url="http://www.google.com" base="ext"
+				ref="offsite">Google</def-link>
+f c	*<page id="page" status="in-progress">
+f		<title>page title</title>
+f		<cvs
+ d			rev="$Revision: 1.12 $"
+f			date="$Date: 2008/12/08 06:59:57 $"
+ d			source="$Source: /repo/local.cvs/app/story-xml/src/dir-layout.txt,v $"
+ d			root=
+ d			repository=
+ d			file=
+f		<pub-date>YYYY-MM-DD</pub-date>
+f		<meta-description>page description</meta-description>
+f		<meta-keywords>word, word</meta-keywords>
+f		*<p>optional text</p>
+		<sect1>
+f			<title>section title</title>
+			*<item>
+f				<title>item title</title>
+f				*<p>item content</p>
+f c	*<book id="book" status="in-progress">
+f		<title>book title</title>
+f		<cvs
+ d			rev="$Revision: 1.12 $"
+f			date="$Date: 2008/12/08 06:59:57 $"
+ d			source="$Source: /repo/local.cvs/app/story-xml/src/dir-layout.txt,v $"
+ d			root=
+ d			repository=
+ d			file=
+f c		<pub-date>YYYY-MM-DD</pub-date>
+f		<meta-description>book description</meta-description>
+f		<meta-keywords>word, word</meta-keywords>
+f c		<edition>1</edition>
+f		<author>author</author>
+f		<email>author@domain.com</email>
+  s		<file-prefix>ch</file-prefix>
+f 		<def-book>
+f			*<def-base id="ext"/>
+f			*<def-base id="main">http://www.moria.dynu.com/</def-base>
+f			*<def-base id="test">file:///home/george/story/src/</def-base>
+f			*<def-img id="offsite" url="icon/link.png" base="main">Title</def-img>
+f			*<def-link id="google" url="http://www.google.com" base="ext"
+				ref="offsite">Google</def-link>
+ d			*<def-who id="hero">
+ d				*<p>describe a character</p>
+ d			*<def-where id="where1">
+ d				*<p>describe a location</p>
+ d			*<def-thread id="main">
+ d				*<p>describe the thread</p>
+f c		<preface>
+f			<title>Preface</title>
+f			*<p>placed before all chapters</p>
+f c		<epilog>
+f			<title>Epilog</title>
+f			*<p>placed after all chapters</p>
+f c		<ch-preface>
+fsc			<title>Disclamer</title>
+fsc			*<p>If single file, placed before preface.
+fsc				If chapter-files, placed before each chap. prolog.</p>
+fsc		*<chapter id="1" status="in-progress">
+f			<title>chapter title</title>
+f			<cvs
+ d				rev="$Revision: 1.12 $"
+f				date="$Date: 2008/12/08 06:59:57 $"
+ d				source="$Source: /repo/local.cvs/app/story-xml/src/dir-layout.txt,v $
+ d				root=
+ d				repository=
+ d				file=
+f			<pub-date>YYYY-MM-DD</pub-date>
+f			<ch-no>1</ch-no>
+f c		<prolog>
+f			<title>Prolog</title>
+f			*<p>placed at beginning of chapter</p>
+f c		<postlog>
+f			<title>Postlog</title>
+f			*<p>placed at end of chapter</p>
+f c		*<unit id="1" status="in-progress" type="sequel">
+f			<title>summary title</title>
+ d			<outline>
+ d				<when>
+ d					<start-date>2006-01-01T13:00Z-0800</start-date>
+ d					<duration>P0Y0M0DT2H5M</duration> | <end-date>
+ d				<where ref="where1">
+ d					*<p>additional description, differences</p>
+ d				<who ref="hero">
+ d					*<p>additional description, differences</p>
+ d				<description>
+ d					*<p>This text will only be output with 'drafts'</p>
+f c			<thread ref="main" viewpoint="hero">
+f				*<s ref="hero">Say text example (ref is optional).</s>
+f c				*<t ref="hero">Thought text example (ref is required).</t>
+f c				*<t ref="other">Thought of other char. (ref is required).</t>
+f				*<p>Paragraph text example.</p>
+
+
+--------------------------------
+
+Sample-Output/
+	<page-id>.html			# story-html.xsl	html, single file
+	<book-id>.html			# story-html.xsl	html, single file
+	<book-id>.pdf			# story-pdf.xsl	pdf, single file
+
+	<book-id>-ch.html		# story-ch-html.xsl	html, chapter files
+	<book-id>-ch-<ch-no>.html	# story-ch-html.xsl	html, chapter files
+
+	<file-prefix>-<ch-no>.html	# story-serial-html.xsl	html, serial chapters
+	<file-prefix>-<ch-no>.txt	# story-serial-text.xsl	text, serial chapters
+
+	<book-id>-draft.html	# story-draft.xsl, html, draft
+
+	<book-id>-man.html		# story-man-pdf.xsl	pdf, manuscript
+
+
+DefModes:
+	(all) (xsltbricks: html, pdf) - implied
+	(final) (html) - implied
+	draft (html) - output all, not to be confused with @status=draft
+	toc (html)
+	toc-ch (html)
+	toc-pdf
+	pdf
+	text
+
+/home/brucer/home/ver/public/app/story-xml/src/
+	Makefile
+d	story-template1.xml
+d	story-template2.sdt
+d	story.dtd
+d	story-schema.xsd
+	story-serna/
+d		story-serna.xsl
+d		story-toc.xsl
+	story-output/
+d		story-com.xsl			# DefModes: all, toc, final, draft, pdf, text
+d		story-html.xsl			# html, single file, Call: all, final, toc
+d		story-ch-html.xsl		# html, ch files, Call: all, final, toc-ch
+		story-serial-html.xsl	# html, serial ch, Call: all, final
+		story-serial-text.xsl	# text, serial ch, Call: text
+d		story-draft.xsl			# html, Call: all, draft, toc
+		story-pdf.xsl			# pdf, single file, Call: all, pdf, toc-pdf
+		story-man-pdf.xsl		# pdf, manuscript, Call: all, pdf
+
+		fo/
+			common.xsl
+			fonts.xsl
+			page-sizes.xsl
+
+			blocks.xsl
+			default-elements.xsl
+			inlines.xsl
+			lists.xsl
+			parameters.xsl
+
+		#	fo.xsl
+		#	layoutsetup.xsl
+		#	simple-tables.xsl
+		#	xhtml-tables.xsl
+
+		html/
+			blocks.xsl
+			default-elements.xsl
+			inlines.xsl
+			lists.xsl
+			parameters.xsl
+
+		#	html.xsl
+		#	layoutsetup.xsl
+		#	simple-tables.xsl
+		#	xhtml-tables.xsl		
+
+	publishing/
+d		run-xsltproc.sh
+d		run-fop.sh
+	dist/ (==> /usr/local/)
+		serna/
+			xml/
+				dtds/
+					story/
+						story.dtd
+				schemas/ 				$SERNA_SCHEMAS
+					story/
+						story-schema.xsd
+				stylesheets/ 			$SERNA_STYLESHEETS
+					(xslbricks/)
+						(fo/)
+						(html/)
+					story/
+						story-serna/
+							story-serna.xsl
+							story-toc.xsl
+						story-output/
+							story-*.xsl
+							fo/
+							html/
+				templates/
+					story-template1.xml
+			utils/
+				publishing/
+					run-xsltproc.sh
+					run-fop.sh
+		serna2/
+			(xml/)
+				(stylesheets/)
+					(xslbricks/)
+						(fo/)
+						(html/)
+			plugins/
+				story/ 					$SERNA_TEMPLATE_DIR
+					story-template2.sdt
+					story.dtd
+					story-schema.xsd
+					story-serna/
+						story-serna.xsl
+						story-toc.xsl
+					story-output/
+						story-*.xsl
+						fo/
+						html/
+			utils/
+				publishing/
+					run-xsltproc.sh
+					run-fop.sh
+---------------------------------
+Final install structure:
+
+/opt/
+l	story-xml -> story-xml-4.0
+	story-xml-4.0/
+mod		antenna-house/
+d			README
+d			LICENSE
+			bin/
+				pub-xsl.sh
+				pub-pdf.sh
+				pub-pdf-ef.sh
+				pub-ps.sh
+		bin/
+			story-xml	(serna|editix) (-config -gui -clean)
+			tidy.sh -> ../tidy/bin/tidy.sh
+c			pub-xsl.sh ->  (xsltproc|renderx|saxon|antenna-house)/bin/pub-xsl.sh
+c			pub-fop-pdf.sh -> (fop|renderx|antenna-house)/bin/pub-pdf.sh
+c			pub-fop-pdf-ef.sh -> (renderx|antenna-house)/bin/pub-pdf-ef.sh
+c			pub-fop-ps.sh -> (fop|renderx|antenna-house)/bin/pub-ps.sh
+		config/
+			default.conf
+c			site.conf
+		core/
+			story-com-param.xsl
+			story-com.xsl
+			story.dtd
+			fo/
+				story-pdf.xsl
+			html/
+				story-com-html.xsl
+				story-html.xsl
+				story-ch-html.xsl
+				story-draft.xsl
+			other/
+				story-docbook.xsl
+				story-planner.xsl
+				story-project.xsl
+				story-timeline.xsl
+		doc/
+d			README
+d			LICENSE
+d			examples/
+d				tutorial/
+d				lulu/
+			templates/
+				min.xml
+				full.xml
+d		man/
+d			story-xml.man
+		editix/
+d			README
+d			LICENSE
+			bin/
+
+mod		fop/
+d			README
+d			LICENSE
+			bin/
+				pub-fop-pdf.sh
+				pub-fop-ps.sh
+mod		renderx/
+d			README
+d			LICENSE
+			bin/
+				pub-fo-pdf.sh
+				pub-fo-pdf-ef.sh
+				pub-xsl.sh
+			config/
+c				xep-ef.xml
+mod		saxon/
+d			README
+d			LICENSE
+			bin/
+				pub-xsl.sh
+mod		serna/
+d			README
+d			LICENSE
+			story-help.xml
+			story-schema.xsd
+			story-serna.xsl
+			story-template.sdt
+			story-toc.xsl
+c			pub-include.xsl
+			pub-fop.xsl
+			pub-renderx.xsl
+			pub-antenna-house.xsl
+			pub-docbook.xsl
+			pub-draft.xsl
+			pub-html.xsl
+mod		tidy/
+d			README
+d			LICENSE
+			tidy
+			tidy.sh
+		upgrade/
+			convert-1to2.sh
+			convert-1to2.xsl
+			convert-2to3.sh
+			convert-2to3.xsl
+			convert-3to4.sh
+			convert-3to4.xsl
+			story-1.0.dtd
+			story-2.0.dtd
+			story-3.0.dtd
+			story-4.0.dtd
+		xsltproc/
+d			README
+d			LICENSE
+			bin/
+				pub-xsl.sh
+	fop/ -> fop-0.20.5/
+	fop-0.20.5/
+		fop.sh
+	RenderX/
+		XEP/
+			xep
+			xep.xml
+			license.xml
+/etc/
+l	story-xml/ -> /opt/story-xml/config/
+/usr/
+	bin/
+		xsltproc
+l		story-xml -> /opt/story-xml/bin/story-xml
+	java/
+		jdk1.6.0_10/
+			jre/	$JAVA_HOME
+	local/
+c		serna/ -> serna-3.4/
+		serna-3.4/
+			plugins/
+l				story-xml/ -> /opt/story-xml/serna/
+		bin/
+			serna -> serna-3.4
+			serna-3.4
+	share/
+		doc/
+l			story-xml-VER -> /opt/story-xml/doc/
+		man/
+			man1/
+l				story-xml.man -> /opt/story-xml/man/story-xml.man
+/home/
+	USER/
+r		.story-xml/
+r			current.conf
+r			env.sh
+
+----------
+http://www.lulu.com/
+rafnelb@yahoo.com
+cool3app
+
+Pocket Size, 6.25in x 9.25in Perfect Binding
+$4.53 + $0.02/page
+
+300dpi images.
+
+Text:
+.5 margin, min.
+.3in gutter
+Bleed area (no text, ever): right Edge .25", Top bottom: .125"
+
+Gutter (binding margin): recommended: .1 or .2 (is that inches)
+For a 6" x 9" book, 30 lines/page is recommended
+
+Fonts should be embedded in the PDF file.
+
+TOC is after, dedication, preface.
+
+Total page count should be divisibe by 4, last page should be
+blank.  Add blank pages to make it a multiple of 4.
