@@ -28,8 +28,9 @@ function fReadConfig {
 # --------------------
 function fWriteConfig {
 	kdialog \
-		--title "Story Config - Save" \
+		--title "Save" \
 		--yesno "Save this configiguration?"
+	# 0 = yes, 1 = no
 	if [ $? = 0 ]; then
 		cat <<EOF >$gConfCur
 # story-xml Config
@@ -493,7 +494,7 @@ function fPickApp {
 		if [[ "$gAppl" = "next" && $tAllSet -eq 0 ]]; then
 			kdialog \
 				--title "Story Config" \
-				--msgbox "You need to define at last one Author tool,\n one XSLT tool, one Formatter tool,\n one Project tool, and one Output format."
+				--msgbox "You need to define at least\n one Author tool,\n one XSLT tool,\n one Formatter tool,\n one Project tool,\n and one Output format."
 		fi
 	done
 }
@@ -515,17 +516,17 @@ function fPickCat {
 	tChoice=""
 	while [[ -z "$tChoice" ]]; do
 		kdialog \
-			--title "Story Config - Define Tools" \
+			--title "Define Tools" \
 			--radiolist "Select a tool category.\n Select 'next' when you have defined at least one item in each category." \
-			"Author" "Currently set to: $gAuthor" on \
-			"XSLT" "Currently set to: $gXSLT" off \
-			"Formatter" "Currently set to: $gFmt" off \
-			"Project" "Currently set to: $gProject" off \
-			"Output" "Currently set to: $gOutput" off \
-			$tLast1 "$tLast2" $tLast3 \
+			"Author" "Author: currently set to: $gAuthor" off \
+			"XSLT" "XSLTL currently set to: $gXSLT" off \
+			"Formatter" "Formatter: currently set to: $gFmt" off \
+			"Project" "Project: currently set to: $gProject" off \
+			"Output" "Output: Currently set to: $gOutput" off \
 			"default" "Reset back to initial defaults" off \
-			"next" "Go to the next step" on \
+			"next" "Go to the next step" off \
 			> /tmp/list.tmp 2>&1
+			$tLast1 "$tLast2" $tLast3 \
 		tRet=$?
 		tChoice=$(cat /tmp/list.tmp)
 		echo "Debug: Return=$tRet"
@@ -552,13 +553,13 @@ function fAuthor {
 	tChoice=""
 	while [[ -z "$tChoice" ]]; do
 		kdialog \
-			--title "Story Config - Authoring Tools" \
+			--title "Authoring Tools" \
 			--cancel-label "Back" \
-			--checklist "Check the tools installed on your system."
-			"Serna" "XML Authoring Tool" $cfgAuthorSerna \
-			"EditiX" "XML Editor" $cfgAuthorEditix \
-			"emacs" "ascii editor" $cfgAuthorEmacs \
-			"vi" "ascii editor" $cfgAuthorVi \
+			--checklist "Check the tools installed on your system." \
+			"Serna" "Serna: XML Authoring Tool" $cfgAuthorSerna \
+			"EditiX" "ExitiX: XML Editor" $cfgAuthorEditix \
+			"emacs" "emacs: ascii editor" $cfgAuthorEmacs \
+			"vi" "vi: ascii editor" $cfgAuthorVi \
 			> /tmp/list.tmp 2>&1
 		tRet=$?
 		tChoice=$(cat /tmp/list.tmp)
@@ -582,13 +583,13 @@ function fXSLT {
 	tChoice=""
 	while [[ -z "$tChoice" ]]; do
 		kdialog \
-			--title "Story Config - XSLT Tool" \
+			--title "XSLT Tool" \
 			--cancel-label "Back" \
 			--radiolist "Check one of the tools installed on your system." \
-			"xsltproc" "xslt processor" $cfgXSLTProc \
-			"RenderX" "xslt processing mode" $cfgXSLTRenderx \
-			"AntennaHouse" "xslt processing mode" $cfgXSLTAnt \
-			"Saxon" "xslt processor" $cfgXSLTSaxon \
+			"xsltproc" "xsltproc: xslt processor" $cfgXSLTProc \
+			"RenderX" "RenderX: xslt processing mode" $cfgXSLTRenderx \
+			"AntennaHouse" "AntennaHouse: xslt processing mode" $cfgXSLTAnt \
+			"Saxon" "Saxon: xslt processor" $cfgXSLTSaxon \
 			> /tmp/list.tmp 2>&1
 		tRet=$?
 		tChoice=$(cat /tmp/list.tmp)
@@ -612,12 +613,12 @@ function fFmt {
 	tChoice=""
 	while [[ -z "$tChoice" ]]; do
 		kdialog \
-			--title "Story Config - Formatting Tool" \
+			--title "Formatting Tool" \
 			--cancel-label "Back" \
 			--radiolist "Check one of the tools installed on your system." \
-			"RenderX" "xep formatter" $cfgFmtRenderx \
-			"AntennaHouse" "fo formatter" $cfgFmtAnt \
-			"FOP" "Apache FOP formatter" $cfgFmtFOP \
+			"RenderX" "RenderX: xep formatter" $cfgFmtRenderx \
+			"AntennaHouse" "AntennaHouse: fo formatter" $cfgFmtAnt \
+			"FOP" "FOP: Apache FO formatter" $cfgFmtFOP \
 			> /tmp/list.tmp 2>&1
 		tRet=$?
 		tChoice=$(cat /tmp/list.tmp)
@@ -641,14 +642,14 @@ function fProject {
 	tChoice=""
 	while [[ -z "$tChoice" ]]; do
 		kdialog \
-			--title "Story Config - Project Tool" \
+			--title "Project Tool" \
 			--cancel-label "Back" \
-			--checklist "Select one or more project tools"
-			"OpenProj" "A muti-platform project tool" $cfgProjectOpenProj \
-			"Planner" "A project planning tool for Linux" $cfgProjectPlanner \
-			"MS-Project" "Microsoft Project" $cfgProjectMS \
-			"CSV" "Comma Separated Values, import to spreadsheet" $cfgProjectCSV \
-			"HTML" "HTML table" $cfgProjectHTML \
+			--checklist "Select one or more project tools" \
+			"OpenProj" "OpenProj: A muti-platform project tool" $cfgProjectOpenProj \
+			"Planner" "Planner: A project planning tool for Linux" $cfgProjectPlanner \
+			"MS-Project" "MS-Project: Microsoft Project" $cfgProjectMS \
+			"CSV" "CSV: Comma Separated Values, import to spreadsheet" $cfgProjectCSV \
+			"HTML" "HTML: table" $cfgProjectHTML \
 			> /tmp/list.tmp 2>&1
 		tRet=$?
 		tChoice=$(cat /tmp/list.tmp)
@@ -672,13 +673,13 @@ function fOutput {
 	tChoice=""
 	while [[ -z "$tChoice" ]]; do
 		kdialog \
-			--title "Story Config - Output Formats" \
+			--title "Output Formats" \
 			--cancel-label "Back" \
 			--checklist "Select one or more output formats"
-			"DocBook" "" $cfgOutputDocBook \
-			"HTML" "" $cfgOutputHTML \
-			"PDF" "" $cfgOutputPDF \
-			"PS" "" $cfgOutputPS \
+			"DocBook" "DocBook" $cfgOutputDocBook \
+			"HTML" "HTML" $cfgOutputHTML \
+			"PDF" "PDF" $cfgOutputPDF \
+			"PS" "PS" $cfgOutputPS \
 			> /tmp/list.tmp 2>&1
 		tRet=$?
 		tChoice=$(cat /tmp/list.tmp)
@@ -699,7 +700,7 @@ function fOutput {
 
 # --------------------
 function fSetPaths {
-	cfgXSLTProcPath=$(kdialog --title "Select xsltproc location" --no-buttons --fselect /usr/bin 2>&1)
+	cfgXSLTProcPath=$(which xsltproc)
 	echo "Debug: $cfgXSLTProcPath"
 } # fSetPaths
 
