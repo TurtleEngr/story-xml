@@ -1,0 +1,124 @@
+story-xml/src/doc/CHANGES
+
+============================================================
+Version 5
+
+* change: pre-fmt to pre
+
+* Refomated the product
+
+* Added the product to github
+
+============================================================
+Version 4
+
+* add: @deleted to def-draft
+
+* add: @thread-all to def-draft
+
+* add: @def-when to def-draft
+
+* add: def-when to story-info (default times)
+
+* del: @duration from unit (convert to end-date only)
+
+* change: start-date and end-date to use attr, not XML date fmt
+
+* def-draft
+	@deleted='1'
+	@thread-all='1'
+	@def-when='1'
+
+* story-info
+	def-when
+		@year="1992"
+		@month="12"
+		@day="27"
+		@hour="8"
+		@min="0"
+		@gmt="-08"
+
+* unit
+	outline
+		when
+			start-date
+				@year="1992"
+				@month="12"
+				@day="27"
+				@hour="8"
+				@min="0"
+				@gmt="-08"
+			end-date	
+				@year="1992"
+				@month="12"
+				@day="27"
+				@hour="8"
+				@min="0"
+				@gmt="-08"
+			descripton
+
+============================================================
+Version 3
+
+* add: ch-page-break=
+
+* Change: isbn - biblio-id class=isbn
+
+* bug: head-type conversion doesn't work well
+
+* style-info
+	change: @preview-thread to @thread-refs
+
+* def-print
+	change: @header-type to @head-type
+	change: @head-type value of 0 or none, change to page-no
+	add: @head-align="right"
+	add: @head-location="top"
+
+* def-content
+	change: @thread to @thread-refs
+
+* thread
+	change: @refs to @ref
+
+* change @revison-flag to @revision-flag
+
+* Change: s and p elements to para in non-thread sections.
+
+* Change: pre elements to pre-fmt in non-thread sections.
+
+============================================================
+Version 2
+
+* Remove the "site" related elements. The story-xml product was
+  implementing general html pages. This is too much. Simplify the
+  product to just generate "books".
+  Elements removed:
+  	site, page, ch-no, def-book
+  Attributes removed:
+  	@page-in-progress, @page-done, @page-draft, @book-in-progress,
+	@book-done, @book-draft, @font-size,
+
+* Add book-info, author-group, pub-date, copyright, edition, isbn, meta-keywords, style-info, story-info, chapter-info
+
+* Rename attributes:
+base -> base-ref
+ref -> img-ref
+unit-list -> unit-refs
+ch-list -> ch-refs
+ch-done -> ch-final
+unit-done -> unit-final
+ref -> who-ref
+
+* Rename revision value "done" to "final"
+
+* Rename ins element to <rev revision-flag="added">
+* Rename del element to <rev revision-flag="deleted">
+* Rename meta-keywords to keyword-set
+* Rename cvs to release-info
+
+
+============================================================
+Version 1
+
+First version. See story.dtd for the current structure.
