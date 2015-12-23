@@ -1,8 +1,25 @@
 #!/bin/bash
+# story-xml/kit/linux/story-config.sh
 
 # --------------------
 function fReadConfig {
-	gConf="$gConfDef"
+	if [[ -f default.conf ]]; then
+		# Test
+		gConf="$PWD/default.conf"
+	fi
+	if [[ -f cur.conf ]]; then
+		# Test
+		gConf="$PWD/cur.conf"
+	fi
+	if [[ -f default.conf ]]; then
+		gConf="$PWD/default.conf"
+	fi
+	if [[ -f ~/.story-xml/cur.conf ]]; then
+		gConf="~/.story-xml/cur.conf"
+	fi
+	if [[ -f $gConfDef ]]; then
+		gConf="$gConfDef"
+	fi
 	if [[ -f $gConfCur ]]; then
 		gConf=$gConfCur
 	fi
@@ -12,8 +29,7 @@ function fReadConfig {
 function fWriteConfig {
 	kdialog \
 		--title "Story Config - Save" \
-		--yesno "Save this configiguration?" \
-		0 0
+		--yesno "Save this configiguration?"
 	if [ $? = 0 ]; then
 		cat <<EOF >$gConfCur
 # story-xml Config
@@ -30,8 +46,7 @@ EOF
 function fLookForApps {
 	kdialog \
 		--title "Story Config" \
-	        --msgbox "Looking for XML tools (applications) on your system." \
-		0 0 5000
+	        --msgbox "Looking for XML tools (applications) on your system."
 
 	# Serna
 	for i in \
@@ -478,8 +493,7 @@ function fPickApp {
 		if [[ "$gAppl" = "next" && $tAllSet -eq 0 ]]; then
 			kdialog \
 				--title "Story Config" \
-				--msgbox "You need to define at last one Author tool,\n one XSLT tool, one Formatter tool,\n one Project tool, and one Output format." \
-				0 0 5000
+				--msgbox "You need to define at last one Author tool,\n one XSLT tool, one Formatter tool,\n one Project tool, and one Output format."
 		fi
 	done
 }
@@ -530,8 +544,7 @@ function fPickCat {
 function fRequire {
 	kdialog \
 		--title "Story Config" \
-		--msgbox "You need to check at least one item." \
-		0 0 5000
+		--msgbox "You need to check at least one item."
 } # fRequire
 
 # --------------------
@@ -541,8 +554,7 @@ function fAuthor {
 		kdialog \
 			--title "Story Config - Authoring Tools" \
 			--cancel-label "Back" \
-			--checklist "Check the tools installed on your system." \
-			0 0 5  \
+			--checklist "Check the tools installed on your system."
 			"Serna" "XML Authoring Tool" $cfgAuthorSerna \
 			"EditiX" "XML Editor" $cfgAuthorEditix \
 			"emacs" "ascii editor" $cfgAuthorEmacs \
@@ -631,8 +643,7 @@ function fProject {
 		kdialog \
 			--title "Story Config - Project Tool" \
 			--cancel-label "Back" \
-			--checklist "Select one or more project tools" \
-			0 0 6  \
+			--checklist "Select one or more project tools"
 			"OpenProj" "A muti-platform project tool" $cfgProjectOpenProj \
 			"Planner" "A project planning tool for Linux" $cfgProjectPlanner \
 			"MS-Project" "Microsoft Project" $cfgProjectMS \
@@ -663,8 +674,7 @@ function fOutput {
 		kdialog \
 			--title "Story Config - Output Formats" \
 			--cancel-label "Back" \
-			--checklist "Select one or more output formats" \
-			0 0 5  \
+			--checklist "Select one or more output formats"
 			"DocBook" "" $cfgOutputDocBook \
 			"HTML" "" $cfgOutputHTML \
 			"PDF" "" $cfgOutputPDF \
@@ -689,11 +699,11 @@ function fOutput {
 
 # --------------------
 function fSetPaths {
-	cfgXSLTProcPath=$(kdialog --title "Select xsltproc location" --no-buttons --fselect /usr/bin 28 48 2>&1)
+	cfgXSLTProcPath=$(kdialog --title "Select xsltproc location" --no-buttons --fselect /usr/bin 2>&1)
 	echo "Debug: $cfgXSLTProcPath"
 } # fSetPaths
 
-# ---------------------------------------------------------
+# =========================================================
 # Main
 export gAuthor=""
 export gXSLT=""
