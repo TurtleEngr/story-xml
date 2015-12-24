@@ -4,14 +4,6 @@
 # --------------------
 function fReadConfig {
 	if [[ -f default.conf ]]; then
-		# Test
-		gConf="$PWD/default.conf"
-	fi
-	if [[ -f cur.conf ]]; then
-		# Test
-		gConf="$PWD/cur.conf"
-	fi
-	if [[ -f default.conf ]]; then
 		gConf="$PWD/default.conf"
 	fi
 	if [[ -f ~/.story-xml/cur.conf ]]; then
@@ -22,6 +14,14 @@ function fReadConfig {
 	fi
 	if [[ -f $gConfCur ]]; then
 		gConf=$gConfCur
+	fi
+	if [[ -f default.conf ]]; then
+		# Test
+		gConf="$PWD/default.conf"
+	fi
+	if [[ -f cur.conf ]]; then
+		# Test
+		gConf="$PWD/cur.conf"
 	fi
 }
 

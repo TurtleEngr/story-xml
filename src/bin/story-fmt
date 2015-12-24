@@ -292,7 +292,7 @@ if ($gpStyle ne "") {
 	$gpStyle = "export gpStyle=$gpStyle; ";
 }
 
-if ($gpTidyy) {
+if ($gpTidy) {
 	&fMsg($cVerbose, "Output xml", __FILE__, __LINE__);
 	$tCmd = "tidy $cTidyOpt $gpInput >". $tOut . "-tidy.xml";
 	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
