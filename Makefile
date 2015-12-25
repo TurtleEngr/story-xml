@@ -14,15 +14,15 @@
 
 mRsyncOpt = -Clptz
 
-build : ver.env dist/opt/story-xml/doc/story-xml-dtd/index.html
+build : ver.env # dist/opt/story-xml/doc/story-xml-dtd/index.html
 	-find * -name '*~' -exec rm {} \;
 	-find dist -type l -exec rm {} \;
 	-rm -rf dist/*
 	-mkdir -p dist/opt/story-xml4
 	cd dist/opt; ln -s story-xml4 story-xml
-	-mkdir -p dist/opt/story-xml/config dist/opt/story-xml/doc/sample
+	-mkdir -p dist/opt/story-xml/config dist/opt/story-xml/doc/example
 	rsync -r $(mRsyncOpt) src/* dist/opt/story-xml/
-	rsync -r $(mRsyncOpt) example/* dist/opt/story-xml/doc/sample/
+	rsync -r $(mRsyncOpt) example/* dist/opt/story-xml/doc/example
 	rsync -r $(mRsyncOpt) kit/linux/* dist/opt/story-xml/config
 	cp src/story/story.dtd dist/opt/story-xml/doc
 	chmod a+rx,go-w dist/opt/story-xml/bin/*

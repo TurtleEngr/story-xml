@@ -1,99 +1,130 @@
-#!/usr/bin/perl
-# $Header: /repo/local.cvs/app/story-xml/src/publishing/story-fmt,v 1.9 2009/07/05 19:58:54 bruce Exp $
+#!/bin/bash
+# story-xml/src/bin/story-fmt.sh
 
-# pod2html --noindex --title "mkconf.pl"
+# Prefix codes (show the "scope" of variables):
+# gVar - global variable (may even be external to the script)
+# pVar - parameter (script option or function parameter)
+# gpVar - global parameter, i.e. may be defined external to the script
+# cVar - global constant (set once)
+# tVar - temporary variable (local to a function)
+# fFun - function
 
+# Commonally used global variables:
+# gpDebug - toggle (-x)
+# gpVerbose - toggle (-v)
+# Tmp - personal tmp directory.  Usually set to: /tmp/$USER
+# cTmpF - tmp file prefix.  Includes $gpTmp and $$ to make it unique
+# gErr - error code (0 = no error)
+# cVer - current version
+# cName - script's name
+# cBin - directory where the script is executing from
+# cCurDir - current directory
+
+# --------------------------------
+function fCleanUp
+{
+	trap - 1 2 3 4 5 6 7 8 10 11 12 13 14 15
+	# Called when script ends (see trap) to remove temporary files,
+	# if not in debug mode.
+	if [ $gpDebug -eq 0 ]; then
+		'rm' -f ${cTmpF}[1-9]*.tmp 2>/dev/null
+	fi
+	fLog notice "Done" $LINENO
+	exit $gErr
+} # fCleanUp
+
+# --------------------------------
+function fUsage
+{
+	# Print usage help for this script, using pod2text.
+	pod2text $0
+	gErr=1
+	fCleanUp
+	exit 1
+	cat <<EOF >/dev/null
 =pod
-
-Copyright (c) 2009 Bruce Rafnel
 
 =head1 NAME
 
-story-fmt - DESCRIPTION
+story-fmt - Format a story-xml file.
 
 =head1 SYNOPSIS
 
- story-fmt {-tidy | -html | -draft | -chapter | -fobj | -pdf
-        | -fop | -renderx | -project | -docbook} -input FILE
-        [-style NAME] [-help]] [-v[erbose]] [-d[ebug] level]
+ story-fmt [-f tidy] [-f htm] [-f draft] [-f chapter] [-f fobj]
+           [-f fop] [-f renderx] [-f project] [-f docbook]
+           [-s NAME] [-o FILE] [-h] [-v] [-x] FILE
 
 =head1 DESCRIPTION
 
-At least one output style must be selected (xml, html,
-draft, etc.).
+At least one output format style (-f) must be selected (xml, html, draft, etc.).
 
 =head1 OPTIONS
 
 =over 4
 
-=item B<-tidy>
+=item B<-f tidy>
 
 Run tidy program on the inpuut xml file.
 
-Output FILE-tidy.xml
+Output: FILE-tidy.xml
 
-=item B<-html>
+=item B<-f html>
 
-Output FILE.html 
+Output: FILE.html 
 
-=item B<-draft>
+=item B<-f draft>
 
-Output FILE.draft.html 
+Output: FILE.draft.html 
 
-=item B<-chapter>
+=item B<-f chapter>
 
-Output FILE.chN.html
+Output: FILE.chN.html
 (Not implemented)
 
-=item B<-fobj>
+=item B<-f fobj>
 
-Output FILE.fo
+Output: FILE.fo
 
-=item B<-pdf>
+=item B<-f fop>
 
-Output FILE.pdf
+Output: FILE.pdf
 
-=item B<-fop>
+=item B<-f renderx>
 
-Output FILE.pdf
-
-=item B<-renderx>
-
-Output FILE.pdf
+Output: FILE.pdf
 (Not implemented)
 
-=item B<-project>
+=item B<-f project>
 
-Output FILE.proj.xml
+Output: FILE.proj.xml
 (Not tested)
 
-=item B<-docbook>
+=item B<-f docbook>
 
-Output FILE.docbook.xml
+Output: FILE.docbook.xml
 (Not tested)
 
-=item B<-style NAME>
+=item B<-s NAME>
 
 Override the "style-ref" attribute in the "style-info" element, so
-that you can select a different "def-style" id.
+that you can select a different "def-style" id.  This sets the gpStyle
+env. var. (which is another way to override the style-ref.)
 
-=item B<-input FILE>
-
-Input file name.
-
-=item B<-help>
+=item B<-h>
 
 This help.
 
-=item B<-verbose>
+=item B<-v>
 
-Verbose output.  Sent to stderr.
+Output log messages to stdout.
 
-=item B<-debug level>
+=item B<-x>
 
-Debug level.
+Output log messages to stdout, but do not send them to syslog.
 
-6 - show the commands used to do the formatting
+=item B<FILE>
+
+Input file name.
 
 =back
 
@@ -102,19 +133,23 @@ Debug level.
 =head1 ERRORS
 
 Many error messages may describe where the error is located, with the
-following: (FILE:LINE) [PROGRAM:LINE]
+following log message format:
+
+ Program: PID NNNN: Message [LINE](ErrNo)
 
 Fatal Errors:
 
  Can not read file: FILE
 
- 	You need to specify the -input option before file name.
+ You need to specify an input file.
 
 =head1 EXAMPLES
 
 =head1 ENVIRONMENT
 
-$cmclient, $HOME
+$gpStyle - Override the "style-ref" attribute.
+
+gpStyleDir - location of style files. Default: /opt/story-xml/style
 
 =head1 FILES
 
@@ -139,229 +174,303 @@ Bruce Rafnel
 
 =head1 HISTORY
 
-$Date: 2009/07/05 19:58:54 $ UTC
-
-Copyright (c) 2009 Bruce Rafnel
+Copyright (c) 2009-2015 Bruce Rafnel
 
 =cut
 
-# ---------------------------------------------------
-# Functions
+EOF
+} # fUsage
 
-local $cFatal = 0;
-local $cError = 1;
-local $cWarning = 2;
-local $cInfo = 3;
-local $cVerbose = 4;
-local $cDebug = 5;
+# --------------------------------
+function fError
+{
+	# Usage:
+	#     fError pMsg [$LINENO] [pErr]
+	#
+	# Example:
+	#     fError "Just testing" $LINENO 8
+	#
+	# Print the error message.  Then call fCleanUp, and exit
 
-sub fMsg {
-	# Input:
-	#	Args:
-	#	 	$pLevel
-	#			0 - fatal error, die
-	#			1 - error
-	#			2 - warning
-	#			3 - normal
-	#			4 - normal, output if $pVerbose
-	#			5 or more - output if $pDebug >= $pLevel
-	#		$pMsg - message text
-	#		[$pProg] - __FILE__ 
-	#		[$pLine] - __LINE__
-	#		[$pFile] - output $pFile and $. if specified
-	#	$gpDebug
-	#	$gpVerbose
-	# Output:
-	#	warn ...
-	my $pFile;
-	my $pLevel;
-	my $pLine;
-	my $pMsg;
-	my $pProg;
-	my $tFile;
-	my $tLoc;
-	my $tMsg;
+	local pMsg="$1"
+	local pLine=$2
+	local pErr=$3
 
-	($pLevel, $pMsg, $pProg, $pLine, $pFile) = @_;
-	if ($pLevel == $cFatal) {
-		$tLevel = "Fatal Error: ";
-	} elsif ($pLevel == $cError) {
-		$tLevel = "Error: ";
-	} elsif ($pLevel == $cWarning) {
-		$tLevel = "Warning: ";
-	} elsif ($pLevel == $cInfo) {
-		$tLevel = "";
-	} elsif ($pLevel == $cVerbose && $gpVerbose) {
-		$tLevel = "";
-	} elsif ($gpDebug >= $pLevel) {
-		$tLevel = "Debug" . $pLevel . ": ";
-	} else {
-		return;
-	}
-	$tLoc = "";
-	if ($pProg ne "") {
-		$pProg =~ s/.+\///;
-		$tLoc = " [" . $pProg . ":" . $pLine . "]";
-	}
-	$tFile = "";
-	if ($pFile ne "") {
-		$tFile =  " (" . $pFile . ":" . $. . ")";
-	}
-	$tMsg = $tLevel . $pMsg . $tFile . $tLoc . "\n";
-	if ($pLevel != 0) {
-		warn $tMsg;
-	} else {
-		die $tMsg;
-	}
-	return;
-} # fMsg
+	gpDebug=1
+	fLog crit "$pMsg" $pLine $pErr
+	pod2usage $0
+	fCleanUp 1
+	exit 1
+} # fError
 
-# ---------------------------------------------------
+# ------------------
+function fLog
+{
+	# Usage:
+	#     gErr=9901		# optional
+	#     fLog pLevel "pMsg" [$LINENO] [pErr]
+	# pLevel - emerg alert crit err warning notice info debug
+	#
+	# If pLevel = warning or notice, and not verbose, then $pMsg
+	# will only be sent to syslog
+	#
+	# Example:
+	#     fLog notice "Just testing" $LINENO 8
+
+	local pLevel=$1
+	local pMsg="$2"
+	# optional
+	local pLine=$3
+	# optional
+	local pErr=$4
+
+	local tErr=""
+	if [ -n "$pErr" ]; then
+		tErr="$pErr"
+	fi
+	if [ $gErr -ne 0 ]; then
+		tErr="$tErr,$gErr"
+	fi
+	if [ -n "$tErr" ]; then
+		tErr="($tErr)"
+	fi
+
+	local tLine=""
+	if [ -n "$pLine" ]; then
+		tLine="[$pLine]"
+	fi
+
+	local tVerbose="$gpVerbose"
+	if [ -z "$tVerbose" ]; then
+		if [ "$pLevel" != "warning" -a "$pLevel" != "notice" ]; then
+			tVerbose="-s"
+		fi
+	fi
+
+	if [ $gpDebug -ne 0 ]; then
+		echo "${cName}[$$] $pLevel: $pMsg $tLine$tErr" 1>&2
+		return
+	fi
+
+	logger $tVerbose -i -t $cName -p user.$pLevel "$pLevel: $pMsg $tLine$tErr"
+	return
+} # fLog
+
+# ============================================================
 # Main
 
-$gPath = $0;
-$gPath =~ s![/][^/]*?$!!;
-$gCurDir = readpipe 'pwd';
-chomp $gCurDir;
-chdir $gPath;
-$gPath = readpipe 'pwd';
-chomp $gPath;
-chdir $gCurDir;
-
-push @INC,"/usr/local/bin";
-push @INC,"$gPath";
-
-use Env;
-use Getopt::Long;
-
-$cTidyOpt = "-q -xml -indent -wrap 78 --tidy-mark no --indent-attributes yes --new-pre-tags pre-fmt";
-
-$gpTidy = 0;
-$gpHtml = 0;
-$gpDraft = 0;
-$gpChapter = 0;
-$gpFobj = 0;
-$gpFop = 0;
-$gpRenderx = 0;
-$gpProject = 0;
-$gpDocbook = 0;
-$gpStyle = "";
-$gpInput = "";
-$gpDebug = 0;
-$gpHelp = 0;
-$gpVerbose = 0;
-&GetOptions(
-	"tidy" => \$gpTidy,
-	"html" => \$gpHtml,
-	"draft" => \$gpDraft,
-	"chapter" => \$gpChapter,
-	"fobj" => \$gpFobj,
-	"fop" => \$gpFop,
-	"render" => \$gpRenderx,
-	"pdf" => \$gpFop,
-	"project" => \$gpProject,
-	"docbook" => \$gpDocbook,
-	"style:s" => \$gpStyle,
-	"input:s" => \$gpInput,
-	"debug:s" => \$gpDebug,
-	"help" => \$gpHelp,
-	"verbose" => \$gpVerbose,
-);
-
-if ($gpHelp) {
-	system("pod2text $0 | more");
-	exit 1;
-}
-
-# Validate options
-if (! -r $gpInput) {
-	&fMsg($cFatal, "Can not read file: $gpInput", __FILE__, __LINE__);
-}
-
-if ($gpDebug and $gpDebug < 5) {
-	$gpDebug += 4;
-}
+export	cBin cCurdir gErr gpDebug cName \
+	gNoExit cVer gpVerbose PWD
 
 # -------------------
-&fMsg($cVerbose, "Start", __FILE__, __LINE__);
+# Define the version number for this script
+cVer='1.0'
 
-$tOut = $gpInput;
-$tOut =~ s/\.xml//;
-$tXslStyle = "/opt/story-xml/style";
-if ($gpStyle ne "") {
-	$gpStyle = "export gpStyle=$gpStyle; ";
-}
+# -------------------
+# Set name of this script
+# Note: this does not work if the script is executed with '.'
+cName=${0##*/}
 
-if ($gpTidy) {
-	&fMsg($cVerbose, "Output xml", __FILE__, __LINE__);
-	$tCmd = "tidy $cTidyOpt $gpInput >". $tOut . "-tidy.xml";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+# -------------------
+# Set current directory location in PWD and cCurDir, because with cron
+# jobs PWD is not set.
+if [ -z "$PWD" ]; then
+	PWD=$(pwd)
+fi
+cCurDir=$PWD
 
-if ($gpHtml) {
-	&fMsg($cVerbose, "Output html", __FILE__, __LINE__);
-	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-html.xsl $tOut.html";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+# -------------------
+# Define the location of the script
+if [ $0 = ${0%/*} ]; then
+	cBin=$(whence $cName)
+	cBin=${cBin%/*}
+else
+	cBin=${0%/*}
+fi
+cd $cBin
+cBin=$PWD
+cd $cCurDir
 
-if ($gpDraft) {
-	&fMsg($cVerbose, "Output draft", __FILE__, __LINE__);
-	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-draft.xsl $tOut" . "-draft.html";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+# -------------------
+# Setup log variables
+gpDebug=${gpDebug:-0}
+gpVerbose=""
+gErr=0
 
-if ($gpChapter) {
-	&fMsg($cVerbose, "Output multiple html", __FILE__, __LINE__);
-	$tCmd = $gpStyle . "pub-xsltproc-multi.sh $gpInput $tXslStyle/out-ch-html.xsl $tOut" . "-ch-index.html";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+# -------------------
+trap fCleanUp 1 2 3 4 5 6 7 8 10 11 12 13 14 15
 
-if ($gpFobj) {
-	&fMsg($cVerbose, "Output fo", __FILE__, __LINE__);
-	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-pdf.xsl $tOut.fo";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+# -------------------
+if [ $# -eq 0 ]; then
+	fError "Missing options." $LINENO 9901
+fi
 
-if ($gpFop) {
-	&fMsg($cVerbose, "Output pdf, fop", __FILE__, __LINE__);
-	$tCmd = $gpStyle . "pub-fop-pdf.sh $gpInput $tXslStyle/out-pdf.xsl $tOut.pdf";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+# -------------------
+# Configuration
+export gpStyle=${gpStyle:-""};
+gpStyleDir=${gpStyleDir:-/opt/story-xml/style}
+cTidyOpt = "-q -xml -indent -wrap 78 --tidy-mark no --indent-attributes yes --new-pre-tags pre-fmt";
 
-if ($gpRenderx) {
-	&fMsg($cVerbose, "Output pdf, renderx: not imp", __FILE__, __LINE__);
-	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-pdf.xsl $tOut.pdf";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+# -------------------
+# Get Options Section
 
-if ($gpProject) {
-	&fMsg($cVerbose, "Output project", __FILE__, __LINE__);
-	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-project.xsl $t{Out}-timeline.proj.xml";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+gpChapter=0;
+gpDocbook=0;
+gpDraft=0;
+gpFile=""
+gpFobj=0;
+gpFop=0;
+gpHelp=0;
+gpHtml=0;
+gpInput="";
+gpProject=0;
+gpRenderx=0;
+gpTidy=0;
 
-if ($gpDocbook) {
-	&fMsg($cVerbose, "Output docbook", __FILE__, __LINE__);
-	$tCmd = $gpStyle . "pub-xsltproc.sh $gpInput $tXslStyle/out-docbook.xsl $tOut" . "-docbook.xml";
-	&fMsg($cDebug+1, $tCmd, __FILE__, __LINE__);
-	$tErr = readpipe($tCmd . " 2>&1");
-	&fMsg($cVerbose, $tErr, __FILE__, __LINE__);
-}
+while getopts :f:s:hvx tArg; do
+	case $tArg in
+		h)	fUsage;;
+		f)	gpFormat="gpFormat $OPTARG"
+			case $OPTARG in
+				chapter) gpChapter=1;;
+				docbook) gpDocbook=1;;
+				draft)	 gpDraft=1;;
+				fobj)	 $gpFobj=1;;
+				fop)	 gpFop=1;;
+				htm)	 gpHtml=1;;
+				project) gpProject=1;;
+				renderx) gpRenderx=1;;
+				tidy)	 gpTidy=1;;
+				*)	 fError "Unknown format option: $OPTARG" $LINENO 9902
+				;;
+			esac
+		;;
+		s)	gpStyle="$OPTARG";;
+		v)	gpVerbose="-s";;
+		+v)	gpVerbose="";;
+		x)	gpDebug=1;;
+		+x)	gpDebug=0;;
+		:)	fError "Value required for option: $OPTARG" $LINENO 9903
+		;;
+		\?)	fError "Unknown option: $OPTARG" $LINENO 9904
+		;;
+	esac
+done
+let tOptInd=OPTIND-1
+shift $tOptInd
+if [ $# -ne 0 ]; then
+	gpFile="$*"
+fi
 
-&fMsg($cVerbose, "Done", __FILE__, __LINE__);
+# -------------------
+# Print dump of variables
+if [ $gpDebug -ne 0 ]; then
+	for i in \
+		PWD \
+		cBin \
+		cCurDir \
+		cName \
+		cVer \
+		gpDebug \
+		gpVerbose \
+		gErr \
+		gpFormat \
+		gpFileList \
+		gpStyle \
+	; do
+		tMsg=$(eval echo -R "$i=\$$i")
+		fLog debug "$tMsg" $LINENO 9905
+	done
+fi
+
+# -------------------
+# Validate Options Section
+
+if [ -r $gpFileList ]; then
+	fError "Can not read file: $gpFile" $LINENO 9906
+fi
+
+# -------------------
+# Functional Section
+
+fLog info "Start" $LINENO 9907
+
+tOut=${gpFile%.xml}
+
+if [ $gpTidy -ne 0 ]; then
+	fLog info "Output: ${tOut}-tidy.xml" $LINENO 9908
+	tCmd="tidy $cTidyOpt $gpFile >${tOut}-tidy.xml"
+	fLog notice "$tCmd" $LINENO 9909
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9910
+fi
+
+if [ $gpHtml -ne 0 ]; then
+	fLog info "Output: ${tOut}.html" $LINENO 9911
+	tCmd="$cBin/pub-xsltproc.sh $gpFile $gpStyleDir/out-html.xsl $tOut.html"
+	fLog notice "$tCmd" $LINENO 9912
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9913
+fi
+
+if [ $gpDraft -ne 0 ]; then
+	fLog info "Output: ${tOut}-draft.html" $LINENO 9914
+	tCmd="pub-xsltproc.sh $gpFile $gpStyleDir/out-draft.xsl ${tOut}-draft.html"
+	fLog notice "$tCmd" $LINENO 9915
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9916
+fi
+
+if [ $gpChapter -ne 0 ]; then
+	fLog info "Output chapter: ${tOut}-ch-index.html" $LINENO 9917
+	tCmd="pub-xsltproc-multi.sh $gpFile $gpStyleDir/out-ch-html.xsl ${tOut}-ch-index.html"
+	fLog notice "$tCmd" $LINENO 9918
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9919
+fi
+
+if [ $gpFobj -ne 0 ]; then
+	fLog info "Output: $tOut.fo" $LINENO 9920
+	tCmd="pub-xsltproc.sh $gpFile $gpStyleDir/out-pdf.xsl $tOut.fo"
+	fLog notice "$tCmd" $LINENO 9921
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9922
+fi
+
+if [ $gpFop -ne 0 ]; then
+	fLog info "Output fop: $tOut.pdf" $LINENO 9923
+	tCmd="pub-fop-pdf.sh $gpFile $gpStyleDir/out-pdf.xsl $tOut.pdf"
+	fLog notice "$tCmd" $LINENO 9924
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9925
+fi
+
+if [ $gpRenderx -ne 0 ]; then
+	fLog info "Output RenderX: ${tOut}.pdf" $LINENO 9926
+	tCmd="pub-xsltproc.sh $gpFile $gpStyleDir/out-pdf.xsl $tOut.pdf"
+	fLog notice "$tCmd" $LINENO 9927
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9928
+fi
+
+if [ $gpProject -ne 0 ]; then
+	fLog info "Output: ${tOut}-timeline.proj.xml" $LINENO 9929
+	tCmd="pub-xsltproc.sh $gpFile $gpStyleDir/out-project.xsl ${tOut}-timeline.proj.xml"
+	fLog notice "$tCmd" $LINENO 9930
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9931
+fi
+
+if [ $gpDocbook -ne 0 ]; then
+	fLog info "Output: ${tOut}-docbook.xml" $LINENO 9932
+	tCmd="pub-xsltproc.sh $gpFile $gpStyleDir/out-docbook.xsl ${tOut}-docbook.xml"
+	fLog notice "$tCmd" $LINENO 9933
+	tErrOut=$(tCmd 2>&1)
+	fLog notice "tErrOut" $LINENO 9934
+fi
+
+fLog info "Done" $LINENO 9935
+
+# -------------------
+# Cleanup Section
+fCleanUp

@@ -20,7 +20,7 @@ Story XML Authoring Tool - Manual
 	<li><a href="#text">Text Elements</a>
 	<li><a href="#inline">Inline Text Style Elements</a>
 	<li><a href="#dtd">Complete story.dtd</a>
-	<li><a href="#sample">Story XML Samples</a>
+	<li><a href="#example">Story XML Examples</a>
 	</ul>
 <li><a href="#author">Authoring Tools</a>
 	<ul>
@@ -229,21 +229,21 @@ all elements, and attributes.
 <p>Click on the element or entity name to see it's definition.  Click
 on the '+' character, to see where it is used.
 
-<h3><a name="sample">Story XML Samples</a></h3>
+<h3><a name="example">Story XML Examples</a></h3>
 
-<p>The sample files will show the complete use of the xml structure.
+<p>The example files will show the complete use of the xml structure.
 
 <dl>
 
 <dt><p><a
-href="sample/sample-minimal.xml">sample/sample-minimal.xml</a><dd>
+href="example/sample-minimal.xml">example/sample-minimal.xml</a><dd>
 This is a minimal story-xml template.
 
-<dt><p><a href="sample/sample-full.xml">sample/sample-full.xml</a><dd>
+<dt><p><a href="example/sample-full.xml">example/sample-full.xml</a><dd>
 This is an almost complete story-xml template.
 
 <dt><p><a
-href="sample/entity-example.xml">sample/entity-example.xml</a><dd>
+href="example/entity-example.xml">example/entity-example.xml</a><dd>
 This file shows how you can use file entities to break up you book
 into separate files.  You can also define text entities for common
 text phrases.
@@ -263,7 +263,7 @@ text phrases.
 </pre>
 
 <dt><p><a
-href="sample/ebook-20869-h.xml">sample/ebook-20869-h.xml</a><dd> This
+href="example/ebook-20869-h.xml">example/ebook-20869-h.xml</a><dd> This
 is a complete story formatted with story-xml.
 
 <dt><p><a href="story.dtd">story.dtd</a><dd> This Story Document Type
@@ -366,7 +366,7 @@ that you can select a different "def-style" id.
 <h3>Example</h3>
 <pre>
 PATH=$PATH:/opt/story-xml/bin
-cp /opt/story-xml/doc/sample/ebook-20869-h.xml .
+cp /opt/story-xml/doc/example/ebook-20869-h.xml .
 
 story-fmt -html -draft -fop -input ebook-20869-h.xml
 </pre>

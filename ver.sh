@@ -12,7 +12,7 @@ export ProdName="story-xml"
 export ProdAlias="story-xml"
 # One word [-_.a-zA-Z0-9]
 
-export ProdVer="0.4.1"
+export ProdVer="0.5.1"
 # [0-9]*.[0-9]*{.[0-9]*}{.[0-9]*}
 
 export ProdBuild="1"
@@ -28,9 +28,9 @@ export ProdVendor="$LOGNAME"
 
 export ProdPackager="$LOGNAME"
 export ProdSupport="http://moria.whyayh.com/rel/released/software/own/story-xml/"
-export ProdCopyright="2009 Bruce Rafnel"
+export ProdCopyright="2009 - 2015 Bruce Rafnel"
 
-export ProdDate="2009-04-18"
+export ProdDate="2015-12-23"
 # 20[012][0-9]-[01][0-9]-[0123][0-9]
 
 export ProdLicense="LICENSE"
