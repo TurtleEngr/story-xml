@@ -5,14 +5,71 @@ Where did I stop?  What is next?
 
 2009-05-09
 
-Add a man page for fop pkg - point to the installed doc files, and
-the web home.
+* Add a man page for fop pkg - point to the installed doc files, and
+  the web home.
 
-Add a man page for story-xml pkg - point to the install doc files, and
-the web home (initiallly moria, the Source Forge).
+* Add a man page for story-xml pkg - point to the install doc files,
+  and the web home (initiallly moria, the Source Forge).
 
-To epm pkg, add man page for mkver.  Add a symlink mkver -> mkver.pl
+* To epm pkg, add man page for mkver.  Add a symlink mkver -> mkver.pl
 
+---------------
+Dependent User Packages:
+
+Editors:
+	vi - standard Linux editor (usually installed)
+	emacs - standard Linux editor (usually not installed)
+	Editix - optional xml editor (custom package)
+	Serna - optional xml editor (custom package)
+
+XSLT Procesors
+	xsltproc - standard Linux package (often not installed)
+	xsltsaxon - package?
+	RenderX - commercial product (free and paid)
+	xsltant - commercial product (antenna house) (free and paid)
+
+FO Processors
+	FOP - apache (custom package)
+	RenderX - commercial product (free and paid)
+	xsltant - commercial product (antenna house) (free and paid)
+
+Project
+	OpenProj - Libre Project 
+	Planner
+	MSProject
+
+Other
+	tidy
+
+---------------
+Dependent Develop Packages
+
+	dtd2xs - comes with Serna
+	livedtd - custom package
+	m4 ?
+	epm - custom package
+
+---------------
+Getting Serna installed. 32bit version:
+
+If on a 64bit Linux, first get 32bit versions installed:
+	Source: http://askubuntu.com/questions/454253/how-to-run-32-bit-app-in-ubuntu-64-bit
+	http://www.webcitation.org/6e3AY8Bjp
+	sudo -s
+	dpkg --add-architecture i386
+	echo "foreign-architecture i386" > /etc/dpkg/dpkg.cfg.d/multiarch
+	apt-get update
+	apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
+	apt-get install libxmu6:i386
+
+cp serna-free-4.2.0-20090714.tgz ~/tmp
+cd tmp
+sudo -s
+tar -xzf serna-free-4.2.0-20090714.tgz
+cd serna-4.2
+./install.sh
+#Install at /opt/serna
+	
 ---------------
 
 * the multi-ch output needs a lot of re-work.

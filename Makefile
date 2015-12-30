@@ -14,7 +14,7 @@
 
 mRsyncOpt = -Clptz
 
-build : ver.env # dist/opt/story-xml/doc/story-xml-dtd/index.html
+build : ver.env livedtd
 	-find * -name '*~' -exec rm {} \;
 	-find dist -type l -exec rm {} \;
 	-rm -rf dist/*
@@ -22,9 +22,9 @@ build : ver.env # dist/opt/story-xml/doc/story-xml-dtd/index.html
 	cd dist/opt; ln -s story-xml4 story-xml
 	-mkdir -p dist/opt/story-xml/config dist/opt/story-xml/doc/example
 	rsync -r $(mRsyncOpt) src/* dist/opt/story-xml/
-	rsync -r $(mRsyncOpt) example/* dist/opt/story-xml/doc/example
-	rsync -r $(mRsyncOpt) kit/linux/* dist/opt/story-xml/config
-	cp src/story/story.dtd dist/opt/story-xml/doc
+	rsync -r $(mRsyncOpt) example/* dist/opt/story-xml/doc/example/
+	rsync -r $(mRsyncOpt) doc/livedtd dist/opt/story-xml/doc/
+	rsync -r $(mRsyncOpt) kit/linux/* dist/opt/story-xml/config/
 	chmod a+rx,go-w dist/opt/story-xml/bin/*
 	find dist/opt -type d -exec chmod a+rx {} \;
 	find dist/opt -type f -exec chmod a+r {} \;
@@ -57,16 +57,59 @@ ver.epm : ver.sh
 	export RELEASE=1; mkver.pl -e epm
 
 # -------------
+# doc/livedtd/docbook45/index.html
 
-dist/opt/story-xml/doc/story-xml-dtd/index.html doc/livedtd/story/index.html : src/story/story.dtd
-	-mkdir -p dist/opt/story-xml/doc/story-xml-dtd
-	livedtd.pl --outdir dist/opt/story-xml/doc/story-xml-dtd --title story-xml $?
-	uniq dist/opt/story-xml/doc/story-xml-dtd/ElemUsage.html >t.tmp
-	mv t.tmp dist/opt/story-xml/doc/story-xml-dtd/ElemUsage.html
-	uniq dist/opt/story-xml/doc/story-xml-dtd/EntityUsage.html >t.tmp
-	mv t.tmp dist/opt/story-xml/doc/story-xml-dtd/EntityUsage.html
-	-mkdir doc/livedtd/story
-	cp dist/opt/story-xml/doc/story-xml-dtd/* doc/livedtd/story
+livedtd : doc/livedtd/story/index.html  doc/livedtd/html3.2/index.html doc/livedtd/html40loose/index.html doc/livedtd/xhtml1-transitional/index.html doc/livedtd/xslfo/index.html doc/livedtd/xslt10/index.html
+
+doc/livedtd/story/index.html : src/style/story.dtd
+	-rm -rf doc/livedtd/story/*
+	livedtd.pl --outdir doc/livedtd/story --title story.dtd $?
+	uniq doc/livedtd/story/ElemUsage.html >t.tmp
+	mv t.tmp doc/livedtd/story/ElemUsage.html
+	uniq doc/livedtd/story/EntityUsage.html >t.tmp
+	mv t.tmp doc/livedtd/story/EntityUsage.html
+
+doc/livedtd/docbook45/index.html : doc/dtd/docbook45.dtd
+	livedtd.pl --outdir doc/livedtd/docbook45 --title docbook45.dtd $?
+	uniq doc/livedtd/docbook45/ElemUsage.html >t.tmp
+	mv t.tmp doc/livedtd/docbook45/ElemUsage.html
+	uniq doc/livedtd/docbook45/EntityUsage.html >t.tmp
+	mv t.tmp doc/livedtd/docbook45/EntityUsage.html
+
+doc/livedtd/html3.2/index.html : doc/dtd/html3.2.dtd
+	livedtd.pl --outdir doc/livedtd/html3.2 --title html3.2.dtd $?
+	uniq doc/livedtd/html3.2/ElemUsage.html >t.tmp
+	mv t.tmp doc/livedtd/html3.2/ElemUsage.html
+	uniq doc/livedtd/html3.2/EntityUsage.html >t.tmp
+	mv t.tmp doc/livedtd/html3.2/EntityUsage.html
+
+doc/livedtd/html40loose/index.html : doc/dtd/html40loose.dtd
+	livedtd.pl --outdir doc/livedtd/html40loose --title html40loose.dtd $?
+	uniq doc/livedtd/html40loose/ElemUsage.html >t.tmp
+	mv t.tmp doc/livedtd/html40loose/ElemUsage.html
+	uniq doc/livedtd/html40loose/EntityUsage.html >t.tmp
+	mv t.tmp doc/livedtd/html40loose/EntityUsage.html
+
+doc/livedtd/xhtml1-transitional/index.html : doc/dtd/xhtml1-transitional.dtd
+	livedtd.pl --outdir doc/livedtd/xhtml1-transitional --title xhtml1-transitional.dtd $?
+	uniq doc/livedtd/xhtml1-transitional/ElemUsage.html >t.tmp
+	mv t.tmp doc/livedtd/xhtml1-transitional/ElemUsage.html
+	uniq doc/livedtd/xhtml1-transitional/EntityUsage.html >t.tmp
+	mv t.tmp doc/livedtd/xhtml1-transitional/EntityUsage.html
+
+doc/livedtd/xslfo/index.html : doc/dtd/xslfo.dtd
+	livedtd.pl --outdir doc/livedtd/xslfo --title xslfo.dtd $?
+	uniq doc/livedtd/xslfo/ElemUsage.html >t.tmp
+	mv t.tmp doc/livedtd/xslfo/ElemUsage.html
+	uniq doc/livedtd/xslfo/EntityUsage.html >t.tmp
+	mv t.tmp doc/livedtd/xslfo/EntityUsage.html
+
+doc/livedtd/xslt10/index.html : doc/dtd/xslt10.dtd
+	livedtd.pl --outdir doc/livedtd/xslt10 --title xslt10.dtd $?
+	uniq doc/livedtd/xslt10/ElemUsage.html >t.tmp
+	mv t.tmp doc/livedtd/xslt10/ElemUsage.html
+	uniq doc/livedtd/xslt10/EntityUsage.html >t.tmp
+	mv t.tmp doc/livedtd/xslt10/EntityUsage.html
 
 # -------------
 

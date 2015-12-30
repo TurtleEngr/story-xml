@@ -12,8 +12,8 @@ c - conditional
 f		<html-style bgcolor="white" text="black" />
 f		<pdf-style bgcolor="white" text="black" />
  C		*<def-content id="main" preface="yes" prolog="yes" ...
-f 		*<def-pdf id="main" ...
-f 		<def-site>
+f		*<def-pdf id="main" ...
+f		<def-site>
 f			*<def-base id="ext"/>
 f			*<def-base id="main">http://www.moria.dynu.com/</def-base>
 f			*<def-base id="test">file:///home/george/story/src/</def-base>
@@ -54,7 +54,7 @@ f c		<edition>1</edition>
 f		<author>author</author>
 f		<email>author@domain.com</email>
   s		<file-prefix>ch</file-prefix>
-f 		<def-book>
+f		<def-book>
 f			*<def-base id="ext"/>
 f			*<def-base id="main">http://www.moria.dynu.com/</def-base>
 f			*<def-base id="test">file:///home/george/story/src/</def-base>
@@ -197,10 +197,10 @@ d		run-fop.sh
 				dtds/
 					story/
 						story.dtd
-				schemas/ 				$SERNA_SCHEMAS
+				schemas/				$SERNA_SCHEMAS
 					story/
 						story-schema.xsd
-				stylesheets/ 			$SERNA_STYLESHEETS
+				stylesheets/			$SERNA_STYLESHEETS
 					(xslbricks/)
 						(fo/)
 						(html/)
@@ -225,7 +225,7 @@ d		run-fop.sh
 						(fo/)
 						(html/)
 			plugins/
-				story/ 					$SERNA_TEMPLATE_DIR
+				story/					$SERNA_TEMPLATE_DIR
 					story-template2.sdt
 					story.dtd
 					story-schema.xsd
@@ -242,6 +242,11 @@ d		run-fop.sh
 					run-fop.sh
 ---------------------------------
 Final install structure:
+
+mod - module
+d - documentation
+c - configuration
+l - symlink
 
 /opt/
 l	story-xml -> story-xml-4.0
@@ -262,8 +267,7 @@ c			pub-fop-pdf.sh -> (fop|renderx|antenna-house)/bin/pub-pdf.sh
 c			pub-fop-pdf-ef.sh -> (renderx|antenna-house)/bin/pub-pdf-ef.sh
 c			pub-fop-ps.sh -> (fop|renderx|antenna-house)/bin/pub-ps.sh
 		config/
-			default.conf
-c			site.conf
+c			default.conf
 		core/
 			story-com-param.xsl
 			story-com.xsl
@@ -360,8 +364,13 @@ d			LICENSE
 			xep
 			xep.xml
 			license.xml
+	serna/
+		serna-3.4/
+			plugins/
+l				story-xml/ -> /opt/story-xml/serna/
 /etc/
-l	story-xml/ -> /opt/story-xml/config/
+	default/
+l		story-xml/ -> /opt/story-xml/config/
 /usr/
 	bin/
 		xsltproc
@@ -369,14 +378,6 @@ l		story-xml -> /opt/story-xml/bin/story-xml
 	java/
 		jdk1.6.0_10/
 			jre/	$JAVA_HOME
-	local/
-c		serna/ -> serna-3.4/
-		serna-3.4/
-			plugins/
-l				story-xml/ -> /opt/story-xml/serna/
-		bin/
-			serna -> serna-3.4
-			serna-3.4
 	share/
 		doc/
 l			story-xml-VER -> /opt/story-xml/doc/
@@ -391,8 +392,6 @@ r			env.sh
 
 ----------
 http://www.lulu.com/
-rafnelb@yahoo.com
-cool3app
 
 Pocket Size, 6.25in x 9.25in Perfect Binding
 $4.53 + $0.02/page
@@ -412,4 +411,4 @@ Fonts should be embedded in the PDF file.
 TOC is after, dedication, preface.
 
 Total page count should be divisibe by 4, last page should be
-blank.  Add blank pages to make it a multiple of 4.
+blank. Add blank pages to make it a multiple of 4.

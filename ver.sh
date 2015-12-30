@@ -33,10 +33,10 @@ export ProdCopyright="2009 - 2015 Bruce Rafnel"
 export ProdDate="2015-12-23"
 # 20[012][0-9]-[01][0-9]-[0123][0-9]
 
-export ProdLicense="LICENSE"
+export ProdLicense="src/doc/LICENSE"
 # Required: http://www.gnu.org/licenses/gpl.html
 
-export ProdReadMe="README.html"
+export ProdReadMe="src/doc/README.html"
 # Required
 
 # Third Party (if any)
