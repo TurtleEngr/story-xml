@@ -1,325 +1,341 @@
-e - edit
+<h3><a href="../src/doc/story-xml-manual#com-attr" target="_blank">Common Attr - all elements</a></h3>
+<pre>
+condition=
+id=
+lang=
+revision="in-progress|draft|final"
+revison-flag="changed|added|deleted|off"
+</pre>
+
+<h3><a href="../src/doc/story-xml-manual#std-attr" target="_blank">Standard Attr Names</a></h3>
+<pre>
+idref="id"
+idrefs="id id id"
+ref="id"
+refs="id id id"
+EL-ref="id" - for example: style-ref="main"
+EL-refs="id id id" - for example: thread-refs="main sub"
+<pre>
+
+<h3>Key</h3>
+<pre>
+e - edit - can be defined externally to control output
 h - html
-p - print
-d - draft only
-s - serial only
+p - print, pdf
+d - draft only, html
+s - serial only, html
 c - control/conditional
 i - inline
 b - block
 * - zero or more
 + - one or more
 ? - optional
-
-hp c *<book
-	id="book2"
-   c	revision-flag="in-progress">
-hp	<title>book title</title>
-	<subtitle>sub</subtitle>?
-	<title-abbrev>alt heading</titleabbrev>?
-	<book-info>
-		<author-group>
-hp			*<author>
-				honorific
-				first-name
-				surname
-				linage
-				other-name
-				affiliation
-hp				<email>author@domain.com</email>
-				author-blurb
-			*<coauthor>
-				honorific
-				first-name
-				surname
-				linage
-				other-name
-				affiliation
-hp				<email>author@domain.com</email>
-				author-blurb
-			*<editor>
-				honorific
-				first-name
-				surname
-				linage
-				other-name
-				affiliation
-hp				<email>author@domain.com</email>
-				author-blurb
-					p
-hp		release-info
- d			rev="$Revision: 1.3 $"
-hp			date="$Date: 2007/12/18 08:17:27 $"
- d			source="$Source: /repo/local.cvs/app/story-xml/doc/story-summary.txt,v $"
- d			root=
- d			repository=
- d			file=
-hp c		<pub-date>YYYY-MM-DD</pub-date>
-		copyright
-			year+
-			holder*
-		publisher
-			publisher-name
-			address
-				street
-				pob
-				post-code
-				city
-				state
-				country
-				phone
-				fax
-				email
-				other-addr
-		legal-notice
-			title
-			p
-hp c		?<edition>1</edition>
-		?<isbn>
-hp		<keyword-set>word, word</keyword-set> - meta-keywords
-	</book-info>
-	<style-info>
-e		preview-thread="main"
-		style-ref=""
-	>
-hp		<def-style
-			id="main"
-			content-ref=
-			print-ref=
-			draft-ref=
-			draft="0|1"
-			debug="0|1"
- C		*<def-content
-			id="main"
-			ch-preface="0|1"
-			preface="0|1"
-			prolog="0|1"
-			thread="0|1"
-			ch-in-progress="0|1"
-			ch-draft="0|1"
-			ch-final="0|1"
-			unit-in-progress="0|1"
-			unit-draft="0|1"
-			unit-final="0|1"
-			ch-list=""
-			unit-list=""
-			link-fmt="default|full|long|short|text|plain"
-hp		*<def-draft
-			id="main"
-			def-base="0|1"
-			def-img="0|1"
-			def-link="0|1"
-			def-who="0|1"
-			def-where="0|1"
-			def-thread="0|1"
-			unit-title="0|1"
-			unit-when="0|1"
-			unit-where="0|1"
-			unit-who="0|1"
-			unit-outline="0|1"
-			thread-content="0|1"
-			thread-all="0|1"
-			thread-ref="0|1"
-			thread-id-vp="0|1"
-			thread-all-vp="0|1"
-			timeline="0|1"
-p		*<def-print
-			id="main"
-			output-type="html|pdf|ps|txt"
-			multi-file="0|1"
-			copyright-type="none|standard|commons|gnu"
-			toc="0|1"
-			body-size=""
-			body-family=""
-			head-size=""
-			head-family=""
-			title-size=""
-			title-family=""
-			ch-title-size=""
-			ch-title-family=""
-			line-height="100|110|120|130|150|200|220|240|260|280|300"
-			# ps, pdf only
-			page="4.25x5.5in|6x9in|8.5x11in
-			margin="0.25in|0.5in|0.75in|1in"
-			gutter="0in|0.2in|0.25in|0.3in|3.5in|0.375in|0.4in"
-			bleed-left="0in|0.125in|0.25in"
-			bleed-right="0in|0.125in|0.25in"
-			bleed-top="0in|0.125in|0.25in"
-			bleed-bottom="0in|0.125in|0.25in"
-			duplex="0}|1"
-			header-type="none|page-no|title|title-author|title-chapter"
-			# html only
-			img-ref="bg-img-id"
-			bgcolor=""
-			text=""
-			draft=""
-			link=""
-			vlink=""
-			alink=""
-			next-prev="0|1"
-hp		*<def-base
-			id="ext"/>
-hpp		*<def-base
-			id="main"
-			>http://www.moria.dynu.com/</def-base>
-hp		*<def-base
-			id="test"
-			>file:///home/george/story/src/</def-base>
-hp		*<def-img
-			id="offsite"
-			url="icon/link.png"
-			base-ref="main"
-			>Title
-hp		*<def-link
-			id="google"
-			url="http://www.google.com"
-			base-ref="ext"
-			img-ref="offsite"
-			>Title
-hp		<meta-description>book description</meta-description>
-  s		<file-prefix>ch</file-prefix>
-	</style-info>
-	<story-info>
- d		*<def-who
-			id="hero">
- d			*<p>describe a character</p>
- d		*<def-where
-			id="where1">
- d			*<p>describe a location</p>
- d		*<def-thread
-			id="main">
- d			*<p>describe the thread</p>
-hp c		<ch-preface>
-hpsc			<title>Disclamer</title>
-hpsc			*<p>If single file, placed before preface.
-hpsc			If chapter-files, placed before each chap. prolog.</p>
-	</story-info>
-hp c	<preface>
-hp		<title>Preface</title>
-		<subtitle>?
-		<title-abbrev>?
-hp		*<p>placed before all chapters</p>
-	</preface>
-hpsc	*<chapter
-		id="1"
-		revision-flag="in-progress">
-hp		<title>chapter title</title>
-		<subtitle>?
-		<title-abbrev>?
-		<chapter-info>
-			<author-group>
-hp				*<author>
-					honorific
-					first-name
-					surname
-					linage
-					other-name
-					affiliation
-hp					<email>author@domain.com</email>
-					author-blurb
-				*<coauthor>
-					honorific
-					first-name
-					surname
-					linage
-					other-name
-					affiliation
-hp					<email>author@domain.com</email>
-					author-blurb
-				*<editor>
-					honorific
-					first-name
-					surname
-					linage
-					other-name
-					affiliation
-hp					<email>author@domain.com</email>
-					author-blurb
-						p
-			</author-group>
-hp			<release-info
- d				rev="$Revision: 1.3 $"
-hp				date="$Date: 2007/12/18 08:17:27 $"
- d				source="$Source: /repo/local.cvs/app/story-xml/doc/story-summary.txt,v $"
- d				svn-path=""
- d				root=:ext:bruce@moria.dynu.com:/data/public.cvs
- d				repository=story-xml
- d				file=struct.txt,v"
-			>
-hp c			<pub-date>YYYY-MM-DD</pub-date>
-		</chapter-info>
-hp c		<prolog>
-hp			<title>Prolog</title>
-hp			*<p>placed at beginning of chapter</p>
-		</prolog>
-hp c		*<unit
-			id="1"
-			revision-flag="in-progress"
-			type="scene|sequel"
-		>
-hp			<title>summary title</title>
- d			<outline>
- d				<when>
- d					<start-date>2006-01-01T13:00Z-0800
-						</start-date>
- d					<duration>P0Y0M0DT2H5M</duration>
- d					or <end-date>
- d					*<p>additional description, diff</p>
- d				<where ref="where1">
- d					*<p>additional description, diff</p>
- d				*<who ref="hero">
- d					*<p>additional description, diff</p>
- d				<description>
- d					*<p>Only output with 'drafts'</p>
-			</outline>
-hp c			*<thread ref="main alt1 alt2" who-ref="hero">
-hp				*<s
-					who-ref="hero">Say text (ref is opt).</s>
-hp c				*<t
-					who-ref="hero">Thought txt, ref is req.</t>
-hp c				*<n>Narrative text (indent)p</n>
-hp				*<p>Paragraph text (block)</p>
-hp				*<pre>Preformatted text</p>
-			</thread>
-		</unit>
-hp c		<postlog>
-hp			<title>Postlog</title>
-hp			*<p>placed at end of chapter</p>
-		</postlog>
-	</chapter>
-hp c	<epilog>
-hp		<title>Epilog</title>
-		<subtitle>?
-		<title-abbrev>?
-hp		*<p>placed after all chapters</p>
-	</epilog>
-
---------------------
-<s ?who-ref="hero">Say text (ref is opt) (indent)</s>
-<t who-ref="hero">Thought txt, ref is req. (indent)</t>
-<n>Narrative text (indent)</n>
-<p>Paragraph text (block)</p>
-<pre>
-text
 </pre>
 
-Text:
-<b> - bold
-<i> or <emph> - italic
-<tt> - typewriter text, courier, fixed space
-<rev> - no operation, only used to set the revisionflag
+<h3>Summary</h3>
+<pre>
+*<book						(hp)
+    id="book2"
+    revision-flag="in-progress">		(c)
+    <title>book title				(hp)
+    ?<subtitle>sub
+    ?<title-abbrev>alt heading
+    <book-info>
+	<author-group>
+	    *<author>				(hp)
+		<honorific>
+		<first-name>
+		<surname>
+		<linage>
+		<other-name>
+		<affiliation>
+		<email>author@domain.com</email>	(hp)
+		<author-blurb>
+		    <p>
+	    *<coauthor>
+		<honorific>
+		<first-name>
+		<surname>
+		<linage>
+		<other-name>
+		<affiliation>
+		<email>author@domain.com</email>	(hp)
+		<author-blurb>
+		    <p>
+	    *<editor>
+		<honorific>
+		<first-name>
+		<surname>
+		<linage>
+		<other-name>
+		<affiliation>
+		<email>author@domain.com</email>	(hp)
+		<author-blurb>
+		    <p>
+	<release-info				(hp)
+	    rev="$Revision: 1.3 $"		(d)
+	    date="$Date: 2007/12/18 08:17:27 $"	(hp)
+	    source="$Source$"			(d)
+	    root=""				(d)
+	    repository=""			(d)
+	    file="">				(d)
+	<pub-date>YYYY-MM-DD</pub-date>		(hpc)
+	<copyright>
+	    +<year>
+	    *<holder>
+	?<publisher>
+	    <publisher-name>
+	    ?<address>
+		<street>
+		?<pob>
+		?<post-code>
+		<city>
+		<state>
+		<country>
+		?<phone>
+		?<fax>
+		?<email>
+		?<other-addr>
+	?<legal-notice>
+	    <title>
+	    <p>
+	?<edition>1				(hp)
+	?<isbn>					(p)
+	?<keyword-set>word, word</keyword-set>	(hp)
+    </book-info>
+    <style-info
+	preview-thread="main"			(e)
+	style-ref=""
+    >
+	<def-style				(hp)
+	    id="main"
+	    content-ref="main"
+	    print-ref="main"
+	    draft-ref="main"
+	    draft="0|1"
+	    debug="0|1"
+c	 +<def-content
+	    id="main"
+	    ch-preface="0|1"
+	    preface="0|1"
+	    prolog="0|1"
+	    thread="0|1"
+	    ch-in-progress="0|1"
+	    ch-draft="0|1"
+	    ch-final="0|1"
+	    unit-in-progress="0|1"
+	    unit-draft="0|1"
+	    unit-final="0|1"
+	    ch-list=""
+	    unit-list=""
+	    link-fmt="default|full|long|short|text|plain"
+	*<def-draft				(hpdc)
+	    id="main"
+	    def-base="0|1"
+	    def-img="0|1"
+	    def-link="0|1"
+	    def-who="0|1"
+	    def-where="0|1"
+	    def-thread="0|1"
+	    unit-title="0|1"
+	    unit-when="0|1"
+	    unit-where="0|1"
+	    unit-who="0|1"
+	    unit-outline="0|1"
+	    thread-content="0|1"
+	    thread-all="0|1"
+	    thread-ref="0|1"
+	    thread-id-vp="0|1"
+	    thread-all-vp="0|1"
+	    timeline="0|1"
+	*<def-print				(pc)
+	    id="main"
+	    output-type="html|pdf|ps|txt"
+	    multi-file="0|1"
+	    copyright-type="none|standard|commons|gnu"
+	    toc="0|1"
+	    body-size=""
+	    body-family=""
+	    head-size=""
+	    head-family=""
+	    title-size=""
+	    title-family=""
+	    ch-title-size=""
+	    ch-title-family=""
+	    line-height="100|110|120|130|150|200|220|240|260|280|300"
+	    # ps, pdf only
+	    page="4.25x5.5in|6x9in|8.5x11in
+	    margin="0.25in|0.5in|0.75in|1in"
+	    gutter="0in|0.2in|0.25in|0.3in|3.5in|0.375in|0.4in"
+	    bleed-left="0in|0.125in|0.25in"
+	    bleed-right="0in|0.125in|0.25in"
+	    bleed-top="0in|0.125in|0.25in"
+	    bleed-bottom="0in|0.125in|0.25in"
+	    duplex="0}|1"
+	    header-type="none|page-no|title|title-author|title-chapter"
+	    # html only
+	    img-ref="bg-img-id"
+	    bgcolor=""
+	    text=""
+	    draft=""
+	    link=""
+	    vlink=""
+	    alink=""
+	    next-prev="0|1"
+	*<def-base				(hp)
+	    id="ext"/>
+	*<def-base				(hp)
+	    id="main"
+	    >http://moria.whyayh.com</def-base>
+	*<def-base				(hp)
+	    id="test"
+	    >file:///home/george/story/src</def-base>
+	*<def-img				(hp)
+	    id="offsite"
+	    url="/icon/link.png"
+	    base-ref="main"
+	    >Title
+	*<def-link				(hp)
+	    id="google"
+	    url="http://www.google.com"
+	    base-ref="ext"
+	    img-ref="offsite"
+	    >Title
+	<meta-description>book description	(hp)
+	<file-prefix>ch</file-prefix>		(s)
+    </style-info>
+    <story-info>
+	*<def-who				(d)
+	    id="hero">
+	    *<p>describe a character</p>	(d)
+	*<def-where				(d)
+	    id="where1">
+	    *<p>describe a location</p>		(d)
+	*<def-thread				(d)
+	    id="main">
+	    *<p>describe the thread</p>		(d)
+	<ch-preface>				(hpc)
+	    <title>Disclamer</title>		(hpsc)
+	    *<p>If single file, placed before preface.			(hpsc)
+	    If chapter-files, placed before each chap. prolog.</p>	(hpsc)
+    </story-info>
+    <preface>					(hpc)
+	<title>Preface</title>			(hp)
+	?<subtitle>
+	?<title-abbrev>
+	*<p>placed before all chapters</p>	(hp)
+    </preface>
+    *<chapter					(hpsc)
+	id="1"
+	revision-flag="in-progress">
+	<title>chapter title</title>		(hp)
+	?<subtitle>
+	?<title-abbrev>
+	<chapter-info>
+	    <author-group>
+		*<author>    (hp)
+		    honorific
+		    first-name
+		    surname
+		    linage
+		    other-name
+		    affiliation
+		    <email>author@domain.com</email>	(hp)
+		    author-blurb
+		*<coauthor>
+		    honorific
+		    first-name
+		    surname
+		    linage
+		    other-name
+		    affiliation
+		    <email>author@domain.com</email>
+		    author-blurb
+		*<editor>
+		    honorific
+		    first-name
+		    surname
+		    linage
+		    other-name
+		    affiliation
+		    <email>author@domain.com</email>
+		    author-blurb
+			p
+	    </author-group>
+	    <release-info			(hp)
+		rev="$Revision: 1.3 $"		(d)
+		date="$Date: 2007/12/18 08:17:27 $"	(hp)
+		source="$Source$"		(d)
+		svn-path=""			(d)
+		root=":ext:bruce@moria.dynu.com:/data/public.cvs"	(d)
+		repository=story-xml		(d)
+		file=struct.txt,v"		(d)
+	    >
+	    <pub-date>YYYY-MM-DD</pub-date>	(hpc)
+	</chapter-info>
+	<prolog>				(hpc)
+	    <title>Prolog</title>		(hp)
+	    *<p>placed at beginning of chapter</p>	(hp)
+	</prolog>
+	*<unit					(hpc)
+	    id="1"
+	    revision-flag="in-progress"
+	    type="scene|sequel"
+	>
+	    <title>summary title</title>	(hp)
+	    <outline>				(d)
+		<when>
+		    <start-date>2006-01-01T13:00Z-0800
+			</start-date>
+		    <duration>P0Y0M0DT2H5M</duration>
+		    or <end-date>
+		    *<p>additional description, diff</p>
+		<where ref="where1">
+		    *<p>additional description, diff</p>
+		*<who ref="hero">
+		    *<p>additional description, diff</p>
+		<description>
+		    *<p>Only output with 'drafts'</p>
+	    </outline>
+	    *<thread ref="main alt1 alt2" who-ref="hero">	(hpc)
+		*<s	  (hpi)
+		    who-ref="hero">Say text (ref is opt).</s>
+		*<t		      (hpi)
+		    who-ref="hero">Thought txt, ref is req.</t>	(dc)
+		*<n>Narrative text (indent)p</n>       (hpi)
+		*<p>Paragraph text (block)</p>	       (hpb)
+		*<pre>Preformatted text</p>	       (hpb)
+	    </thread>
+	</unit>
+	<postlog>				(hpc)
+	    <title>Postlog</title>		(hp)
+	    *<p>placed at end of chapter</p>	(hp)
+    </chapter>
+    <epilog>					(hpc)
+	<title>Epilog</title>			(hp)
+	?<subtitle>
+	?<title-abbrev>
+	*<p>placed after all chapters</p>	(hp)
+</pre>
 
-Common Attr - all elements
------------
-condition=
-id=
-lang=
-revision="in-progress|draft|final"
-revisonflag="changed|added|deleted|off"
+<h3>Example Block Text</h3>
+<pre>
+&lt;s ?who-ref="hero">Say text (ref is opt) (indent)&lt;/s>
+&lt;t who-ref="hero">Thought txt, ref is req. (indent)&lt;/t>
+&lt;n>Narrative text (indent)&lt;/n>
+&lt;p>Paragraph text (block)&lt;/p>
+&lt;pre>
+text
+&lt;/pre>
+</pre>
 
-Standard Attr Names
--------------------
-revision-flag="in-progress|draft|final"
-idref="id"
-idrefs="id id id"
-EL-ref="id"
-EL-refs="id id id"
+<h3>Example Inline Text</h3>
+<pre>
+&lt;p>The next text is &lt;b>old&lt;/b>&lt;/p>
+&lt;p>The next text is &lt;i>italic&lt;i> or &lt;emph>emphasis&lt;/emph>&lt;/p>
+&lt;p>The next text is &lt;tt>typewriter text, courier, fixed space&lt;/tt>&lt;/p>
+&lt;p>The next text is &lt;rev revision-flag="changed">changed&lt;/rev>&lt;/p>
+&lt;p>The next text is &lt;rev revision-flag="added">added&lt;/rev>&lt;/p>
+&lt;p>The next text is &lt;rev revision-flag="deleted">deleted&lt;/rev>&lt;/p>
+&lt;p>The next text is &lt;rev revision-flag="off">off&lt;/rev>&lt;/p>
+</pre>

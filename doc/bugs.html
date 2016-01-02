@@ -1,20 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<li><p>The current date routines limit the dates to the years:
-1970 - 2037</p>
-</li>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Bugs</title>
+</head>
 
-<li><p>The current date routines assume earth time, so they
-will not work for SF stories set on planets with different
-day/month/year cycles.<p>
-</li>
+<body>
+  <h1>Bugs</h1>
 
-<p>If set in space, and earth seconds are used as a
-constant, then a 25 hour day could be a rational length
-for days, which would be exactly 90,000 sec long.  Weeks
-could be 10 days long, grouped into 4 week months, then 10
-month years, which works out to 10,000 hours/year.</p>
+  <ul>
+    <li>
+      <p>The current date routines limit the dates to the years: 1970 -
+      2037</p>
+    </li>
 
-<pre>
+    <li>
+      <p>The current date routines assume earth time, so they will not
+      work for SF stories set on planets with different day/month/year
+      cycles.</p>
+
+      <p>&nbsp;</p>
+    </li>
+
+    <li style="list-style: none">
+      <p>If set in space, and earth seconds are used as a constant, then a
+      25 hour day could be a rational length for days, which would be
+      exactly 90,000 sec long. Weeks could be 10 days long, grouped into 4
+      week months, then 10 month years, which works out to 10,000
+      hours/year.</p>
+      <pre>
 24 * 365 = 8760 hours/year
 25 * 50 * 10 = 12500 hours/year
 
@@ -22,4 +37,7 @@ month years, which works out to 10,000 hours/year.</p>
 400 / 10 months = 40 days/month
 40 days/month / 10 days/week = 4 weeks
 </pre>
-</li>
+    </li>
+  </ul>
+</body>
+</html>

@@ -78,7 +78,7 @@ cd serna-4.2
   - actually, remove @draft,  Leave @debug, and make it
     toggle message output.
 
-* Remove pre-fmt (only pre is needed)
+* Remove pre-fmt (only pre is needed) - find out if this is true
 
 * Get RenderX working better:
 

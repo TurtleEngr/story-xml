@@ -1,253 +1,356 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>
-Story XML Authoring Tool - Manual
-</title>
+  <title>Story XML Authoring Tool - Manual</title>
 </head>
+
 <body>
-<h1>
-Story XML Authoring Tool - Manual
-</h1>
+  <h1>Story XML Authoring Tool - Manual</h1>
 
-<h2>TOC</h2>
-<ul>
-<li><a href="#struct">Structure</a>
-	<ul>
-	<li><a href="#min">Minimal Story Structure</a>
-	<li><a href="#full">Full Story Structure</a>
-	<li><a href="#com-attr">Common Attributes (all elements)</a>
-	<li><a href="#std-attr">Standard Attribute Names</a>
-	<li><a href="#text">Text Elements</a>
-	<li><a href="#inline">Inline Text Style Elements</a>
-	<li><a href="#dtd">Complete story.dtd</a>
-	<li><a href="#example">Story XML Examples</a>
-	</ul>
-<li><a href="#author">Authoring Tools</a>
-	<ul>
-	<li><a href="#serna">Serna</a>
-	<li><a href="#editix">editix</a>
-	</ul>
-<li><a href="#render">Rendering Tools</a>
-	<ul>
-	<li><a href="#xlstproc">xsltproc</a>
-	<li><a href="#fop">fop</a>
-	<li><a href="#renderx">RenderX xep</a>
-	</ul>
-<li><a href="#command">Command Line Use</a>
-<li><a href="#install">Installation</a>
-</ul>
+  <h2>TOC</h2>
 
-<p><a href="http://www.gnu.org/licenses/gpl-3.0.html"><img
-src="gplv3-127x51.png" border="0"> GNU GENERAL PUBLIC LICENSE</a>
+  <ul>
+    <li>
+      <a href="#struct">Structure</a>
 
-<hr>
-<h2><a name="struct">Structure</a></h2>
+      <ul>
+        <li><a href="#min">Minimal Story Structure</a></li>
 
-<p>* - means zero or more of these elements can be used.
-<p>+ - means one or more of these elements can be used.
+        <li><a href="#full">Full Story Structure</a></li>
 
-<h3><a name="min">Minimal Story Structure</a></h3>
+        <li><a href="#com-attr">Common Attributes (all elements)</a></li>
 
-<pre>
+        <li><a href="#std-attr">Standard Attribute Names</a></li>
+
+        <li><a href="#text">Text Elements</a></li>
+
+        <li><a href="#inline">Inline Text Style Elements</a></li>
+
+        <li><a href="#dtd">Complete story.dtd</a></li>
+
+        <li><a href="#example">Story XML Examples</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#author">Authoring Tools</a>
+
+      <ul>
+        <li><a href="#serna">Serna</a></li>
+
+        <li><a href="#editix">editix</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a href="#render">Rendering Tools</a>
+
+      <ul>
+        <li><a href="#xlstproc">xsltproc</a></li>
+
+        <li><a href="#fop">fop</a></li>
+
+        <li><a href="#renderx">RenderX xep</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#command">Command Line Use</a></li>
+
+    <li><a href="#install">Installation</a></li>
+  </ul>
+
+  <p><a target="_blank"
+     href="http://www.gnu.org/licenses/gpl-3.0.html"><img src=
+     "gplv3-127x51.png"
+       border="0"
+       alt="gplv3-logo" /> GNU GENERAL PUBLIC LICENSE</a></p>
+  <hr />
+
+  <h2><a name="struct"
+     id="struct">Structure</a></h2>
+
+  <p>* - means zero or more of these elements can be used.</p>
+
+  <p>+ - means one or more of these elements can be used.</p>
+
+  <h3><a name="min"
+     id="min">Minimal Story Structure</a></h3>
+  <pre>
 book +
-	title - Book's title (prints)
+    title - Book's title (prints)
 
-	book-info - Meta info about the book (prints on copyright page)
-		author * - Book's author (prints)
-		copyright - Copyright date and holder (prints)
+    book-info - Meta info about the book (prints on copyright page)
+        author * - Book's author (prints)
+        copyright - Copyright date and holder (prints)
 
-	style-info - Control what is printed and how
-		def-content * - Controls what content prints
-		def-draft * - Controls what draft items print
-		def-print * - Control the print output
+    style-info - Control what is printed and how
+        def-content * - Controls what content prints
+        def-draft * - Controls what draft items print
+        def-print * - Control the print output
 
-	story-info - Meta info related to the story's content
-		def-when - define the absolute time for relative time refs
-		def-thread + - different threads
-		def-who + - different characters (optional)
+    story-info - Meta info related to the story's content
+        def-when - define the absolute time for relative time refs
+        def-thread + - different threads
+        def-who + - different characters (optional)
 
-	chapter + - One or more chapters
-		title - chapter title
-		unit * - a scene or sequel - Print a blank line between each
-			title - Draft print only
-			thread * - def-thread id, and def-who id for viewpoint
-				para * - block format
-				p * - narrative paragraph, indented.
-				s * - A character says something, def-who id
-				t * - A thought by a character, def-who
+    chapter + - One or more chapters
+        title - chapter title
+        unit * - a scene or sequel - Print a blank line between each
+            title - Draft print only
+            thread * - def-thread id, and def-who id for viewpoint
+                para * - block format
+                p * - narrative paragraph, indented.
+                s * - A character says something, def-who id
+                t * - A thought by a character, def-who
 </pre>
 
-<h3><a name="full">Full Story Structure</a></h3>
-
-<pre>
+  <h3><a name="full"
+     id="full">Full Story Structure</a></h3>
+  <pre>
 book +
-	title - Book's title (prints)
-	subtitle - (optional)
-	title-abbrev - printed in page head (optional)
+    title - Book's title (prints)
+    subtitle - (optional)
+    title-abbrev - printed in page head (optional)
 
-	book-info - Meta info about the book (prints on copyright page)
-		author * - Book's author (prints)
-		pub-date - first publish date
-		copyright - Copyright date and holder (prints)
-		release-info - version control vars. (draft prints)
-		biblio-id * - ISBN, URLs, etc (optional, prints)
-		abstract - usually legal disclaimers (optional)
+    book-info - Meta info about the book (prints on copyright page)
+        author * - Book's author (prints)
+        pub-date - first publish date
+        copyright - Copyright date and holder (prints)
+        release-info - version control vars. (draft prints)
+        biblio-id * - ISBN, URLs, etc (optional, prints)
+        abstract - usually legal disclaimers (optional)
 
-	style-info - Control what is printed and how
-		def-content * - Controls what content prints
-		def-draft * - Controls what draft items print
-		def-print * - Control the print output
+    style-info - Control what is printed and how
+        def-content * - Controls what content prints
+        def-draft * - Controls what draft items print
+        def-print * - Control the print output
 
-	story-info - Meta info related to the story's content
-		def-when - define the absolute time for relative time refs
-		def-thread + - different threads
-		def-who + - different characters (optional)
-		def-where * - scene/sequel locations (optional)
-		ch-preface * - Common preface for, multi file output (optional)
+    story-info - Meta info related to the story's content
+        def-when - define the absolute time for relative time refs
+        def-thread + - different threads
+        def-who + - different characters (optional)
+        def-where * - scene/sequel locations (optional)
+        ch-preface * - Common preface for, multi file output (optional)
 
-	preface - Book's preface  (optional).  Prints after TOC
+    preface - Book's preface  (optional).  Prints after TOC
 
-	chapter + - One or more chapters
-		title - chapter title
-		subtitle - (optional)
-		title-abbrev - may be printed in page head (optional)
-		chapter-info - Chapter meta info, used in draft outputs
-			release-info
-			pub-date
-		prolog - Chapter preface (optional)
-			para * - block format
-			p * - indented
-			pre * - preformatted text
+    chapter + - One or more chapters
+        title - chapter title
+        subtitle - (optional)
+        title-abbrev - may be printed in page head (optional)
+        chapter-info - Chapter meta info, used in draft outputs
+            release-info
+            pub-date
+        prolog - Chapter preface (optional)
+            para * - block format
+            p * - indented
+            pre * - preformatted text
 
-		unit * - a scene or sequel - Print a blank line between each
-			title - Draft print only
-			outline - Outline comments, draft print only (optional)
-				when - date/time, duration
-				where - Location of scene or sequel (def-where)
-				who - Characters present (def-who)
-				description - summary, goal/disaster/reaction
-					para * - block format
-					p * - indented
-					pre * - preformatted text
+        unit * - a scene or sequel - Print a blank line between each
+            title - Draft print only
+            outline - Outline comments, draft print only (optional)
+                when - date/time, duration
+                where - Location of scene or sequel (def-where)
+                who - Characters present (def-who)
+                description - summary, goal/disaster/reaction
+                    para * - block format
+                    p * - indented
+                    pre * - preformatted text
 
-			thread * - def-thread id, and def-who id for viewpoint
-				para * - block format
-				p * - narrative paragraph, indented.
-				s * - A character says something, def-who id
-				t * - A thought by a character, def-who
+            thread * - def-thread id, and def-who id for viewpoint
+                para * - block format
+                p * - narrative paragraph, indented.
+                s * - A character says something, def-who id
+                t * - A thought by a character, def-who
 
-		postlog - Chapter epilogue (optional)
-			para * - block format
-			p * - indented
-			pre * - preformatted text
+        postlog - Chapter epilogue (optional)
+            para * - block format
+            p * - indented
+            pre * - preformatted text
 
-	epilog - Book's epilogue (optional)
+    epilog - Book's epilogue (optional)
 </pre>
 
-<h3><a name="com-attr">Common Attributes (all elements)</a></h3>
+  <h3><a name="com-attr"
+     id="com-attr">Common Attributes (all elements)</a></h3>
 
-<dl>
+  <dl>
+    <dt>condition</dt>
 
-<dt><p>condition <dd>Condition is a general-purpose attribute with no
-specified semantics.  It can be used as a processing instruction for
-adding modules. (optional).
-<p>Currently, this attribute has no effect.
+    <dd>
+      <p>Condition is a general-purpose attribute with no specified
+      semantics. It can be used as a processing instruction for adding
+      modules. (optional).</p>
 
-<dt><p>id <dd>"id" is an identifying string for the element. It must
-be unique at least within the document and it must begin with a
-letter.  This attribute may be required for some elements.
+      <p>Currently, this attribute has no effect.</p>
+    </dd>
 
-<dt><p>lang <dd>Lang should be a language code drawn from ISO 639
-(perhaps extended with a country code drawn from ISO 3166, as
-en-US). Use it when you need to signal your application to change
-hyphenation and other display characteristics. (optional).
-<p>Currently, this attribute has no effect.
+    <dt>id</dt>
 
-<dt><p>revision <dd>Value, one of: "final", "in-progress", "draft"
-(optional).
-<p>The def-content defines what will be printed, based on the setting
-of this attribue for each element.  If it is not defined "final" is
-assumed.
+    <dd>
+      <p>"id" is an identifying string for the element. It must be unique at
+      least within the document and it must begin with a letter. This
+      attribute may be required for some elements.</p>
+    </dd>
 
-<dt><p>revisonflag <dd>Value, one of: "changed", "added", "deleted",
-"off" (optional)
-<p>changed - in draft mode this text will print blue underline.
-<p>added - in draft mode this text will print green underline.
-<p>delete - in draft mode this text will print red strike-through
-In non-draft mode, deleted text won't be printed.
+    <dt>lang</dt>
 
-</dl>
+    <dd>
+      <p>Lang should be a language code drawn from ISO 639 (perhaps extended
+      with a country code drawn from ISO 3166, as en-US). Use it when you
+      need to signal your application to change hyphenation and other display
+      characteristics. (optional).</p>
 
-<h3><a name="std-attr">Standard Attribute Names</a></h3>
-<dl>
+      <p>Currently, this attribute has no effect.</p>
+    </dd>
 
-<dt><p>idref or ref<dd>One ID value.
+    <dt>revision</dt>
 
-<dt><p>idrefs or refs <dd>One or more space separated ID values.
+    <dd>
+      <p>Value, one of: "final", "in-progress", "draft" (optional).</p>
 
-</dl>
+      <p>The def-content defines what will be printed, based on the setting
+      of this attribue for each element. If it is not defined "final" is
+      assumed.</p>
+    </dd>
 
-<h3><a name="text">Text Elements</a></h3>
-<dl>
+    <dt>revisonflag</dt>
 
-<dt><p>&lt;para><dd> This text is block formatted with extra spaces
-between paragraphs.
+    <dd>
+      <p>Value, one of: "changed", "added", "deleted", "off" (optional)</p>
 
-<dt><p>&lt;p><dd> Narrative paragraph.  The first line is indented, and
-there is no extra spaces between paragraphs.
+      <p>changed - in draft mode this text will print blue underline.</p>
 
-<dt><p>&lt;s><dd> A character says something.  The optional def-who attribute
-defines who is talking.  It is formatted just like the p tag.  In draft mode,
-you can request the def-who id to be printed.
+      <p>added - in draft mode this text will print green underline.</p>
 
-<dt><p>&lt;t><dd> A thought by a character.  The def-who attribute is
-required.  If the thread's viewpoint id matches the def-who id, then
-the text will print.
+      <p>delete - in draft mode this text will print red strike-through In
+      non-draft mode, deleted text won't be printed.</p>
+    </dd>
+  </dl>
 
-</dl>
+  <h3><a name="std-attr"
+     id="std-attr">Standard Attribute Names</a></h3>
 
-<h3><a name="inline">Inline Text Style Elements</a></h3>
-<dl>
+  <dl>
+    <dt>idref, ref, EL-ref</dt>
 
-<dt><p>&lt;b> <dd>Bold text.
+    <dd>
+      <p>One ID value.</p>
+    </dd>
 
-<dt><p>&lt;i> <dd>Italic text.
+    <dt>idrefs, refs, EL-refs</dt>
 
-<dt><p>&lt;tt> <dd>Fixed space, typewriter text.
+    <dd>
+      <p>One or more space separated ID values.</p>
+    </dd>
+  </dl>
 
-<dt><p>&lt;rev> <dd>This is only used to mark modified text with the
-"revisonflag" attribute.
+  <h3><a name="text"
+     id="text">Text Elements</a></h3>
 
-</dl>
+  <dl>
+    <dt>&lt;para&gt;</dt>
 
-<h3><a name="dtd">Complete story.dtd</a></h3>
+    <dd>
+      <p>This text is block formatted with extra spaces between
+      paragraphs.</p>
+    </dd>
 
-<p>The complete annotated story.dtd (Document Type Definition) can be
-found <a href="story-xml-dtd/index.html">here</a>.  This describes
-all elements, and attributes.
+    <dt>&lt;p&gt;</dt>
 
-<p>Click on the element or entity name to see it's definition.  Click
-on the '+' character, to see where it is used.
+    <dd>
+      <p>Narrative paragraph. The first line is indented, and there is no
+      extra spaces between paragraphs.</p>
+    </dd>
 
-<h3><a name="example">Story XML Examples</a></h3>
+    <dt>&lt;s&gt;</dt>
 
-<p>The example files will show the complete use of the xml structure.
+    <dd>
+      <p>A character says something. The optional def-who attribute defines
+      who is talking. It is formatted just like the p tag. In draft mode, you
+      can request the def-who id to be printed.</p>
+    </dd>
 
-<dl>
+    <dt>&lt;t&gt;</dt>
 
-<dt><p><a
-href="example/sample-minimal.xml">example/sample-minimal.xml</a><dd>
-This is a minimal story-xml template.
+    <dd>
+      <p>A thought by a character. The def-who attribute is required. If the
+      thread's viewpoint id matches the def-who id, then the text will
+      print.</p>
+    </dd>
+  </dl>
 
-<dt><p><a href="example/sample-full.xml">example/sample-full.xml</a><dd>
-This is an almost complete story-xml template.
+  <h3><a name="inline"
+     id="inline">Inline Text Style Elements</a></h3>
 
-<dt><p><a
-href="example/entity-example.xml">example/entity-example.xml</a><dd>
-This file shows how you can use file entities to break up you book
-into separate files.  You can also define text entities for common
-text phrases.
-<pre>
+  <dl>
+    <dt>&lt;b&gt;</dt>
+
+    <dd>
+      <p>Bold text.</p>
+    </dd>
+
+    <dt>&lt;i&gt;</dt>
+
+    <dd>
+      <p>Italic text.</p>
+    </dd>
+
+    <dt>&lt;tt&gt;</dt>
+
+    <dd>
+      <p>Fixed space, typewriter text.</p>
+    </dd>
+
+    <dt>&lt;rev&gt;</dt>
+
+    <dd>
+      <p>This is only used to mark modified text with the "revisonflag"
+      attribute.</p>
+    </dd>
+  </dl>
+
+  <h3><a name="dtd"
+     id="dtd">Complete story.dtd</a></h3>
+
+  <p>The complete annotated story.dtd (Document Type Definition) can be found
+  <a target="_blank"
+     href="story-xml-dtd/index.html">here</a>. This describes all elements,
+     and attributes.</p>
+
+  <p>Click on the element or entity name to see it's definition. Click on the
+  '+' character, to see where it is used.</p>
+
+  <h3><a name="example"
+     id="example">Story XML Examples</a></h3>
+
+  <p>The example files will show the complete use of the xml structure.</p>
+
+  <dl>
+    <dt><a target="_blank"
+       href="example/sample-minimal.xml">example/sample-minimal.xml</a></dt>
+
+    <dd>
+      <p>This is a minimal story-xml template.</p>
+    </dd>
+
+    <dt><a target="_blank"
+       href="example/sample-full.xml">example/sample-full.xml</a></dt>
+
+    <dd>
+      <p>This is an almost complete story-xml template.</p>
+    </dd>
+
+    <dt><a target="_blank"
+       href="example/entity-example.xml">example/entity-example.xml</a></dt>
+
+    <dd>
+      <p>This file shows how you can use file entities to break up you book
+      into separate files. You can also define text entities for common text
+      phrases.</p>
+      <pre>
 &lt;?xml version="1.0"?&gt;
 &lt;!DOCTYPE story-xml [
 &lt;!ENTITY book1 SYSTEM "book1.xml"&gt;
@@ -256,145 +359,189 @@ text phrases.
 &lt;!ENTITY gpl "GNU General Public License"&gt;
 ]&gt;
 &lt;content&gt;
-  &book1;
-  &ch1;
-  &ch2;
+  &amp;book1;
+  &amp;ch1;
+  &amp;ch2;
 &lt;/content&gt;
 </pre>
+    </dd>
 
-<dt><p><a
-href="example/ebook-20869-h.xml">example/ebook-20869-h.xml</a><dd> This
-is a complete story formatted with story-xml.
+    <dt><a target="_blank"
+       href="example/ebook-20869-h.xml">example/ebook-20869-h.xml</a></dt>
 
-<dt><p><a href="story.dtd">story.dtd</a><dd> This Story Document Type
-Definition file will define exactly what is allowed and where.
+    <dd>
+      <p>This is a complete story formatted with story-xml.</p>
+    </dd>
 
-</dt>
+    <dt><a target="_blank"
+       href="story.dtd">story.dtd</a></dt>
 
-<hr>
-<h2><a name="author">Authoring Tools</a></h2>
+    <dd>
+      <p>This Story Document Type Definition file will define exactly what is
+      allowed and where.</p>
+    </dd>
+  </dl>
+  <hr />
 
-<p>A general text editor, such as VI or EMACS can be used to create
-the story-xml file, but xml authoring tools will use the DTD to help
-keep the structure "valid" and they will help with generating the
-required elements and attributes.
+  <h2><a name="author"
+     id="author">Authoring Tools</a></h2>
 
-<h3><a name="serna"><a href="http://moria.whyayh.com/faq/cache/62.html">Serna</a></a></h3>
+  <p>A general text editor, such as VI or EMACS can be used to create the
+  story-xml file, but xml authoring tools will use the DTD to help keep the
+  structure "valid" and they will help with generating the required elements
+  and attributes.</p>
 
-<p>This is a complete authoring and publishing tool.  It can be easily
-configured to use the story-xml DTD, and it's PDF formatting styles.
+  <h3><a target="_blank"
+     name="serna"
+     href="http://moria.whyayh.com/faq/cache/62.html"
+     id="serna">Serna</a></h3>
 
-<p>TBD: Installing and this tool, for use with story-xml...
+  <p>This is a complete authoring and publishing tool. It can be easily
+  configured to use the story-xml DTD, and it's PDF formatting styles.</p>
 
-<h3><a name="editix"><a href="http://moria.whyayh.com/faq/cache/117.html">editix</a></a></h3>
+  <p>TBD: Installing and this tool, for use with story-xml...</p>
 
-<p>This a more general purpose XML tool.
+  <h3><a target="_blank"
+     name="editix"
+     href="http://moria.whyayh.com/faq/cache/117.html"
+     id="editix">editix</a></h3>
 
-<p>TBD: Installing and this tool, for use with story-xml...
+  <p>This a more general purpose XML tool.</p>
 
-<hr>
-<h2><a name="render">Rendering Tools</a></h2>
+  <p>TBD: Installing and this tool, for use with story-xml...</p>
+  <hr />
 
-<h3><a name="xlstproc"><a href="http://moria.whyayh.com/faq/cache/118.html">xsltproc</a></a></h3>
+  <h2><a name="render"
+     id="render">Rendering Tools</a></h2>
 
-<p>xlstproc is used generate the html files, html draft files,
-time-line files, and docbook xml files.  It is also used to generate
-"fo" files, which are input to the PDF rendering programs.
+  <h3><a target="_blank"
+     name="xlstproc"
+     href="http://moria.whyayh.com/faq/cache/118.html"
+     id="xlstproc">xsltproc</a></h3>
 
-<h3><a name="fop"><a href="http://moria.whyayh.com/faq/cache/135.html">fop</a></a></h3>
+  <p>xlstproc is used generate the html files, html draft files, time-line
+  files, and docbook xml files. It is also used to generate "fo" files, which
+  are input to the PDF rendering programs.</p>
 
-<p>This is a free tool for generating PDF files.
+  <h3><a target="_blank"
+     name="fop"
+     href="http://moria.whyayh.com/faq/cache/135.html"
+     id="fop">fop</a></h3>
 
-<h3><a name="renderx"><a href="http://moria.whyayh.com/faq/cache/136.html">RenderX xep</a></a></h3>
+  <p>This is a free tool for generating PDF files.</p>
 
-<p>This tool will generate PDF files and the fonts can be "embedded"
-so that the PDF file can be used with publish-on-demand services like
-<a href="http://www.lulu.com">lulu.com</a>
+  <h3><a target="_blank"
+     name="renderx"
+     href="http://moria.whyayh.com/faq/cache/136.html"
+     id="renderx">RenderX xep</a></h3>
 
-<p>There is a free version of this tool, but it marks the bottom of
-the page with it's trademark.   There are personal versions available
-for a reasonable cost.
+  <p>This tool will generate PDF files and the fonts can be "embedded" so
+  that the PDF file can be used with publish-on-demand services like
+  <a target="_blank"
+     href="http://www.lulu.com">lulu.com</a></p>
 
-<hr>
-<h2><a name="command">Command Line Use</a></h2>
+  <p>There is a free version of this tool, but it marks the bottom of the
+  page with it's trademark. There are personal versions available for a
+  reasonable cost.</p>
+  <hr />
 
-<p>To generate the different output formats, run the "story-fmt"
-program, with one (or more) of the options followed by the input file
-name.
+  <h2><a name="command"
+     id="command">Command Line Use</a></h2>
 
-<pre>
+  <p>To generate the different output formats, run the "story-fmt" program,
+  with one (or more) of the options followed by the input file name.</p>
+  <pre>
 /opt/story-xml/bin/story-fmt
-	-html -draft -chapter -fo -fop -renderx -project -docbook
-	-style NAME -input FILE.xml
+        -html -draft -chapter -fo -fop -renderx -project -docbook
+        -style NAME -input FILE.xml
 </pre>
 
-<dl>
+  <dl>
+    <dt>-html (default)</dt>
 
-<dt><p>-html (default)<dd>
-Output FILE.html
+    <dd>Output FILE.html</dd>
 
-<dt><p>-draft html<dd>
-Output FILE-draft.html
-Output FILE-timeline.html
+    <dt>-draft html</dt>
 
-<dt><p>chapter<dd> (Not implemented)<br>
-Output FILE.chN.html
+    <dd>Output FILE-draft.html Output FILE-timeline.html</dd>
 
-<dt><p>-fo<dd>
-Output FILE.fo
+    <dt>chapter</dt>
 
-<dt><p>-fop (pdf)<dd>
-Output FILE.pdf
+    <dd>(Not implemented)
+    <br />
+    Output FILE.chN.html</dd>
 
-<dt><p>-renderx (pdf)<dd> (Not implemented)<br>
-Output FILE.pdf
+    <dt>-fo</dt>
 
-<dt><p>-project<dd> (Not tested)<br>
-Output FILE-timeline.proj.xml
+    <dd>Output FILE.fo</dd>
 
-<dt><p>-docbook<dd> (Not tested)<br>
-Output FILE.docbook.xml
+    <dt>-fop (pdf)</dt>
 
-<dt><p>-sytle NAME<dd> (Not implemented)<br>
-Override the "style-ref" attribute in the "style-info" element, so
-that you can select a different "def-style" id.
+    <dd>Output FILE.pdf</dd>
 
-<dt><p>-input FILE.xml<dd> Input file name.
+    <dt>-renderx (pdf)</dt>
 
-</dl>
+    <dd>(Not implemented)
+    <br />
+    Output FILE.pdf</dd>
 
-<h3>Example</h3>
-<pre>
+    <dt>-project</dt>
+
+    <dd>(Not tested)
+    <br />
+    Output FILE-timeline.proj.xml</dd>
+
+    <dt>-docbook</dt>
+
+    <dd>(Not tested)
+    <br />
+    Output FILE.docbook.xml</dd>
+
+    <dt>-sytle NAME</dt>
+
+    <dd>(Not implemented)
+    <br />
+    Override the "style-ref" attribute in the "style-info" element, so that
+    you can select a different "def-style" id.</dd>
+
+    <dt>-input FILE.xml</dt>
+
+    <dd>Input file name.</dd>
+  </dl>
+
+  <h3>Example</h3>
+  <pre>
 PATH=$PATH:/opt/story-xml/bin
 cp /opt/story-xml/doc/example/ebook-20869-h.xml .
 
 story-fmt -html -draft -fop -input ebook-20869-h.xml
 </pre>
+  <hr />
 
-<hr>
-<h2><a name="install">Installation</a></h2>
-<p>TBD
-<pre>
+  <h2><a name="install"
+     id="install">Installation</a></h2>
+
+  <p>TBD</p>
+  <pre>
 User
-	Linux
-		story-xml - rpm, deb
-		Authoring Tools
-			serna - rpm (source - zip)
-				open source
-				commercial
-			editx
-		Rendering Tools
-			xsltproc
-			fop - rpm
-			RenderX - xep
-	Mac - dmg
-	MS Windows - Advanced Installer
+        Linux
+                story-xml - rpm, deb
+                Authoring Tools
+                        serna - rpm (source - zip)
+                                open source
+                                commercial
+                        editx
+                Rendering Tools
+                        xsltproc
+                        fop - rpm
+                        RenderX - xep
+        Mac - dmg
+        MS Windows - Advanced Installer
 Developer
-	Linux
-		epm - rpm, deb
-
-
-<hr>
-Last modified: $Date: 2009/09/13 20:41:11 $ GMT
+        Linux
+                epm - rpm, deb
+</pre>
+  <hr />
+  Last modified: 2016-01-02
 </body>
 </html>
