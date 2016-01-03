@@ -103,8 +103,7 @@ Block
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <p>
-        <xsl:call-template name="fRevisionFlag" />&#160;
-      </p>
+      <xsl:call-template name="fRevisionFlag" />&#160;</p>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -114,8 +113,7 @@ Block
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <p class="block">
-        <xsl:call-template name="fRevisionFlag" />&#160;
-      </p>
+      <xsl:call-template name="fRevisionFlag" />&#160;</p>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -138,8 +136,7 @@ Block
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <p class="quote">
-        <xsl:call-template name="fRevisionFlag" />&#160;
-      </p>
+      <xsl:call-template name="fRevisionFlag" />&#160;</p>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -149,8 +146,7 @@ Block
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <p>
-        <xsl:call-template name="fRevisionFlag" />&#160;
-      </p>
+      <xsl:call-template name="fRevisionFlag" />&#160;</p>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -160,8 +156,7 @@ Block
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
       <p>
-        <xsl:call-template name="fRevisionFlag" />&#160;
-      </p>
+      <xsl:call-template name="fRevisionFlag" />&#160;</p>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->

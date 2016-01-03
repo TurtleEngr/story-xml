@@ -16,7 +16,7 @@
           </author-blurb>
         </author>
       </author-group>
-      <release-info date="$Date: 2009/03/31 15:51:05 $"  rev="$Revision: 1.1 $" file="file.name.xml" repository="fiction/book1" root="/data/local.cvs" source="$Source: /repo/local.cvs/app/story-xml/src/story5/sample-full.xml,v $" />
+      <release-info date="$Date: 2009/03/31 15:51:05 $" rev="$Revision: 1.1 $" file="file.name.xml" repository="fiction/book1" root="/data/local.cvs" source="$Source: /repo/local.cvs/app/story-xml/src/story5/sample-full.xml,v $" />
       <pub-date>2008</pub-date>
       <copyright>
         <year>2008</year>
@@ -61,8 +61,7 @@
       </def-where>
       <ch-preface>
         <title>Disclaimer</title>
-        <para>This is put at the beginning of multi-file book chapter
-        files.</para>
+        <para>This is put at the beginning of multi-file book chapter files.</para>
       </ch-preface>
     </story-info>
     <preface>
@@ -99,16 +98,14 @@
           </who>
           <description>
             <para>Describe this unit.</para>
-            <pre-fmt>This is where the scene or sequel is
-            outlined.</pre-fmt>
+            <pre-fmt>This is where the scene or sequel is outlined.</pre-fmt>
           </description>
         </outline>
         <thread ref="main" who-refs="hero" revision-flag="added">
           <p>Paragraph</p>
           <s who-ref="hero">"What?" said the hero.</s>
           <t who-ref="hero">Thought text.</t>
-          <t who-ref="bob">Non-view point character thought (not
-          printed.)</t>
+          <t who-ref="bob">Non-view point character thought (not printed.)</t>
         </thread>
       </unit>
       <postlog>

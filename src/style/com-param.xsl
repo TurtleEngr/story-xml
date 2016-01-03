@@ -58,7 +58,8 @@ $Header: /repo/local.cvs/app/story-xml/src/story5/com-param.xsl,v 1.2 2009/03/29
   <xsl:param name="gDTDVer"
              select="'4'" />
   <xsl:param name="gNL">
-    <xsl:value-of disable-output-escaping="yes" select="'&#10;'"/>
+    <xsl:value-of disable-output-escaping="yes"
+                  select="' '" />
   </xsl:param>
   <!--
   The content style can be selected by defining the 'style'

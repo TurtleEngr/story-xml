@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0"
-		xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <!--
 add: ch-page-break=
 Change: isbn - biblio-id class=isbn
@@ -8,19 +8,19 @@ bug: head-type conversion doesn't work well
 
 =================
 style-info
-	change: @preview-thread to @thread-refs
+        change: @preview-thread to @thread-refs
 
 def-print
-	change: @header-type to @head-type
-	change: @head-type value of 0 or none, change to page-no
-	add: @head-align="right"
-	add: @head-location="top"
+        change: @header-type to @head-type
+        change: @head-type value of 0 or none, change to page-no
+        add: @head-align="right"
+        add: @head-location="top"
 
 def-content
-	change: @thread to @thread-refs
+        change: @thread to @thread-refs
 
 thread
-	change: @refs to @ref
+        change: @refs to @ref
 
 change @revison-flag to @revision-flag
 
@@ -42,7 +42,7 @@ Change: pre elements to pre-fmt in non-thread sections.
   <xsl:template match="content">
     <xsl:element name="content">
       <xsl:element name="story-dtd">
-	<xsl:attribute name="version">3</xsl:attribute>
+        <xsl:attribute name="version">3</xsl:attribute>
       </xsl:element>
       <xsl:apply-templates />
     </xsl:element>
@@ -70,13 +70,13 @@ Change: pre elements to pre-fmt in non-thread sections.
   <xsl:template match="def-content">
     <xsl:element name="def-content">
       <xsl:apply-templates select="@*"
-			   mode="thread" />
+                           mode="thread" />
       <xsl:apply-templates />
     </xsl:element>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="@thread"
-		mode="thread">
+                mode="thread">
     <xsl:attribute name="thread-refs">
       <xsl:value-of select="." />
     </xsl:attribute>
@@ -85,20 +85,20 @@ Change: pre elements to pre-fmt in non-thread sections.
   <xsl:template match="thread">
     <xsl:element name="thread">
       <xsl:apply-templates select="@*"
-			   mode="thread" />
+                           mode="thread" />
       <xsl:apply-templates />
     </xsl:element>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="@refs"
-		mode="thread">
+                mode="thread">
     <xsl:attribute name="ref">
       <xsl:value-of select="." />
     </xsl:attribute>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="@*"
-		mode="thread">
+                mode="thread">
     <xsl:apply-templates select="." />
   </xsl:template>
   <!-- ******************** -->

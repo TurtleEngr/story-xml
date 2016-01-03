@@ -190,18 +190,18 @@ book +
     <dt>id</dt>
 
     <dd>
-      <p>"id" is an identifying string for the element. It must be unique at
-      least within the document and it must begin with a letter. This
+      <p>"id" is an identifying string for the element. It must be unique
+      at least within the document and it must begin with a letter. This
       attribute may be required for some elements.</p>
     </dd>
 
     <dt>lang</dt>
 
     <dd>
-      <p>Lang should be a language code drawn from ISO 639 (perhaps extended
-      with a country code drawn from ISO 3166, as en-US). Use it when you
-      need to signal your application to change hyphenation and other display
-      characteristics. (optional).</p>
+      <p>Lang should be a language code drawn from ISO 639 (perhaps
+      extended with a country code drawn from ISO 3166, as en-US). Use it
+      when you need to signal your application to change hyphenation and
+      other display characteristics. (optional).</p>
 
       <p>Currently, this attribute has no effect.</p>
     </dd>
@@ -211,15 +211,16 @@ book +
     <dd>
       <p>Value, one of: "final", "in-progress", "draft" (optional).</p>
 
-      <p>The def-content defines what will be printed, based on the setting
-      of this attribue for each element. If it is not defined "final" is
-      assumed.</p>
+      <p>The def-content defines what will be printed, based on the
+      setting of this attribue for each element. If it is not defined
+      "final" is assumed.</p>
     </dd>
 
     <dt>revisonflag</dt>
 
     <dd>
-      <p>Value, one of: "changed", "added", "deleted", "off" (optional)</p>
+      <p>Value, one of: "changed", "added", "deleted", "off"
+      (optional)</p>
 
       <p>changed - in draft mode this text will print blue underline.</p>
 
@@ -268,16 +269,16 @@ book +
     <dt>&lt;s&gt;</dt>
 
     <dd>
-      <p>A character says something. The optional def-who attribute defines
-      who is talking. It is formatted just like the p tag. In draft mode, you
-      can request the def-who id to be printed.</p>
+      <p>A character says something. The optional def-who attribute
+      defines who is talking. It is formatted just like the p tag. In
+      draft mode, you can request the def-who id to be printed.</p>
     </dd>
 
     <dt>&lt;t&gt;</dt>
 
     <dd>
-      <p>A thought by a character. The def-who attribute is required. If the
-      thread's viewpoint id matches the def-who id, then the text will
+      <p>A thought by a character. The def-who attribute is required. If
+      the thread's viewpoint id matches the def-who id, then the text will
       print.</p>
     </dd>
   </dl>
@@ -315,22 +316,24 @@ book +
   <h3><a name="dtd"
      id="dtd">Complete story.dtd</a></h3>
 
-  <p>The complete annotated story.dtd (Document Type Definition) can be found
-  <a target="_blank"
-     href="story-xml-dtd/index.html">here</a>. This describes all elements,
-     and attributes.</p>
+  <p>The complete annotated story.dtd (Document Type Definition) can be
+  found <a target="_blank"
+     href="story-xml-dtd/index.html">here</a>. This describes all
+     elements, and attributes.</p>
 
-  <p>Click on the element or entity name to see it's definition. Click on the
-  '+' character, to see where it is used.</p>
+  <p>Click on the element or entity name to see it's definition. Click on
+  the '+' character, to see where it is used.</p>
 
   <h3><a name="example"
      id="example">Story XML Examples</a></h3>
 
-  <p>The example files will show the complete use of the xml structure.</p>
+  <p>The example files will show the complete use of the xml
+  structure.</p>
 
   <dl>
     <dt><a target="_blank"
-       href="example/sample-minimal.xml">example/sample-minimal.xml</a></dt>
+       href=
+       "example/sample-minimal.xml">example/sample-minimal.xml</a></dt>
 
     <dd>
       <p>This is a minimal story-xml template.</p>
@@ -344,12 +347,13 @@ book +
     </dd>
 
     <dt><a target="_blank"
-       href="example/entity-example.xml">example/entity-example.xml</a></dt>
+       href=
+       "example/entity-example.xml">example/entity-example.xml</a></dt>
 
     <dd>
-      <p>This file shows how you can use file entities to break up you book
-      into separate files. You can also define text entities for common text
-      phrases.</p>
+      <p>This file shows how you can use file entities to break up you
+      book into separate files. You can also define text entities for
+      common text phrases.</p>
       <pre>
 &lt;?xml version="1.0"?&gt;
 &lt;!DOCTYPE story-xml [
@@ -377,8 +381,8 @@ book +
        href="story.dtd">story.dtd</a></dt>
 
     <dd>
-      <p>This Story Document Type Definition file will define exactly what is
-      allowed and where.</p>
+      <p>This Story Document Type Definition file will define exactly what
+      is allowed and where.</p>
     </dd>
   </dl>
   <hr />
@@ -387,9 +391,9 @@ book +
      id="author">Authoring Tools</a></h2>
 
   <p>A general text editor, such as VI or EMACS can be used to create the
-  story-xml file, but xml authoring tools will use the DTD to help keep the
-  structure "valid" and they will help with generating the required elements
-  and attributes.</p>
+  story-xml file, but xml authoring tools will use the DTD to help keep
+  the structure "valid" and they will help with generating the required
+  elements and attributes.</p>
 
   <h3><a target="_blank"
      name="serna"
@@ -420,8 +424,8 @@ book +
      id="xlstproc">xsltproc</a></h3>
 
   <p>xlstproc is used generate the html files, html draft files, time-line
-  files, and docbook xml files. It is also used to generate "fo" files, which
-  are input to the PDF rendering programs.</p>
+  files, and docbook xml files. It is also used to generate "fo" files,
+  which are input to the PDF rendering programs.</p>
 
   <h3><a target="_blank"
      name="fop"
@@ -448,8 +452,9 @@ book +
   <h2><a name="command"
      id="command">Command Line Use</a></h2>
 
-  <p>To generate the different output formats, run the "story-fmt" program,
-  with one (or more) of the options followed by the input file name.</p>
+  <p>To generate the different output formats, run the "story-fmt"
+  program, with one (or more) of the options followed by the input file
+  name.</p>
   <pre>
 /opt/story-xml/bin/story-fmt
         -html -draft -chapter -fo -fop -renderx -project -docbook
@@ -467,8 +472,7 @@ book +
 
     <dt>chapter</dt>
 
-    <dd>(Not implemented)
-    <br />
+    <dd>(Not implemented)<br />
     Output FILE.chN.html</dd>
 
     <dt>-fo</dt>
@@ -481,28 +485,24 @@ book +
 
     <dt>-renderx (pdf)</dt>
 
-    <dd>(Not implemented)
-    <br />
+    <dd>(Not implemented)<br />
     Output FILE.pdf</dd>
 
     <dt>-project</dt>
 
-    <dd>(Not tested)
-    <br />
+    <dd>(Not tested)<br />
     Output FILE-timeline.proj.xml</dd>
 
     <dt>-docbook</dt>
 
-    <dd>(Not tested)
-    <br />
+    <dd>(Not tested)<br />
     Output FILE.docbook.xml</dd>
 
     <dt>-sytle NAME</dt>
 
-    <dd>(Not implemented)
-    <br />
-    Override the "style-ref" attribute in the "style-info" element, so that
-    you can select a different "def-style" id.</dd>
+    <dd>(Not implemented)<br />
+    Override the "style-ref" attribute in the "style-info" element, so
+    that you can select a different "def-style" id.</dd>
 
     <dt>-input FILE.xml</dt>
 

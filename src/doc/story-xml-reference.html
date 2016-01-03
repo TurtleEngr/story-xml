@@ -1,85 +1,163 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>
-Story XML Reference Guide
-</title>
+  <title>Story XML Reference Guide</title>
 </head>
+
 <body>
-<h1>
-Story XML Reference Guide
-</h1>
+  <h1>Story XML Reference Guide</h1>
 
-<h2>Elements</h2>
-<dl>
+  <h2>Elements</h2>
 
-<dt><p><a href="#content" name="content"><b>content</b></a><dd>
-	(<a href="#story-dtd">"story-dtd?</a>, <a href="#book"><b>book+</b></a>)
+  <dl>
+    <dt><br />
+    <a href="#content"
+       name="content"
+       id="content"><b>content</b></a></dt>
 
-<dt><p><a href="#story-dtd" name="story-dtd">story-dtd</a><dd>
-	<p>Attributes:
-	<dl>
-	<dt><p><b>version</b> (1|2|3|4|5) #REQUIRED<dd>
-	</dl>
+    <dd>(<a href="#story-dtd">"story-dtd?</a>, <a href=
+    "#book"><b>book+</b></a>)</dd>
 
-<dt><p><a href="#book" name="book"><b>book</b></a><dd>
-	(<a href="#com-title">%com-title;</a>, <b>book-info, style-info, story-info,</b> preface?, chapter*, epilog?)
-	<p>Attributes:
-	<dl>
-	<dt><p><a href="#com-attr-req">%com-attr-req;</a><dd>
-	</dl>
+    <dt><br />
+    <a href="#story-dtd"
+       name="story-dtd"
+       id="story-dtd">story-dtd</a></dt>
 
-<dt><p><a href="#com-title" name="com-title">%com-title;</a><dd>
-	"<b>title</b>, subtitle?, title-abbrev?
+    <dd>
+      <p>Attributes:</p>
 
-<dt><p><a href="#title" name="title">title</a><dd>
-	(<a href="#PCDATA">#PCDATA</a>)
-	<p>Attributes:
-	<dl>
-	<dt><p><a href="#com-attr">%com-attr;</a><dd>
-	</dl>
+      <dl>
+        <dt><br />
+        <b>version</b> (1|2|3|4|5) #REQUIRED</dt>
+      </dl>
+    </dd>
 
-<dt><p><a href="#subtitle" name="subtitle">subtitle</a><dd>
-	(<a href="#PCDATA">#PCDATA</a>)
-	<p>Attributes:
-	<dl>
-	<dt><p><a href="#com-attr">%com-attr;</a><dd>
-	</dl>
+    <dt><br />
+    <a href="#book"
+       name="book"
+       id="book"><b>book</b></a></dt>
 
+    <dd>
+      (<a href="#com-title">%com-title;</a>, <b>book-info, style-info,
+      story-info,</b> preface?, chapter*, epilog?)
 
-<dt><p><a href="#title-abbrev" name="title-abbrev">title-abbrev</a><dd>
-	(<a href="#PCDATA">#PCDATA</a>)
-	<p>Attributes:
-	<dl>
-	<dt><p><a href="#com-attr">%com-attr;</a><dd>
-	</dl>
-</dl>
+      <p>Attributes:</p>
 
-<dt><p><a href="#PCDATA" name="PCDATA">#PCDATA</a><dd>
-	Plain Character Data
+      <dl>
+        <dt><br />
+        <a href="#com-attr-req">%com-attr-req;</a></dt>
+      </dl>
+    </dd>
 
-<h2>Attributes</h2>
-<dl>
+    <dt><br />
+    <a href="#com-title"
+       name="com-title"
+       id="com-title">%com-title;</a></dt>
 
-<dt><p><a href="#com-attr" name="com-attr">%com-attr;</a><dd>
-	<dl>
-	<dt>condition CDATA #IMPLIED<dd>
-	<dt>id CDATA #IMPLIED<dd>
-	<dt>lang CDATA #IMPLIED<dd>
-	<dt>revision (in-progress|draft|final) #IMPLIED<dd>
-	<dt>revision-flag (changed|added|deleted|off) #IMPLIED<dd>
-	</dl>
+    <dd>"<b>title</b>, subtitle?, title-abbrev?</dd>
 
-<dt><p><a href="#com-attr-req" name="com-attr-req">%com-attr-req;</a><dd>
-	<dl>
-	<dt>condition CDATA #IMPLIED<dd>
-	<dt><b>id</b> CDATA #REQUIRED<dd>
-	<dt>lang CDATA #IMPLIED<dd>
-	<dt><b>revision</b> (in-progress|draft|final) #REQUIRED<dd>
-	<dt>revision-flag (changed|added|deleted|off) #IMPLIED<dd>
-	</dl>
-</dl>
+    <dt><br />
+    <a href="#title"
+       name="title"
+       id="title">title</a></dt>
 
-<h2>Index</h2>
+    <dd>
+      (<a href="#PCDATA">#PCDATA</a>)
 
+      <p>Attributes:</p>
+
+      <dl>
+        <dt><br />
+        <a href="#com-attr">%com-attr;</a></dt>
+      </dl>
+    </dd>
+
+    <dt><br />
+    <a href="#subtitle"
+       name="subtitle"
+       id="subtitle">subtitle</a></dt>
+
+    <dd>
+      (<a href="#PCDATA">#PCDATA</a>)
+
+      <p>Attributes:</p>
+
+      <dl>
+        <dt><br />
+        <a href="#com-attr">%com-attr;</a></dt>
+      </dl>
+    </dd>
+
+    <dt><br />
+    <a href="#title-abbrev"
+       name="title-abbrev"
+       id="title-abbrev">title-abbrev</a></dt>
+
+    <dd>
+      (<a href="#PCDATA">#PCDATA</a>)
+
+      <p>Attributes:</p>
+
+      <dl>
+        <dt><br />
+        <a href="#com-attr">%com-attr;</a></dt>
+      </dl>
+    </dd>
+  </dl>
+
+  <dl>
+    <dt><br />
+    <a href="#PCDATA"
+       name="PCDATA"
+       id="PCDATA">#PCDATA</a></dt>
+
+    <dd>Plain Character Data</dd>
+  </dl>
+
+  <h2>Attributes</h2>
+
+  <dl>
+    <dt><br />
+    <a href="#com-attr"
+       name="com-attr"
+       id="com-attr">%com-attr;</a></dt>
+
+    <dd>
+      <dl>
+        <dt>condition CDATA #IMPLIED</dt>
+
+        <dt>id CDATA #IMPLIED</dt>
+
+        <dt>lang CDATA #IMPLIED</dt>
+
+        <dt>revision (in-progress|draft|final) #IMPLIED</dt>
+
+        <dt>revision-flag (changed|added|deleted|off) #IMPLIED</dt>
+      </dl>
+    </dd>
+
+    <dt><br />
+    <a href="#com-attr-req"
+       name="com-attr-req"
+       id="com-attr-req">%com-attr-req;</a></dt>
+
+    <dd>
+      <dl>
+        <dt>condition CDATA #IMPLIED</dt>
+
+        <dt><b>id</b> CDATA #REQUIRED</dt>
+
+        <dt>lang CDATA #IMPLIED</dt>
+
+        <dt><b>revision</b> (in-progress|draft|final) #REQUIRED</dt>
+
+        <dt>revision-flag (changed|added|deleted|off) #IMPLIED</dt>
+      </dl>
+    </dd>
+  </dl>
+
+  <h2>Index</h2>
 </body>
 </html>

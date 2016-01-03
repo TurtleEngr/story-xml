@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <content>
-  <story-dtd version="4"/>
+  <story-dtd version="4" />
   <book id="book" revision="in-progress">
-    <title/>
-    <subtitle/>
-    <title-abbrev/>
+    <title />
+    <subtitle />
+    <title-abbrev />
     <book-info>
       <author-group>
         <author>
-          <first-name/>
-          <surname/>
+          <first-name />
+          <surname />
         </author>
       </author-group>
-      <release-info date="$Date: 2009/03/31 16:01:28 $" rev="$Revision: 1.2 $"/>
+      <release-info date="$Date: 2009/03/31 16:01:28 $" rev="$Revision: 1.2 $" />
       <pub-date>2008</pub-date>
       <copyright>
         <year>2008</year>
@@ -26,16 +26,16 @@
       </abstract>
     </book-info>
     <style-info style-ref="main" thread-refs="main">
-      <def-style content-ref="main" debug="0" draft="0" draft-ref="main" print-ref="main" id="main"/>
-      <def-content link-fmt="default" thread-refs="main" id="main"/>
-      <def-draft id="main"/>
-      <def-print bgcolor="white" body-family="times" body-size="12pt" ch-title-family="times" ch-title-size="20pt" ch-page-break="some-odd" copyright-type="standard" draft="red" duplex="1" gutter="0.3in" head-align="left" head-family="times" head-location="top" head-size="16pt" head-type="title" line-height="110" margin="0.5in" multi-file="0" output-type="pdf" page="6x9in" text="black" title-family="times" title-size="24pt" toc="1" id="main"/>
+      <def-style content-ref="main" debug="0" draft="0" draft-ref="main" print-ref="main" id="main" />
+      <def-content link-fmt="default" thread-refs="main" id="main" />
+      <def-draft id="main" />
+      <def-print bgcolor="white" body-family="times" body-size="12pt" ch-title-family="times" ch-title-size="20pt" ch-page-break="some-odd" copyright-type="standard" draft="red" duplex="1" gutter="0.3in" head-align="left" head-family="times" head-location="top" head-size="16pt" head-type="title" line-height="110" margin="0.5in" multi-file="0" output-type="pdf" page="6x9in" text="black" title-family="times" title-size="24pt" toc="1" id="main" />
       <meta-description>html meta description</meta-description>
-      <file-prefix/>
+      <file-prefix />
     </style-info>
     <story-info>
-      <def-when year="2008" month="01" day="01" hour="08" min="00" gmt="-08"/>
-      <def-thread id="main"/>
+      <def-when year="2008" month="01" day="01" hour="08" min="00" gmt="-08" />
+      <def-thread id="main" />
       <def-who id="hero">
         <para>Describe the hero</para>
       </def-who>
@@ -55,11 +55,11 @@
       <para>Printed before all chapters.</para>
     </preface>
     <chapter id="ch1" revision="in-progress">
-      <title/>
-      <subtitle/>
-      <title-abbrev/>
+      <title />
+      <subtitle />
+      <title-abbrev />
       <chapter-info>
-        <release-info date="$Date: 2009/03/31 16:01:28 $" rev="$Revision: 1.2 $"/>
+        <release-info date="$Date: 2009/03/31 16:01:28 $" rev="$Revision: 1.2 $" />
         <pub-date>2008</pub-date>
       </chapter-info>
       <prolog>

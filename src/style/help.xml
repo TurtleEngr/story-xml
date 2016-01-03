@@ -1,24 +1,28 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <h:serna-help xmlns:h="http://www.syntext.com/Extensions/ElementHelp-1.0">
-
   <h:attr-group name="com-attr">
     <h:attr-help name="condition">
       <h:short-help>Any user defined value.</h:short-help>
     </h:attr-help>
     <h:attr-help name="id">
-      <h:short-help>Identifier for this element.  Start ids with a letter.  "ref" attributes in other elements may use this id value to "link" to this element.</h:short-help>
+      <h:short-help>Identifier for this element. Start ids with a letter.
+      "ref" attributes in other elements may use this id value to "link"
+      to this element.</h:short-help>
     </h:attr-help>
     <h:attr-help name="lang">
-      <h:short-help>Two letter language id.  English="en".</h:short-help>
+      <h:short-help>Two letter language id. English="en".</h:short-help>
     </h:attr-help>
     <h:attr-help name="revision">
-      <h:short-help>Revision status of this element.  def-content will define which revisions are printed.</h:short-help>
+      <h:short-help>Revision status of this element. def-content will
+      define which revisions are printed.</h:short-help>
     </h:attr-help>
     <h:attr-help name="revision-flag">
-      <h:short-help>Describe difference of this element's content from a previous version. "deleted" will not print in non-draft output. This element is not consistently implemented for upper level elements.</h:short-help>
+      <h:short-help>Describe difference of this element's content from a
+      previous version. "deleted" will not print in non-draft output. This
+      element is not consistently implemented for upper level
+      elements.</h:short-help>
     </h:attr-help>
   </h:attr-group>
-
   <h:attr-group name="date-time">
     <h:attr-help name="year">
       <h:short-help>Allowed values: 1970..2037</h:short-help>
@@ -30,73 +34,78 @@
       <h:short-help>Allowed values: 1..31</h:short-help>
     </h:attr-help>
     <h:attr-help name="hour">
-      <h:short-help>Use 24 hour format.  Allowed values: 0..23</h:short-help>
+      <h:short-help>Use 24 hour format. Allowed values:
+      0..23</h:short-help>
     </h:attr-help>
     <h:attr-help name="min">
       <h:short-help>Allowed values: 0..59</h:short-help>
     </h:attr-help>
     <h:attr-help name="gmt">
-      <h:short-help>Hour offset, for example PST would be: -08. Allowed values: -12...00..+11</h:short-help>
+      <h:short-help>Hour offset, for example PST would be: -08. Allowed
+      values: -12...00..+11</h:short-help>
     </h:attr-help>
   </h:attr-group>
-
   <h:attr-group name="release-info">
     <h:attr-help name="date">
-      <h:short-help>Usually the Date keyword is put here.  For example: $Date: 2009/03/29 05:11:49 $</h:short-help>
+      <h:short-help>Usually the Date keyword is put here. For example:
+      $Date: 2009/03/29 05:11:49 $</h:short-help>
     </h:attr-help>
     <h:attr-help name="rev">
-      <h:short-help>Usually the Revision keyword is put here.  For example: $Revision: 1.2 $</h:short-help>
+      <h:short-help>Usually the Revision keyword is put here. For example:
+      $Revision: 1.2 $</h:short-help>
     </h:attr-help>
     <h:attr-help name="file">
       <h:short-help>Name of this file.</h:short-help>
     </h:attr-help>
     <h:attr-help name="repository">
-      <h:short-help>The directory path, after the "root" is put here. For example: sf/book2/src</h:short-help>
+      <h:short-help>The directory path, after the "root" is put here. For
+      example: sf/book2/src</h:short-help>
     </h:attr-help>
     <h:attr-help name="root">
-      <h:short-help>The repository "root" is put here.  For example: :ext:LOGNAME@moria.dynu.com:/data/public.cvs</h:short-help>
+      <h:short-help>The repository "root" is put here. For example:
+      :ext:LOGNAME@moria.dynu.com:/data/public.cvs</h:short-help>
     </h:attr-help>
     <h:attr-help name="source">
-      <h:short-help>Usually the Source keyword is put here.  For example: $Source: /repo/local.cvs/app/story-xml/src/story5/help.xml,v $</h:short-help>
+      <h:short-help>Usually the Source keyword is put here. For example:
+      $Source: /repo/local.cvs/app/story-xml/src/story5/help.xml,v
+      $</h:short-help>
     </h:attr-help>
     <h:attr-help name="svn-path">
-      <h:short-help>Usually the URL keyword is put here.  For example: $URL$</h:short-help>
+      <h:short-help>Usually the URL keyword is put here. For example:
+      $URL$</h:short-help>
     </h:attr-help>
   </h:attr-group>
-
   <h:element-help match="abstract">
-    <h:short-help>A short description of the book.  Use this to hold text that could be printed on the book's back cover.  Or text that would be put in an on-line description of the book.</h:short-help>
+    <h:short-help>A short description of the book. Use this to hold text
+    that could be printed on the book's back cover. Or text that would be
+    put in an on-line description of the book.</h:short-help>
   </h:element-help>
-
   <h:element-help match="address">
     <h:short-help>Address for this person or organization.</h:short-help>
   </h:element-help>
-
   <h:element-help match="affiliation">
     <h:short-help>Organization or company name.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="author-blurb">
-    <h:short-help>Information about the author.  This is fir that that would be included in an optional "About the Author" section.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Information about the author. This is fir that that
+    would be included in an optional "About the Author"
+    section.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="author-group">
     <h:short-help>This groups one or more authors.</h:short-help>
   </h:element-help>
-
   <h:element-help match="author">
     <h:short-help>Describe the author.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="b">
     <h:short-help>Bold text.</h:short-help>
   </h:element-help>
-
   <h:element-help match="biblio-id">
-    <h:short-help>Define a biliographic identifier.  This will be printed on the copyright page.</h:short-help>
+    <h:short-help>Define a biliographic identifier. This will be printed
+    on the copyright page.</h:short-help>
     <h:attr-help name="class">
       <h:short-help>Define the id type.</h:short-help>
     </h:attr-help>
@@ -104,67 +113,65 @@
       <h:short-help>Define the id class in the value.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="book">
     <h:short-help>This is the top element for the book.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="book-info">
-    <h:short-help>Define information related to the book's publication.</h:short-help>
+    <h:short-help>Define information related to the book's
+    publication.</h:short-help>
   </h:element-help>
-
   <h:element-help match="br">
     <h:short-help>Force a line break in a paragraph</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="ch-preface">
-    <h:short-help>Chapter preface.  For single file output, this will print after Preface.  For muli-file chapter output, this will print before the chapter.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Chapter preface. For single file output, this will print
+    after Preface. For muli-file chapter output, this will print before
+    the chapter.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="chapter">
     <h:short-help>Start a chapter.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="chapter-info">
-    <h:short-help>Define information related to the chapter.  This is usually only used when chapters are put in separate files or if they have different authors, from the book authors.</h:short-help>
+    <h:short-help>Define information related to the chapter. This is
+    usually only used when chapters are put in separate files or if they
+    have different authors, from the book authors.</h:short-help>
   </h:element-help>
-
   <h:element-help match="city">
     <h:short-help>City name.</h:short-help>
   </h:element-help>
-
   <h:element-help match="coauthor">
     <h:short-help>Describe the book's coauthor, if any.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="content">
     <h:short-help>This is just the top element.</h:short-help>
   </h:element-help>
-
   <h:element-help match="copyright">
-    <h:short-help>Define copyright years and name of copyright holder.</h:short-help>
+    <h:short-help>Define copyright years and name of copyright
+    holder.</h:short-help>
   </h:element-help>
-
   <h:element-help match="country">
     <h:short-help>Country name.</h:short-help>
   </h:element-help>
-
   <h:element-help match="def-base">
-    <h:short-help>TheBase url part to prepend to url attr in def-img and def-link. (You'll want to make a base that is blank, for URLs that are absolute (not relative to a base.)</h:short-help>
+    <h:short-help>TheBase url part to prepend to url attr in def-img and
+    def-link. (You'll want to make a base that is blank, for URLs that are
+    absolute (not relative to a base.)</h:short-help>
     <h:attr-help name="id">
       <h:short-help>id to use in def-img or def-link</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-content">
-    <h:short-help>Define what content will be printed with this style.  Use this to defined different views of the content, for alternate versions, drafts, or reviews.</h:short-help>
+    <h:short-help>Define what content will be printed with this style. Use
+    this to defined different views of the content, for alternate
+    versions, drafts, or reviews.</h:short-help>
     <h:attr-help name="id">
-      <h:short-help>The id that would be used in def-style, to select this content.</h:short-help>
+      <h:short-help>The id that would be used in def-style, to select this
+      content.</h:short-help>
     </h:attr-help>
     <h:attr-help name="ch-draft">
       <h:short-help>Print draft revision chapters?</h:short-help>
@@ -179,15 +186,17 @@
       <h:short-help>Print ch-preface?</h:short-help>
     </h:attr-help>
     <h:attr-help name="ch-refs">
-      <h:short-help>Print exactly this, space seperated, list of chapter ids.  Overrides the revision selection, if non-blank.</h:short-help>
+      <h:short-help>Print exactly this, space seperated, list of chapter
+      ids. Overrides the revision selection, if non-blank.</h:short-help>
     </h:attr-help>
     <h:attr-help name="link-fmt">
-      <h:short-help>default - use the link tag's attr (if pdf, no 'a' tag)<br/>
-	full - force attr: img title, url, content (if pdf, no 'a' tag)<br/>
-	long - force attr: title, url, content (if pdf, no 'a' tag)<br/>
-	short - force attr: title, url (if pdf, no 'a' tag)<br/>
-	text - force attr: title, url (no 'a' tag)<br/>
-	plain - force attr: title (no 'a' tag)</h:short-help>
+      <h:short-help>default - use the link tag's attr (if pdf, no 'a' tag)
+      <br />full - force attr: img title, url, content (if pdf, no 'a'
+      tag)
+      <br />long - force attr: title, url, content (if pdf, no 'a' tag)
+      <br />short - force attr: title, url (if pdf, no 'a' tag)
+      <br />text - force attr: title, url (no 'a' tag)
+      <br />plain - force attr: title (no 'a' tag)</h:short-help>
     </h:attr-help>
     <h:attr-help name="preface">
       <h:short-help>Print preface and epilog?</h:short-help>
@@ -196,7 +205,8 @@
       <h:short-help>Print prologs and postlogs?</h:short-help>
     </h:attr-help>
     <h:attr-help name="thread-refs">
-      <h:short-help>Only print thread ids that are in this list.</h:short-help>
+      <h:short-help>Only print thread ids that are in this
+      list.</h:short-help>
     </h:attr-help>
     <h:attr-help name="unit-draft">
       <h:short-help>Print draft revision units?</h:short-help>
@@ -208,12 +218,15 @@
       <h:short-help>Print in-progress revision units?</h:short-help>
     </h:attr-help>
     <h:attr-help name="unit-refs">
-      <h:short-help>Print exactly this list of units (space seperated).  Overrides other revision selections, for units.</h:short-help>
+      <h:short-help>Print exactly this list of units (space seperated).
+      Overrides other revision selections, for units.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-draft">
-    <h:short-help>Define what is printed in draft output.  This options only affect draft output format.  Just about all draft only text will be printed in the draft color.  Default is 0 for missing attributes.</h:short-help>
+    <h:short-help>Define what is printed in draft output. This options
+    only affect draft output format. Just about all draft only text will
+    be printed in the draft color. Default is 0 for missing
+    attributes.</h:short-help>
     <h:attr-help name="id">
       <h:short-help>id to be used in def-style</h:short-help>
     </h:attr-help>
@@ -242,10 +255,12 @@
       <h:short-help>Print deleted content.</h:short-help>
     </h:attr-help>
     <h:attr-help name="thread-all">
-      <h:short-help>Print all threads, not just the threads defined in def-content.</h:short-help>
+      <h:short-help>Print all threads, not just the threads defined in
+      def-content.</h:short-help>
     </h:attr-help>
     <h:attr-help name="thread-all-vp">
-      <h:short-help>Print all viewpoints in threads. (I.e. all t elements)</h:short-help>
+      <h:short-help>Print all viewpoints in threads. (I.e. all t
+      elements)</h:short-help>
     </h:attr-help>
     <h:attr-help name="thread-content">
       <h:short-help>Print content of threads?</h:short-help>
@@ -275,38 +290,42 @@
       <h:short-help>Print unit who text.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-img">
-    <h:short-help>Define an image.  The content of the element is the image's alt text.</h:short-help>
+    <h:short-help>Define an image. The content of the element is the
+    image's alt text.</h:short-help>
     <h:attr-help name="id">
-      <h:short-help>Image id to be used in img or link elements.</h:short-help>
+      <h:short-help>Image id to be used in img or link
+      elements.</h:short-help>
     </h:attr-help>
     <h:attr-help name="url">
-      <h:short-help>URL for image (not including base part, if that is relevent).</h:short-help>
+      <h:short-help>URL for image (not including base part, if that is
+      relevent).</h:short-help>
     </h:attr-help>
     <h:attr-help name="base-ref">
       <h:short-help>Base part of the URL.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-link">
-    <h:short-help>Define a link.  The content of the element is the link's title.</h:short-help>
+    <h:short-help>Define a link. The content of the element is the link's
+    title.</h:short-help>
     <h:attr-help name="id">
       <h:short-help>id to be used in link elements.</h:short-help>
     </h:attr-help>
     <h:attr-help name="url">
-      <h:short-help>URL for the link (not including the base part, if that is relevant).</h:short-help>
+      <h:short-help>URL for the link (not including the base part, if that
+      is relevant).</h:short-help>
     </h:attr-help>
     <h:attr-help name="base-ref">
       <h:short-help>Base part of the URL.</h:short-help>
     </h:attr-help>
     <h:attr-help name="img-ref">
-      <h:short-help>Optional image that may be defined in the link.</h:short-help>
+      <h:short-help>Optional image that may be defined in the
+      link.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-print">
-    <h:short-help>Default is 0 for missing attributes, unless noted otherwise.</h:short-help>
+    <h:short-help>Default is 0 for missing attributes, unless noted
+    otherwise.</h:short-help>
     <h:attr-help name="id">
       <h:short-help>id to be used in def-style.</h:short-help>
     </h:attr-help>
@@ -314,7 +333,8 @@
       <h:short-help>HTML only: accessed link color.</h:short-help>
     </h:attr-help>
     <h:attr-help name="auto-break">
-      <h:short-help>Set to 1, to put a section break (a blank line) automatically between units.</h:short-help>
+      <h:short-help>Set to 1, to put a section break (a blank line)
+      automatically between units.</h:short-help>
     </h:attr-help>
     <h:attr-help name="bgcolor">
       <h:short-help>HTML only: background color.</h:short-help>
@@ -341,61 +361,88 @@
       <h:short-help>Chapter title font family.</h:short-help>
     </h:attr-help>
     <h:attr-help name="ch-title-size">
-      <h:short-help>Chapter title font size.  Also the subtitle font size on the title page.</h:short-help>
+      <h:short-help>Chapter title font size. Also the subtitle font size
+      on the title page.</h:short-help>
     </h:attr-help>
     <h:attr-help name="ch-page-break">
-      <h:short-help>Controls page breaks for chapters.  TOC always starts on odd page.<br/>none - ch-preface, preface and first chapter start on a new page. <br/>some-odd - ch-preface, preface first chapter, and epilog start on odd pages.  Other chapters break on any page.<br/>  all-odd - same as some-odd, but all chapters start on odd pages.</h:short-help>
+      <h:short-help>Controls page breaks for chapters. TOC always starts
+      on odd page.
+      <br />none - ch-preface, preface and first chapter start on a new
+      page. 
+      <br />some-odd - ch-preface, preface first chapter, and epilog start
+      on odd pages. Other chapters break on any page.
+      <br />all-odd - same as some-odd, but all chapters start on odd
+      pages.</h:short-help>
     </h:attr-help>
     <h:attr-help name="copyright-type">
       <h:short-help>Define the copyright type.</h:short-help>
     </h:attr-help>
     <h:attr-help name="draft">
-      <h:short-help>HTML only: draft text color, i.e. text that will not print in final drafts.</h:short-help>
+      <h:short-help>HTML only: draft text color, i.e. text that will not
+      print in final drafts.</h:short-help>
     </h:attr-help>
     <h:attr-help name="duplex">
       <h:short-help>Print only: Double sided?</h:short-help>
     </h:attr-help>
     <h:attr-help name="gutter">
-      <h:short-help>Print only: space for binding (inside edge).</h:short-help>
+      <h:short-help>Print only: space for binding (inside
+      edge).</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-align">
-      <h:short-help>Print only: Heading aligment:<br/> page no. is aways on outside edge, if there is other text.  If just page-no head-type, then head-align applies to the page-no.<br/> left - align non-page text to inside edge<br/> right - align non-page text to outside edge<br/> center - center the text</h:short-help>
+      <h:short-help>Print only: Heading aligment:
+      <br />page no. is aways on outside edge, if there is other text. If
+      just page-no head-type, then head-align applies to the page-no.
+      <br />left - align non-page text to inside edge
+      <br />right - align non-page text to outside edge
+      <br />center - center the text</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-family">
       <h:short-help>Page header font family</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-location">
-      <h:short-help>Print only: Heading location.<br/> top - top of page, with a rule line below<br/> bottom - bottom of page, with a rule line above</h:short-help>
+      <h:short-help>Print only: Heading location.
+      <br />top - top of page, with a rule line below
+      <br />bottom - bottom of page, with a rule line above</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-size">
       <h:short-help>Page header font size.</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-type">
-      <h:short-help>Print only: Heading type:<br/> page-no - only page numbers<br/> title - numbers outside, title inside<br/> author-title - numbers outside, author even, title odd<br/> title-chapter - numbers outside, title even, chapter odd</h:short-help>
+      <h:short-help>Print only: Heading type:
+      <br />page-no - only page numbers
+      <br />title - numbers outside, title inside
+      <br />author-title - numbers outside, author even, title odd
+      <br />title-chapter - numbers outside, title even, chapter
+      odd</h:short-help>
     </h:attr-help>
     <h:attr-help name="img-ref">
       <h:short-help>HTML only: background image.</h:short-help>
     </h:attr-help>
     <h:attr-help name="line-height">
-      <h:short-help>Line height percent.  Recommend 120 for single space, 240 for double spacing.</h:short-help>
+      <h:short-help>Line height percent. Recommend 120 for single space,
+      240 for double spacing.</h:short-help>
     </h:attr-help>
     <h:attr-help name="link">
       <h:short-help>Link color</h:short-help>
     </h:attr-help>
     <h:attr-help name="margin">
-      <h:short-help>Print only: top, bottom, left, and right margins.  (specify, in or cm)</h:short-help>
+      <h:short-help>Print only: top, bottom, left, and right margins.
+      (specify, in or cm)</h:short-help>
     </h:attr-help>
     <h:attr-help name="multi-file">
-      <h:short-help>HTML only: If 1, print each chapter in separate files.  If 0, print whole book all in one file.</h:short-help>
+      <h:short-help>HTML only: If 1, print each chapter in separate files.
+      If 0, print whole book all in one file.</h:short-help>
     </h:attr-help>
     <h:attr-help name="next-prev">
-      <h:short-help>HTML only: for multi-file output, include next/previous links?</h:short-help>
+      <h:short-help>HTML only: for multi-file output, include
+      next/previous links?</h:short-help>
     </h:attr-help>
     <h:attr-help name="output-type">
-      <h:short-help>Define the output file type.  The selected print template may override this option.</h:short-help>
+      <h:short-help>Define the output file type. The selected print
+      template may override this option.</h:short-help>
     </h:attr-help>
     <h:attr-help name="page">
-      <h:short-help>Print only: final page size, in inches </h:short-help>
+      <h:short-help>Print only: final page size, in inches</h:short-help>
     </h:attr-help>
     <h:attr-help name="text">
       <h:short-help>HTML only: forground text color.</h:short-help>
@@ -413,11 +460,13 @@
       <h:short-help>HTML only: Visited link color.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-style">
-    <h:short-help>Define a number of different output styles, selecting from different def-content, def-draft, and def-print settings.</h:short-help>
+    <h:short-help>Define a number of different output styles, selecting
+    from different def-content, def-draft, and def-print
+    settings.</h:short-help>
     <h:attr-help name="id">
-      <h:short-help>Identifier for this element.  This is used in style-info element. Start ids with a letter.</h:short-help>
+      <h:short-help>Identifier for this element. This is used in
+      style-info element. Start ids with a letter.</h:short-help>
     </h:attr-help>
     <h:attr-help name="content-ref">
       <h:short-help>def-content id.</h:short-help>
@@ -432,336 +481,331 @@
       <h:short-help>If 1, then debug messages are output.</h:short-help>
     </h:attr-help>
     <h:attr-help name="draft">
-      <h:short-help>Depreciated.  The print template overrides this.</h:short-help>
+      <h:short-help>Depreciated. The print template overrides
+      this.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-thread">
     <h:short-help>The content describes a plot thread.</h:short-help>
     <h:attr-help name="id">
-      <h:short-help>Identifyer for this element.  This is used in thread.ref.</h:short-help>
+      <h:short-help>Identifyer for this element. This is used in
+      thread.ref.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-when">
-    <h:short-help>Define the default when time.  Any missing values in start-date will be filled with one of these values.</h:short-help>
-    <h:attr-group-ref name="date-time"/>
+    <h:short-help>Define the default when time. Any missing values in
+    start-date will be filled with one of these values.</h:short-help>
+    <h:attr-group-ref name="date-time" />
   </h:element-help>
-
   <h:element-help match="def-where">
-    <h:short-help>Describe a location for scenes and sequels units.  A when element in the unit can define diffrences from this description.</h:short-help>
+    <h:short-help>Describe a location for scenes and sequels units. A when
+    element in the unit can define diffrences from this
+    description.</h:short-help>
     <h:attr-help name="id">
-      <h:short-help>Identifier for this element.  Used by when.ref.</h:short-help>
+      <h:short-help>Identifier for this element. Used by
+      when.ref.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="def-who">
-    <h:short-help>Describe a character in the story.  A narrator character would also be created for non-first person stories.  A who element in the unit can define difference from this description.</h:short-help>
+    <h:short-help>Describe a character in the story. A narrator character
+    would also be created for non-first person stories. A who element in
+    the unit can define difference from this description.</h:short-help>
     <h:attr-help name="id">
-      <h:short-help>Identifier for this unit.  Used by who.ref.</h:short-help>
+      <h:short-help>Identifier for this unit. Used by
+      who.ref.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="outline/description">
     <h:short-help>Outline description for this unit.</h:short-help>
   </h:element-help>
-
   <h:element-help match="when/description">
     <h:short-help>Give more detail about this unit time.</h:short-help>
   </h:element-help>
-
   <h:element-help match="edition">
     <h:short-help>Book edition number.</h:short-help>
   </h:element-help>
-
   <h:element-help match="editor">
     <h:short-help>Editor information.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="email">
     <h:short-help>Email address for person or publisher.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="end-date">
-    <h:short-help>What time does the unit end. If attr are missing from end-date, get them from start-date.</h:short-help>
-    <h:attr-group-ref name="date-time"/>
+    <h:short-help>What time does the unit end. If attr are missing from
+    end-date, get them from start-date.</h:short-help>
+    <h:attr-group-ref name="date-time" />
   </h:element-help>
-
   <h:element-help match="epilog">
     <h:short-help>Epilog text.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="fax">
     <h:short-help>FAX phone number.</h:short-help>
   </h:element-help>
-
   <h:element-help match="file-prefix">
-    <h:short-help>File prefix put before chapter file names.  Only used with multi-file output.</h:short-help>
+    <h:short-help>File prefix put before chapter file names. Only used
+    with multi-file output.</h:short-help>
   </h:element-help>
-
   <h:element-help match="first-name">
     <h:short-help>First name</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="holder">
-    <h:short-help>Copyright holder name (usually one of the listed authors or publisher)</h:short-help>
+    <h:short-help>Copyright holder name (usually one of the listed authors
+    or publisher)</h:short-help>
   </h:element-help>
-
   <h:element-help match="honorific">
     <h:short-help>Mr, Ms, Mrs, Dr. etc.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="i">
     <h:short-help>Italic text</h:short-help>
   </h:element-help>
-
   <h:element-help match="img">
     <h:short-help>Print an inline image.</h:short-help>
     <h:attr-help name="ref">
       <h:short-help>def-img id.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="keyword-set">
-    <h:short-help>Keywords for the book.  May be printed on copyright page.  Content will be output in HTML meta-keywods element.</h:short-help>
+    <h:short-help>Keywords for the book. May be printed on copyright page.
+    Content will be output in HTML meta-keywods element.</h:short-help>
   </h:element-help>
-
   <h:element-help match="legal-notice">
-    <h:short-help>This text will be printed at end of the copyright page.</h:short-help>
+    <h:short-help>This text will be printed at end of the copyright
+    page.</h:short-help>
   </h:element-help>
-
   <h:element-help match="linage">
     <h:short-help>Jr, II, III, etc.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="link">
-    <h:short-help>Output an inline link.  I.e. a link to another file or a web page.</h:short-help>
+    <h:short-help>Output an inline link. I.e. a link to another file or a
+    web page.</h:short-help>
     <h:attr-help name="ref">
       <h:short-help>def-link id.</h:short-help>
     </h:attr-help>
     <h:attr-help name="img">
-      <h:short-help>Display any image defined for this link.</h:short-help>
+      <h:short-help>Display any image defined for this
+      link.</h:short-help>
     </h:attr-help>
     <h:attr-help name="title">
-      <h:short-help>Link text.  If this is empty, then the def-link content will be used.</h:short-help>
+      <h:short-help>Link text. If this is empty, then the def-link content
+      will be used.</h:short-help>
     </h:attr-help>
     <h:attr-help name="url">
-      <h:short-help>Print the link's URL in the output (in parens).</h:short-help>
+      <h:short-help>Print the link's URL in the output (in
+      parens).</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="meta-description">
-    <h:short-help>HTML only: Text for HTML meta-description.</h:short-help>
+    <h:short-help>HTML only: Text for HTML
+    meta-description.</h:short-help>
   </h:element-help>
-
   <h:element-help match="other-addr">
     <h:short-help>Additional address information.</h:short-help>
   </h:element-help>
-
   <h:element-help match="other-name">
     <h:short-help>Other names for this person.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="outline">
-    <h:short-help>Describe outline information about this unit.  This will only print in the draft output.</h:short-help>
+    <h:short-help>Describe outline information about this unit. This will
+    only print in the draft output.</h:short-help>
   </h:element-help>
-
   <h:element-help match="p">
-    <h:short-help>Regular paragraph text, for use in threads.  Use this when s or t elements don't make sense.  Formated as indented paragraphs.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Regular paragraph text, for use in threads. Use this
+    when s or t elements don't make sense. Formated as indented
+    paragraphs.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="para">
-    <h:short-help>Regular paragraph text used in non-thread sections.  Usually this formats as block paragraphs.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Regular paragraph text used in non-thread sections.
+    Usually this formats as block paragraphs.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="phone">
-    <h:short-help>Phone number.  Include international digits if not U.S.</h:short-help>
+    <h:short-help>Phone number. Include international digits if not
+    U.S.</h:short-help>
   </h:element-help>
-
   <h:element-help match="pob">
     <h:short-help>Post Office Box number.</h:short-help>
   </h:element-help>
-
   <h:element-help match="post-code">
-    <h:short-help>Postal code.  In the U.S.: zip code</h:short-help>
+    <h:short-help>Postal code. In the U.S.: zip code</h:short-help>
   </h:element-help>
-
   <h:element-help match="postlog">
-    <h:short-help>This text is put just after the chapter title and just before the first unit thread text is printed.  A small rule is used as a separator.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>This text is put just after the chapter title and just
+    before the first unit thread text is printed. A small rule is used as
+    a separator.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="pre">
-    <h:short-help>Preformatted text.  This uses a fixed space font.  Line breaks and leading space characters will be preserved.  This is used in thread elments. </h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Preformatted text. This uses a fixed space font. Line
+    breaks and leading space characters will be preserved. This is used in
+    thread elments.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="pre-fmt">
-    <h:short-help>Preformatted text. This uses a fixed space font.  Line breaks and leading space characters will be preserved.  This is used in non-thread elments. </h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Preformatted text. This uses a fixed space font. Line
+    breaks and leading space characters will be preserved. This is used in
+    non-thread elments.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="preface">
     <h:short-help>Preface text.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="prolog">
-    <h:short-help>This text is put just after the last unit thread, at the end of the chapter.  A small rule is used as a separator.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>This text is put just after the last unit thread, at the
+    end of the chapter. A small rule is used as a
+    separator.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="pub-date">
     <h:short-help>Publication date.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="publisher">
     <h:short-help>Publisher information.</h:short-help>
   </h:element-help>
-
   <h:element-help match="publisher-name">
     <h:short-help>Publisher's full name.</h:short-help>
   </h:element-help>
-
   <h:element-help match="quote">
-    <h:short-help>Define a block quote.  Text is indented at margins an a blank line is put before and after the text.  Use pre or br to preserve line breaks.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Define a block quote. Text is indented at margins an a
+    blank line is put before and after the text. Use pre or br to preserve
+    line breaks.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="release-info">
     <h:short-help>Define version control information.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
-    <h:attr-group-ref name="release-info"/>
+    <h:attr-group-ref name="com-attr" />
+    <h:attr-group-ref name="release-info" />
   </h:element-help>
-
   <h:element-help match="rev">
-    <h:short-help>Use this to define revisions within paragraph.  The revision-flag is required.  deleted text will not be printed.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Use this to define revisions within paragraph. The
+    revision-flag is required. deleted text will not be
+    printed.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="s">
-    <h:short-help>Say text.  The who-ref may be defined for draft output, but it has no other affect on the output.  Formatted as indented paragraph.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Say text. The who-ref may be defined for draft output,
+    but it has no other affect on the output. Formatted as indented
+    paragraph.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
     <h:attr-help name="who-ref">
       <h:short-help>def-who id.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="start-date">
-    <h:short-help>What date/time does the unit begin.  If attr are missing from start-date, use def-when.</h:short-help>
-    <h:attr-group-ref name="date-time"/>
+    <h:short-help>What date/time does the unit begin. If attr are missing
+    from start-date, use def-when.</h:short-help>
+    <h:attr-group-ref name="date-time" />
   </h:element-help>
-
   <h:element-help match="state">
     <h:short-help>State or providence name.</h:short-help>
   </h:element-help>
-
   <h:element-help match="story-dtd">
-    <h:short-help>Define the DTD version for this story.  One or more error messages will be printed if this does not match correct story template version.</h:short-help>
+    <h:short-help>Define the DTD version for this story. One or more error
+    messages will be printed if this does not match correct story template
+    version.</h:short-help>
     <h:attr-help name="version">
       <h:short-help>Version number.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="story-info">
-    <h:short-help>Define elements related to the story content.  These are elements that are helpful to writing the story.  None of this will print in final copy.</h:short-help>
+    <h:short-help>Define elements related to the story content. These are
+    elements that are helpful to writing the story. None of this will
+    print in final copy.</h:short-help>
   </h:element-help>
-
   <h:element-help match="street">
     <h:short-help>One or more street address lines.</h:short-help>
   </h:element-help>
-
   <h:element-help match="style-info">
-    <h:short-help>Define which def-style is used to format the book.  This may be overridden with a command line option.</h:short-help>
+    <h:short-help>Define which def-style is used to format the book. This
+    may be overridden with a command line option.</h:short-help>
     <h:attr-help name="style-ref">
       <h:short-help>A def-style id.</h:short-help>
     </h:attr-help>
     <h:attr-help name="thread-refs">
-      <h:short-help>A thread id.  This defines the threads that will be displayed in the editor view, which may be different from the def-content threads selected in a style.</h:short-help>
+      <h:short-help>A thread id. This defines the threads that will be
+      displayed in the editor view, which may be different from the
+      def-content threads selected in a style.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="subtitle">
     <h:short-help>Additional title text.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="surname">
     <h:short-help>Also know as a person's last name.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="t">
-    <h:short-help>Thought text, by one of the characters.  The thread's who-refs defines which t elements will print.  Formatted as indented paragraph.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Thought text, by one of the characters. The thread's
+    who-refs defines which t elements will print. Formatted as indented
+    paragraph.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
     <h:attr-help name="who-ref">
-      <h:short-help>The def-who id of the character who thought this.  Also known as the viewpoint character.</h:short-help>
+      <h:short-help>The def-who id of the character who thought this. Also
+      known as the viewpoint character.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="thread">
-    <h:short-help>This is a container for different story threads or sub-plots. The ref id defines which thread the text belongs to.   Using def-content.thread-refs, you can output single threads, to look for inconsistencies.  This can also be used to define alternate story threads, which might be put in the final version.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>This is a container for different story threads or
+    sub-plots. The ref id defines which thread the text belongs to. Using
+    def-content.thread-refs, you can output single threads, to look for
+    inconsistencies. This can also be used to define alternate story
+    threads, which might be put in the final version.</h:short-help>
+    <h:attr-group-ref name="com-attr" />
     <h:attr-help name="ref">
       <h:short-help>def-thread id.</h:short-help>
     </h:attr-help>
     <h:attr-help name="who-refs">
-      <h:short-help>One or more def-who ids.  More that one is allowed, so that a narrator can be included, along with mixed viewpoints.</h:short-help>
+      <h:short-help>One or more def-who ids. More that one is allowed, so
+      that a narrator can be included, along with mixed
+      viewpoints.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="title">
     <h:short-help>Title text for the parent element</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="title-abbrev">
-    <h:short-help>Abbreviated title text which may be used in a page header</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:short-help>Abbreviated title text which may be used in a page
+    header</h:short-help>
+    <h:attr-group-ref name="com-attr" />
   </h:element-help>
-
   <h:element-help match="tt">
-    <h:short-help>Typewriter text.  Fixed space text.</h:short-help>
+    <h:short-help>Typewriter text. Fixed space text.</h:short-help>
   </h:element-help>
-
   <h:element-help match="unit">
     <h:short-help>Main container for a scene or sequel.</h:short-help>
-    <h:attr-group-ref name="com-attr"/>
+    <h:attr-group-ref name="com-attr" />
     <h:attr-help name="type">
       <h:short-help>Define this unit's type.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="when">
     <h:short-help>Define when this unit takes place.</h:short-help>
   </h:element-help>
-
   <h:element-help match="where">
     <h:short-help>Define the main location for this unit.</h:short-help>
     <h:attr-help name="ref">
       <h:short-help>def-where id.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="who">
-    <h:short-help>Define one or more characters who are in this unit.</h:short-help>
+    <h:short-help>Define one or more characters who are in this
+    unit.</h:short-help>
     <h:attr-help name="ref">
       <h:short-help>def-who id.</h:short-help>
     </h:attr-help>
   </h:element-help>
-
   <h:element-help match="year">
-    <h:short-help>Copyright year.  Define one or more.</h:short-help>
+    <h:short-help>Copyright year. Define one or more.</h:short-help>
   </h:element-help>
-
 </h:serna-help>

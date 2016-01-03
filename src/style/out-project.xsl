@@ -1383,9 +1383,13 @@ def-thread -> resources
             <Finish>
               <xsl:value-of select="@u-end-date" />
             </Finish>
-            <Duration><xsl:value-of select="@duration" /></Duration>
+            <Duration>
+              <xsl:value-of select="@duration" />
+            </Duration>
             <DurationFormat>7</DurationFormat>
-            <Work><xsl:value-of select="@duration" /></Work>
+            <Work>
+              <xsl:value-of select="@duration" />
+            </Work>
             <ResumeValid>0</ResumeValid>
             <EffortDriven>1</EffortDriven>
             <Recurring>0</Recurring>

@@ -1,15 +1,25 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-<TITLE>html3.2.dtd</TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
-<STYLE TYPE="text/css">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>html3.2.dtd</title>
+  <link rel="stylesheet"
+        type="text/css"
+        href="livedtd.css" />
+<style type="text/css">
+/*<![CDATA[*/
   STRONG { font-weight: bold; color: red;}
   .COMMENT { font-style:italic; color: #A8A8A8;}
-</STYLE>
-</HEAD>
-<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>html3.2.dtd</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
-<PRE><SPAN CLASS="COMMENT">&lt;!--
+/*]]>*/
+</style>
+</head>
+
+<body onload=
+"parent.file.document.open();parent.file.document.write('&lt;BODY TOPMARGIN=0&gt;&lt;B&gt;html3.2.dtd&lt;/B&gt;&lt;/BODY&gt;');parent.file.document.close()">
+<?LIVEDTD ENDHEAD?>
+  <pre>
+<span class="COMMENT">&lt;!--
         W3C Document Type Definition for the HyperText Markup Language
         version 3.2 as ratified by a vote of W3C member companies.
         For more information on W3C look at  URL http://www.w3.org/
@@ -27,82 +37,166 @@
         of these element Otherwise support for them is not required.
         ID, CLASS and STYLE attributes are not included in this version
         of HTML.
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.HTML.Version"><STRONG>HTML.Version</STRONG></A>
-        "-//W3C//DTD <A HREF="html3.2.dtd.html#ElementDef45">HTML</A> 3.2 Final//EN"
+&lt;!ENTITY % <a name="EntityDef.HTML.Version"
+     id="EntityDef.HTML.Version"><strong>HTML.Version</strong></a>
+        "-//W3C//DTD <a href=
+"html3.2.dtd.html#ElementDef45">HTML</a> 3.2 Final//EN"
 
         -- Typical usage:
 
-            &lt;!DOCTYPE <A HREF="html3.2.dtd.html#ElementDef45">HTML</A> PUBLIC "-//W3C//DTD <A HREF="html3.2.dtd.html#ElementDef45">HTML</A> 3.2 Final//EN"&gt;
+            &lt;!DOCTYPE <a href=
+"html3.2.dtd.html#ElementDef45">HTML</a> PUBLIC "-//W3C//DTD <a href=
+"html3.2.dtd.html#ElementDef45">HTML</a> 3.2 Final//EN"&gt;
             &lt;html&gt;
             ...
             &lt;/html&gt;
         --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================== Deprecated Features Switch =========================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================== Deprecated Features Switch =========================--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.HTML.Deprecated"><STRONG>HTML.Deprecated</STRONG></A> "INCLUDE"&gt;
+&lt;!ENTITY % <a name="EntityDef.HTML.Deprecated"
+     id=
+     "EntityDef.HTML.Deprecated"><strong>HTML.Deprecated</strong></a> "INCLUDE"&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================== Imported Names =====================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================== Imported Names =====================================--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.Content-Type"><STRONG>Content-Type</STRONG></A> "CDATA"
+&lt;!ENTITY % <a name="EntityDef.Content-Type"
+     id="EntityDef.Content-Type"><strong>Content-Type</strong></a> "CDATA"
         -- meaning a MIME content type, as per RFC1521
         --&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.HTTP-Method"><STRONG>HTTP-Method</STRONG></A> "GET | POST"
+&lt;!ENTITY % <a name="EntityDef.HTTP-Method"
+     id=
+     "EntityDef.HTTP-Method"><strong>HTTP-Method</strong></a> "GET | POST"
         -- as per HTTP specification
         --&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.URL"><STRONG>URL</STRONG></A> "CDATA"
+&lt;!ENTITY % <a name="EntityDef.URL"
+     id="EntityDef.URL"><strong>URL</strong></a> "CDATA"
         -- The term URL means a CDATA attribute
            whose value is a Uniform Resource Locator,
            See RFC1808 (June 95) and RFC1738 (Dec 94).
         --&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Parameter Entities --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- Parameter Entities --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.head.misc"><STRONG>head.misc</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef44">SCRIPT</A>|<A HREF="html3.2.dtd.html#ElementDef43">STYLE</A>|<A HREF="html3.2.dtd.html#ElementDef42">META</A>|<A HREF="html3.2.dtd.html#ElementDef12">LINK</A>" -- repeatable head elements --&gt;
+&lt;!ENTITY % <a name="EntityDef.head.misc"
+     id="EntityDef.head.misc"><strong>head.misc</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef44">SCRIPT</a>|<a href=
+     "html3.2.dtd.html#ElementDef43">STYLE</a>|<a href=
+     "html3.2.dtd.html#ElementDef42">META</a>|<a href=
+     "html3.2.dtd.html#ElementDef12">LINK</a>" -- repeatable head elements --&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.heading"><STRONG>heading</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef18">H1</A>|<A HREF="html3.2.dtd.html#ElementDef18">H2</A>|<A HREF="html3.2.dtd.html#ElementDef18">H3</A>|<A HREF="html3.2.dtd.html#ElementDef18">H4</A>|<A HREF="html3.2.dtd.html#ElementDef18">H5</A>|<A HREF="html3.2.dtd.html#ElementDef18">H6</A>"&gt;
+&lt;!ENTITY % <a name="EntityDef.heading"
+     id="EntityDef.heading"><strong>heading</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef18">H1</a>|<a href=
+     "html3.2.dtd.html#ElementDef18">H2</a>|<a href=
+     "html3.2.dtd.html#ElementDef18">H3</a>|<a href=
+     "html3.2.dtd.html#ElementDef18">H4</a>|<a href=
+     "html3.2.dtd.html#ElementDef18">H5</a>|<a href=
+     "html3.2.dtd.html#ElementDef18">H6</a>"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.list"><STRONG>list</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef26">UL</A> | <A HREF="html3.2.dtd.html#ElementDef26">OL</A> |  <A HREF="html3.2.dtd.html#ElementDef27">DIR</A> | <A HREF="html3.2.dtd.html#ElementDef27">MENU</A>"&gt;
+&lt;!ENTITY % <a name="EntityDef.list"
+     id="EntityDef.list"><strong>list</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef26">UL</a> | <a href=
+     "html3.2.dtd.html#ElementDef26">OL</a> |  <a href=
+     "html3.2.dtd.html#ElementDef27">DIR</a> | <a href=
+     "html3.2.dtd.html#ElementDef27">MENU</a>"&gt;
 
-&lt;!<A NAME="MS1"></A>[ <A HREF="html3.2.dtd.html#EntityDef.HTML.Deprecated">%HTML.Deprecated</A> [
-    &lt;!ENTITY % <A NAME="EntityDef.preformatted"><STRONG>preformatted</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef19">PRE</A> | <A HREF="html3.2.dtd.html#ElementDef20">XMP</A> | <A HREF="html3.2.dtd.html#ElementDef20">LISTING</A>"&gt;
+&lt;!<a name="MS1"
+     id="MS1"></a>[ <a href=
+     "html3.2.dtd.html#EntityDef.HTML.Deprecated">%HTML.Deprecated</a> [
+    &lt;!ENTITY % <a name="EntityDef.preformatted"
+     id=
+     "EntityDef.preformatted"><strong>preformatted</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef19">PRE</a> | <a href=
+     "html3.2.dtd.html#ElementDef20">XMP</a> | <a href=
+     "html3.2.dtd.html#ElementDef20">LISTING</a>"&gt;
 ]]&gt;
 
 &lt;!ENTITY % preformatted "PRE"&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================ Character mnemonic entities ==========================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================ Character mnemonic entities ==========================--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.ISOlat1"><STRONG>ISOlat1</STRONG></A> PUBLIC
-       "ISO 8879-1986//ENTITIES Added Latin 1//EN//<A HREF="html3.2.dtd.html#ElementDef45">HTML</A>"&gt;
-<A HREF="html3.2.dtd.html#EntityDef.ISOlat1">%ISOlat1;</A>
+&lt;!ENTITY % <a name="EntityDef.ISOlat1"
+     id="EntityDef.ISOlat1"><strong>ISOlat1</strong></a> PUBLIC
+       "ISO 8879-1986//ENTITIES Added Latin 1//EN//<a href=
+"html3.2.dtd.html#ElementDef45">HTML</a>"&gt;
+<a href="html3.2.dtd.html#EntityDef.ISOlat1">%ISOlat1;</a>
 
-<SPAN CLASS="COMMENT">&lt;!--================ Entities for special symbols =========================--&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- &amp;trade and &amp;cbsp are not widely deployed and so not included here --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================ Entities for special symbols =========================--&gt;</span>
+<span class=
+"COMMENT">&lt;!-- &amp;trade and &amp;cbsp are not widely deployed and so not included here --&gt;</span>
 
 &lt;!ENTITY amp    CDATA "&amp;#38;"   -- ampersand          --&gt;
 &lt;!ENTITY gt     CDATA "&amp;#62;"   -- greater than       --&gt;
 &lt;!ENTITY lt     CDATA "&amp;#60;"   -- less than          --&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Text Markup =======================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Text Markup =======================================--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.font"><STRONG>font</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef1">TT</A> | <A HREF="html3.2.dtd.html#ElementDef1">I</A> | <A HREF="html3.2.dtd.html#ElementDef1">B</A>  | <A HREF="html3.2.dtd.html#ElementDef1">U</A> | <A HREF="html3.2.dtd.html#ElementDef1">STRIKE</A> | <A HREF="html3.2.dtd.html#ElementDef1">BIG</A> | <A HREF="html3.2.dtd.html#ElementDef1">SMALL</A> | <A HREF="html3.2.dtd.html#ElementDef1">SUB</A> | <A HREF="html3.2.dtd.html#ElementDef1">SUP</A>"&gt;
+&lt;!ENTITY % <a name="EntityDef.font"
+     id="EntityDef.font"><strong>font</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef1">TT</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">I</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">B</a>  | <a href=
+     "html3.2.dtd.html#ElementDef1">U</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">STRIKE</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">BIG</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">SMALL</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">SUB</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">SUP</a>"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.phrase"><STRONG>phrase</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef1">EM</A> | <A HREF="html3.2.dtd.html#ElementDef1">STRONG</A> | <A HREF="html3.2.dtd.html#ElementDef1">DFN</A> | <A HREF="html3.2.dtd.html#ElementDef1">CODE</A> | <A HREF="html3.2.dtd.html#ElementDef1">SAMP</A> | <A HREF="html3.2.dtd.html#ElementDef1">KBD</A> | <A HREF="html3.2.dtd.html#ElementDef1">VAR</A> | <A HREF="html3.2.dtd.html#ElementDef1">CITE</A>"&gt;
+&lt;!ENTITY % <a name="EntityDef.phrase"
+     id="EntityDef.phrase"><strong>phrase</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef1">EM</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">STRONG</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">DFN</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">CODE</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">SAMP</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">KBD</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">VAR</a> | <a href=
+     "html3.2.dtd.html#ElementDef1">CITE</a>"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.special"><STRONG>special</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef9">A</A> | <A HREF="html3.2.dtd.html#ElementDef13">IMG</A> | <A HREF="html3.2.dtd.html#ElementDef14">APPLET</A> | <A HREF="html3.2.dtd.html#ElementDef2">FONT</A> | <A HREF="html3.2.dtd.html#ElementDef3">BASEFONT</A> | <A HREF="html3.2.dtd.html#ElementDef4">BR</A> | <A HREF="html3.2.dtd.html#ElementDef44">SCRIPT</A> | <A HREF="html3.2.dtd.html#ElementDef10">MAP</A>"&gt;
+&lt;!ENTITY % <a name="EntityDef.special"
+     id="EntityDef.special"><strong>special</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef9">A</a> | <a href=
+     "html3.2.dtd.html#ElementDef13">IMG</a> | <a href=
+     "html3.2.dtd.html#ElementDef14">APPLET</a> | <a href=
+     "html3.2.dtd.html#ElementDef2">FONT</a> | <a href=
+     "html3.2.dtd.html#ElementDef3">BASEFONT</a> | <a href=
+     "html3.2.dtd.html#ElementDef4">BR</a> | <a href=
+     "html3.2.dtd.html#ElementDef44">SCRIPT</a> | <a href=
+     "html3.2.dtd.html#ElementDef10">MAP</a>"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.form"><STRONG>form</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef30">INPUT</A> | <A HREF="html3.2.dtd.html#ElementDef31">SELECT</A> | <A HREF="html3.2.dtd.html#ElementDef33">TEXTAREA</A>"&gt;
+&lt;!ENTITY % <a name="EntityDef.form"
+     id="EntityDef.form"><strong>form</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef30">INPUT</a> | <a href=
+     "html3.2.dtd.html#ElementDef31">SELECT</a> | <a href=
+     "html3.2.dtd.html#ElementDef33">TEXTAREA</a>"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.text"><STRONG>text</STRONG></A> "#PCDATA | <A HREF="html3.2.dtd.html#EntityDef.font">%font</A> | <A HREF="html3.2.dtd.html#EntityDef.phrase">%phrase</A> | <A HREF="html3.2.dtd.html#EntityDef.special">%special</A> | <A HREF="html3.2.dtd.html#EntityDef.form">%form</A>"&gt;
+&lt;!ENTITY % <a name="EntityDef.text"
+     id="EntityDef.text"><strong>text</strong></a> "#PCDATA | <a href=
+     "html3.2.dtd.html#EntityDef.font">%font</a> | <a href=
+     "html3.2.dtd.html#EntityDef.phrase">%phrase</a> | <a href=
+     "html3.2.dtd.html#EntityDef.special">%special</a> | <a href=
+     "html3.2.dtd.html#EntityDef.form">%form</a>"&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef1"></A><STRONG>(<A HREF="html3.2.dtd.html#EntityDef.font">%font</A>|<A HREF="html3.2.dtd.html#EntityDef.phrase">%phrase</A>)</STRONG> - - (<A HREF="html3.2.dtd.html#EntityDef.text">%text</A>)*&gt;
+&lt;!ELEMENT <a name="ElementDef1"
+     id="ElementDef1"></a><strong>(<a href=
+     "html3.2.dtd.html#EntityDef.font">%font</a>|<a href=
+     "html3.2.dtd.html#EntityDef.phrase">%phrase</a>)</strong> - - (<a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a>)*&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- there are also 16 widely known color names although
+<span class=
+"COMMENT">&lt;!-- there are also 16 widely known color names although
   the resulting colors are implementation dependent:
 
    aqua, black, blue, fuchsia, gray, green, lime, maroon,
@@ -110,117 +204,193 @@
 
  These colors were originally picked as being the standard
  16 colors supported with the Windows VGA palette.
- --&gt;</SPAN>
+ --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef2"></A><STRONG>FONT</STRONG> - - (<A HREF="html3.2.dtd.html#EntityDef.text">%text</A>)*     -- local change to font --&gt;
-&lt;!ATTLIST <A NAME="AttlistDef1"></A><STRONG>FONT</STRONG>
+&lt;!ELEMENT <a name="ElementDef2"
+     id="ElementDef2"></a><strong>FONT</strong> - - (<a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a>)*     -- local change to font --&gt;
+&lt;!ATTLIST <a name="AttlistDef1"
+     id="AttlistDef1"></a><strong>FONT</strong>
     size    CDATA   #IMPLIED    -- [+]nn e.g. size="+1", size=4 --
     color   CDATA   #IMPLIED    -- #RRGGBB in hex, e.g. red: color="#FF0000" --
     &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef3"></A><STRONG>BASEFONT</STRONG> - O EMPTY    -- base font size (1 to 7)--&gt;
-&lt;!ATTLIST <A NAME="AttlistDef2"></A><STRONG>BASEFONT</STRONG>
+&lt;!ELEMENT <a name="ElementDef3"
+     id=
+     "ElementDef3"></a><strong>BASEFONT</strong> - O EMPTY    -- base font size (1 to 7)--&gt;
+&lt;!ATTLIST <a name="AttlistDef2"
+     id="AttlistDef2"></a><strong>BASEFONT</strong>
     size    CDATA   #IMPLIED    -- e.g. size=3 --
     &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef4"></A><STRONG>BR</STRONG>    - O EMPTY    -- forced line break --&gt;
-&lt;!ATTLIST <A NAME="AttlistDef3"></A><STRONG>BR</STRONG>
+&lt;!ELEMENT <a name="ElementDef4"
+     id=
+     "ElementDef4"></a><strong>BR</strong>    - O EMPTY    -- forced line break --&gt;
+&lt;!ATTLIST <a name="AttlistDef3"
+     id="AttlistDef3"></a><strong>BR</strong>
         clear (left|all|right|none) none -- control of text flow --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================== HTML content models ================================--&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!--
+<span class=
+"COMMENT">&lt;!--================== HTML content models ================================--&gt;</span>
+<span class="COMMENT">&lt;!--
     HTML has three basic content models:
 
         %text       character level elements and text strings
         %flow       block-like elements e.g. paragraphs and lists
         %bodytext   as %flow plus headers H1-H6 and ADDRESS
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.block"><STRONG>block</STRONG></A>
-     "<A HREF="html3.2.dtd.html#ElementDef17">P</A> | <A HREF="html3.2.dtd.html#EntityDef.list">%list</A> | <A HREF="html3.2.dtd.html#EntityDef.preformatted">%preformatted</A> | <A HREF="html3.2.dtd.html#ElementDef23">DL</A> | <A HREF="html3.2.dtd.html#ElementDef7">DIV</A> | CENTER |
-      <A HREF="html3.2.dtd.html#ElementDef22">BLOCKQUOTE</A> | <A HREF="html3.2.dtd.html#ElementDef29">FORM</A> | <A HREF="html3.2.dtd.html#ElementDef40">ISINDEX</A> | <A HREF="html3.2.dtd.html#ElementDef16">HR</A> | TABLE"&gt;
+&lt;!ENTITY % <a name="EntityDef.block"
+     id="EntityDef.block"><strong>block</strong></a>
+     "<a href="html3.2.dtd.html#ElementDef17">P</a> | <a href=
+"html3.2.dtd.html#EntityDef.list">%list</a> | <a href=
+"html3.2.dtd.html#EntityDef.preformatted">%preformatted</a> | <a href=
+"html3.2.dtd.html#ElementDef23">DL</a> | <a href=
+"html3.2.dtd.html#ElementDef7">DIV</a> | CENTER |
+      <a href="html3.2.dtd.html#ElementDef22">BLOCKQUOTE</a> | <a href=
+"html3.2.dtd.html#ElementDef29">FORM</a> | <a href=
+"html3.2.dtd.html#ElementDef40">ISINDEX</a> | <a href=
+"html3.2.dtd.html#ElementDef16">HR</a> | TABLE"&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- %flow is used for DD and LI --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- %flow is used for DD and LI --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.flow"><STRONG>flow</STRONG></A> "(<A HREF="html3.2.dtd.html#EntityDef.text">%text</A> | <A HREF="html3.2.dtd.html#EntityDef.block">%block</A>)*"&gt;
+&lt;!ENTITY % <a name="EntityDef.flow"
+     id="EntityDef.flow"><strong>flow</strong></a> "(<a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a> | <a href=
+     "html3.2.dtd.html#EntityDef.block">%block</a>)*"&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Document Body =====================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Document Body =====================================--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.body.content"><STRONG>body.content</STRONG></A> "(<A HREF="html3.2.dtd.html#EntityDef.heading">%heading</A> | <A HREF="html3.2.dtd.html#EntityDef.text">%text</A> | <A HREF="html3.2.dtd.html#EntityDef.block">%block</A> | <A HREF="html3.2.dtd.html#ElementDef6">ADDRESS</A>)*"&gt;
+&lt;!ENTITY % <a name="EntityDef.body.content"
+     id=
+     "EntityDef.body.content"><strong>body.content</strong></a> "(<a href=
+     "html3.2.dtd.html#EntityDef.heading">%heading</a> | <a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a> | <a href=
+     "html3.2.dtd.html#EntityDef.block">%block</a> | <a href=
+     "html3.2.dtd.html#ElementDef6">ADDRESS</a>)*"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.color"><STRONG>color</STRONG></A> "CDATA" -- a color specification: #HHHHHH @@ details? --&gt;
+&lt;!ENTITY % <a name="EntityDef.color"
+     id=
+     "EntityDef.color"><strong>color</strong></a> "CDATA" -- a color specification: #HHHHHH @@ details? --&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.body-color-attrs"><STRONG>body-color-attrs</STRONG></A> "
-        bgcolor <A HREF="html3.2.dtd.html#EntityDef.color">%color</A> #IMPLIED
-        text <A HREF="html3.2.dtd.html#EntityDef.color">%color</A> #IMPLIED
-        link <A HREF="html3.2.dtd.html#EntityDef.color">%color</A> #IMPLIED
-        vlink <A HREF="html3.2.dtd.html#EntityDef.color">%color</A> #IMPLIED
-        alink <A HREF="html3.2.dtd.html#EntityDef.color">%color</A> #IMPLIED
+&lt;!ENTITY % <a name="EntityDef.body-color-attrs"
+     id=
+     "EntityDef.body-color-attrs"><strong>body-color-attrs</strong></a> "
+        bgcolor <a href=
+"html3.2.dtd.html#EntityDef.color">%color</a> #IMPLIED
+        text <a href=
+"html3.2.dtd.html#EntityDef.color">%color</a> #IMPLIED
+        link <a href=
+"html3.2.dtd.html#EntityDef.color">%color</a> #IMPLIED
+        vlink <a href=
+"html3.2.dtd.html#EntityDef.color">%color</a> #IMPLIED
+        alink <a href=
+"html3.2.dtd.html#EntityDef.color">%color</a> #IMPLIED
         "&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef5"></A><STRONG>BODY</STRONG> O O  <A HREF="html3.2.dtd.html#EntityDef.body.content">%body.content</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef4"></A><STRONG>BODY</STRONG>
-        background <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A> #IMPLIED  -- texture tile for document background --
-        <A HREF="html3.2.dtd.html#EntityDef.body-color-attrs">%body-color-attrs;</A>  -- bgcolor, text, link, vlink, alink --
+&lt;!ELEMENT <a name="ElementDef5"
+     id="ElementDef5"></a><strong>BODY</strong> O O  <a href=
+     "html3.2.dtd.html#EntityDef.body.content">%body.content</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef4"
+     id="AttlistDef4"></a><strong>BODY</strong>
+        background <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a> #IMPLIED  -- texture tile for document background --
+        <a href=
+"html3.2.dtd.html#EntityDef.body-color-attrs">%body-color-attrs;</a>  -- bgcolor, text, link, vlink, alink --
         &gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.address.content"><STRONG>address.content</STRONG></A> "((<A HREF="html3.2.dtd.html#EntityDef.text">%text;</A>) | <A HREF="html3.2.dtd.html#ElementDef17">P</A>)*"&gt;
+&lt;!ENTITY % <a name="EntityDef.address.content"
+     id=
+     "EntityDef.address.content"><strong>address.content</strong></a> "((<a href="html3.2.dtd.html#EntityDef.text">%text;</a>) | <a href="html3.2.dtd.html#ElementDef17">P</a>)*"&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef6"></A><STRONG>ADDRESS</STRONG> - - <A HREF="html3.2.dtd.html#EntityDef.address.content">%address.content</A>&gt;
+&lt;!ELEMENT <a name="ElementDef6"
+     id="ElementDef6"></a><strong>ADDRESS</strong> - - <a href=
+     "html3.2.dtd.html#EntityDef.address.content">%address.content</a>&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef7"></A><STRONG>DIV</STRONG> - - <A HREF="html3.2.dtd.html#EntityDef.body.content">%body.content</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef5"></A><STRONG>DIV</STRONG>
+&lt;!ELEMENT <a name="ElementDef7"
+     id="ElementDef7"></a><strong>DIV</strong> - - <a href=
+     "html3.2.dtd.html#EntityDef.body.content">%body.content</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef5"
+     id="AttlistDef5"></a><strong>DIV</strong>
         align   (left|center|right) #IMPLIED -- alignment of following text --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- CENTER is a shorthand for DIV with ALIGN=CENTER --&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef8"></A><STRONG>center</STRONG> - - <A HREF="html3.2.dtd.html#EntityDef.body.content">%body.content</A>&gt;
+<span class=
+"COMMENT">&lt;!-- CENTER is a shorthand for DIV with ALIGN=CENTER --&gt;</span>
+&lt;!ELEMENT <a name="ElementDef8"
+     id="ElementDef8"></a><strong>center</strong> - - <a href=
+     "html3.2.dtd.html#EntityDef.body.content">%body.content</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================== The Anchor Element =================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================== The Anchor Element =================================--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef9"></A><STRONG>A</STRONG> - - (<A HREF="html3.2.dtd.html#EntityDef.text">%text</A>)* -(<A HREF="html3.2.dtd.html#ElementDef9">A</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef6"></A><STRONG>A</STRONG>
+&lt;!ELEMENT <a name="ElementDef9"
+     id="ElementDef9"></a><strong>A</strong> - - (<a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a>)* -(<a href=
+     "html3.2.dtd.html#ElementDef9">A</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef6"
+     id="AttlistDef6"></a><strong>A</strong>
         name    CDATA   #IMPLIED    -- named link end --
-        href    <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A>    #IMPLIED    -- URL for linked resource --
+        href    <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a>    #IMPLIED    -- URL for linked resource --
         rel     CDATA   #IMPLIED    -- forward link types --
         rev     CDATA   #IMPLIED    -- reverse link types --
         title   CDATA   #IMPLIED    -- advisory title string --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================== Client-side image maps ============================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================== Client-side image maps ============================--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- These can be placed in the same document or grouped in a
-     separate document although this isn't yet widely supported --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- These can be placed in the same document or grouped in a
+     separate document although this isn't yet widely supported --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.SHAPE"><STRONG>SHAPE</STRONG></A> "(rect|circle|poly)"&gt;
-&lt;!ENTITY % <A NAME="EntityDef.COORDS"><STRONG>COORDS</STRONG></A> "CDATA" -- comma separated list of numbers --&gt;
+&lt;!ENTITY % <a name="EntityDef.SHAPE"
+     id=
+     "EntityDef.SHAPE"><strong>SHAPE</strong></a> "(rect|circle|poly)"&gt;
+&lt;!ENTITY % <a name="EntityDef.COORDS"
+     id=
+     "EntityDef.COORDS"><strong>COORDS</strong></a> "CDATA" -- comma separated list of numbers --&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef10"></A><STRONG>MAP</STRONG> - - (<A HREF="html3.2.dtd.html#ElementDef11">AREA</A>)*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef7"></A><STRONG>MAP</STRONG>
+&lt;!ELEMENT <a name="ElementDef10"
+     id="ElementDef10"></a><strong>MAP</strong> - - (<a href=
+     "html3.2.dtd.html#ElementDef11">AREA</a>)*&gt;
+&lt;!ATTLIST <a name="AttlistDef7"
+     id="AttlistDef7"></a><strong>MAP</strong>
     name    CDATA   #IMPLIED
     &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef11"></A><STRONG>AREA</STRONG> - O EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef8"></A><STRONG>AREA</STRONG>
-    shape   <A HREF="html3.2.dtd.html#EntityDef.SHAPE">%SHAPE</A>  rect
-    coords  <A HREF="html3.2.dtd.html#EntityDef.COORDS">%COORDS</A> #IMPLIED  -- defines coordinates for shape --
-    href    <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A>    #IMPLIED  -- this region acts as hypertext link --
+&lt;!ELEMENT <a name="ElementDef11"
+     id="ElementDef11"></a><strong>AREA</strong> - O EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef8"
+     id="AttlistDef8"></a><strong>AREA</strong>
+    shape   <a href="html3.2.dtd.html#EntityDef.SHAPE">%SHAPE</a>  rect
+    coords  <a href=
+"html3.2.dtd.html#EntityDef.COORDS">%COORDS</a> #IMPLIED  -- defines coordinates for shape --
+    href    <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a>    #IMPLIED  -- this region acts as hypertext link --
     nohref (nohref) #IMPLIED  -- this region has no action --
     alt     CDATA   #REQUIRED -- needed for non-graphical user agents --
     &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================== The LINK Element ==================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================== The LINK Element ==================================--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.Types"><STRONG>Types</STRONG></A> "CDATA"
+&lt;!ENTITY % <a name="EntityDef.Types"
+     id="EntityDef.Types"><strong>Types</strong></a> "CDATA"
         -- See Internet Draft: draft-ietf-html-relrev-00.txt
-           <A HREF="html3.2.dtd.html#ElementDef12">LINK</A> has been part of <A HREF="html3.2.dtd.html#ElementDef45">HTML</A> since the early days
+           <a href=
+"html3.2.dtd.html#ElementDef12">LINK</a> has been part of <a href=
+"html3.2.dtd.html#ElementDef45">HTML</a> since the early days
            although few browsers as yet take advantage of it.
 
            Relationship values can be used in principle:
 
                 a) for document specific toolbars/menus when used
-                   with the <A HREF="html3.2.dtd.html#ElementDef12">LINK</A> element in the document head:
+                   with the <a href=
+"html3.2.dtd.html#ElementDef12">LINK</a> element in the document head:
                 b) to link to a separate style sheet
                 c) to make a link to a script
                 d) by stylesheets to control how collections of
@@ -229,45 +399,71 @@
                    e.g. a postscript or pdf version
 --&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef12"></A><STRONG>LINK</STRONG> - O EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef9"></A><STRONG>LINK</STRONG>
-        href    <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A>    #IMPLIED    -- URL for linked resource --
-        rel     <A HREF="html3.2.dtd.html#EntityDef.Types">%Types</A>  #IMPLIED    -- forward link types --
-        rev     <A HREF="html3.2.dtd.html#EntityDef.Types">%Types</A>  #IMPLIED    -- reverse link types --
+&lt;!ELEMENT <a name="ElementDef12"
+     id="ElementDef12"></a><strong>LINK</strong> - O EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef9"
+     id="AttlistDef9"></a><strong>LINK</strong>
+        href    <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a>    #IMPLIED    -- URL for linked resource --
+        rel     <a href=
+"html3.2.dtd.html#EntityDef.Types">%Types</a>  #IMPLIED    -- forward link types --
+        rev     <a href=
+"html3.2.dtd.html#EntityDef.Types">%Types</a>  #IMPLIED    -- reverse link types --
         title   CDATA   #IMPLIED    -- advisory title string --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Images ============================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Images ============================================--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.Length"><STRONG>Length</STRONG></A> "CDATA"   -- nn for pixels or nn% for percentage length --&gt;
-&lt;!ENTITY % <A NAME="EntityDef.Pixels"><STRONG>Pixels</STRONG></A> "NUMBER"  -- integer representing length in pixels --&gt;
+&lt;!ENTITY % <a name="EntityDef.Length"
+     id=
+     "EntityDef.Length"><strong>Length</strong></a> "CDATA"   -- nn for pixels or nn% for percentage length --&gt;
+&lt;!ENTITY % <a name="EntityDef.Pixels"
+     id=
+     "EntityDef.Pixels"><strong>Pixels</strong></a> "NUMBER"  -- integer representing length in pixels --&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Suggested widths are used for negotiating image size
+<span class=
+"COMMENT">&lt;!-- Suggested widths are used for negotiating image size
      with the module responsible for painting the image.
      align=left or right cause image to float to margin
-     and for subsequent text to wrap around image --&gt;</SPAN>
+     and for subsequent text to wrap around image --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.IAlign"><STRONG>IAlign</STRONG></A> "(top|middle|bottom|left|right)"&gt;
+&lt;!ENTITY % <a name="EntityDef.IAlign"
+     id=
+     "EntityDef.IAlign"><strong>IAlign</strong></a> "(top|middle|bottom|left|right)"&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef13"></A><STRONG>IMG</STRONG>    - O EMPTY --  Embedded image --&gt;
-&lt;!ATTLIST <A NAME="AttlistDef10"></A><STRONG>IMG</STRONG>
-        src     <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A>     #REQUIRED  -- URL of image to embed --
+&lt;!ELEMENT <a name="ElementDef13"
+     id=
+     "ElementDef13"></a><strong>IMG</strong>    - O EMPTY --  Embedded image --&gt;
+&lt;!ATTLIST <a name="AttlistDef10"
+     id="AttlistDef10"></a><strong>IMG</strong>
+        src     <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a>     #REQUIRED  -- URL of image to embed --
         alt     CDATA    #IMPLIED   -- for display in place of image --
-        align   <A HREF="html3.2.dtd.html#EntityDef.IAlign">%IAlign</A>  #IMPLIED   -- vertical or horizontal alignment --
-        height  <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED   -- suggested height in pixels --
-        width   <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED   -- suggested width in pixels --
-        border  <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED   -- suggested link border width --
-        hspace  <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED   -- suggested horizontal gutter --
-        vspace  <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED   -- suggested vertical gutter --
-        usemap  <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A>     #IMPLIED   -- use client-side image map --
+        align   <a href=
+"html3.2.dtd.html#EntityDef.IAlign">%IAlign</a>  #IMPLIED   -- vertical or horizontal alignment --
+        height  <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED   -- suggested height in pixels --
+        width   <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED   -- suggested width in pixels --
+        border  <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED   -- suggested link border width --
+        hspace  <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED   -- suggested horizontal gutter --
+        vspace  <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED   -- suggested vertical gutter --
+        usemap  <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a>     #IMPLIED   -- use client-side image map --
         ismap   (ismap)  #IMPLIED   -- use server image map --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- USEMAP points to a MAP element which may be in this document
-  or an external document, although the latter is not widely supported --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- USEMAP points to a MAP element which may be in this document
+  or an external document, although the latter is not widely supported --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Java APPLET tag ===================================--&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!--
+<span class=
+"COMMENT">&lt;!--=================== Java APPLET tag ===================================--&gt;</span>
+<span class="COMMENT">&lt;!--
   This tag is supported by all Java enabled browsers. Applet resources
   (including their classes) are normally loaded relative to the document
   URL (or &lt;BASE&gt; element if it is defined). The CODEBASE attribute is used
@@ -277,27 +473,39 @@
   without modification and is not effected by the documents &lt;BASE&gt; element.
   When the codebase attribute is relative, then it is relative to the
   document URL (or &lt;BASE&gt; tag if defined).
---&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef14"></A><STRONG>APPLET</STRONG> - - (<A HREF="html3.2.dtd.html#ElementDef15">PARAM</A> | <A HREF="html3.2.dtd.html#EntityDef.text">%text</A>)*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef11"></A><STRONG>APPLET</STRONG>
-        codebase <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A>     #IMPLIED   -- code base --
+--&gt;</span>
+&lt;!ELEMENT <a name="ElementDef14"
+     id="ElementDef14"></a><strong>APPLET</strong> - - (<a href=
+     "html3.2.dtd.html#ElementDef15">PARAM</a> | <a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a>)*&gt;
+&lt;!ATTLIST <a name="AttlistDef11"
+     id="AttlistDef11"></a><strong>APPLET</strong>
+        codebase <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a>     #IMPLIED   -- code base --
         code     CDATA    #REQUIRED  -- class file --
         alt      CDATA    #IMPLIED   -- for display in place of applet --
         name     CDATA    #IMPLIED   -- applet name --
-        width    <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #REQUIRED  -- suggested width in pixels --
-        height   <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #REQUIRED  -- suggested height in pixels --
-        align    <A HREF="html3.2.dtd.html#EntityDef.IAlign">%IAlign</A>  #IMPLIED   -- vertical or horizontal alignment --
-        hspace   <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED   -- suggested horizontal gutter --
-        vspace   <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED   -- suggested vertical gutter --
+        width    <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #REQUIRED  -- suggested width in pixels --
+        height   <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #REQUIRED  -- suggested height in pixels --
+        align    <a href=
+"html3.2.dtd.html#EntityDef.IAlign">%IAlign</a>  #IMPLIED   -- vertical or horizontal alignment --
+        hspace   <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED   -- suggested horizontal gutter --
+        vspace   <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED   -- suggested vertical gutter --
         &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef15"></A><STRONG>PARAM</STRONG> - O EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef12"></A><STRONG>PARAM</STRONG>
+&lt;!ELEMENT <a name="ElementDef15"
+     id="ElementDef15"></a><strong>PARAM</strong> - O EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef12"
+     id="AttlistDef12"></a><strong>PARAM</strong>
         name    NMTOKEN   #REQUIRED  -- The name of the parameter --
         value   CDATA     #IMPLIED   -- The value of the parameter --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 Here is an example:
 
     &lt;applet codebase="applets/NervousText"
@@ -307,87 +515,138 @@ Here is an example:
     &lt;param name=text value="Java is Cool!"&gt;
     &lt;img src=sorry.gif alt="This looks better with Java support"&gt;
     &lt;/applet&gt;
---&gt;</SPAN>
+--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Horizontal Rule ===================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Horizontal Rule ===================================--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef16"></A><STRONG>HR</STRONG>    - O EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef13"></A><STRONG>HR</STRONG>
+&lt;!ELEMENT <a name="ElementDef16"
+     id="ElementDef16"></a><strong>HR</strong>    - O EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef13"
+     id="AttlistDef13"></a><strong>HR</strong>
         align (left|right|center) #IMPLIED
         noshade (noshade) #IMPLIED
-        size  <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A> #IMPLIED
-        width <A HREF="html3.2.dtd.html#EntityDef.Length">%Length</A> #IMPLIED
+        size  <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a> #IMPLIED
+        width <a href=
+"html3.2.dtd.html#EntityDef.Length">%Length</a> #IMPLIED
         &gt;
-<SPAN CLASS="COMMENT">&lt;!--=================== Paragraphs=========================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Paragraphs=========================================--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef17"></A><STRONG>P</STRONG>     - O (<A HREF="html3.2.dtd.html#EntityDef.text">%text</A>)*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef14"></A><STRONG>P</STRONG>
+&lt;!ELEMENT <a name="ElementDef17"
+     id="ElementDef17"></a><strong>P</strong>     - O (<a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a>)*&gt;
+&lt;!ATTLIST <a name="AttlistDef14"
+     id="AttlistDef14"></a><strong>P</strong>
         align  (left|center|right) #IMPLIED
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Headings ==========================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Headings ==========================================--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
   There are six levels of headers from H1 (the most important)
   to H6 (the least important).
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef18"></A><STRONG>( <A HREF="html3.2.dtd.html#EntityDef.heading">%heading</A> )</STRONG>  - -  (<A HREF="html3.2.dtd.html#EntityDef.text">%text;</A>)*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef15"></A><STRONG>( <A HREF="html3.2.dtd.html#EntityDef.heading">%heading</A> )</STRONG>
+&lt;!ELEMENT <a name="ElementDef18"
+     id="ElementDef18"></a><strong>( <a href=
+     "html3.2.dtd.html#EntityDef.heading">%heading</a> )</strong>  - -  (<a href="html3.2.dtd.html#EntityDef.text">%text;</a>)*&gt;
+&lt;!ATTLIST <a name="AttlistDef15"
+     id="AttlistDef15"></a><strong>( <a href=
+     "html3.2.dtd.html#EntityDef.heading">%heading</a> )</strong>
         align  (left|center|right) #IMPLIED
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Preformatted Text =================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Preformatted Text =================================--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- excludes images and changes in font size --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- excludes images and changes in font size --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.pre.exclusion"><STRONG>pre.exclusion</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef13">IMG</A>|<A HREF="html3.2.dtd.html#ElementDef1">BIG</A>|<A HREF="html3.2.dtd.html#ElementDef1">SMALL</A>|<A HREF="html3.2.dtd.html#ElementDef1">SUB</A>|<A HREF="html3.2.dtd.html#ElementDef1">SUP</A>|<A HREF="html3.2.dtd.html#ElementDef2">FONT</A>"&gt;
+&lt;!ENTITY % <a name="EntityDef.pre.exclusion"
+     id=
+     "EntityDef.pre.exclusion"><strong>pre.exclusion</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef13">IMG</a>|<a href=
+     "html3.2.dtd.html#ElementDef1">BIG</a>|<a href=
+     "html3.2.dtd.html#ElementDef1">SMALL</a>|<a href=
+     "html3.2.dtd.html#ElementDef1">SUB</a>|<a href=
+     "html3.2.dtd.html#ElementDef1">SUP</a>|<a href=
+     "html3.2.dtd.html#ElementDef2">FONT</a>"&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef19"></A><STRONG>PRE</STRONG> - - (<A HREF="html3.2.dtd.html#EntityDef.text">%text</A>)* -(<A HREF="html3.2.dtd.html#EntityDef.pre.exclusion">%pre.exclusion</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef16"></A><STRONG>PRE</STRONG>
+&lt;!ELEMENT <a name="ElementDef19"
+     id="ElementDef19"></a><strong>PRE</strong> - - (<a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a>)* -(<a href=
+     "html3.2.dtd.html#EntityDef.pre.exclusion">%pre.exclusion</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef16"
+     id="AttlistDef16"></a><strong>PRE</strong>
         width NUMBER #implied -- is this widely supported? --
         &gt;
 
-&lt;!<A NAME="MS2"></A>[ <A HREF="html3.2.dtd.html#EntityDef.HTML.Deprecated">%HTML.Deprecated</A> [
+&lt;!<a name="MS2"
+     id="MS2"></a>[ <a href=
+     "html3.2.dtd.html#EntityDef.HTML.Deprecated">%HTML.Deprecated</a> [
 
-&lt;!ENTITY % <A NAME="EntityDef.literal"><STRONG>literal</STRONG></A> "CDATA"
+&lt;!ENTITY % <a name="EntityDef.literal"
+     id="EntityDef.literal"><strong>literal</strong></a> "CDATA"
         -- historical, non-conforming parsing mode where
            the only markup signal is the end tag
            in full
         --&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef20"></A><STRONG>(XMP|LISTING)</STRONG> - -  <A HREF="html3.2.dtd.html#EntityDef.literal">%literal</A>&gt;
-&lt;!ELEMENT <A NAME="ElementDef21"></A><STRONG>PLAINTEXT</STRONG> - O <A HREF="html3.2.dtd.html#EntityDef.literal">%literal</A>&gt;
+&lt;!ELEMENT <a name="ElementDef20"
+     id="ElementDef20"></a><strong>(XMP|LISTING)</strong> - -  <a href=
+     "html3.2.dtd.html#EntityDef.literal">%literal</a>&gt;
+&lt;!ELEMENT <a name="ElementDef21"
+     id="ElementDef21"></a><strong>PLAINTEXT</strong> - O <a href=
+     "html3.2.dtd.html#EntityDef.literal">%literal</a>&gt;
 
 ]]&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Block-like Quotes =================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Block-like Quotes =================================--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef22"></A><STRONG>BLOCKQUOTE</STRONG> - - <A HREF="html3.2.dtd.html#EntityDef.body.content">%body.content</A>&gt;
+&lt;!ELEMENT <a name="ElementDef22"
+     id="ElementDef22"></a><strong>BLOCKQUOTE</strong> - - <a href=
+     "html3.2.dtd.html#EntityDef.body.content">%body.content</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--=================== Lists =============================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--=================== Lists =============================================--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
     HTML 3.2 allows you to control the sequence number for ordered lists.
     You can set the sequence number with the START and VALUE attributes.
     The TYPE attribute may be used to specify the rendering of ordered
     and unordered lists.
---&gt;</SPAN>
+--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- definition lists - DT for term, DD for its definition --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- definition lists - DT for term, DD for its definition --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef23"></A><STRONG>DL</STRONG>    - -  (<A HREF="html3.2.dtd.html#ElementDef24">DT</A>|<A HREF="html3.2.dtd.html#ElementDef25">DD</A>)+&gt;
-&lt;!ATTLIST <A NAME="AttlistDef17"></A><STRONG>DL</STRONG>
+&lt;!ELEMENT <a name="ElementDef23"
+     id="ElementDef23"></a><strong>DL</strong>    - -  (<a href=
+     "html3.2.dtd.html#ElementDef24">DT</a>|<a href=
+     "html3.2.dtd.html#ElementDef25">DD</a>)+&gt;
+&lt;!ATTLIST <a name="AttlistDef17"
+     id="AttlistDef17"></a><strong>DL</strong>
         compact (compact) #IMPLIED -- more compact style --
         &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef24"></A><STRONG>DT</STRONG> - O  (<A HREF="html3.2.dtd.html#EntityDef.text">%text</A>)*&gt;
-&lt;!ELEMENT <A NAME="ElementDef25"></A><STRONG>DD</STRONG> - O  <A HREF="html3.2.dtd.html#EntityDef.flow">%flow;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef24"
+     id="ElementDef24"></a><strong>DT</strong> - O  (<a href=
+     "html3.2.dtd.html#EntityDef.text">%text</a>)*&gt;
+&lt;!ELEMENT <a name="ElementDef25"
+     id="ElementDef25"></a><strong>DD</strong> - O  <a href=
+     "html3.2.dtd.html#EntityDef.flow">%flow;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Ordered lists OL, and unordered lists UL --&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef26"></A><STRONG>(OL|UL)</STRONG> - -  (<A HREF="html3.2.dtd.html#ElementDef28">LI</A>)+&gt;
+<span class=
+"COMMENT">&lt;!-- Ordered lists OL, and unordered lists UL --&gt;</span>
+&lt;!ELEMENT <a name="ElementDef26"
+     id="ElementDef26"></a><strong>(OL|UL)</strong> - -  (<a href=
+     "html3.2.dtd.html#ElementDef28">LI</a>)+&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
        Numbering style
     1   Arabic numbers      1, 2, 3, ...
     a   lower alpha         a, b, c, ...
@@ -399,165 +658,264 @@ Here is an example:
     is reset to 1 for the first list item in an ordered list.
 
     This can't be expressed directly in SGML due to case folding.
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.OLStyle"><STRONG>OLStyle</STRONG></A> "CDATA" -- constrained to: [1|a|<A HREF="html3.2.dtd.html#ElementDef9">A</A>|i|<A HREF="html3.2.dtd.html#ElementDef1">I</A>] --&gt;
+&lt;!ENTITY % <a name="EntityDef.OLStyle"
+     id=
+     "EntityDef.OLStyle"><strong>OLStyle</strong></a> "CDATA" -- constrained to: [1|a|<a href="html3.2.dtd.html#ElementDef9">A</a>|i|<a href="html3.2.dtd.html#ElementDef1">I</a>] --&gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef18"></A><STRONG>OL</STRONG> -- ordered lists --
-        type      <A HREF="html3.2.dtd.html#EntityDef.OLStyle">%OLStyle</A>   #IMPLIED   -- numbering style --
+&lt;!ATTLIST <a name="AttlistDef18"
+     id="AttlistDef18"></a><strong>OL</strong> -- ordered lists --
+        type      <a href=
+"html3.2.dtd.html#EntityDef.OLStyle">%OLStyle</a>   #IMPLIED   -- numbering style --
         start     NUMBER     #IMPLIED   -- starting sequence number --
         compact  (compact)   #IMPLIED   -- reduced interitem spacing --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- bullet styles --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- bullet styles --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.ULStyle"><STRONG>ULStyle</STRONG></A> "disc|square|circle"&gt;
+&lt;!ENTITY % <a name="EntityDef.ULStyle"
+     id=
+     "EntityDef.ULStyle"><strong>ULStyle</strong></a> "disc|square|circle"&gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef19"></A><STRONG>UL</STRONG> -- unordered lists --
-        type    (<A HREF="html3.2.dtd.html#EntityDef.ULStyle">%ULStyle</A>)   #IMPLIED   -- bullet style --
+&lt;!ATTLIST <a name="AttlistDef19"
+     id="AttlistDef19"></a><strong>UL</strong> -- unordered lists --
+        type    (<a href=
+"html3.2.dtd.html#EntityDef.ULStyle">%ULStyle</a>)   #IMPLIED   -- bullet style --
         compact (compact)    #IMPLIED   -- reduced interitem spacing --
         &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef27"></A><STRONG>(DIR|MENU)</STRONG> - -  (<A HREF="html3.2.dtd.html#ElementDef28">LI</A>)+ -(<A HREF="html3.2.dtd.html#EntityDef.block">%block</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef20"></A><STRONG>DIR</STRONG>
+&lt;!ELEMENT <a name="ElementDef27"
+     id="ElementDef27"></a><strong>(DIR|MENU)</strong> - -  (<a href=
+     "html3.2.dtd.html#ElementDef28">LI</a>)+ -(<a href=
+     "html3.2.dtd.html#EntityDef.block">%block</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef20"
+     id="AttlistDef20"></a><strong>DIR</strong>
         compact (compact) #IMPLIED
         &gt;
-&lt;!ATTLIST <A NAME="AttlistDef21"></A><STRONG>MENU</STRONG>
+&lt;!ATTLIST <a name="AttlistDef21"
+     id="AttlistDef21"></a><strong>MENU</strong>
         compact (compact) #IMPLIED
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- &lt;DIR&gt;              Directory list                  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- &lt;DIR COMPACT&gt;      Compact list style              --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- &lt;MENU&gt;             Menu list                       --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- &lt;MENU COMPACT&gt;     Compact list style              --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- &lt;DIR&gt;              Directory list                  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- &lt;DIR COMPACT&gt;      Compact list style              --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- &lt;MENU&gt;             Menu list                       --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- &lt;MENU COMPACT&gt;     Compact list style              --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- The type attribute can be used to change the bullet style
-     in unordered lists and the numbering style in ordered lists --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- The type attribute can be used to change the bullet style
+     in unordered lists and the numbering style in ordered lists --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.LIStyle"><STRONG>LIStyle</STRONG></A> "CDATA" -- constrained to: "(<A HREF="html3.2.dtd.html#EntityDef.ULStyle">%ULStyle</A>|<A HREF="html3.2.dtd.html#EntityDef.OLStyle">%OLStyle</A>)" --&gt;
+&lt;!ENTITY % <a name="EntityDef.LIStyle"
+     id=
+     "EntityDef.LIStyle"><strong>LIStyle</strong></a> "CDATA" -- constrained to: "(<a href="html3.2.dtd.html#EntityDef.ULStyle">%ULStyle</a>|<a href="html3.2.dtd.html#EntityDef.OLStyle">%OLStyle</a>)" --&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef28"></A><STRONG>LI</STRONG> - O <A HREF="html3.2.dtd.html#EntityDef.flow">%flow</A> -- list item --&gt;
-&lt;!ATTLIST <A NAME="AttlistDef22"></A><STRONG>LI</STRONG>
-        type    <A HREF="html3.2.dtd.html#EntityDef.LIStyle">%LIStyle</A>     #IMPLIED   -- list item style --
+&lt;!ELEMENT <a name="ElementDef28"
+     id="ElementDef28"></a><strong>LI</strong> - O <a href=
+     "html3.2.dtd.html#EntityDef.flow">%flow</a> -- list item --&gt;
+&lt;!ATTLIST <a name="AttlistDef22"
+     id="AttlistDef22"></a><strong>LI</strong>
+        type    <a href=
+"html3.2.dtd.html#EntityDef.LIStyle">%LIStyle</a>     #IMPLIED   -- list item style --
         value    NUMBER      #IMPLIED   -- reset sequence number --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================ Forms ===============================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================ Forms ===============================================--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef29"></A><STRONG>FORM</STRONG> - - <A HREF="html3.2.dtd.html#EntityDef.body.content">%body.content</A> -(<A HREF="html3.2.dtd.html#ElementDef29">FORM</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef23"></A><STRONG>FORM</STRONG>
-        action <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A> #IMPLIED  -- server-side form handler --
-        method (<A HREF="html3.2.dtd.html#EntityDef.HTTP-Method">%HTTP-Method</A>) GET -- see HTTP specification --
-        enctype <A HREF="html3.2.dtd.html#EntityDef.Content-Type">%Content-Type;</A> "application/x-www-form-urlencoded"
+&lt;!ELEMENT <a name="ElementDef29"
+     id="ElementDef29"></a><strong>FORM</strong> - - <a href=
+     "html3.2.dtd.html#EntityDef.body.content">%body.content</a> -(<a href=
+     "html3.2.dtd.html#ElementDef29">FORM</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef23"
+     id="AttlistDef23"></a><strong>FORM</strong>
+        action <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a> #IMPLIED  -- server-side form handler --
+        method (<a href=
+"html3.2.dtd.html#EntityDef.HTTP-Method">%HTTP-Method</a>) GET -- see HTTP specification --
+        enctype <a href=
+"html3.2.dtd.html#EntityDef.Content-Type">%Content-Type;</a> "application/x-www-form-urlencoded"
         &gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.InputType"><STRONG>InputType</STRONG></A>
+&lt;!ENTITY % <a name="EntityDef.InputType"
+     id="EntityDef.InputType"><strong>InputType</strong></a>
         "(TEXT | PASSWORD | CHECKBOX | RADIO | SUBMIT
             | RESET | FILE | HIDDEN | IMAGE)"&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef30"></A><STRONG>INPUT</STRONG> - O EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef24"></A><STRONG>INPUT</STRONG>
-        type <A HREF="html3.2.dtd.html#EntityDef.InputType">%InputType</A> TEXT     -- what kind of widget is needed --
+&lt;!ELEMENT <a name="ElementDef30"
+     id="ElementDef30"></a><strong>INPUT</strong> - O EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef24"
+     id="AttlistDef24"></a><strong>INPUT</strong>
+        type <a href=
+"html3.2.dtd.html#EntityDef.InputType">%InputType</a> TEXT     -- what kind of widget is needed --
         name  CDATA   #IMPLIED   -- required for all but submit and reset --
         value CDATA   #IMPLIED   -- required for radio and checkboxes --
         checked (checked) #IMPLIED -- for radio buttons and check boxes --
         size CDATA    #IMPLIED   -- specific to each type of field --
         maxlength NUMBER #IMPLIED -- max chars allowed in text fields --
-        src   <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A>    #IMPLIED   -- for fields with background images --
-        align <A HREF="html3.2.dtd.html#EntityDef.IAlign">%IAlign</A> #IMPLIED   -- vertical or horizontal alignment --
+        src   <a href=
+"html3.2.dtd.html#EntityDef.URL">%URL</a>    #IMPLIED   -- for fields with background images --
+        align <a href=
+"html3.2.dtd.html#EntityDef.IAlign">%IAlign</a> #IMPLIED   -- vertical or horizontal alignment --
         &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef31"></A><STRONG>SELECT</STRONG> - - (<A HREF="html3.2.dtd.html#ElementDef32">OPTION</A>+)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef25"></A><STRONG>SELECT</STRONG>
+&lt;!ELEMENT <a name="ElementDef31"
+     id="ElementDef31"></a><strong>SELECT</strong> - - (<a href=
+     "html3.2.dtd.html#ElementDef32">OPTION</a>+)&gt;
+&lt;!ATTLIST <a name="AttlistDef25"
+     id="AttlistDef25"></a><strong>SELECT</strong>
         name CDATA #REQUIRED
         size NUMBER #IMPLIED
         multiple (multiple) #IMPLIED
         &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef32"></A><STRONG>OPTION</STRONG> - O (#PCDATA)*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef26"></A><STRONG>OPTION</STRONG>
+&lt;!ELEMENT <a name="ElementDef32"
+     id="ElementDef32"></a><strong>OPTION</strong> - O (#PCDATA)*&gt;
+&lt;!ATTLIST <a name="AttlistDef26"
+     id="AttlistDef26"></a><strong>OPTION</strong>
         selected (selected) #IMPLIED
         value  CDATA  #IMPLIED -- defaults to element content --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Multi-line text input field. --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- Multi-line text input field. --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef33"></A><STRONG>TEXTAREA</STRONG> - - (#PCDATA)*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef27"></A><STRONG>TEXTAREA</STRONG>
+&lt;!ELEMENT <a name="ElementDef33"
+     id="ElementDef33"></a><strong>TEXTAREA</strong> - - (#PCDATA)*&gt;
+&lt;!ATTLIST <a name="AttlistDef27"
+     id="AttlistDef27"></a><strong>TEXTAREA</strong>
         name CDATA #REQUIRED
         rows NUMBER #REQUIRED
         cols NUMBER #REQUIRED
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--======================= Tables ========================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--======================= Tables ========================================--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- Widely deployed subset of the full table standard, see RFC 1942
-     e.g. at http://www.ics.uci.edu/pub/ietf/html/rfc1942.txt --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Widely deployed subset of the full table standard, see RFC 1942
+     e.g. at http://www.ics.uci.edu/pub/ietf/html/rfc1942.txt --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- horizontal placement of table relative to window --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.Where"><STRONG>Where</STRONG></A> "(left|<A HREF="html3.2.dtd.html#ElementDef8">center</A>|right)"&gt;
+<span class=
+"COMMENT">&lt;!-- horizontal placement of table relative to window --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.Where"
+     id="EntityDef.Where"><strong>Where</strong></a> "(left|<a href=
+     "html3.2.dtd.html#ElementDef8">center</a>|right)"&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- horizontal alignment attributes for cell contents --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.cell.halign"><STRONG>cell.halign</STRONG></A>
-        "align  (left|<A HREF="html3.2.dtd.html#ElementDef8">center</A>|right) #IMPLIED"
+<span class=
+"COMMENT">&lt;!-- horizontal alignment attributes for cell contents --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.cell.halign"
+     id="EntityDef.cell.halign"><strong>cell.halign</strong></a>
+        "align  (left|<a href=
+"html3.2.dtd.html#ElementDef8">center</a>|right) #IMPLIED"
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- vertical alignment attributes for cell contents --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.cell.valign"><STRONG>cell.valign</STRONG></A>
+<span class=
+"COMMENT">&lt;!-- vertical alignment attributes for cell contents --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.cell.valign"
+     id="EntityDef.cell.valign"><strong>cell.valign</strong></a>
         "valign  (top|middle|bottom)  #IMPLIED"
         &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef34"></A><STRONG>table</STRONG> - - (caption?, <A HREF="html3.2.dtd.html#ElementDef35">tr</A>+)&gt;
-&lt;!ELEMENT <A NAME="ElementDef35"></A><STRONG>tr</STRONG> - O (<A HREF="html3.2.dtd.html#ElementDef36">th</A>|<A HREF="html3.2.dtd.html#ElementDef36">td</A>)*&gt;
-&lt;!ELEMENT <A NAME="ElementDef36"></A><STRONG>(th|td)</STRONG> - O <A HREF="html3.2.dtd.html#EntityDef.body.content">%body.content</A>&gt;
+&lt;!ELEMENT <a name="ElementDef34"
+     id="ElementDef34"></a><strong>table</strong> - - (caption?, <a href=
+     "html3.2.dtd.html#ElementDef35">tr</a>+)&gt;
+&lt;!ELEMENT <a name="ElementDef35"
+     id="ElementDef35"></a><strong>tr</strong> - O (<a href=
+     "html3.2.dtd.html#ElementDef36">th</a>|<a href=
+     "html3.2.dtd.html#ElementDef36">td</a>)*&gt;
+&lt;!ELEMENT <a name="ElementDef36"
+     id="ElementDef36"></a><strong>(th|td)</strong> - O <a href=
+     "html3.2.dtd.html#EntityDef.body.content">%body.content</a>&gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef28"></A><STRONG>table</STRONG>                       -- table element --
-        align     <A HREF="html3.2.dtd.html#EntityDef.Where">%Where;</A>   #IMPLIED  -- table position relative to window --
-        width     <A HREF="html3.2.dtd.html#EntityDef.Length">%Length</A>   #IMPLIED  -- table width relative to window --
-        border    <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>   #IMPLIED  -- controls frame width around table --
-        cellspacing <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A> #IMPLIED  -- spacing between cells --
-        cellpadding <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A> #IMPLIED  -- spacing within cells --
+&lt;!ATTLIST <a name="AttlistDef28"
+     id=
+     "AttlistDef28"></a><strong>table</strong>                       -- table element --
+        align     <a href=
+"html3.2.dtd.html#EntityDef.Where">%Where;</a>   #IMPLIED  -- table position relative to window --
+        width     <a href=
+"html3.2.dtd.html#EntityDef.Length">%Length</a>   #IMPLIED  -- table width relative to window --
+        border    <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>   #IMPLIED  -- controls frame width around table --
+        cellspacing <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a> #IMPLIED  -- spacing between cells --
+        cellpadding <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a> #IMPLIED  -- spacing within cells --
         &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef37"></A><STRONG>CAPTION</STRONG> - - (<A HREF="html3.2.dtd.html#EntityDef.text">%text;</A>)* -- <A HREF="html3.2.dtd.html#ElementDef34">table</A> or figure caption --&gt;
-&lt;!ATTLIST <A NAME="AttlistDef29"></A><STRONG>CAPTION</STRONG>
+&lt;!ELEMENT <a name="ElementDef37"
+     id="ElementDef37"></a><strong>CAPTION</strong> - - (<a href=
+     "html3.2.dtd.html#EntityDef.text">%text;</a>)* -- <a href=
+     "html3.2.dtd.html#ElementDef34">table</a> or figure caption --&gt;
+&lt;!ATTLIST <a name="AttlistDef29"
+     id="AttlistDef29"></a><strong>CAPTION</strong>
         align (top|bottom) #IMPLIED
         &gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef30"></A><STRONG>tr</STRONG>                       -- table row --
-        <A HREF="html3.2.dtd.html#EntityDef.cell.halign">%cell.halign;</A>              -- horizontal alignment in cells --
-        <A HREF="html3.2.dtd.html#EntityDef.cell.valign">%cell.valign;</A>              -- vertical alignment in cells --
+&lt;!ATTLIST <a name="AttlistDef30"
+     id=
+     "AttlistDef30"></a><strong>tr</strong>                       -- table row --
+        <a href=
+"html3.2.dtd.html#EntityDef.cell.halign">%cell.halign;</a>              -- horizontal alignment in cells --
+        <a href=
+"html3.2.dtd.html#EntityDef.cell.valign">%cell.valign;</a>              -- vertical alignment in cells --
         &gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef31"></A><STRONG>(th|td)</STRONG>                  -- header or data cell --
+&lt;!ATTLIST <a name="AttlistDef31"
+     id=
+     "AttlistDef31"></a><strong>(th|td)</strong>                  -- header or data cell --
         nowrap (nowrap)  #IMPLIED  -- suppress word wrap --
         rowspan NUMBER   1         -- number of rows spanned by cell --
         colspan NUMBER   1         -- number of cols spanned by cell --
-        <A HREF="html3.2.dtd.html#EntityDef.cell.halign">%cell.halign;</A>              -- horizontal alignment in cell --
-        <A HREF="html3.2.dtd.html#EntityDef.cell.valign">%cell.valign;</A>              -- vertical alignment in cell --
-        width   <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED  -- suggested width for cell --
-        height  <A HREF="html3.2.dtd.html#EntityDef.Pixels">%Pixels</A>  #IMPLIED  -- suggested height for cell --
+        <a href=
+"html3.2.dtd.html#EntityDef.cell.halign">%cell.halign;</a>              -- horizontal alignment in cell --
+        <a href=
+"html3.2.dtd.html#EntityDef.cell.valign">%cell.valign;</a>              -- vertical alignment in cell --
+        width   <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED  -- suggested width for cell --
+        height  <a href=
+"html3.2.dtd.html#EntityDef.Pixels">%Pixels</a>  #IMPLIED  -- suggested height for cell --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================ Document Head ========================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================ Document Head ========================================--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- %head.misc defined earlier on as "SCRIPT|STYLE|META|LINK" --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- %head.misc defined earlier on as "SCRIPT|STYLE|META|LINK" --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.head.content"><STRONG>head.content</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef39">TITLE</A> &amp; <A HREF="html3.2.dtd.html#ElementDef40">ISINDEX</A>? &amp; <A HREF="html3.2.dtd.html#ElementDef41">BASE</A>?"&gt;
+&lt;!ENTITY % <a name="EntityDef.head.content"
+     id=
+     "EntityDef.head.content"><strong>head.content</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef39">TITLE</a> &amp; <a href=
+     "html3.2.dtd.html#ElementDef40">ISINDEX</a>? &amp; <a href=
+     "html3.2.dtd.html#ElementDef41">BASE</a>?"&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef38"></A><STRONG>HEAD</STRONG> O O  (<A HREF="html3.2.dtd.html#EntityDef.head.content">%head.content</A>) +(<A HREF="html3.2.dtd.html#EntityDef.head.misc">%head.misc</A>)&gt;
+&lt;!ELEMENT <a name="ElementDef38"
+     id="ElementDef38"></a><strong>HEAD</strong> O O  (<a href=
+     "html3.2.dtd.html#EntityDef.head.content">%head.content</a>) +(<a href=
+     "html3.2.dtd.html#EntityDef.head.misc">%head.misc</a>)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef39"></A><STRONG>TITLE</STRONG> - -  (#PCDATA)* -(<A HREF="html3.2.dtd.html#EntityDef.head.misc">%head.misc</A>)
-          -- The <A HREF="html3.2.dtd.html#ElementDef39">TITLE</A> element is not considered part of the flow of text.
+&lt;!ELEMENT <a name="ElementDef39"
+     id=
+     "ElementDef39"></a><strong>TITLE</strong> - -  (#PCDATA)* -(<a href=
+     "html3.2.dtd.html#EntityDef.head.misc">%head.misc</a>)
+          -- The <a href=
+"html3.2.dtd.html#ElementDef39">TITLE</a> element is not considered part of the flow of text.
              It should be displayed, for example as the page header or
              window title.
           --&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef40"></A><STRONG>ISINDEX</STRONG> - O EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef32"></A><STRONG>ISINDEX</STRONG>
+&lt;!ELEMENT <a name="ElementDef40"
+     id="ElementDef40"></a><strong>ISINDEX</strong> - O EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef32"
+     id="AttlistDef32"></a><strong>ISINDEX</strong>
         prompt CDATA #IMPLIED -- prompt message --&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
     The BASE element gives an absolute URL for dereferencing relative
     URLs, e.g.
 
@@ -573,38 +931,62 @@ Here is an example:
    Note that this is not necessarily the same as the URL used to
    request the document, as the base URL may be overridden by an HTTP
    header accompanying the document.
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef41"></A><STRONG>BASE</STRONG> - O EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef33"></A><STRONG>BASE</STRONG>
-        href <A HREF="html3.2.dtd.html#EntityDef.URL">%URL</A>  #REQUIRED
+&lt;!ELEMENT <a name="ElementDef41"
+     id="ElementDef41"></a><strong>BASE</strong> - O EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef33"
+     id="AttlistDef33"></a><strong>BASE</strong>
+        href <a href="html3.2.dtd.html#EntityDef.URL">%URL</a>  #REQUIRED
         &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef42"></A><STRONG>META</STRONG> - O EMPTY -- Generic Metainformation --&gt;
-&lt;!ATTLIST <A NAME="AttlistDef34"></A><STRONG>META</STRONG>
+&lt;!ELEMENT <a name="ElementDef42"
+     id=
+     "ElementDef42"></a><strong>META</strong> - O EMPTY -- Generic Metainformation --&gt;
+&lt;!ATTLIST <a name="AttlistDef34"
+     id="AttlistDef34"></a><strong>META</strong>
         http-equiv  NAME    #IMPLIED  -- HTTP response header name  --
         name        NAME    #IMPLIED  -- metainformation name       --
         content     CDATA   #REQUIRED -- associated information     --
         &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- SCRIPT/STYLE are place holders for transition to next version of HTML --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- SCRIPT/STYLE are place holders for transition to next version of HTML --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef43"></A><STRONG>STYLE</STRONG>  - - CDATA -- placeholder for style info --&gt;
-&lt;!ELEMENT <A NAME="ElementDef44"></A><STRONG>SCRIPT</STRONG> - - CDATA -- placeholder for script statements --&gt;
+&lt;!ELEMENT <a name="ElementDef43"
+     id=
+     "ElementDef43"></a><strong>STYLE</strong>  - - CDATA -- placeholder for style info --&gt;
+&lt;!ELEMENT <a name="ElementDef44"
+     id=
+     "ElementDef44"></a><strong>SCRIPT</strong> - - CDATA -- placeholder for script statements --&gt;
 
-<SPAN CLASS="COMMENT">&lt;!--================ Document Structure ===================================--&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!--================ Document Structure ===================================--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.version.attr"><STRONG>version.attr</STRONG></A> "VERSION CDATA #FIXED '<A HREF="html3.2.dtd.html#EntityDef.HTML.Version">%HTML.Version;</A>'"&gt;
+&lt;!ENTITY % <a name="EntityDef.version.attr"
+     id=
+     "EntityDef.version.attr"><strong>version.attr</strong></a> "VERSION CDATA #FIXED '<a href="html3.2.dtd.html#EntityDef.HTML.Version">%HTML.Version;</a>'"&gt;
 
-&lt;!<A NAME="MS3"></A>[ <A HREF="html3.2.dtd.html#EntityDef.HTML.Deprecated">%HTML.Deprecated</A> [
-    &lt;!ENTITY % <A NAME="EntityDef.html.content"><STRONG>html.content</STRONG></A> "<A HREF="html3.2.dtd.html#ElementDef38">HEAD</A>, <A HREF="html3.2.dtd.html#ElementDef5">BODY</A>, <A HREF="html3.2.dtd.html#ElementDef21">PLAINTEXT</A>?"&gt;
+&lt;!<a name="MS3"
+     id="MS3"></a>[ <a href=
+     "html3.2.dtd.html#EntityDef.HTML.Deprecated">%HTML.Deprecated</a> [
+    &lt;!ENTITY % <a name="EntityDef.html.content"
+     id=
+     "EntityDef.html.content"><strong>html.content</strong></a> "<a href=
+     "html3.2.dtd.html#ElementDef38">HEAD</a>, <a href=
+     "html3.2.dtd.html#ElementDef5">BODY</a>, <a href=
+     "html3.2.dtd.html#ElementDef21">PLAINTEXT</a>?"&gt;
 ]]&gt;
 
 &lt;!ENTITY % html.content "HEAD, BODY"&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef45"></A><STRONG>HTML</STRONG> O O  (<A HREF="html3.2.dtd.html#EntityDef.html.content">%html.content</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef35"></A><STRONG>HTML</STRONG>
-        <A HREF="html3.2.dtd.html#EntityDef.version.attr">%version.attr;</A>
+&lt;!ELEMENT <a name="ElementDef45"
+     id="ElementDef45"></a><strong>HTML</strong> O O  (<a href=
+     "html3.2.dtd.html#EntityDef.html.content">%html.content</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef35"
+     id="AttlistDef35"></a><strong>HTML</strong>
+        <a href=
+"html3.2.dtd.html#EntityDef.version.attr">%version.attr;</a>
         &gt;
 
 
@@ -649,4 +1031,8 @@ Here is an example:
 
 
 
-</PRE></BODY></HTML>
+
+
+</pre>
+</body>
+</html>

@@ -1,121 +1,220 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-<TITLE>story.dtd</TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
-<STYLE TYPE="text/css">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>story.dtd</title>
+  <link rel="stylesheet"
+        type="text/css"
+        href="livedtd.css" />
+<style type="text/css">
+/*<![CDATA[*/
   STRONG { font-weight: bold; color: red;}
   .COMMENT { font-style:italic; color: #A8A8A8;}
-</STYLE>
-</HEAD>
-<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>story.dtd</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
-<PRE><SPAN CLASS="COMMENT">&lt;!--
+/*]]>*/
+</style>
+</head>
+
+<body onload=
+"parent.file.document.open();parent.file.document.write('&lt;BODY TOPMARGIN=0&gt;&lt;B&gt;story.dtd&lt;/B&gt;&lt;/BODY&gt;');parent.file.document.close()">
+<?LIVEDTD ENDHEAD?>
+  <pre>
+<span class="COMMENT">&lt;!--
 $Source: /repo/local.cvs/app/story-xml/src/story5/story.dtd,v $
 $Revision: 1.7 $ $Date: 2010/08/13 15:30:32 $ UTC
---&gt;</SPAN>
+--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- ************************************** --&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef1"></A><STRONG>content</STRONG>  (<A HREF="story.dtd.html#ElementDef2">story-dtd</A>?, <A HREF="story.dtd.html#ElementDef3">book</A>+)&gt;
+<span class=
+"COMMENT">&lt;!-- ************************************** --&gt;</span>
+&lt;!ELEMENT <a name="ElementDef1"
+     id="ElementDef1"></a><strong>content</strong>  (<a href=
+     "story.dtd.html#ElementDef2">story-dtd</a>?, <a href=
+     "story.dtd.html#ElementDef3">book</a>+)&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ************************************** --&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef2"></A><STRONG>story-dtd</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef1"></A><STRONG>story-dtd</STRONG>
-	version (1|2|3|4|5) #REQUIRED
+<span class=
+"COMMENT">&lt;!-- ************************************** --&gt;</span>
+&lt;!ELEMENT <a name="ElementDef2"
+     id="ElementDef2"></a><strong>story-dtd</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef1"
+     id="AttlistDef1"></a><strong>story-dtd</strong>
+        version (1|2|3|4|5) #REQUIRED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ************************************** --&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef3"></A><STRONG>book</STRONG> (<A HREF="story.dtd.html#EntityDef.com-title">%com-title;</A>, <A HREF="story.dtd.html#ElementDef4">book-info</A>, <A HREF="story.dtd.html#ElementDef25">style-info</A>, <A HREF="story.dtd.html#ElementDef35">story-info</A>,
-	<A HREF="story.dtd.html#ElementDef40">preface</A>?, <A HREF="story.dtd.html#ElementDef43">chapter</A>*, <A HREF="story.dtd.html#ElementDef41">epilog</A>?)
+<span class=
+"COMMENT">&lt;!-- ************************************** --&gt;</span>
+&lt;!ELEMENT <a name="ElementDef3"
+     id="ElementDef3"></a><strong>book</strong> (<a href=
+     "story.dtd.html#EntityDef.com-title">%com-title;</a>, <a href=
+     "story.dtd.html#ElementDef4">book-info</a>, <a href=
+     "story.dtd.html#ElementDef25">style-info</a>, <a href=
+     "story.dtd.html#ElementDef35">story-info</a>,
+        <a href="story.dtd.html#ElementDef40">preface</a>?, <a href=
+"story.dtd.html#ElementDef43">chapter</a>*, <a href=
+"story.dtd.html#ElementDef41">epilog</a>?)
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef2"></A><STRONG>book</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
-&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef4"></A><STRONG>book-info</STRONG> (<A HREF="story.dtd.html#EntityDef.com-info">%com-info;</A>, <A HREF="story.dtd.html#ElementDef5">copyright</A>?, <A HREF="story.dtd.html#ElementDef8">publisher</A>?,
-	<A HREF="story.dtd.html#ElementDef20">legal-notice</A>?, <A HREF="story.dtd.html#ElementDef21">edition</A>?, <A HREF="story.dtd.html#ElementDef22">biblio-id</A>*, <A HREF="story.dtd.html#ElementDef23">keyword-set</A>?, <A HREF="story.dtd.html#ElementDef24">abstract</A>?)&gt;
-
-
-&lt;!ELEMENT <A NAME="ElementDef5"></A><STRONG>copyright</STRONG> (<A HREF="story.dtd.html#ElementDef6">year</A>+, <A HREF="story.dtd.html#ElementDef7">holder</A>*)&gt;
-&lt;!ELEMENT <A NAME="ElementDef6"></A><STRONG>year</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef7"></A><STRONG>holder</STRONG> (#PCDATA)&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef8"></A><STRONG>publisher</STRONG> (<A HREF="story.dtd.html#ElementDef9">publisher-name</A>, <A HREF="story.dtd.html#ElementDef10">address</A>?)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef3"></A><STRONG>publisher</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
+&lt;!ATTLIST <a name="AttlistDef2"
+     id="AttlistDef2"></a><strong>book</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef9"></A><STRONG>publisher-name</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef10"></A><STRONG>address</STRONG> (<A HREF="story.dtd.html#ElementDef11">street</A>*, <A HREF="story.dtd.html#ElementDef12">pob</A>?, <A HREF="story.dtd.html#ElementDef13">city</A>?, <A HREF="story.dtd.html#ElementDef14">state</A>?, <A HREF="story.dtd.html#ElementDef15">post-code</A>?, <A HREF="story.dtd.html#ElementDef16">country</A>?,
-	<A HREF="story.dtd.html#ElementDef17">phone</A>*, <A HREF="story.dtd.html#ElementDef18">fax</A>?, <A HREF="story.dtd.html#ElementDef66">email</A>*, <A HREF="story.dtd.html#ElementDef19">other-addr</A>*)&gt;
-&lt;!ELEMENT <A NAME="ElementDef11"></A><STRONG>street</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef12"></A><STRONG>pob</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef13"></A><STRONG>city</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef14"></A><STRONG>state</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef15"></A><STRONG>post-code</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef16"></A><STRONG>country</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef17"></A><STRONG>phone</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef18"></A><STRONG>fax</STRONG> (#PCDATA)&gt;
-&lt;!ELEMENT <A NAME="ElementDef19"></A><STRONG>other-addr</STRONG> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef4"
+     id="ElementDef4"></a><strong>book-info</strong> (<a href=
+     "story.dtd.html#EntityDef.com-info">%com-info;</a>, <a href=
+     "story.dtd.html#ElementDef5">copyright</a>?, <a href=
+     "story.dtd.html#ElementDef8">publisher</a>?,
+        <a href="story.dtd.html#ElementDef20">legal-notice</a>?, <a href=
+"story.dtd.html#ElementDef21">edition</a>?, <a href=
+"story.dtd.html#ElementDef22">biblio-id</a>*, <a href=
+"story.dtd.html#ElementDef23">keyword-set</a>?, <a href=
+"story.dtd.html#ElementDef24">abstract</a>?)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef20"></A><STRONG>legal-notice</STRONG> (<A HREF="story.dtd.html#ElementDef70">title</A>?, <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef21"></A><STRONG>edition</STRONG> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef5"
+     id="ElementDef5"></a><strong>copyright</strong> (<a href=
+     "story.dtd.html#ElementDef6">year</a>+, <a href=
+     "story.dtd.html#ElementDef7">holder</a>*)&gt;
+&lt;!ELEMENT <a name="ElementDef6"
+     id="ElementDef6"></a><strong>year</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef7"
+     id="ElementDef7"></a><strong>holder</strong> (#PCDATA)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef22"></A><STRONG>biblio-id</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef4"></A><STRONG>biblio-id</STRONG>
-	class (doi|isbn|isrn|issn|library-of-congress|other|pub-number|uri)
-		#REQUIRED
-	other-class CDATA #IMPLIED
+&lt;!ELEMENT <a name="ElementDef8"
+     id="ElementDef8"></a><strong>publisher</strong> (<a href=
+     "story.dtd.html#ElementDef9">publisher-name</a>, <a href=
+     "story.dtd.html#ElementDef10">address</a>?)&gt;
+&lt;!ATTLIST <a name="AttlistDef3"
+     id="AttlistDef3"></a><strong>publisher</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef23"></A><STRONG>keyword-set</STRONG> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef9"
+     id="ElementDef9"></a><strong>publisher-name</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef10"
+     id="ElementDef10"></a><strong>address</strong> (<a href=
+     "story.dtd.html#ElementDef11">street</a>*, <a href=
+     "story.dtd.html#ElementDef12">pob</a>?, <a href=
+     "story.dtd.html#ElementDef13">city</a>?, <a href=
+     "story.dtd.html#ElementDef14">state</a>?, <a href=
+     "story.dtd.html#ElementDef15">post-code</a>?, <a href=
+     "story.dtd.html#ElementDef16">country</a>?,
+        <a href="story.dtd.html#ElementDef17">phone</a>*, <a href=
+"story.dtd.html#ElementDef18">fax</a>?, <a href=
+"story.dtd.html#ElementDef66">email</a>*, <a href=
+"story.dtd.html#ElementDef19">other-addr</a>*)&gt;
+&lt;!ELEMENT <a name="ElementDef11"
+     id="ElementDef11"></a><strong>street</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef12"
+     id="ElementDef12"></a><strong>pob</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef13"
+     id="ElementDef13"></a><strong>city</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef14"
+     id="ElementDef14"></a><strong>state</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef15"
+     id="ElementDef15"></a><strong>post-code</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef16"
+     id="ElementDef16"></a><strong>country</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef17"
+     id="ElementDef17"></a><strong>phone</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef18"
+     id="ElementDef18"></a><strong>fax</strong> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef19"
+     id="ElementDef19"></a><strong>other-addr</strong> (#PCDATA)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef24"></A><STRONG>abstract</STRONG> (<A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
+&lt;!ELEMENT <a name="ElementDef20"
+     id="ElementDef20"></a><strong>legal-notice</strong> (<a href=
+     "story.dtd.html#ElementDef70">title</a>?, <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef25"></A><STRONG>style-info</STRONG> ((<A HREF="story.dtd.html#ElementDef26">def-style</A>|<A HREF="story.dtd.html#ElementDef27">def-content</A>|<A HREF="story.dtd.html#ElementDef28">def-draft</A>|<A HREF="story.dtd.html#ElementDef29">def-print</A>|<A HREF="story.dtd.html#ElementDef30">def-base</A>|
-	<A HREF="story.dtd.html#ElementDef31">def-img</A>|<A HREF="story.dtd.html#ElementDef32">def-link</A>)*, <A HREF="story.dtd.html#ElementDef33">meta-description</A>, <A HREF="story.dtd.html#ElementDef34">file-prefix</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef5"></A><STRONG>style-info</STRONG>
-	style-ref CDATA #REQUIRED
-	thread-refs CDATA #REQUIRED
+&lt;!ELEMENT <a name="ElementDef21"
+     id="ElementDef21"></a><strong>edition</strong> (#PCDATA)&gt;
+
+&lt;!ELEMENT <a name="ElementDef22"
+     id="ElementDef22"></a><strong>biblio-id</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef4"
+     id="AttlistDef4"></a><strong>biblio-id</strong>
+        class (doi|isbn|isrn|issn|library-of-congress|other|pub-number|uri)
+                #REQUIRED
+        other-class CDATA #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+
+&lt;!ELEMENT <a name="ElementDef23"
+     id="ElementDef23"></a><strong>keyword-set</strong> (#PCDATA)&gt;
+
+&lt;!ELEMENT <a name="ElementDef24"
+     id="ElementDef24"></a><strong>abstract</strong> (<a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+
+&lt;!ELEMENT <a name="ElementDef25"
+     id="ElementDef25"></a><strong>style-info</strong> ((<a href=
+     "story.dtd.html#ElementDef26">def-style</a>|<a href=
+     "story.dtd.html#ElementDef27">def-content</a>|<a href=
+     "story.dtd.html#ElementDef28">def-draft</a>|<a href=
+     "story.dtd.html#ElementDef29">def-print</a>|<a href=
+     "story.dtd.html#ElementDef30">def-base</a>|
+        <a href="story.dtd.html#ElementDef31">def-img</a>|<a href=
+"story.dtd.html#ElementDef32">def-link</a>)*, <a href=
+"story.dtd.html#ElementDef33">meta-description</a>, <a href=
+"story.dtd.html#ElementDef34">file-prefix</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef5"
+     id="AttlistDef5"></a><strong>style-info</strong>
+        style-ref CDATA #REQUIRED
+        thread-refs CDATA #REQUIRED
+&gt;
+<span class="COMMENT">&lt;!--
 style-ref - def-style id
 thread-refs - editor content view
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef26"></A><STRONG>def-style</STRONG> (<A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef6"></A><STRONG>def-style</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-	content-ref CDATA #REQUIRED
-	debug (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #REQUIRED
-	draft (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #REQUIRED
-	draft-ref CDATA #REQUIRED
-	print-ref CDATA #REQUIRED
+&lt;!ELEMENT <a name="ElementDef26"
+     id="ElementDef26"></a><strong>def-style</strong> (<a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef6"
+     id="AttlistDef6"></a><strong>def-style</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
+        content-ref CDATA #REQUIRED
+        debug (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #REQUIRED
+        draft (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #REQUIRED
+        draft-ref CDATA #REQUIRED
+        print-ref CDATA #REQUIRED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 print-ref - def-print id
 content-ref - def-content id
 draft-ref - def-draft id
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef27"></A><STRONG>def-content</STRONG> (<A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef7"></A><STRONG>def-content</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-	ch-draft (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	ch-final (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	ch-in-progress (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	ch-preface (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	ch-refs CDATA #IMPLIED
-	link-fmt (default|full|long|short|text|plain) #REQUIRED
-	preface (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	prolog (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	thread-refs CDATA #REQUIRED
-	unit-draft (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	unit-final (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	unit-in-progress (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	unit-refs CDATA #IMPLIED
+&lt;!ELEMENT <a name="ElementDef27"
+     id="ElementDef27"></a><strong>def-content</strong> (<a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef7"
+     id="AttlistDef7"></a><strong>def-content</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
+        ch-draft (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        ch-final (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        ch-in-progress (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        ch-preface (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        ch-refs CDATA #IMPLIED
+        link-fmt (default|full|long|short|text|plain) #REQUIRED
+        preface (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        prolog (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        thread-refs CDATA #REQUIRED
+        unit-draft (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        unit-final (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        unit-in-progress (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        unit-refs CDATA #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 Default: no, for missing attributes.
 ch-preface - print the ch-preface?
 preface - print preface/epilog?
@@ -124,38 +223,59 @@ thread - only print threads that have this id in their ref list
 ch-refs - limit to this space sep. list of chapter ids
 unit-refs - limit to this space sep. list of unit ids
 link-fmt -
-	default - use the link tag's attr (if pdf, no 'a' tag)
-	full - force attr: img title, url, content (if pdf, no 'a' tag)
-	long - force attr: title, url, content (if pdf, no 'a' tag)
-	short - force attr: title, url (if pdf, no 'a' tag)
-	text - force attr: title, url (no 'a' tag)
-	plain - force attr: title (no 'a' tag)
---&gt;</SPAN>
+        default - use the link tag's attr (if pdf, no 'a' tag)
+        full - force attr: img title, url, content (if pdf, no 'a' tag)
+        long - force attr: title, url, content (if pdf, no 'a' tag)
+        short - force attr: title, url (if pdf, no 'a' tag)
+        text - force attr: title, url (no 'a' tag)
+        plain - force attr: title (no 'a' tag)
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef28"></A><STRONG>def-draft</STRONG> (<A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef8"></A><STRONG>def-draft</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-	def-base (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	def-img (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	def-link (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	def-thread (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	def-when (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	def-where (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	def-who (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-        deleted (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	thread-all (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	thread-all-vp (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	thread-content (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	thread-id-vp (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	thread-ref (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	timeline (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	unit-outline (0|1|2) #IMPLIED
-	unit-title (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	unit-when (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	unit-where (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	unit-who (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
+&lt;!ELEMENT <a name="ElementDef28"
+     id="ElementDef28"></a><strong>def-draft</strong> (<a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef8"
+     id="AttlistDef8"></a><strong>def-draft</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
+        def-base (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        def-img (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        def-link (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        def-thread (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        def-when (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        def-where (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        def-who (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        deleted (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        thread-all (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        thread-all-vp (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        thread-content (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        thread-id-vp (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        thread-ref (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        timeline (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        unit-outline (0|1|2) #IMPLIED
+        unit-title (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        unit-when (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        unit-where (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        unit-who (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 Default: no, for missing attributes.
 deleted - show deleted content?
 thread-content - print content of threads
@@ -166,260 +286,371 @@ thread-all-vp - output all viewpoint thoughts
 preview-thread - use this for the editor view
 timeline - show the when times across all active units
 unit-outline - if 1 show outline.  If 2 and unit is in-progress show outline
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef29"></A><STRONG>def-print</STRONG> (<A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef9"></A><STRONG>def-print</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-	alink CDATA #IMPLIED
-	auto-break (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	bgcolor CDATA #REQUIRED
-	bleed-bottom (0|0.125in|0.25in) #IMPLIED
-	bleed-left (0|0.125in|0.25in) #IMPLIED
-	bleed-right (0|0.125in|0.25in) #IMPLIED
-	bleed-top (0|0.125in|0.25in) #IMPLIED
-	body-family (<A HREF="story.dtd.html#EntityDef.font-family">%font-family;</A>) #REQUIRED
-	body-size (<A HREF="story.dtd.html#EntityDef.font-size">%font-size;</A>) #REQUIRED
-	ch-title-family (<A HREF="story.dtd.html#EntityDef.font-family">%font-family;</A>) #REQUIRED
-	ch-title-size (<A HREF="story.dtd.html#EntityDef.font-size">%font-size;</A>) #REQUIRED
-	ch-page-break (none|some-odd|all-odd) #REQUIRED
-	copyright-type (none|standard|commons) #REQUIRED
-	draft CDATA #REQUIRED
-	duplex (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #REQUIRED
-	gutter (0|0.2in|0.25in|0.3in|0.35in|0.375in|0.4in) #REQUIRED
-	head-align (left|right|center) #REQUIRED
-	head-family (<A HREF="story.dtd.html#EntityDef.font-family">%font-family;</A>) #REQUIRED
-	head-location (top|bottom) #REQUIRED
-	head-size (<A HREF="story.dtd.html#EntityDef.font-size">%font-size;</A>) #REQUIRED
-	head-type (page-no|title|title-author|title-chapter) #REQUIRED
-	img-ref CDATA #IMPLIED
-	line-height (100|110|120|130|150|200|220|240|260|280|300) #REQUIRED
-	link CDATA #IMPLIED
-	margin (0.15in|0.25in|0.5in|0.75in|1in) #REQUIRED
-	multi-file (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #REQUIRED
-	next-prev (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	output-type (html|pdf|ps|docbook|txt)  #REQUIRED
-	page (3.47x4.54in|4.25x6.875in|6x9in|8.5x11in) #REQUIRED
-	page-height CDATA #IMPLIED
-	page-width CDATA #IMPLIED
-	text CDATA #REQUIRED
-	title-family (<A HREF="story.dtd.html#EntityDef.font-family">%font-family;</A>) #REQUIRED
-	title-size (<A HREF="story.dtd.html#EntityDef.font-size">%font-size;</A>) #REQUIRED
-	toc (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #REQUIRED
-	vlink CDATA #IMPLIED
+&lt;!ELEMENT <a name="ElementDef29"
+     id="ElementDef29"></a><strong>def-print</strong> (<a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef9"
+     id="AttlistDef9"></a><strong>def-print</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
+        alink CDATA #IMPLIED
+        auto-break (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        bgcolor CDATA #REQUIRED
+        bleed-bottom (0|0.125in|0.25in) #IMPLIED
+        bleed-left (0|0.125in|0.25in) #IMPLIED
+        bleed-right (0|0.125in|0.25in) #IMPLIED
+        bleed-top (0|0.125in|0.25in) #IMPLIED
+        body-family (<a href=
+"story.dtd.html#EntityDef.font-family">%font-family;</a>) #REQUIRED
+        body-size (<a href=
+"story.dtd.html#EntityDef.font-size">%font-size;</a>) #REQUIRED
+        ch-title-family (<a href=
+"story.dtd.html#EntityDef.font-family">%font-family;</a>) #REQUIRED
+        ch-title-size (<a href=
+"story.dtd.html#EntityDef.font-size">%font-size;</a>) #REQUIRED
+        ch-page-break (none|some-odd|all-odd) #REQUIRED
+        copyright-type (none|standard|commons) #REQUIRED
+        draft CDATA #REQUIRED
+        duplex (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #REQUIRED
+        gutter (0|0.2in|0.25in|0.3in|0.35in|0.375in|0.4in) #REQUIRED
+        head-align (left|right|center) #REQUIRED
+        head-family (<a href=
+"story.dtd.html#EntityDef.font-family">%font-family;</a>) #REQUIRED
+        head-location (top|bottom) #REQUIRED
+        head-size (<a href=
+"story.dtd.html#EntityDef.font-size">%font-size;</a>) #REQUIRED
+        head-type (page-no|title|title-author|title-chapter) #REQUIRED
+        img-ref CDATA #IMPLIED
+        line-height (100|110|120|130|150|200|220|240|260|280|300) #REQUIRED
+        link CDATA #IMPLIED
+        margin (0.15in|0.25in|0.5in|0.75in|1in) #REQUIRED
+        multi-file (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #REQUIRED
+        next-prev (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        output-type (html|pdf|ps|docbook|txt)  #REQUIRED
+        page (3.47x4.54in|4.25x6.875in|6x9in|8.5x11in) #REQUIRED
+        page-height CDATA #IMPLIED
+        page-width CDATA #IMPLIED
+        text CDATA #REQUIRED
+        title-family (<a href=
+"story.dtd.html#EntityDef.font-family">%font-family;</a>) #REQUIRED
+        title-size (<a href=
+"story.dtd.html#EntityDef.font-size">%font-size;</a>) #REQUIRED
+        toc (<a href="story.dtd.html#EntityDef.bool">%bool;</a>) #REQUIRED
+        vlink CDATA #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 Default: 0 or "", for missing attributes (unless noted otherwise)
-	auto-break - put a section break automatically between units
-		(i.e. not first unit of a chapter)
-	body-family - body font name
-	body-size - body font point size
-	ch-page-break - controls page breaks for chapters.  toc,
-		preface, first chapter, epilog are always odd.
-	ch-title-size - html: h2 size in css
-	copyright-type - don't print if missing or '0'
-	head-family - head font name
-	head-size - html: h3 size in css
-	line-height - percent, recommend 120 for single space, 240 for double
-	output-type - htmlpdf|ps|docbook|txt
-	title-size - html: h1 size in css
-	toc - html: name link to ch. or create toc file of links, if muli-file
-	toc - print toc?
+        auto-break - put a section break automatically between units
+                (i.e. not first unit of a chapter)
+        body-family - body font name
+        body-size - body font point size
+        ch-page-break - controls page breaks for chapters.  toc,
+                preface, first chapter, epilog are always odd.
+        ch-title-size - html: h2 size in css
+        copyright-type - don't print if missing or '0'
+        head-family - head font name
+        head-size - html: h3 size in css
+        line-height - percent, recommend 120 for single space, 240 for double
+        output-type - htmlpdf|ps|docbook|txt
+        title-size - html: h1 size in css
+        toc - html: name link to ch. or create toc file of links, if muli-file
+        toc - print toc?
 
 non-html only:
-	page - final page size, in inches (lulu sizes)
-	page-height - if non-zero, will override page (include units)
-	page-width - if non-zero, will override page (include units)
-	margin - top, bottom, left, right margins
-	gutter - space for binding, recommend 0.2in or 0.3in (inside edge)
-	bleed-left - left page crop (usually 0)
-	bleed-right - right page crop (lulu: 0.25, default: 0)
-	bleed-top - top page crop (lulu: 0.125, default: 0)
-	bleed-bottom - bottom page crop (lulu: 0.125, default: 0)
-	duplex - double sided?  If yes, the gutter and bleed-right alternates,
+        page - final page size, in inches (lulu sizes)
+        page-height - if non-zero, will override page (include units)
+        page-width - if non-zero, will override page (include units)
+        margin - top, bottom, left, right margins
+        gutter - space for binding, recommend 0.2in or 0.3in (inside edge)
+        bleed-left - left page crop (usually 0)
+        bleed-right - right page crop (lulu: 0.25, default: 0)
+        bleed-top - top page crop (lulu: 0.125, default: 0)
+        bleed-bottom - bottom page crop (lulu: 0.125, default: 0)
+        duplex - double sided?  If yes, the gutter and bleed-right alternates,
          also the gutter, page no., and headings will alternate
-	head-type -
-		page-no - only page numbers
-		title - numbers outside, title inside
-		title-author - numbers outside, author even, title odd
-		title-chapter - numbers outside, chapter even, title odd
-	head-align
-		- page no. is aways on outside edge, if there is
-		  other text.  If just page-no head-type, then
-		  head-align applies to the page-no.
-		left - align non-page text to inside edge
-		right - align non-page text to outside edge
-		center - center the text
-	head-location
-		top - top of page, with a rule line below
-		bottom - bottom of page, with a rule line above
+        head-type -
+                page-no - only page numbers
+                title - numbers outside, title inside
+                title-author - numbers outside, author even, title odd
+                title-chapter - numbers outside, chapter even, title odd
+        head-align
+                - page no. is aways on outside edge, if there is
+                  other text.  If just page-no head-type, then
+                  head-align applies to the page-no.
+                left - align non-page text to inside edge
+                right - align non-page text to outside edge
+                center - center the text
+        head-location
+                top - top of page, with a rule line below
+                bottom - bottom of page, with a rule line above
 
 html only:
-	alink
-	bgcolor - background color
-	draft - draft color
-	img-ref - html: def-img id (background image)
-	link
-	multi-file - yes: each ch in a file; no: single file
-	next-prev - html: create next/prev chapter links, only if muli-file
-	text - text color
-	vlink
---&gt;</SPAN>
+        alink
+        bgcolor - background color
+        draft - draft color
+        img-ref - html: def-img id (background image)
+        link
+        multi-file - yes: each ch in a file; no: single file
+        next-prev - html: create next/prev chapter links, only if muli-file
+        text - text color
+        vlink
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef30"></A><STRONG>def-base</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef10"></A><STRONG>def-base</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
+&lt;!ELEMENT <a name="ElementDef30"
+     id="ElementDef30"></a><strong>def-base</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef10"
+     id="AttlistDef10"></a><strong>def-base</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 Base url part to prepend to url attr in def-img and def-link.
 (You'll want to make a base that is blank, for URLs that are
 absolute (not relative to a base.)
 Example:
 http://www.moria.dynu.com/
 file:///home/george/ver/public/app/story/src/
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef31"></A><STRONG>def-img</STRONG> (#PCDATA)&gt;	<SPAN CLASS="COMMENT">&lt;!-- alt text --&gt;</SPAN>
-&lt;!ATTLIST <A NAME="AttlistDef11"></A><STRONG>def-img</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-	url CDATA #REQUIRED
-	base-ref CDATA #REQUIRED
-	width CDATA #REQUIRED
-	height CDATA #REQUIRED
+&lt;!ELEMENT <a name="ElementDef31"
+     id=
+     "ElementDef31"></a><strong>def-img</strong> (#PCDATA)&gt;  <span class=
+     "COMMENT">&lt;!-- alt text --&gt;</span>
+&lt;!ATTLIST <a name="AttlistDef11"
+     id="AttlistDef11"></a><strong>def-img</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
+        url CDATA #REQUIRED
+        base-ref CDATA #REQUIRED
+        width CDATA #REQUIRED
+        height CDATA #REQUIRED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 width and height units should not be specified in px
 (pixels).  For html output the image size is converted
 to pixes, from the width/height attr., with the ratio 72dpi
 (which corresponds to the ratio of 72pt per inch)
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef32"></A><STRONG>def-link</STRONG> (#PCDATA)&gt;	<SPAN CLASS="COMMENT">&lt;!-- label --&gt;</SPAN>
-&lt;!ATTLIST <A NAME="AttlistDef12"></A><STRONG>def-link</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-	url CDATA #REQUIRED
-	base-ref CDATA #REQUIRED
-	img-ref CDATA #IMPLIED
+&lt;!ELEMENT <a name="ElementDef32"
+     id=
+     "ElementDef32"></a><strong>def-link</strong> (#PCDATA)&gt; <span class=
+     "COMMENT">&lt;!-- label --&gt;</span>
+&lt;!ATTLIST <a name="AttlistDef12"
+     id="AttlistDef12"></a><strong>def-link</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
+        url CDATA #REQUIRED
+        base-ref CDATA #REQUIRED
+        img-ref CDATA #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!-- ref - img-id --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- ref - img-id --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef33"></A><STRONG>meta-description</STRONG> (#PCDATA)&gt;
+&lt;!ELEMENT <a name="ElementDef33"
+     id="ElementDef33"></a><strong>meta-description</strong> (#PCDATA)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef34"></A><STRONG>file-prefix</STRONG> (#PCDATA)&gt;
-<SPAN CLASS="COMMENT">&lt;!-- Prefix for ch files --&gt;</SPAN>
+&lt;!ELEMENT <a name="ElementDef34"
+     id="ElementDef34"></a><strong>file-prefix</strong> (#PCDATA)&gt;
+<span class="COMMENT">&lt;!-- Prefix for ch files --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef35"></A><STRONG>story-info</STRONG> (<A HREF="story.dtd.html#ElementDef36">def-when</A>, (<A HREF="story.dtd.html#ElementDef37">def-where</A>|<A HREF="story.dtd.html#ElementDef38">def-who</A>|<A HREF="story.dtd.html#ElementDef39">def-thread</A>)*, <A HREF="story.dtd.html#ElementDef42">ch-preface</A>?)&gt;
+&lt;!ELEMENT <a name="ElementDef35"
+     id="ElementDef35"></a><strong>story-info</strong> (<a href=
+     "story.dtd.html#ElementDef36">def-when</a>, (<a href=
+     "story.dtd.html#ElementDef37">def-where</a>|<a href=
+     "story.dtd.html#ElementDef38">def-who</a>|<a href=
+     "story.dtd.html#ElementDef39">def-thread</a>)*, <a href=
+     "story.dtd.html#ElementDef42">ch-preface</a>?)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef36"></A><STRONG>def-when</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef13"></A><STRONG>def-when</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-	<A HREF="story.dtd.html#EntityDef.date-time">%date-time;</A>
-&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef37"></A><STRONG>def-where</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef14"></A><STRONG>def-where</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef38"></A><STRONG>def-who</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef15"></A><STRONG>def-who</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef39"></A><STRONG>def-thread</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef16"></A><STRONG>def-thread</STRONG>
-	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
-&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef40"></A><STRONG>preface</STRONG> (<A HREF="story.dtd.html#EntityDef.com-title">%com-title;</A>, <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef17"></A><STRONG>preface</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
+&lt;!ELEMENT <a name="ElementDef36"
+     id="ElementDef36"></a><strong>def-when</strong> <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef13"
+     id="AttlistDef13"></a><strong>def-when</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
+        <a href="story.dtd.html#EntityDef.date-time">%date-time;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef41"></A><STRONG>epilog</STRONG> (<A HREF="story.dtd.html#EntityDef.com-title">%com-title;</A>, <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef18"></A><STRONG>epilog</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
+&lt;!ELEMENT <a name="ElementDef37"
+     id="ElementDef37"></a><strong>def-where</strong> <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef14"
+     id="AttlistDef14"></a><strong>def-where</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef42"></A><STRONG>ch-preface</STRONG> (<A HREF="story.dtd.html#ElementDef70">title</A>, <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef19"></A><STRONG>ch-preface</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
+&lt;!ELEMENT <a name="ElementDef38"
+     id="ElementDef38"></a><strong>def-who</strong> <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef15"
+     id="AttlistDef15"></a><strong>def-who</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ****************** --&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef43"></A><STRONG>chapter</STRONG> (<A HREF="story.dtd.html#EntityDef.com-title">%com-title;</A>, <A HREF="story.dtd.html#ElementDef44">chapter-info</A>?, <A HREF="story.dtd.html#ElementDef45">prolog</A>?, <A HREF="story.dtd.html#ElementDef47">unit</A>+, <A HREF="story.dtd.html#ElementDef46">postlog</A>?)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef20"></A><STRONG>chapter</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
+&lt;!ELEMENT <a name="ElementDef39"
+     id="ElementDef39"></a><strong>def-thread</strong> <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef16"
+     id="AttlistDef16"></a><strong>def-thread</strong>
+        <a href="story.dtd.html#EntityDef.id">%id;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef44"></A><STRONG>chapter-info</STRONG> (<A HREF="story.dtd.html#EntityDef.com-info">%com-info;</A>)&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef45"></A><STRONG>prolog</STRONG> (<A HREF="story.dtd.html#ElementDef70">title</A>, <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef21"></A><STRONG>prolog</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef40"
+     id="ElementDef40"></a><strong>preface</strong> (<a href=
+     "story.dtd.html#EntityDef.com-title">%com-title;</a>, <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef17"
+     id="AttlistDef17"></a><strong>preface</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef46"></A><STRONG>postlog</STRONG> (<A HREF="story.dtd.html#ElementDef70">title</A>, <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef22"></A><STRONG>postlog</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef41"
+     id="ElementDef41"></a><strong>epilog</strong> (<a href=
+     "story.dtd.html#EntityDef.com-title">%com-title;</a>, <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef18"
+     id="AttlistDef18"></a><strong>epilog</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ****************** --&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef47"></A><STRONG>unit</STRONG> (<A HREF="story.dtd.html#ElementDef70">title</A>, <A HREF="story.dtd.html#ElementDef48">outline</A>?, <A HREF="story.dtd.html#ElementDef55">thread</A>+)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef23"></A><STRONG>unit</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
-	type (scene|sequel|other) #REQUIRED
+&lt;!ELEMENT <a name="ElementDef42"
+     id="ElementDef42"></a><strong>ch-preface</strong> (<a href=
+     "story.dtd.html#ElementDef70">title</a>, <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef19"
+     id="AttlistDef19"></a><strong>ch-preface</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef48"></A><STRONG>outline</STRONG> (<A HREF="story.dtd.html#ElementDef49">when</A>?, <A HREF="story.dtd.html#ElementDef52">where</A>?, <A HREF="story.dtd.html#ElementDef53">who</A>*, <A HREF="story.dtd.html#ElementDef54">description</A>?)&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef49"></A><STRONG>when</STRONG> (<A HREF="story.dtd.html#ElementDef50">start-date</A>?, <A HREF="story.dtd.html#ElementDef51">end-date</A>?, <A HREF="story.dtd.html#ElementDef54">description</A>?)&gt;
-&lt;!ELEMENT <A NAME="ElementDef50"></A><STRONG>start-date</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef24"></A><STRONG>start-date</STRONG>
-	<A HREF="story.dtd.html#EntityDef.date-time">%date-time;</A>
+<span class="COMMENT">&lt;!-- ****************** --&gt;</span>
+&lt;!ELEMENT <a name="ElementDef43"
+     id="ElementDef43"></a><strong>chapter</strong> (<a href=
+     "story.dtd.html#EntityDef.com-title">%com-title;</a>, <a href=
+     "story.dtd.html#ElementDef44">chapter-info</a>?, <a href=
+     "story.dtd.html#ElementDef45">prolog</a>?, <a href=
+     "story.dtd.html#ElementDef47">unit</a>+, <a href=
+     "story.dtd.html#ElementDef46">postlog</a>?)&gt;
+&lt;!ATTLIST <a name="AttlistDef20"
+     id="AttlistDef20"></a><strong>chapter</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
-&lt;!ELEMENT <A NAME="ElementDef51"></A><STRONG>end-date</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef25"></A><STRONG>end-date</STRONG>
-	<A HREF="story.dtd.html#EntityDef.date-time">%date-time;</A>
+
+&lt;!ELEMENT <a name="ElementDef44"
+     id="ElementDef44"></a><strong>chapter-info</strong> (<a href=
+     "story.dtd.html#EntityDef.com-info">%com-info;</a>)&gt;
+
+&lt;!ELEMENT <a name="ElementDef45"
+     id="ElementDef45"></a><strong>prolog</strong> (<a href=
+     "story.dtd.html#ElementDef70">title</a>, <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef21"
+     id="AttlistDef21"></a><strong>prolog</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef52"></A><STRONG>where</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef26"></A><STRONG>where</STRONG>
-	<A HREF="story.dtd.html#EntityDef.ref-r">%ref-r;</A>
+&lt;!ELEMENT <a name="ElementDef46"
+     id="ElementDef46"></a><strong>postlog</strong> (<a href=
+     "story.dtd.html#ElementDef70">title</a>, <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef22"
+     id="AttlistDef22"></a><strong>postlog</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!-- ref - def-where id --&gt;</SPAN>
 
-&lt;!ELEMENT <A NAME="ElementDef53"></A><STRONG>who</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef27"></A><STRONG>who</STRONG>
-	<A HREF="story.dtd.html#EntityDef.ref-r">%ref-r;</A>
+<span class="COMMENT">&lt;!-- ****************** --&gt;</span>
+&lt;!ELEMENT <a name="ElementDef47"
+     id="ElementDef47"></a><strong>unit</strong> (<a href=
+     "story.dtd.html#ElementDef70">title</a>, <a href=
+     "story.dtd.html#ElementDef48">outline</a>?, <a href=
+     "story.dtd.html#ElementDef55">thread</a>+)&gt;
+&lt;!ATTLIST <a name="AttlistDef23"
+     id="AttlistDef23"></a><strong>unit</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
+        type (scene|sequel|other) #REQUIRED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!-- ref - defwho-id --&gt;</SPAN>
 
-&lt;!ELEMENT <A NAME="ElementDef54"></A><STRONG>description</STRONG> (<A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>)&gt;
+&lt;!ELEMENT <a name="ElementDef48"
+     id="ElementDef48"></a><strong>outline</strong> (<a href=
+     "story.dtd.html#ElementDef49">when</a>?, <a href=
+     "story.dtd.html#ElementDef52">where</a>?, <a href=
+     "story.dtd.html#ElementDef53">who</a>*, <a href=
+     "story.dtd.html#ElementDef54">description</a>?)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef55"></A><STRONG>thread</STRONG> <A HREF="story.dtd.html#EntityDef.thread-text">%thread-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef28"></A><STRONG>thread</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
-	ref CDATA #REQUIRED
-	who-refs CDATA #REQUIRED
+&lt;!ELEMENT <a name="ElementDef49"
+     id="ElementDef49"></a><strong>when</strong> (<a href=
+     "story.dtd.html#ElementDef50">start-date</a>?, <a href=
+     "story.dtd.html#ElementDef51">end-date</a>?, <a href=
+     "story.dtd.html#ElementDef54">description</a>?)&gt;
+&lt;!ELEMENT <a name="ElementDef50"
+     id="ElementDef50"></a><strong>start-date</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef24"
+     id="AttlistDef24"></a><strong>start-date</strong>
+        <a href="story.dtd.html#EntityDef.date-time">%date-time;</a>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+&lt;!ELEMENT <a name="ElementDef51"
+     id="ElementDef51"></a><strong>end-date</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef25"
+     id="AttlistDef25"></a><strong>end-date</strong>
+        <a href="story.dtd.html#EntityDef.date-time">%date-time;</a>
+&gt;
+
+&lt;!ELEMENT <a name="ElementDef52"
+     id="ElementDef52"></a><strong>where</strong> <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef26"
+     id="AttlistDef26"></a><strong>where</strong>
+        <a href="story.dtd.html#EntityDef.ref-r">%ref-r;</a>
+&gt;
+<span class="COMMENT">&lt;!-- ref - def-where id --&gt;</span>
+
+&lt;!ELEMENT <a name="ElementDef53"
+     id="ElementDef53"></a><strong>who</strong> <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef27"
+     id="AttlistDef27"></a><strong>who</strong>
+        <a href="story.dtd.html#EntityDef.ref-r">%ref-r;</a>
+&gt;
+<span class="COMMENT">&lt;!-- ref - defwho-id --&gt;</span>
+
+&lt;!ELEMENT <a name="ElementDef54"
+     id="ElementDef54"></a><strong>description</strong> (<a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>)&gt;
+
+&lt;!ELEMENT <a name="ElementDef55"
+     id="ElementDef55"></a><strong>thread</strong> <a href=
+     "story.dtd.html#EntityDef.thread-text">%thread-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef28"
+     id="AttlistDef28"></a><strong>thread</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
+        ref CDATA #REQUIRED
+        who-refs CDATA #REQUIRED
+&gt;
+<span class="COMMENT">&lt;!--
 refs - one or more def-thread-id's separated by spaces
 who-refs - print only the t tags that have these "who" ids
---&gt;</SPAN>
+--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- ************************************** --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Entitities --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- ************************************** --&gt;</span>
+<span class="COMMENT">&lt;!-- Entitities --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- ******************* --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Common Attr --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- ******************* --&gt;</span>
+<span class="COMMENT">&lt;!-- Common Attr --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.id"><STRONG>id</STRONG></A> "id CDATA #REQUIRED"&gt;
-&lt;!ENTITY % <A NAME="EntityDef.ref-i"><STRONG>ref-i</STRONG></A> "ref CDATA #IMPLIED"&gt;
-&lt;!ENTITY % <A NAME="EntityDef.ref-r"><STRONG>ref-r</STRONG></A> "ref CDATA #REQUIRED"&gt;
-&lt;!ENTITY % <A NAME="EntityDef.bool"><STRONG>bool</STRONG></A> "1|0"&gt;
+&lt;!ENTITY % <a name="EntityDef.id"
+     id="EntityDef.id"><strong>id</strong></a> "id CDATA #REQUIRED"&gt;
+&lt;!ENTITY % <a name="EntityDef.ref-i"
+     id=
+     "EntityDef.ref-i"><strong>ref-i</strong></a> "ref CDATA #IMPLIED"&gt;
+&lt;!ENTITY % <a name="EntityDef.ref-r"
+     id=
+     "EntityDef.ref-r"><strong>ref-r</strong></a> "ref CDATA #REQUIRED"&gt;
+&lt;!ENTITY % <a name="EntityDef.bool"
+     id="EntityDef.bool"><strong>bool</strong></a> "1|0"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.com-attr"><STRONG>com-attr</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.com-attr"
+     id="EntityDef.com-attr"><strong>com-attr</strong></a> "
 condition CDATA #IMPLIED
 id CDATA #IMPLIED
 lang CDATA #IMPLIED
@@ -427,7 +658,8 @@ revision (in-progress|draft|final) #IMPLIED
 revision-flag (changed|added|deleted|off) #IMPLIED
 "&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.com-attr-req"><STRONG>com-attr-req</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.com-attr-req"
+     id="EntityDef.com-attr-req"><strong>com-attr-req</strong></a> "
 condition CDATA #IMPLIED
 id CDATA #REQUIRED
 lang CDATA #IMPLIED
@@ -435,237 +667,380 @@ revision (in-progress|draft|final) #REQUIRED
 revision-flag (changed|added|deleted|off) #IMPLIED
 "&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.date-time"><STRONG>date-time</STRONG></A> "
-<A HREF="story.dtd.html#ElementDef6">year</A> CDATA #IMPLIED
+&lt;!ENTITY % <a name="EntityDef.date-time"
+     id="EntityDef.date-time"><strong>date-time</strong></a> "
+<a href="story.dtd.html#ElementDef6">year</a> CDATA #IMPLIED
 month (1|2|3|4|5|6|7|8|9|10|11|12) #IMPLIED
 day CDATA #IMPLIED
 hour CDATA #IMPLIED
 min CDATA #IMPLIED
 gmt CDATA #IMPLIED
 "&gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 year - any integer
 month - 1-12
 day - 1-31
 hour - 0-23
 min - 0-59
 gmt - -HH or +HH (GMT-8 = -08, HH is -12 to +11)
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.font-family"><STRONG>font-family</STRONG></A> "helvetica|courier|times"&gt;
-<SPAN CLASS="COMMENT">&lt;!--
+&lt;!ENTITY % <a name="EntityDef.font-family"
+     id=
+     "EntityDef.font-family"><strong>font-family</strong></a> "helvetica|courier|times"&gt;
+<span class="COMMENT">&lt;!--
 lulu fonts: 
-	Arial (sans)
-	Book Antiqua
-	Bookman Old Style (serif)
-	Century (serif)
-	Courier (monospace)
-	Garamond
-	Palatino (serif)
-	Tahoma
-	Times New Roman (serif)
-	Verdana
-	Symbols 
+        Arial (sans)
+        Book Antiqua
+        Bookman Old Style (serif)
+        Century (serif)
+        Courier (monospace)
+        Garamond
+        Palatino (serif)
+        Tahoma
+        Times New Roman (serif)
+        Verdana
+        Symbols 
 Internal use:
-	Helvetica, Arial, sans
-	Courier, monospace
-	Times, "Times New Roman", serif
---&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.font-size"><STRONG>font-size</STRONG></A> "8pt|9pt|10pt|11pt|12pt|13pt|14pt|15pt|16pt|17pt|18pt|19pt|20pt|21pt|22pt|23pt|24pt|25pt"&gt;
+        Helvetica, Arial, sans
+        Courier, monospace
+        Times, "Times New Roman", serif
+--&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.font-size"
+     id=
+     "EntityDef.font-size"><strong>font-size</strong></a> "8pt|9pt|10pt|11pt|12pt|13pt|14pt|15pt|16pt|17pt|18pt|19pt|20pt|21pt|22pt|23pt|24pt|25pt"&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ******************* --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Common Elements --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- ******************* --&gt;</span>
+<span class="COMMENT">&lt;!-- Common Elements --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.com-info"><STRONG>com-info</STRONG></A> "<A HREF="story.dtd.html#ElementDef56">author-group</A>?, <A HREF="story.dtd.html#ElementDef68">release-info</A>?, <A HREF="story.dtd.html#ElementDef69">pub-date</A>?"&gt;
+&lt;!ENTITY % <a name="EntityDef.com-info"
+     id="EntityDef.com-info"><strong>com-info</strong></a> "<a href=
+     "story.dtd.html#ElementDef56">author-group</a>?, <a href=
+     "story.dtd.html#ElementDef68">release-info</a>?, <a href=
+     "story.dtd.html#ElementDef69">pub-date</a>?"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.com-person"><STRONG>com-person</STRONG></A> "<A HREF="story.dtd.html#ElementDef60">honorific</A>?, <A HREF="story.dtd.html#ElementDef61">first-name</A>, <A HREF="story.dtd.html#ElementDef62">surname</A>, <A HREF="story.dtd.html#ElementDef63">linage</A>?, <A HREF="story.dtd.html#ElementDef64">other-name</A>?, <A HREF="story.dtd.html#ElementDef65">affiliation</A>?, <A HREF="story.dtd.html#ElementDef66">email</A>?, <A HREF="story.dtd.html#ElementDef67">author-blurb</A>?"&gt;
+&lt;!ENTITY % <a name="EntityDef.com-person"
+     id="EntityDef.com-person"><strong>com-person</strong></a> "<a href=
+     "story.dtd.html#ElementDef60">honorific</a>?, <a href=
+     "story.dtd.html#ElementDef61">first-name</a>, <a href=
+     "story.dtd.html#ElementDef62">surname</a>, <a href=
+     "story.dtd.html#ElementDef63">linage</a>?, <a href=
+     "story.dtd.html#ElementDef64">other-name</a>?, <a href=
+     "story.dtd.html#ElementDef65">affiliation</a>?, <a href=
+     "story.dtd.html#ElementDef66">email</a>?, <a href=
+     "story.dtd.html#ElementDef67">author-blurb</a>?"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.simple-text"><STRONG>simple-text</STRONG></A> "(<A HREF="story.dtd.html#ElementDef83">p</A>|<A HREF="story.dtd.html#ElementDef79">para</A>|<A HREF="story.dtd.html#ElementDef80">pre</A>|<A HREF="story.dtd.html#ElementDef81">pre-fmt</A>|<A HREF="story.dtd.html#ElementDef82">quote</A>|<A HREF="story.dtd.html#ElementDef86">br</A>)*"&gt;
+&lt;!ENTITY % <a name="EntityDef.simple-text"
+     id="EntityDef.simple-text"><strong>simple-text</strong></a> "(<a href=
+     "story.dtd.html#ElementDef83">p</a>|<a href=
+     "story.dtd.html#ElementDef79">para</a>|<a href=
+     "story.dtd.html#ElementDef80">pre</a>|<a href=
+     "story.dtd.html#ElementDef81">pre-fmt</a>|<a href=
+     "story.dtd.html#ElementDef82">quote</a>|<a href=
+     "story.dtd.html#ElementDef86">br</a>)*"&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.thread-text"><STRONG>thread-text</STRONG></A> "(<A HREF="story.dtd.html#ElementDef83">p</A>|<A HREF="story.dtd.html#ElementDef79">para</A>|<A HREF="story.dtd.html#ElementDef80">pre</A>|<A HREF="story.dtd.html#ElementDef81">pre-fmt</A>|<A HREF="story.dtd.html#ElementDef82">quote</A>|<A HREF="story.dtd.html#ElementDef86">br</A>|<A HREF="story.dtd.html#ElementDef84">s</A>|<A HREF="story.dtd.html#ElementDef85">t</A>)*"&gt;
+&lt;!ENTITY % <a name="EntityDef.thread-text"
+     id="EntityDef.thread-text"><strong>thread-text</strong></a> "(<a href=
+     "story.dtd.html#ElementDef83">p</a>|<a href=
+     "story.dtd.html#ElementDef79">para</a>|<a href=
+     "story.dtd.html#ElementDef80">pre</a>|<a href=
+     "story.dtd.html#ElementDef81">pre-fmt</a>|<a href=
+     "story.dtd.html#ElementDef82">quote</a>|<a href=
+     "story.dtd.html#ElementDef86">br</a>|<a href=
+     "story.dtd.html#ElementDef84">s</a>|<a href=
+     "story.dtd.html#ElementDef85">t</a>)*"&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef56"></A><STRONG>author-group</STRONG> (<A HREF="story.dtd.html#ElementDef57">author</A>|<A HREF="story.dtd.html#ElementDef58">coauthor</A>|<A HREF="story.dtd.html#ElementDef59">editor</A>)*&gt;
+&lt;!ELEMENT <a name="ElementDef56"
+     id="ElementDef56"></a><strong>author-group</strong> (<a href=
+     "story.dtd.html#ElementDef57">author</a>|<a href=
+     "story.dtd.html#ElementDef58">coauthor</a>|<a href=
+     "story.dtd.html#ElementDef59">editor</a>)*&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef57"></A><STRONG>author</STRONG> (<A HREF="story.dtd.html#EntityDef.com-person">%com-person;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef29"></A><STRONG>author</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
+&lt;!ELEMENT <a name="ElementDef57"
+     id="ElementDef57"></a><strong>author</strong> (<a href=
+     "story.dtd.html#EntityDef.com-person">%com-person;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef29"
+     id="AttlistDef29"></a><strong>author</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef58"></A><STRONG>coauthor</STRONG> (<A HREF="story.dtd.html#EntityDef.com-person">%com-person;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef30"></A><STRONG>coauthor</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
+&lt;!ELEMENT <a name="ElementDef58"
+     id="ElementDef58"></a><strong>coauthor</strong> (<a href=
+     "story.dtd.html#EntityDef.com-person">%com-person;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef30"
+     id="AttlistDef30"></a><strong>coauthor</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef59"></A><STRONG>editor</STRONG> (<A HREF="story.dtd.html#EntityDef.com-person">%com-person;</A>)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef31"></A><STRONG>editor</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
+&lt;!ELEMENT <a name="ElementDef59"
+     id="ElementDef59"></a><strong>editor</strong> (<a href=
+     "story.dtd.html#EntityDef.com-person">%com-person;</a>)&gt;
+&lt;!ATTLIST <a name="AttlistDef31"
+     id="AttlistDef31"></a><strong>editor</strong>
+        <a href="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef60"></A><STRONG>honorific</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef32"></A><STRONG>honorific</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef60"
+     id="ElementDef60"></a><strong>honorific</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef32"
+     id="AttlistDef32"></a><strong>honorific</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef61"></A><STRONG>first-name</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef33"></A><STRONG>first-name</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef61"
+     id="ElementDef61"></a><strong>first-name</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef33"
+     id="AttlistDef33"></a><strong>first-name</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef62"></A><STRONG>surname</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef34"></A><STRONG>surname</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef62"
+     id="ElementDef62"></a><strong>surname</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef34"
+     id="AttlistDef34"></a><strong>surname</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
-&lt;!ELEMENT <A NAME="ElementDef63"></A><STRONG>linage</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef35"></A><STRONG>linage</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
-&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef64"></A><STRONG>other-name</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef36"></A><STRONG>other-name</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
-&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef65"></A><STRONG>affiliation</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef37"></A><STRONG>affiliation</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef63"
+     id="ElementDef63"></a><strong>linage</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef35"
+     id="AttlistDef35"></a><strong>linage</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef66"></A><STRONG>email</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef38"></A><STRONG>email</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef64"
+     id="ElementDef64"></a><strong>other-name</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef36"
+     id="AttlistDef36"></a><strong>other-name</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef67"></A><STRONG>author-blurb</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef39"></A><STRONG>author-blurb</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef65"
+     id="ElementDef65"></a><strong>affiliation</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef37"
+     id="AttlistDef37"></a><strong>affiliation</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef68"></A><STRONG>release-info</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef40"></A><STRONG>release-info</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef66"
+     id="ElementDef66"></a><strong>email</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef38"
+     id="AttlistDef38"></a><strong>email</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef69"></A><STRONG>pub-date</STRONG> (#PCDATA)&gt;		<SPAN CLASS="COMMENT">&lt;!-- yyyy-mm-dd --&gt;</SPAN>
-&lt;!ATTLIST <A NAME="AttlistDef41"></A><STRONG>pub-date</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef67"
+     id="ElementDef67"></a><strong>author-blurb</strong> <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef39"
+     id="AttlistDef39"></a><strong>author-blurb</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.com-title"><STRONG>com-title</STRONG></A> "<A HREF="story.dtd.html#ElementDef70">title</A>, <A HREF="story.dtd.html#ElementDef71">subtitle</A>?, <A HREF="story.dtd.html#ElementDef72">title-abbrev</A>?"&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef70"></A><STRONG>title</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef42"></A><STRONG>title</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef68"
+     id="ElementDef68"></a><strong>release-info</strong> <a href=
+     "story.dtd.html#EntityDef.simple-text">%simple-text;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef40"
+     id="AttlistDef40"></a><strong>release-info</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef71"></A><STRONG>subtitle</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef43"></A><STRONG>subtitle</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef69"
+     id=
+     "ElementDef69"></a><strong>pub-date</strong> (#PCDATA)&gt;         <span class="COMMENT">&lt;!-- yyyy-mm-dd --&gt;</span>
+&lt;!ATTLIST <a name="AttlistDef41"
+     id="AttlistDef41"></a><strong>pub-date</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef72"></A><STRONG>title-abbrev</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef44"></A><STRONG>title-abbrev</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ENTITY % <a name="EntityDef.com-title"
+     id="EntityDef.com-title"><strong>com-title</strong></a> "<a href=
+     "story.dtd.html#ElementDef70">title</a>, <a href=
+     "story.dtd.html#ElementDef71">subtitle</a>?, <a href=
+     "story.dtd.html#ElementDef72">title-abbrev</a>?"&gt;
+
+&lt;!ELEMENT <a name="ElementDef70"
+     id="ElementDef70"></a><strong>title</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef42"
+     id="AttlistDef42"></a><strong>title</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ************************************** --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.text-style"><STRONG>text-style</STRONG></A> "(#PCDATA|<A HREF="story.dtd.html#ElementDef77">link</A>|<A HREF="story.dtd.html#ElementDef78">img</A>|<A HREF="story.dtd.html#ElementDef73">b</A>|<A HREF="story.dtd.html#ElementDef74">i</A>|<A HREF="story.dtd.html#ElementDef75">tt</A>|<A HREF="story.dtd.html#ElementDef76">rev</A>)*"&gt;
-&lt;!ELEMENT <A NAME="ElementDef73"></A><STRONG>b</STRONG> (#PCDATA|<A HREF="story.dtd.html#ElementDef77">link</A>|<A HREF="story.dtd.html#ElementDef78">img</A>|<A HREF="story.dtd.html#ElementDef74">i</A>|<A HREF="story.dtd.html#ElementDef75">tt</A>|<A HREF="story.dtd.html#ElementDef76">rev</A>)*&gt;
-&lt;!ELEMENT <A NAME="ElementDef74"></A><STRONG>i</STRONG> (#PCDATA|<A HREF="story.dtd.html#ElementDef77">link</A>|<A HREF="story.dtd.html#ElementDef78">img</A>|<A HREF="story.dtd.html#ElementDef73">b</A>|<A HREF="story.dtd.html#ElementDef75">tt</A>|<A HREF="story.dtd.html#ElementDef76">rev</A>)*&gt;
-&lt;!ELEMENT <A NAME="ElementDef75"></A><STRONG>tt</STRONG> (#PCDATA|<A HREF="story.dtd.html#ElementDef77">link</A>|<A HREF="story.dtd.html#ElementDef78">img</A>|<A HREF="story.dtd.html#ElementDef73">b</A>|<A HREF="story.dtd.html#ElementDef74">i</A>|<A HREF="story.dtd.html#ElementDef76">rev</A>)*&gt;
-&lt;!ELEMENT <A NAME="ElementDef76"></A><STRONG>rev</STRONG> (#PCDATA|<A HREF="story.dtd.html#ElementDef77">link</A>|<A HREF="story.dtd.html#ElementDef78">img</A>|<A HREF="story.dtd.html#ElementDef73">b</A>|<A HREF="story.dtd.html#ElementDef74">i</A>|<A HREF="story.dtd.html#ElementDef75">tt</A>)*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef45"></A><STRONG>rev</STRONG>
-	condition CDATA #IMPLIED
-	id CDATA #IMPLIED
-	lang CDATA #IMPLIED
-	revision (in-progress|draft|final) #IMPLIED
-	revision-flag (changed|added|deleted|off) #REQUIRED
+&lt;!ELEMENT <a name="ElementDef71"
+     id="ElementDef71"></a><strong>subtitle</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef43"
+     id="AttlistDef43"></a><strong>subtitle</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+
+&lt;!ELEMENT <a name="ElementDef72"
+     id="ElementDef72"></a><strong>title-abbrev</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef44"
+     id="AttlistDef44"></a><strong>title-abbrev</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
+&gt;
+
+<span class=
+"COMMENT">&lt;!-- ************************************** --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.text-style"
+     id=
+     "EntityDef.text-style"><strong>text-style</strong></a> "(#PCDATA|<a href=
+     "story.dtd.html#ElementDef77">link</a>|<a href=
+     "story.dtd.html#ElementDef78">img</a>|<a href=
+     "story.dtd.html#ElementDef73">b</a>|<a href=
+     "story.dtd.html#ElementDef74">i</a>|<a href=
+     "story.dtd.html#ElementDef75">tt</a>|<a href=
+     "story.dtd.html#ElementDef76">rev</a>)*"&gt;
+&lt;!ELEMENT <a name="ElementDef73"
+     id="ElementDef73"></a><strong>b</strong> (#PCDATA|<a href=
+     "story.dtd.html#ElementDef77">link</a>|<a href=
+     "story.dtd.html#ElementDef78">img</a>|<a href=
+     "story.dtd.html#ElementDef74">i</a>|<a href=
+     "story.dtd.html#ElementDef75">tt</a>|<a href=
+     "story.dtd.html#ElementDef76">rev</a>)*&gt;
+&lt;!ELEMENT <a name="ElementDef74"
+     id="ElementDef74"></a><strong>i</strong> (#PCDATA|<a href=
+     "story.dtd.html#ElementDef77">link</a>|<a href=
+     "story.dtd.html#ElementDef78">img</a>|<a href=
+     "story.dtd.html#ElementDef73">b</a>|<a href=
+     "story.dtd.html#ElementDef75">tt</a>|<a href=
+     "story.dtd.html#ElementDef76">rev</a>)*&gt;
+&lt;!ELEMENT <a name="ElementDef75"
+     id="ElementDef75"></a><strong>tt</strong> (#PCDATA|<a href=
+     "story.dtd.html#ElementDef77">link</a>|<a href=
+     "story.dtd.html#ElementDef78">img</a>|<a href=
+     "story.dtd.html#ElementDef73">b</a>|<a href=
+     "story.dtd.html#ElementDef74">i</a>|<a href=
+     "story.dtd.html#ElementDef76">rev</a>)*&gt;
+&lt;!ELEMENT <a name="ElementDef76"
+     id="ElementDef76"></a><strong>rev</strong> (#PCDATA|<a href=
+     "story.dtd.html#ElementDef77">link</a>|<a href=
+     "story.dtd.html#ElementDef78">img</a>|<a href=
+     "story.dtd.html#ElementDef73">b</a>|<a href=
+     "story.dtd.html#ElementDef74">i</a>|<a href=
+     "story.dtd.html#ElementDef75">tt</a>)*&gt;
+&lt;!ATTLIST <a name="AttlistDef45"
+     id="AttlistDef45"></a><strong>rev</strong>
+        condition CDATA #IMPLIED
+        id CDATA #IMPLIED
+        lang CDATA #IMPLIED
+        revision (in-progress|draft|final) #IMPLIED
+        revision-flag (changed|added|deleted|off) #REQUIRED
+&gt;
+<span class="COMMENT">&lt;!--
 no operation, only used to set the revision-flag
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef77"></A><STRONG>link</STRONG> (#PCDATA)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef46"></A><STRONG>link</STRONG>
-	<A HREF="story.dtd.html#EntityDef.ref-r">%ref-r;</A>
-	img (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	title (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
-	url (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
+&lt;!ELEMENT <a name="ElementDef77"
+     id="ElementDef77"></a><strong>link</strong> (#PCDATA)&gt;
+&lt;!ATTLIST <a name="AttlistDef46"
+     id="AttlistDef46"></a><strong>link</strong>
+        <a href="story.dtd.html#EntityDef.ref-r">%ref-r;</a>
+        img (<a href="story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        title (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
+        url (<a href="story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 ref - def-link-id
 img - &lt;img src="url" alt="content"/&gt;
 content - if not blank
 title - def-link content (default, if all else is empty)
 url - (def-link url)
 &lt;a href="def-url"&gt;img content title url&lt;/a&gt;
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef78"></A><STRONG>img</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef47"></A><STRONG>img</STRONG>
-	<A HREF="story.dtd.html#EntityDef.ref-r">%ref-r;</A>
-	float (<A HREF="story.dtd.html#EntityDef.bool">%bool;</A>) #IMPLIED
+&lt;!ELEMENT <a name="ElementDef78"
+     id="ElementDef78"></a><strong>img</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef47"
+     id="AttlistDef47"></a><strong>img</strong>
+        <a href="story.dtd.html#EntityDef.ref-r">%ref-r;</a>
+        float (<a href=
+"story.dtd.html#EntityDef.bool">%bool;</a>) #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 ref - def-img-id
 float - Let text flow around the image?  If the value is 1,
         and the output is non-html, and the image is &gt; 2/3
         of the page width, then don't float the image.
         Default: 0
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef79"></A><STRONG>para</STRONG> <A HREF="story.dtd.html#EntityDef.text-style">%text-style;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef48"></A><STRONG>para</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef79"
+     id="ElementDef79"></a><strong>para</strong> <a href=
+     "story.dtd.html#EntityDef.text-style">%text-style;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef48"
+     id="AttlistDef48"></a><strong>para</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!-- Format as a block para --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- Format as a block para --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef80"></A><STRONG>pre</STRONG> <A HREF="story.dtd.html#EntityDef.text-style">%text-style;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef49"></A><STRONG>pre</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef80"
+     id="ElementDef80"></a><strong>pre</strong> <a href=
+     "story.dtd.html#EntityDef.text-style">%text-style;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef49"
+     id="AttlistDef49"></a><strong>pre</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef81"></A><STRONG>pre-fmt</STRONG> <A HREF="story.dtd.html#EntityDef.text-style">%text-style;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef50"></A><STRONG>pre-fmt</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef81"
+     id="ElementDef81"></a><strong>pre-fmt</strong> <a href=
+     "story.dtd.html#EntityDef.text-style">%text-style;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef50"
+     id="AttlistDef50"></a><strong>pre-fmt</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef82"></A><STRONG>quote</STRONG> <A HREF="story.dtd.html#EntityDef.text-style">%text-style;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef51"></A><STRONG>quote</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef82"
+     id="ElementDef82"></a><strong>quote</strong> <a href=
+     "story.dtd.html#EntityDef.text-style">%text-style;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef51"
+     id="AttlistDef51"></a><strong>quote</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!-- Format the same as a block para, but indent 10% on margins --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Format the same as a block para, but indent 10% on margins --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef83"></A><STRONG>p</STRONG> <A HREF="story.dtd.html#EntityDef.text-style">%text-style;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef52"></A><STRONG>p</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
+&lt;!ELEMENT <a name="ElementDef83"
+     id="ElementDef83"></a><strong>p</strong> <a href=
+     "story.dtd.html#EntityDef.text-style">%text-style;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef52"
+     id="AttlistDef52"></a><strong>p</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!-- Indented para style, justified --&gt;</SPAN>
+<span class="COMMENT">&lt;!-- Indented para style, justified --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef84"></A><STRONG>s</STRONG> <A HREF="story.dtd.html#EntityDef.text-style">%text-style;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef53"></A><STRONG>s</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
-	who-ref CDATA #IMPLIED
+&lt;!ELEMENT <a name="ElementDef84"
+     id="ElementDef84"></a><strong>s</strong> <a href=
+     "story.dtd.html#EntityDef.text-style">%text-style;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef53"
+     id="AttlistDef53"></a><strong>s</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
+        who-ref CDATA #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 story, say - ref id is the person talking, optional (output is not
 affected, but this may be output in draft copies)
---&gt;</SPAN>
+--&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef85"></A><STRONG>t</STRONG> <A HREF="story.dtd.html#EntityDef.text-style">%text-style;</A>&gt;
-&lt;!ATTLIST <A NAME="AttlistDef54"></A><STRONG>t</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
-	who-ref CDATA #REQUIRED
+&lt;!ELEMENT <a name="ElementDef85"
+     id="ElementDef85"></a><strong>t</strong> <a href=
+     "story.dtd.html#EntityDef.text-style">%text-style;</a>&gt;
+&lt;!ATTLIST <a name="AttlistDef54"
+     id="AttlistDef54"></a><strong>t</strong>
+        <a href="story.dtd.html#EntityDef.com-attr">%com-attr;</a>
+        who-ref CDATA #REQUIRED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 thought - ref id = the viewpoint id.  Only the thoughts of the
 id, that match a thread's viewpoint id, will be printed.  Draft
 copies may output all thought text (with the ids).
---&gt;</SPAN>
+--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!--
+<span class="COMMENT">&lt;!--
 Section break.  Either a blank line (print) or a short rule line (html).
---&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef86"></A><STRONG>br</STRONG> EMPTY&gt;
+--&gt;</span>
+&lt;!ELEMENT <a name="ElementDef86"
+     id="ElementDef86"></a><strong>br</strong> EMPTY&gt;
 <?LIVEDTD EOF?>
 
 
@@ -707,4 +1082,8 @@ Section break.  Either a blank line (print) or a short rule line (html).
 
 
 
-</PRE></BODY></HTML>
+
+
+</pre>
+</body>
+</html>

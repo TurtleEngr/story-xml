@@ -1,13 +1,21 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-<TITLE>HTMLspecial.ent</TITLE>
-<STYLE TYPE="text/css">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>HTMLspecial.ent</title>
+<style type="text/css">
+/*<![CDATA[*/
   STRONG { font-weight: bold; color: red;}
-</STYLE>
-</HEAD>
-<BODY onLoad="self.parent.file.document.open();self.parent.file.document.write('<BODY TOPMARGIN=0><B>HTMLspecial.ent</B></BODY>');self.parent.file.document.close()"><?LIVEDTD ENDHEAD?>
-<PRE>&lt;!-- Special characters for HTML --&gt;
+/*]]>*/
+</style>
+</head>
+
+<body onload=
+"self.parent.file.document.open();self.parent.file.document.write('&lt;BODY TOPMARGIN=0&gt;&lt;B&gt;HTMLspecial.ent&lt;/B&gt;&lt;/BODY&gt;');self.parent.file.document.close()">
+<?LIVEDTD ENDHEAD?>
+  <pre>
+&lt;!-- Special characters for HTML --&gt;
 
 &lt;!-- Character entity set. Typical invocation:
      &lt;!ENTITY % HTMLspecial PUBLIC
@@ -31,59 +39,90 @@
 
 &lt;!-- C0 Controls and Basic Latin --&gt;
 &lt;!ENTITY quot    CDATA "&amp;#34;"   -- quotation mark = APL quote,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+0022 ISOnum --&gt;
-&lt;!ENTITY amp     CDATA "&amp;#38;"   -- ampersand, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+0026 ISOnum --&gt;
-&lt;!ENTITY lt      CDATA "&amp;#60;"   -- less-than sign, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+003C ISOnum --&gt;
-&lt;!ENTITY gt      CDATA "&amp;#62;"   -- greater-than sign, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+003E ISOnum --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+0022 ISOnum --&gt;
+&lt;!ENTITY amp     CDATA "&amp;#38;"   -- ampersand, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+0026 ISOnum --&gt;
+&lt;!ENTITY lt      CDATA "&amp;#60;"   -- less-than sign, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+003C ISOnum --&gt;
+&lt;!ENTITY gt      CDATA "&amp;#62;"   -- greater-than sign, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+003E ISOnum --&gt;
 
 &lt;!-- Latin Extended-A --&gt;
 &lt;!ENTITY OElig   CDATA "&amp;#338;"  -- latin capital ligature OE,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+0152 ISOlat2 --&gt;
-&lt;!ENTITY oelig   CDATA "&amp;#339;"  -- latin small ligature oe, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+0153 ISOlat2 --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+0152 ISOlat2 --&gt;
+&lt;!ENTITY oelig   CDATA "&amp;#339;"  -- latin small ligature oe, <a href="html401loose.dtd.html#ElementDef1">U</a>+0153 ISOlat2 --&gt;
 &lt;!-- ligature is a misnomer, this is a separate character in some languages --&gt;
-&lt;!ENTITY Scaron  CDATA "&amp;#352;"  -- latin capital letter <A HREF="html401loose.dtd.html#ElementDef1">S</A> with caron,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+0160 ISOlat2 --&gt;
+&lt;!ENTITY Scaron  CDATA "&amp;#352;"  -- latin capital letter <a href=
+"html401loose.dtd.html#ElementDef1">S</a> with caron,
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+0160 ISOlat2 --&gt;
 &lt;!ENTITY scaron  CDATA "&amp;#353;"  -- latin small letter s with caron,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+0161 ISOlat2 --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+0161 ISOlat2 --&gt;
 &lt;!ENTITY Yuml    CDATA "&amp;#376;"  -- latin capital letter Y with diaeresis,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+0178 ISOlat2 --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+0178 ISOlat2 --&gt;
 
 &lt;!-- Spacing Modifier Letters --&gt;
 &lt;!ENTITY circ    CDATA "&amp;#710;"  -- modifier letter circumflex accent,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+02C6 ISOpub --&gt;
-&lt;!ENTITY tilde   CDATA "&amp;#732;"  -- small tilde, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+02DC ISOdia --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+02C6 ISOpub --&gt;
+&lt;!ENTITY tilde   CDATA "&amp;#732;"  -- small tilde, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+02DC ISOdia --&gt;
 
 &lt;!-- General Punctuation --&gt;
-&lt;!ENTITY ensp    CDATA "&amp;#8194;" -- en space, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2002 ISOpub --&gt;
-&lt;!ENTITY emsp    CDATA "&amp;#8195;" -- em space, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2003 ISOpub --&gt;
-&lt;!ENTITY thinsp  CDATA "&amp;#8201;" -- thin space, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2009 ISOpub --&gt;
+&lt;!ENTITY ensp    CDATA "&amp;#8194;" -- en space, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2002 ISOpub --&gt;
+&lt;!ENTITY emsp    CDATA "&amp;#8195;" -- em space, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2003 ISOpub --&gt;
+&lt;!ENTITY thinsp  CDATA "&amp;#8201;" -- thin space, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2009 ISOpub --&gt;
 &lt;!ENTITY zwnj    CDATA "&amp;#8204;" -- zero width non-joiner,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+200C NEW RFC 2070 --&gt;
-&lt;!ENTITY zwj     CDATA "&amp;#8205;" -- zero width joiner, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+200D NEW RFC 2070 --&gt;
-&lt;!ENTITY lrm     CDATA "&amp;#8206;" -- left-to-right mark, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+200E NEW RFC 2070 --&gt;
-&lt;!ENTITY rlm     CDATA "&amp;#8207;" -- right-to-left mark, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+200F NEW RFC 2070 --&gt;
-&lt;!ENTITY ndash   CDATA "&amp;#8211;" -- en dash, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2013 ISOpub --&gt;
-&lt;!ENTITY mdash   CDATA "&amp;#8212;" -- em dash, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2014 ISOpub --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+200C NEW RFC 2070 --&gt;
+&lt;!ENTITY zwj     CDATA "&amp;#8205;" -- zero width joiner, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+200D NEW RFC 2070 --&gt;
+&lt;!ENTITY lrm     CDATA "&amp;#8206;" -- left-to-right mark, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+200E NEW RFC 2070 --&gt;
+&lt;!ENTITY rlm     CDATA "&amp;#8207;" -- right-to-left mark, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+200F NEW RFC 2070 --&gt;
+&lt;!ENTITY ndash   CDATA "&amp;#8211;" -- en dash, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2013 ISOpub --&gt;
+&lt;!ENTITY mdash   CDATA "&amp;#8212;" -- em dash, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2014 ISOpub --&gt;
 &lt;!ENTITY lsquo   CDATA "&amp;#8216;" -- left single quotation mark,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2018 ISOnum --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2018 ISOnum --&gt;
 &lt;!ENTITY rsquo   CDATA "&amp;#8217;" -- right single quotation mark,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2019 ISOnum --&gt;
-&lt;!ENTITY sbquo   CDATA "&amp;#8218;" -- single low-9 quotation mark, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+201<A HREF="html401loose.dtd.html#ElementDef12">A</A> NEW --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2019 ISOnum --&gt;
+&lt;!ENTITY sbquo   CDATA "&amp;#8218;" -- single low-9 quotation mark, <a href="html401loose.dtd.html#ElementDef1">U</a>+201<a href="html401loose.dtd.html#ElementDef12">A</a> NEW --&gt;
 &lt;!ENTITY ldquo   CDATA "&amp;#8220;" -- left double quotation mark,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+201C ISOnum --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+201C ISOnum --&gt;
 &lt;!ENTITY rdquo   CDATA "&amp;#8221;" -- right double quotation mark,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+201D ISOnum --&gt;
-&lt;!ENTITY bdquo   CDATA "&amp;#8222;" -- double low-9 quotation mark, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+201E NEW --&gt;
-&lt;!ENTITY dagger  CDATA "&amp;#8224;" -- dagger, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2020 ISOpub --&gt;
-&lt;!ENTITY Dagger  CDATA "&amp;#8225;" -- double dagger, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2021 ISOpub --&gt;
-&lt;!ENTITY permil  CDATA "&amp;#8240;" -- per mille sign, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2030 ISOtech --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+201D ISOnum --&gt;
+&lt;!ENTITY bdquo   CDATA "&amp;#8222;" -- double low-9 quotation mark, <a href="html401loose.dtd.html#ElementDef1">U</a>+201E NEW --&gt;
+&lt;!ENTITY dagger  CDATA "&amp;#8224;" -- dagger, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2020 ISOpub --&gt;
+&lt;!ENTITY Dagger  CDATA "&amp;#8225;" -- double dagger, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2021 ISOpub --&gt;
+&lt;!ENTITY permil  CDATA "&amp;#8240;" -- per mille sign, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2030 ISOtech --&gt;
 &lt;!ENTITY lsaquo  CDATA "&amp;#8249;" -- single left-pointing angle quotation mark,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+2039 ISO proposed --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+2039 ISO proposed --&gt;
 &lt;!-- lsaquo is proposed but not yet ISO standardized --&gt;
 &lt;!ENTITY rsaquo  CDATA "&amp;#8250;" -- single right-pointing angle quotation mark,
-                                    <A HREF="html401loose.dtd.html#ElementDef1">U</A>+203<A HREF="html401loose.dtd.html#ElementDef12">A</A> ISO proposed --&gt;
+                                    <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+203<a href=
+"html401loose.dtd.html#ElementDef12">A</a> ISO proposed --&gt;
 &lt;!-- rsaquo is proposed but not yet ISO standardized --&gt;
-&lt;!ENTITY euro   CDATA "&amp;#8364;"  -- euro sign, <A HREF="html401loose.dtd.html#ElementDef1">U</A>+20AC NEW --&gt;
+&lt;!ENTITY euro   CDATA "&amp;#8364;"  -- euro sign, <a href=
+"html401loose.dtd.html#ElementDef1">U</a>+20AC NEW --&gt;
 <?LIVEDTD EOF?>
 
 
@@ -125,4 +164,8 @@
 
 
 
-</PRE></BODY></HTML>
+
+
+</pre>
+</body>
+</html>

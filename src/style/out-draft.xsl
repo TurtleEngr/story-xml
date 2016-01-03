@@ -920,7 +920,7 @@ gmt=
         <xsl:value-of select="@id" />
       </td>
       <td>
-        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
       </td>
     </tr>
   </xsl:template>
@@ -933,7 +933,7 @@ gmt=
         <xsl:value-of select="@id" />
       </td>
       <td>
-        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
       </td>
     </tr>
   </xsl:template>
@@ -946,7 +946,7 @@ gmt=
         <xsl:value-of select="@id" />
       </td>
       <td>
-        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
       </td>
     </tr>
   </xsl:template>
@@ -956,7 +956,7 @@ gmt=
     <p class="block">
       <xsl:value-of select="concat('id=', @id)" />
     </p>
-    <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+    <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
   </xsl:template>
   <!-- **************************************************
 Book
@@ -1116,7 +1116,7 @@ Book
         <xsl:apply-templates select="key('def-where-index',@ref)/*" />
       </td>
       <td>
-        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
       </td>
     </tr>
   </xsl:template>
@@ -1130,13 +1130,13 @@ Book
         <xsl:apply-templates select="key('def-who-index',@ref)/*" />
       </td>
       <td>
-        <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+        <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
       </td>
     </tr>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="description">
-    <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+    <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="thread">

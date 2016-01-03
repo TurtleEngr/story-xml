@@ -12,8 +12,14 @@
 #		cygwin
 #		Advanced Installer
 
+mSerna4 = /opt/serna/serna-4.2
 mRsyncOpt = -Clptz
 
+mTidyOpt = -modify -q --show-warnings no --tidy-mark no --drop-empty-paras no -indent -wrap 75 --indent-spaces 2 --indent-attributes yes --new-pre-tags pre-fmt
+
+mTidyTemplate = -modify -q --show-warnings no --tidy-mark no --drop-empty-paras no -indent -wrap 2000 --indent-spaces 2 --indent-attributes no --quote-nbsp no --quote-ampersand no
+
+# --------------------
 build : ver.env livedtd
 	-find * -name '*~' -exec rm {} \;
 	-find dist -type l -exec rm {} \;
@@ -60,6 +66,10 @@ ver.epm : ver.sh
 # doc/livedtd/docbook45/index.html
 
 livedtd : doc/livedtd/story/index.html  doc/livedtd/html3.2/index.html doc/livedtd/html40loose/index.html doc/livedtd/xhtml1-transitional/index.html doc/livedtd/xslfo/index.html doc/livedtd/xslt10/index.html
+	for i in $$(find doc/livedtd -name '*.html'); do \
+		echo "Process: $$i"; \
+		tidy -asxhtml $(mTidyOpt) $$i; \
+	done
 
 doc/livedtd/story/index.html : src/style/story.dtd
 	-rm -rf doc/livedtd/story/*
@@ -119,14 +129,16 @@ build-schema : src/style/schema-gen.xsd src/style/template2.sdt
 
 src/style/schema-gen.xsd : src/style/story.dtd
 	/usr/local/bin/dtd2xs $? $@
-	tidy -q -xml -indent -wrap 80 --tidy-mark no --indent-attributes yes -modify $@
-	tidy -q -xml -indent -wrap 80 --tidy-mark no --indent-attributes yes -modify src/style/schema.xsd
-	# Manually add restrictions and save as: schema.xsd
+	tidy -xml $(mTidyOpt) $@
+	cp src/style/schema.xsd src/style/schema.xsd.sav
+	cp $@ src/style/schema.xsd
+	# Manually add restrictions to: schema.xsd
 
 src/style/template2.sdt : src/style/template2.xml src/doc/template/sample-full.xml src/doc/template/sample-minimal.xml
 	grep -v 'xml version=' src/doc/template/sample-full.xml src/style/sample-full.xml
 	grep -v 'xml version=' src/doc/template/sample-minimal.xml src/style/sample-minimal.xml
 	cd src/style; m4 -P template2.xml >template2.sdt
+	tidy -xml $(mTidyTemplate) $@
 	rm src/style/sample-full.xml src/style/sample-minimal.xml
 
 src/style/template-index.html :
@@ -139,21 +151,25 @@ src/style/template-index.html :
 	echo '</body></html>' >>$@
 
 # -------------
-mSerna4 = /opt/serna/serna-4.2
-mStory = story4
-mTidyOpt = -q -indent -wrap 75 --tidy-mark no --indent-attributes yes --new-pre-tags pre-fmt 
 
 serna4-story :
 	# Make symlinks in serna4 dirs to these devel files
 	if [ $$(id -un) != root ]; then exit 1; fi
-	if [ ! -d $(mSerna3) ]; then exit 1; fi
-	ln -sf $$PWD/src/style $(mSerna3)/plugins/story
-	ln -sf $$PWD/src/bin/pub-*.sh $(mSerna3)/utils/publishing
-	ln -sf $$PWD/src/bin/convert-*.sh $(mSerna3)/utils/publishing
+	if [ ! -d $(mSerna4) ]; then exit 1; fi
+	ln -sf $$PWD/src/style $(mSerna4)/plugins/story
+	ln -sf $$PWD/src/bin/pub-*.sh $(mSerna4)/utils/publishing
+	ln -sf $$PWD/src/bin/convert-*.sh $(mSerna4)/utils/publishing
 
-tidy-serna :
-	find src/style -name '*~' -exec rm -f {} \;
-	for i in $$(ls src/style/*.xml src/style/*.xsl | grep -v template); do \
+tidy-story :
+	for i in $$(ls src/style/*.xml src/style/*.xsl src/style/*.xsd | grep -v template); do \
 		echo "Process: $$i"; \
-		tidy -xml -modify $(mTidyOpt) $$i; \
+		tidy -xml $(mTidyOpt) $$i; \
+	done
+	for i in $$(find doc -name '*.html') src/doc/*.html; do \
+		echo "Process: $$i"; \
+		tidy -asxhtml $(mTidyOpt) $$i; \
+	done
+	for i in src/style/template2.sdt src/style/template2.xml src/doc/template/*.xml; do \
+		echo "Process: $$i"; \
+		tidy -xml $(mTidyTemplate) $$i; \
 	done

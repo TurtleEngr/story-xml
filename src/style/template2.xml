@@ -9,24 +9,20 @@ end of attribute values.
   <t:xml-stylesheet>$SERNA_TEMPLATE_DIR/story-serna-2.xsl</t:xml-stylesheet>
   <t:toc-stylesheet>$SERNA_TEMPLATE_DIR/story-toc.xsl</t:toc-stylesheet>
   <t:dtd-sysid>story4/story.dtd</t:dtd-sysid>
-  <t:dtd-guess-string>story-dtd version=&quot;4&quot;</t:dtd-guess-string>
+  <t:dtd-guess-string>story-dtd version="4"</t:dtd-guess-string>
   <t:show-tags>1</t:show-tags>
   <t:spellcheck>
-    <t:skip-elements> */id release-info def-style def-content def-print def-draft </t:skip-elements>
+    <t:skip-elements>*/id release-info def-style def-content def-print def-draft</t:skip-elements>
   </t:spellcheck>
   <t:element-help>$SERNA_TEMPLATE_DIR/help.xml</t:element-help>
   <t:root-elements>content</t:root-elements>
   <t:document-skeleton>
     <t:name>Minimal</t:name>
-    <t:content>
-m4_include(sample-minimal.xml)
-    </t:content>
+    <t:content>m4_include(sample-minimal.xml)</t:content>
   </t:document-skeleton>
   <t:document-skeleton>
     <t:name>Full</t:name>
-    <t:content>
-m4_include(sample-full.xml)
-    </t:content>
+    <t:content>m4_include(sample-full.xml)</t:content>
   </t:document-skeleton>
   <t:publish>
     <t:name>Draft</t:name>
@@ -65,14 +61,14 @@ m4_include(sample-full.xml)
   </t:publish>
   <t:publish>
     <t:name>Project</t:name>
-    <t:inscription>OpenProj,  MS Project</t:inscription>
+    <t:inscription>OpenProj, MS Project</t:inscription>
     <t:extension>proj.xml</t:extension>
     <t:script>pub-xsltproc</t:script>
     <t:stylesheet>$SERNA_TEMPLATE_DIR/out-project.xsl</t:stylesheet>
   </t:publish>
   <t:publish>
     <t:name>Planner</t:name>
-    <t:inscription>Project Managment,  Linux</t:inscription>
+    <t:inscription>Project Managment, Linux</t:inscription>
     <t:extension>proj.xml</t:extension>
     <t:script>pub-xsltproc</t:script>
     <t:stylesheet>$SERNA_TEMPLATE_DIR/out-planner.xsl</t:stylesheet>

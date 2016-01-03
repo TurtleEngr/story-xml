@@ -31,10 +31,10 @@ $Header: /repo/local.cvs/app/story-xml/src/story5/out-pdf.xsl,v 1.4 2009/04/20 0
       </xsl:when>
       <xsl:otherwise>
         <xsl:choose>
-         <xsl:when test="$gPrintRef/@page = '4.25x5.5in'">
+          <xsl:when test="$gPrintRef/@page = '4.25x5.5in'">
             <xsl:value-of select="'4.25'" />
           </xsl:when>
-         <xsl:when test="$gPrintRef/@page = '4.25x6.875in'">
+          <xsl:when test="$gPrintRef/@page = '4.25x6.875in'">
             <xsl:value-of select="'4.25'" />
           </xsl:when>
           <xsl:when test="$gPrintRef/@page = '6x9in'">
@@ -45,7 +45,7 @@ $Header: /repo/local.cvs/app/story-xml/src/story5/out-pdf.xsl,v 1.4 2009/04/20 0
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="'6'" />
-         </xsl:otherwise>
+          </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
@@ -65,7 +65,7 @@ $Header: /repo/local.cvs/app/story-xml/src/story5/out-pdf.xsl,v 1.4 2009/04/20 0
           <xsl:when test="$gPrintRef/@page = '4.25x5.5in'">
             <xsl:value-of select="'5.5'" />
           </xsl:when>
-         <xsl:when test="$gPrintRef/@page = '4.25x6.875in'">
+          <xsl:when test="$gPrintRef/@page = '4.25x6.875in'">
             <xsl:value-of select="'6.875'" />
           </xsl:when>
           <xsl:when test="$gPrintRef/@page = '6x9in'">
@@ -259,10 +259,9 @@ $Header: /repo/local.cvs/app/story-xml/src/story5/out-pdf.xsl,v 1.4 2009/04/20 0
       <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format"
                text-align="start"
                font-family="{$gBodyFamily}"
-font-size="12pt"
-line-height="110%"
->
-<!--
+               font-size="12pt"
+               line-height="110%">
+        <!--
 FIX 2009-02-22
         <xsl:attribute name="font-size">
           <xsl:value-of select="concat($gBodySize,'pt')" />
@@ -497,7 +496,8 @@ FIX 2009-02-22
   <xsl:template name="fCopyrightPage">
     <xsl:comment>Begin:fCopyrightPage</xsl:comment>
     <!-- "$gPrintRef/@copyright-type" -->
-    <fo:block font-weight="bold" keep-with-next.within-page="always">
+    <fo:block font-weight="bold"
+              keep-with-next.within-page="always">
       <xsl:value-of select="title" />
     </fo:block>
     <xsl:call-template name="fFmtCopyright" />
@@ -505,7 +505,7 @@ FIX 2009-02-22
     <xsl:apply-templates select="book-info/publisher" />
     <xsl:apply-templates select="book-info/biblio-id" />
     <xsl:call-template name="fFmtReleaseInfo" />
-    <fo:block keep-with-previous.within-page="always">&#160;
+    <fo:block keep-with-previous.within-page="always">&#160; 
     <fo:footnote>
       <fo:inline>&#160;</fo:inline>
       <fo:footnote-body>
@@ -513,13 +513,13 @@ FIX 2009-02-22
           <xsl:apply-templates select="book-info/legal-notice" />
           <fo:block padding-top=".5em"
                     padding-bottom=".5em"
-                    font-weight="bold" keep-with-previous.within-page="always">
+                    font-weight="bold"
+                    keep-with-previous.within-page="always">
             <xsl:value-of select="'Printed in the United States of America'" />
           </fo:block>
         </fo:block>
       </fo:footnote-body>
-    </fo:footnote>
-    </fo:block>
+    </fo:footnote></fo:block>
     <xsl:comment>End:fCopyrightPage</xsl:comment>
   </xsl:template>
   <!-- ******************** -->
@@ -548,8 +548,7 @@ FIX 2009-02-22
       <xsl:apply-templates select="epilog"
                            mode="toc" />
     </xsl:if>
-    <fo:block break-before="page">
-    </fo:block>
+    <fo:block break-before="page"></fo:block>
     <xsl:comment>End:fTocPager</xsl:comment>
   </xsl:template>
   <!-- ******************** -->
@@ -578,7 +577,7 @@ FIX 2009-02-22
                  leader-length.maximum="100%"
                  leader-pattern="dots" />
       <fo:page-number-citation ref-id="{name()}" />
-    <xsl:comment>End:toc: ch-preface, preface, epilog</xsl:comment>
+      <xsl:comment>End:toc: ch-preface, preface, epilog</xsl:comment>
     </fo:block>
   </xsl:template>
   <!-- ******************** -->
@@ -628,7 +627,8 @@ Book
   <xsl:template name="fFmtCopyright">
     <xsl:comment>Begin:fFmtCopyright</xsl:comment>
     <fo:block padding-top=".5em"
-              font-weight="bold"  keep-with-next.within-page="always">
+              font-weight="bold"
+              keep-with-next.within-page="always">
       <xsl:if test="count(book-info/copyright/year) = 0">
         <xsl:value-of select="concat('Copyright ', book-info/pub-date)" />
       </xsl:if>
@@ -655,20 +655,23 @@ Book
   <!-- ******************** -->
   <xsl:template match="legal-notice">
     <xsl:comment>Begin:legal-notice</xsl:comment>
-    <fo:block padding-top=".5em" keep-with-previous.within-page="always">
-      <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+    <fo:block padding-top=".5em"
+              keep-with-previous.within-page="always">
+      <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
     </fo:block>
     <xsl:comment>End:legal-notice</xsl:comment>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="edition">
-    <fo:block padding-top=".5em" keep-with-next.within-page="always">
+    <fo:block padding-top=".5em"
+              keep-with-next.within-page="always">
       <xsl:value-of select="concat('Edition: ', .)" />
     </fo:block>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="biblio-id">
-    <fo:block padding-top=".5em" keep-with-next.within-page="always">
+    <fo:block padding-top=".5em"
+              keep-with-next.within-page="always">
       <xsl:choose>
         <xsl:when test="@class = 'uri'">
           <xsl:value-of select="concat('URL: ', .)" />
@@ -703,8 +706,8 @@ Book
     <xsl:if test="@revision = 'in-progress'">
       <fo:block padding-top=".5em"
                 font-weight="bold"
-                keep-with-next.within-page="always">In progress - Not
-for public release.</fo:block>
+                keep-with-next.within-page="always">In progress - Not for
+                public release.</fo:block>
       <xsl:apply-templates select="book-info/release-info" />
     </xsl:if>
     <xsl:if test="@revision = 'draft'">
@@ -716,7 +719,9 @@ for public release.</fo:block>
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="publisher">
-    <fo:block padding-top=".5em" padding-bottom=".5em" keep-with-next.within-page="always">
+    <fo:block padding-top=".5em"
+              padding-bottom=".5em"
+              keep-with-next.within-page="always">
       <xsl:value-of select="publisher-name" />
       <xsl:apply-templates select="address" />
     </fo:block>
@@ -783,7 +788,7 @@ for public release.</fo:block>
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
-      <xsl:call-template name="fPageBreak"/>
+      <xsl:call-template name="fPageBreak" />
       <fo:block id="{name()}"
                 keep-with-next.within-page="always"
                 text-align="left"
@@ -793,8 +798,8 @@ for public release.</fo:block>
                 font-size="{$gPrintRef/@ch-title-size}">
         <xsl:apply-templates select="title" />
       </fo:block>
-      <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
-    <xsl:comment>End: ch-preface, preface, epilog</xsl:comment>
+      <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
+      <xsl:comment>End: ch-preface, preface, epilog</xsl:comment>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -804,7 +809,7 @@ for public release.</fo:block>
       <xsl:call-template name="fShowContent" />
     </xsl:variable>
     <xsl:if test="$tShow = '1'">
-      <xsl:call-template name="fPageBreak"/>
+      <xsl:call-template name="fPageBreak" />
       <xsl:call-template name="fChapterBody" />
     </xsl:if>
     <xsl:comment>End: chapter</xsl:comment>
@@ -851,7 +856,7 @@ for public release.</fo:block>
                 font-size="{$gPrintRef/@ch-title-size}">
         <xsl:apply-templates select="title" />
       </fo:block>
-      <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
       <fo:block text-align="left"
                 padding-bottom=".5em"
                 line-height="60%">
@@ -885,7 +890,7 @@ for public release.</fo:block>
                 font-size="{$gPrintRef/@ch-title-size}">
         <xsl:apply-templates select="title" />
       </fo:block>
-      <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
     </xsl:if>
     <xsl:comment>End: postlog</xsl:comment>
   </xsl:template>
@@ -940,9 +945,9 @@ Utility
       <xsl:when test="$gPrintRef/@ch-page-break = 'any'">
         <fo:block break-before="page"
                   keep-with-next.within-page="always">
-            <xsl:apply-templates select="title"
-                                 mode="page-head" />
-          </fo:block>
+          <xsl:apply-templates select="title"
+                               mode="page-head" />
+        </fo:block>
       </xsl:when>
       <xsl:when test="$gPrintRef/@ch-page-break = 'some-odd'">
         <xsl:choose>
@@ -965,9 +970,9 @@ Utility
       <xsl:when test="$gPrintRef/@ch-page-break = 'all-odd'">
         <fo:block break-before="odd-page"
                   keep-with-next.within-page="always">
-            <xsl:apply-templates select="title"
-                                 mode="page-head" />
-          </fo:block>
+          <xsl:apply-templates select="title"
+                               mode="page-head" />
+        </fo:block>
       </xsl:when>
     </xsl:choose>
     <xsl:comment>End: fPageBreak</xsl:comment>
@@ -1028,8 +1033,7 @@ Block
       <fo:block>Subversion path: 
       <xsl:apply-templates select="@svn-path" /></fo:block>
     </xsl:if>
-    <fo:block padding-bottom="1em">
-    </fo:block>
+    <fo:block padding-bottom="1em"></fo:block>
     <xsl:comment>End: release-info</xsl:comment>
   </xsl:template>
   <!-- ******************** -->
@@ -1079,11 +1083,10 @@ Block
       <fo:block text-align="justify"
                 orphans="2"
                 widows="2">
-        <xsl:attribute name="text-indent">
-          <xsl:value-of select="$gIndent" />
-        </xsl:attribute>
-        <xsl:apply-templates />&#160;
-      </fo:block>
+      <xsl:attribute name="text-indent">
+        <xsl:value-of select="$gIndent" />
+      </xsl:attribute>
+      <xsl:apply-templates />&#160;</fo:block>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -1096,8 +1099,7 @@ Block
                 padding-top=".5em"
                 orphans="2"
                 widows="2">
-        <xsl:apply-templates />&#160;
-      </fo:block>
+      <xsl:apply-templates />&#160;</fo:block>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -1112,8 +1114,7 @@ Block
                 padding-top=".5em"
                 margin-left="{$gMargin}in"
                 margin-right="{$gMargin}in">
-        <xsl:apply-templates />&#160;
-      </fo:block>
+      <xsl:apply-templates />&#160;</fo:block>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -1169,11 +1170,10 @@ Block
       <fo:block text-align="justify"
                 orphans="2"
                 widows="2">
-        <xsl:attribute name="text-indent">
-          <xsl:value-of select="$gIndent" />
-        </xsl:attribute>
-        <xsl:apply-templates />&#160;
-      </fo:block>
+      <xsl:attribute name="text-indent">
+        <xsl:value-of select="$gIndent" />
+      </xsl:attribute>
+      <xsl:apply-templates />&#160;</fo:block>
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -1185,11 +1185,10 @@ Block
       <fo:block text-align="justify"
                 orphans="2"
                 widows="2">
-        <xsl:attribute name="text-indent">
-          <xsl:value-of select="$gIndent" />
-        </xsl:attribute>
-        <xsl:apply-templates />&#160;
-      </fo:block>
+      <xsl:attribute name="text-indent">
+        <xsl:value-of select="$gIndent" />
+      </xsl:attribute>
+      <xsl:apply-templates />&#160;</fo:block>
     </xsl:if>
   </xsl:template>
   <!-- **************************************************
@@ -1211,8 +1210,7 @@ Inline
     <xsl:param name="pKey" />
     <xsl:if test="$gDebug">
       <xsl:message>
-        <xsl:value-of select="concat($gNL, 'In: fImgTag', $gNL,
-        'def-img id=', $pKey, $gNL)" />
+        <xsl:value-of select="concat($gNL, 'In: fImgTag', $gNL, 'def-img id=', $pKey, $gNL)" />
       </xsl:message>
     </xsl:if>
     <xsl:variable name="tImagePath">
@@ -1238,33 +1236,32 @@ Inline
       </xsl:call-template>
     </xsl:variable>
     <xsl:variable name="tIndent"
-                  select="number(substring-before($gIndent, 'pt'))"/>
+                  select="number(substring-before($gIndent, 'pt'))" />
     <xsl:variable name="tDiffWidth"
-                  select="$tPtWidth - $gBodyWidthPt - $tIndent"/>
+                  select="$tPtWidth - $gBodyWidthPt - $tIndent" />
     <xsl:variable name="tDiffHeight"
-                  select="$tPtHeight - $gBodyHeightPt"/>
+                  select="$tPtHeight - $gBodyHeightPt" />
     <xsl:variable name="tScale">
       <xsl:choose>
-        <xsl:when test="$tDiffWidth > 0 or $tDiffHeight > 0">
+        <xsl:when test="$tDiffWidth &gt; 0 or $tDiffHeight &gt; 0">
           <xsl:choose>
-            <xsl:when test="$tDiffWidth > $tDiffHeight">
-              <xsl:value-of select="($gBodyWidthPt - $tIndent) div $tPtWidth"/>
+            <xsl:when test="$tDiffWidth &gt; $tDiffHeight">
+              <xsl:value-of select="($gBodyWidthPt - $tIndent) div $tPtWidth" />
             </xsl:when>
             <xsl:otherwise>
-              <xsl:value-of select="$gBodyHeightPt div $tPtHeight"/>
+              <xsl:value-of select="$gBodyHeightPt div $tPtHeight" />
             </xsl:otherwise>
           </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="1"/>
+          <xsl:value-of select="1" />
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="tWidth"
-                  select="concat(floor($tPtWidth * $tScale),'pt')"/>
+                  select="concat(floor($tPtWidth * $tScale),'pt')" />
     <xsl:variable name="tHeight"
-                  select="concat(floor($tPtHeight * $tScale),'pt')"/>
-
+                  select="concat(floor($tPtHeight * $tScale),'pt')" />
     <xsl:if test="$gDebug">
       <xsl:message>
         <xsl:value-of select="concat('graphic src=', $tImagePath, $gNL)" />
@@ -1272,17 +1269,17 @@ Inline
     </xsl:if>
     <xsl:if test="$gDebug and $tScale != 1">
       <xsl:message>
-        <xsl:value-of select="concat('Image resized:', $gNL)"/>
-        <xsl:value-of select="concat('tIndent=', $tIndent, $gNL)"/>
-        <xsl:value-of select="concat('gBodyWidthPt=', $gBodyWidthPt, $gNL)"/>
-        <xsl:value-of select="concat('tPtWidth=', $tPtWidth, $gNL)"/>
-        <xsl:value-of select="concat('tDiffWidth=', $tDiffWidth, $gNL)"/>
-        <xsl:value-of select="concat('gBodyHeightPt=', $gBodyHeightPt, $gNL)"/>
-        <xsl:value-of select="concat('tPtHeight=', $tPtHeight, $gNL)"/>
-        <xsl:value-of select="concat('tDiffHeight=', $tDiffHeight, $gNL)"/>
-        <xsl:value-of select="concat('tScale=', $tScale, $gNL)"/>
-        <xsl:value-of select="concat('new tWidth=',$tWidth,$gNL)"/>
-        <xsl:value-of select="concat('new tHeight=',$tHeight,$gNL)"/>
+        <xsl:value-of select="concat('Image resized:', $gNL)" />
+        <xsl:value-of select="concat('tIndent=', $tIndent, $gNL)" />
+        <xsl:value-of select="concat('gBodyWidthPt=', $gBodyWidthPt, $gNL)" />
+        <xsl:value-of select="concat('tPtWidth=', $tPtWidth, $gNL)" />
+        <xsl:value-of select="concat('tDiffWidth=', $tDiffWidth, $gNL)" />
+        <xsl:value-of select="concat('gBodyHeightPt=', $gBodyHeightPt, $gNL)" />
+        <xsl:value-of select="concat('tPtHeight=', $tPtHeight, $gNL)" />
+        <xsl:value-of select="concat('tDiffHeight=', $tDiffHeight, $gNL)" />
+        <xsl:value-of select="concat('tScale=', $tScale, $gNL)" />
+        <xsl:value-of select="concat('new tWidth=',$tWidth,$gNL)" />
+        <xsl:value-of select="concat('new tHeight=',$tHeight,$gNL)" />
       </xsl:message>
     </xsl:if>
     <fo:external-graphic src="url({$tImagePath})"
@@ -1292,7 +1289,7 @@ Inline
                          content-height="scale-to-fit" />
     <xsl:if test="$gDebug">
       <xsl:message>
-        <xsl:value-of select="concat('Out: fImgTag', $gNL)"/>
+        <xsl:value-of select="concat('Out: fImgTag', $gNL)" />
       </xsl:message>
     </xsl:if>
   </xsl:template>

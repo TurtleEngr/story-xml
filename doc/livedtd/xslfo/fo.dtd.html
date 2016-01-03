@@ -1,15 +1,25 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-<TITLE>fo.dtd</TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
-<STYLE TYPE="text/css">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>fo.dtd</title>
+  <link rel="stylesheet"
+        type="text/css"
+        href="livedtd.css" />
+<style type="text/css">
+/*<![CDATA[*/
   STRONG { font-weight: bold; color: red;}
   .COMMENT { font-style:italic; color: #A8A8A8;}
-</STYLE>
-</HEAD>
-<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>fo.dtd</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
-<PRE><SPAN CLASS="COMMENT">&lt;!-- 
+/*]]>*/
+</style>
+</head>
+
+<body onload=
+"parent.file.document.open();parent.file.document.write('&lt;BODY TOPMARGIN=0&gt;&lt;B&gt;fo.dtd&lt;/B&gt;&lt;/BODY&gt;');parent.file.document.close()">
+<?LIVEDTD ENDHEAD?>
+  <pre>
+<span class="COMMENT">&lt;!-- 
    This DTD has been developed in order to validate XSL FO documents 
    conformant to XSL Recommendation of October 15, 2001. The namespace 
    prefix is 
@@ -23,12 +33,13 @@
 
    Please e-mail your comments to Nikolai Grigoriev &lt;grig@renderx.com&gt;
 
-   © RenderX, 1999-2002. 
+   &copy; RenderX, 1999-2002. 
 
---&gt;</SPAN>
+--&gt;</span>
 
 
-<SPAN CLASS="COMMENT">&lt;!-- *******************************************************************
+<span class=
+"COMMENT">&lt;!-- *******************************************************************
 
 This DTD was written in mind to validate testcases for the new XSL FO 
 draft. Therefore, it is restrictive with respect to the spec: some rare 
@@ -124,99 +135,125 @@ rx:page-index (element)
    These elements implement page number lists in indexes.
 
 
-******************************************************************** --&gt;</SPAN>
+******************************************************************** --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Include external DTDs for foreign objects                       --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Include external DTDs for foreign objects                       --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- Commented out for evaluation version 
+<span class="COMMENT">&lt;!-- Commented out for evaluation version 
 
 &lt;!ENTITY % instream-foreign-object-dtd SYSTEM "instream-foreign-object.dtd"&gt;
 
 %instream-foreign-object-dtd; 
 
---&gt;</SPAN>
+--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Entity definitions for groups of formatting objects             --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Entity definitions for groups of formatting objects             --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.basic-inlines"><STRONG>basic-inlines</STRONG></A> "
-    <A HREF="fo.dtd.html#ElementDef29">fo:bidi-override</A>
-  | <A HREF="fo.dtd.html#ElementDef30">fo:character</A>
-  | <A HREF="fo.dtd.html#ElementDef32">fo:external-graphic</A>
-  | <A HREF="fo.dtd.html#ElementDef33">fo:instream-foreign-object</A>  
-  | <A HREF="fo.dtd.html#ElementDef35">fo:inline</A>
-  | <A HREF="fo.dtd.html#ElementDef36">fo:inline-container</A>
-  | <A HREF="fo.dtd.html#ElementDef37">fo:leader</A>
-  | <A HREF="fo.dtd.html#ElementDef38">fo:page-number</A>
-  | <A HREF="fo.dtd.html#ElementDef39">fo:page-number-citation</A>
-  | <A HREF="fo.dtd.html#ElementDef57">fo:basic-link</A>
-  | <A HREF="fo.dtd.html#ElementDef63">fo:multi-toggle</A>
-  | <A HREF="fo.dtd.html#ElementDef34">rx:pinpoint</A>
-  | <A HREF="fo.dtd.html#ElementDef40">rx:page-index</A>
+&lt;!ENTITY % <a name="EntityDef.basic-inlines"
+     id="EntityDef.basic-inlines"><strong>basic-inlines</strong></a> "
+    <a href="fo.dtd.html#ElementDef29">fo:bidi-override</a>
+  | <a href="fo.dtd.html#ElementDef30">fo:character</a>
+  | <a href="fo.dtd.html#ElementDef32">fo:external-graphic</a>
+  | <a href="fo.dtd.html#ElementDef33">fo:instream-foreign-object</a>  
+  | <a href="fo.dtd.html#ElementDef35">fo:inline</a>
+  | <a href="fo.dtd.html#ElementDef36">fo:inline-container</a>
+  | <a href="fo.dtd.html#ElementDef37">fo:leader</a>
+  | <a href="fo.dtd.html#ElementDef38">fo:page-number</a>
+  | <a href="fo.dtd.html#ElementDef39">fo:page-number-citation</a>
+  | <a href="fo.dtd.html#ElementDef57">fo:basic-link</a>
+  | <a href="fo.dtd.html#ElementDef63">fo:multi-toggle</a>
+  | <a href="fo.dtd.html#ElementDef34">rx:pinpoint</a>
+  | <a href="fo.dtd.html#ElementDef40">rx:page-index</a>
 "&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.basic-blocks"><STRONG>basic-blocks</STRONG></A> "
-    <A HREF="fo.dtd.html#ElementDef27">fo:block</A>
-  | <A HREF="fo.dtd.html#ElementDef28">fo:block-container</A>
-  | <A HREF="fo.dtd.html#ElementDef41">fo:table-and-caption</A>
-  | <A HREF="fo.dtd.html#ElementDef43">fo:table</A>
-  | <A HREF="fo.dtd.html#ElementDef50">fo:list-block</A>
+&lt;!ENTITY % <a name="EntityDef.basic-blocks"
+     id="EntityDef.basic-blocks"><strong>basic-blocks</strong></a> "
+    <a href="fo.dtd.html#ElementDef27">fo:block</a>
+  | <a href="fo.dtd.html#ElementDef28">fo:block-container</a>
+  | <a href="fo.dtd.html#ElementDef41">fo:table-and-caption</a>
+  | <a href="fo.dtd.html#ElementDef43">fo:table</a>
+  | <a href="fo.dtd.html#ElementDef50">fo:list-block</a>
 "&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.out-of-lines"><STRONG>out-of-lines</STRONG></A> "
-    <A HREF="fo.dtd.html#ElementDef55">fo:footnote</A>
-  | <A HREF="fo.dtd.html#ElementDef54">fo:float</A>
+&lt;!ENTITY % <a name="EntityDef.out-of-lines"
+     id="EntityDef.out-of-lines"><strong>out-of-lines</strong></a> "
+    <a href="fo.dtd.html#ElementDef55">fo:footnote</a>
+  | <a href="fo.dtd.html#ElementDef54">fo:float</a>
 "&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.wrappers"><STRONG>wrappers</STRONG></A> "
-    <A HREF="fo.dtd.html#ElementDef61">fo:multi-switch</A>
-  | <A HREF="fo.dtd.html#ElementDef64">fo:multi-properties</A>
-  | <A HREF="fo.dtd.html#ElementDef58">fo:wrapper</A> 
-  | <A HREF="fo.dtd.html#ElementDef59">fo:marker</A>
-  | <A HREF="fo.dtd.html#ElementDef60">fo:retrieve-marker</A>
+&lt;!ENTITY % <a name="EntityDef.wrappers"
+     id="EntityDef.wrappers"><strong>wrappers</strong></a> "
+    <a href="fo.dtd.html#ElementDef61">fo:multi-switch</a>
+  | <a href="fo.dtd.html#ElementDef64">fo:multi-properties</a>
+  | <a href="fo.dtd.html#ElementDef58">fo:wrapper</a> 
+  | <a href="fo.dtd.html#ElementDef59">fo:marker</a>
+  | <a href="fo.dtd.html#ElementDef60">fo:retrieve-marker</a>
 "&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.inlines"><STRONG>inlines</STRONG></A> " 
+&lt;!ENTITY % <a name="EntityDef.inlines"
+     id="EntityDef.inlines"><strong>inlines</strong></a> " 
     #PCDATA 
-  | <A HREF="fo.dtd.html#EntityDef.basic-inlines">%basic-inlines;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.out-of-lines">%out-of-lines;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.wrappers">%wrappers;</A>
+  | <a href="fo.dtd.html#EntityDef.basic-inlines">%basic-inlines;</a> 
+  | <a href="fo.dtd.html#EntityDef.out-of-lines">%out-of-lines;</a> 
+  | <a href="fo.dtd.html#EntityDef.wrappers">%wrappers;</a>
 "&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.blocks"><STRONG>blocks</STRONG></A> " 
-    <A HREF="fo.dtd.html#EntityDef.basic-blocks">%basic-blocks;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.out-of-lines">%out-of-lines;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.wrappers">%wrappers;</A>
+&lt;!ENTITY % <a name="EntityDef.blocks"
+     id="EntityDef.blocks"><strong>blocks</strong></a> " 
+    <a href="fo.dtd.html#EntityDef.basic-blocks">%basic-blocks;</a> 
+  | <a href="fo.dtd.html#EntityDef.out-of-lines">%out-of-lines;</a> 
+  | <a href="fo.dtd.html#EntityDef.wrappers">%wrappers;</a>
 "&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.mixed-level"><STRONG>mixed-level</STRONG></A> " 
+&lt;!ENTITY % <a name="EntityDef.mixed-level"
+     id="EntityDef.mixed-level"><strong>mixed-level</strong></a> " 
     #PCDATA 
-  | <A HREF="fo.dtd.html#EntityDef.basic-inlines">%basic-inlines;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.basic-blocks">%basic-blocks;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.out-of-lines">%out-of-lines;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.wrappers">%wrappers;</A>
+  | <a href="fo.dtd.html#EntityDef.basic-inlines">%basic-inlines;</a> 
+  | <a href="fo.dtd.html#EntityDef.basic-blocks">%basic-blocks;</a> 
+  | <a href="fo.dtd.html#EntityDef.out-of-lines">%out-of-lines;</a> 
+  | <a href="fo.dtd.html#EntityDef.wrappers">%wrappers;</a>
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Entity definitions for common groups of properties              --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- This grouping reflects properties cooccurrence, rather than     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- property semantics. It does not correspond to grouping in the   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- draft.                                                          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Entity definitions for common groups of properties              --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- This grouping reflects properties cooccurrence, rather than     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- property semantics. It does not correspond to grouping in the   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- draft.                                                          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- Accessibility Properties                                        --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.accessibility-properties"><STRONG>accessibility-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Accessibility Properties                                        --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.accessibility-properties"
+     id=
+     "EntityDef.accessibility-properties"><strong>accessibility-properties</strong></a> "
   source-document  CDATA  #IMPLIED
   role  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Relative Position Properties                                    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'position' shorthand property also makes part of this group     --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.relative-position-properties"><STRONG>relative-position-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Relative Position Properties                                    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'position' shorthand property also makes part of this group     --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.relative-position-properties"
+     id=
+     "EntityDef.relative-position-properties"><strong>relative-position-properties</strong></a> "
   relative-position  ( auto | static | relative | inherit )  #IMPLIED
   position  ( static | relative | absolute | fixed | inherit)  #IMPLIED
   top  CDATA  #IMPLIED
@@ -225,19 +262,30 @@ rx:page-index (element)
   left  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Absolute or Relative Position Properties                       --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- There is no object that can be positioned only absolutely.     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Therefore, absolute and relative positioning properties are    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- grouped together                                               --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.absolute-or-relative-position-properties"><STRONG>absolute-or-relative-position-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Absolute or Relative Position Properties                       --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- There is no object that can be positioned only absolutely.     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Therefore, absolute and relative positioning properties are    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- grouped together                                               --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.absolute-or-relative-position-properties"
+     id=
+     "EntityDef.absolute-or-relative-position-properties"><strong>absolute-or-relative-position-properties</strong></a> "
   absolute-position  ( auto | absolute | fixed | inherit )  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.relative-position-properties">%relative-position-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.relative-position-properties">%relative-position-properties;</a>
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- Aural Properties                                                --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'cue' and 'pause' shorthand properties are also included        --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.aural-properties"><STRONG>aural-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Aural Properties                                                --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'cue' and 'pause' shorthand properties are also included        --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.aural-properties"
+     id=
+     "EntityDef.aural-properties"><strong>aural-properties</strong></a> "
   azimuth  CDATA  #IMPLIED
   cue  CDATA  #IMPLIED
   cue-after  CDATA  #IMPLIED
@@ -261,9 +309,13 @@ rx:page-index (element)
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Border, Padding, and Background Properties               --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Relative shorthand properties are also included                 --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.border-padding-background-properties"><STRONG>border-padding-background-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Common Border, Padding, and Background Properties               --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Relative shorthand properties are also included                 --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.border-padding-background-properties"
+     id=
+     "EntityDef.border-padding-background-properties"><strong>border-padding-background-properties</strong></a> "
   background  CDATA  #IMPLIED
   background-attachment  ( scroll | fixed | inherit )  #IMPLIED
   background-color  CDATA  #IMPLIED
@@ -368,16 +420,22 @@ rx:page-index (element)
   padding-top.conditionality ( discard | retain)  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Border Precedence Properties for tables                         --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.border-precedence-properties"><STRONG>border-precedence-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Border Precedence Properties for tables                         --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.border-precedence-properties"
+     id=
+     "EntityDef.border-precedence-properties"><strong>border-precedence-properties</strong></a> "
   border-after-precedence  CDATA  #IMPLIED
   border-before-precedence  CDATA  #IMPLIED
   border-end-precedence  CDATA  #IMPLIED
   border-start-precedence  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Box Size Properties                                             --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.box-size-properties"><STRONG>box-size-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Box Size Properties                                             --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.box-size-properties"
+     id=
+     "EntityDef.box-size-properties"><strong>box-size-properties</strong></a> "
   height  CDATA  #IMPLIED
   min-height  CDATA  #IMPLIED
   max-height  CDATA  #IMPLIED
@@ -394,8 +452,10 @@ rx:page-index (element)
   block-progression-dimension.maximum  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Area Properties                                          --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.area-properties"><STRONG>area-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Common Area Properties                                          --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.area-properties"
+     id="EntityDef.area-properties"><strong>area-properties</strong></a> "
   clip  CDATA  #IMPLIED
   overflow  ( visible | hidden | scroll | auto 
             | error-if-overflow | inherit )  #IMPLIED
@@ -407,9 +467,12 @@ rx:page-index (element)
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Font Properties                                          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'font' shorthand property is also included                      --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.font-properties"><STRONG>font-properties</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Common Font Properties                                          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'font' shorthand property is also included                      --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.font-properties"
+     id="EntityDef.font-properties"><strong>font-properties</strong></a> "
   font  CDATA  #IMPLIED
   font-selection-strategy  (auto | character-by-character | inherit)   #IMPLIED
   font-family  CDATA  #IMPLIED
@@ -425,9 +488,13 @@ rx:page-index (element)
               | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900) #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Hyphenation Properties - Inline                          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'xml:lang' shorthand property is also included                  --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.hyphenation-properties-inline"><STRONG>hyphenation-properties-inline</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Common Hyphenation Properties - Inline                          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'xml:lang' shorthand property is also included                  --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.hyphenation-properties-inline"
+     id=
+     "EntityDef.hyphenation-properties-inline"><strong>hyphenation-properties-inline</strong></a> "
   country  CDATA  #IMPLIED
   language  CDATA  #IMPLIED
   script  CDATA  #IMPLIED
@@ -438,18 +505,26 @@ rx:page-index (element)
   hyphenation-remain-character-count  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Hyphenation Properties - Block                           --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Common Hyphenation Properties - Block                           --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.hyphenation-properties-block"><STRONG>hyphenation-properties-block</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.hyphenation-properties-block"
+     id=
+     "EntityDef.hyphenation-properties-block"><strong>hyphenation-properties-block</strong></a> "
   hyphenation-keep  ( auto | column | page | inherit )  #IMPLIED
   hyphenation-ladder-count  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.hyphenation-properties-inline">%hyphenation-properties-inline;</A>
+  <a href=
+"fo.dtd.html#EntityDef.hyphenation-properties-inline">%hyphenation-properties-inline;</a>
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- Common CSS Margin Properties                                    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'margin' shorthand property is also included                    --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.margin-properties-CSS"><STRONG>margin-properties-CSS</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Common CSS Margin Properties                                    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'margin' shorthand property is also included                    --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.margin-properties-CSS"
+     id=
+     "EntityDef.margin-properties-CSS"><strong>margin-properties-CSS</strong></a> "
   margin  CDATA  #IMPLIED
   margin-bottom  CDATA  #IMPLIED
   margin-left  CDATA  #IMPLIED
@@ -457,9 +532,13 @@ rx:page-index (element)
   margin-top  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Margin Properties - Block                                --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.margin-properties-block"><STRONG>margin-properties-block</STRONG></A> "
-  <A HREF="fo.dtd.html#EntityDef.margin-properties-CSS">%margin-properties-CSS;</A>
+<span class=
+"COMMENT">&lt;!-- Common Margin Properties - Block                                --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.margin-properties-block"
+     id=
+     "EntityDef.margin-properties-block"><strong>margin-properties-block</strong></a> "
+  <a href=
+"fo.dtd.html#EntityDef.margin-properties-CSS">%margin-properties-CSS;</a>
   space-after  CDATA  #IMPLIED
   space-after.minimum  CDATA  #IMPLIED
   space-after.optimum  CDATA  #IMPLIED
@@ -476,9 +555,13 @@ rx:page-index (element)
   end-indent  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Margin Properties - Inline                               --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.margin-properties-inline"><STRONG>margin-properties-inline</STRONG></A> "
-  <A HREF="fo.dtd.html#EntityDef.margin-properties-block">%margin-properties-block;</A>
+<span class=
+"COMMENT">&lt;!-- Common Margin Properties - Inline                               --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.margin-properties-inline"
+     id=
+     "EntityDef.margin-properties-inline"><strong>margin-properties-inline</strong></a> "
+  <a href=
+"fo.dtd.html#EntityDef.margin-properties-block">%margin-properties-block;</a>
   space-start  CDATA  #IMPLIED
   space-start.minimum  CDATA  #IMPLIED
   space-start.optimum  CDATA  #IMPLIED
@@ -493,9 +576,13 @@ rx:page-index (element)
   space-end.conditionality  ( retain | discard )  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Area Alignment Properties - inline                              --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'vertical-align' shorthand is added                             --&gt;</SPAN>                          
-&lt;!ENTITY % <A NAME="EntityDef.area-alignment-properties-inline"><STRONG>area-alignment-properties-inline</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Area Alignment Properties - inline                              --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'vertical-align' shorthand is added                             --&gt;</span>                          
+&lt;!ENTITY % <a name="EntityDef.area-alignment-properties-inline"
+     id=
+     "EntityDef.area-alignment-properties-inline"><strong>area-alignment-properties-inline</strong></a> "
   alignment-adjust  CDATA  #IMPLIED
   alignment-baseline  ( auto | baseline | before-edge | text-before-edge 
                        | middle | central | after-edge | text-after-edge 
@@ -510,9 +597,12 @@ rx:page-index (element)
   vertical-align  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Line Height Properties                                         --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Line Height Properties                                         --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.line-height-properties"><STRONG>line-height-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.line-height-properties"
+     id=
+     "EntityDef.line-height-properties"><strong>line-height-properties</strong></a> "
   line-height  CDATA  #IMPLIED
   line-height.minimum  CDATA  #IMPLIED
   line-height.optimum  CDATA  #IMPLIED
@@ -522,10 +612,14 @@ rx:page-index (element)
   line-height-shift-adjustment  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Line Related Properties                                         --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- [!] &lt;string&gt; values are temporarily excluded from text-align    --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Line Related Properties                                         --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- [!] &lt;string&gt; values are temporarily excluded from text-align    --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.line-related-properties"><STRONG>line-related-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.line-related-properties"
+     id=
+     "EntityDef.line-related-properties"><strong>line-related-properties</strong></a> "
   text-align  ( start | center | end | justify 
               | inside | outside | left | right | inherit )  #IMPLIED
   text-align-last  ( relative | start | center | end | justify 
@@ -547,9 +641,12 @@ rx:page-index (element)
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- Character Properties                                            --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Character Properties                                            --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.character-properties"><STRONG>character-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.character-properties"
+     id=
+     "EntityDef.character-properties"><strong>character-properties</strong></a> "
   letter-spacing  CDATA  #IMPLIED
   letter-spacing.minimum  CDATA  #IMPLIED
   letter-spacing.optimum  CDATA  #IMPLIED
@@ -577,14 +674,19 @@ rx:page-index (element)
   glyph-orientation-vertical ( 0 | 90 | 180 | 270 | -90 | -180 | -270  
                              | 0deg  | 90deg   | 180deg  | 270deg 
                              |-90deg | -180deg | -270deg | inherit )  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.font-properties">%font-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.line-height-properties">%line-height-properties;</A>
+  <a href="fo.dtd.html#EntityDef.font-properties">%font-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.line-height-properties">%line-height-properties;</a>
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Keeps and Breaks Properties - Atomic objects             --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'page-break-*' shorthand properties are also included           --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.keeps-and-breaks-properties-atomic"><STRONG>keeps-and-breaks-properties-atomic</STRONG></A> "
+<span class=
+"COMMENT">&lt;!-- Common Keeps and Breaks Properties - Atomic objects             --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'page-break-*' shorthand properties are also included           --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.keeps-and-breaks-properties-atomic"
+     id=
+     "EntityDef.keeps-and-breaks-properties-atomic"><strong>keeps-and-breaks-properties-atomic</strong></a> "
   break-after  ( auto | column | page 
                | even-page | odd-page | inherit )  #IMPLIED
   break-before  ( auto | column | page 
@@ -603,10 +705,15 @@ rx:page-index (element)
                      | left | right | inherit )  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Keeps and Breaks Properties - Inline                     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'page-break-inside' shorthand property is also included         --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.keeps-and-breaks-properties-inline"><STRONG>keeps-and-breaks-properties-inline</STRONG></A> "
-  <A HREF="fo.dtd.html#EntityDef.keeps-and-breaks-properties-atomic">%keeps-and-breaks-properties-atomic;</A>
+<span class=
+"COMMENT">&lt;!-- Common Keeps and Breaks Properties - Inline                     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'page-break-inside' shorthand property is also included         --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.keeps-and-breaks-properties-inline"
+     id=
+     "EntityDef.keeps-and-breaks-properties-inline"><strong>keeps-and-breaks-properties-inline</strong></a> "
+  <a href=
+"fo.dtd.html#EntityDef.keeps-and-breaks-properties-atomic">%keeps-and-breaks-properties-atomic;</a>
   keep-together  CDATA  #IMPLIED
   keep-together.within-line  CDATA  #IMPLIED
   keep-together.within-column  CDATA  #IMPLIED
@@ -614,17 +721,24 @@ rx:page-index (element)
   page-break-inside  ( avoid | auto | inherit )  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Common Keeps and Breaks Properties - Block                      --&gt;</SPAN>
-&lt;!ENTITY % <A NAME="EntityDef.keeps-and-breaks-properties-block"><STRONG>keeps-and-breaks-properties-block</STRONG></A> "
-  <A HREF="fo.dtd.html#EntityDef.keeps-and-breaks-properties-inline">%keeps-and-breaks-properties-inline;</A>
+<span class=
+"COMMENT">&lt;!-- Common Keeps and Breaks Properties - Block                      --&gt;</span>
+&lt;!ENTITY % <a name="EntityDef.keeps-and-breaks-properties-block"
+     id=
+     "EntityDef.keeps-and-breaks-properties-block"><strong>keeps-and-breaks-properties-block</strong></a> "
+  <a href=
+"fo.dtd.html#EntityDef.keeps-and-breaks-properties-inline">%keeps-and-breaks-properties-inline;</a>
   orphans  CDATA  #IMPLIED
   widows  CDATA  #IMPLIED
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- Leader and Rule Properties                                      --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Leader and Rule Properties                                      --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.leader-properties"><STRONG>leader-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.leader-properties"
+     id=
+     "EntityDef.leader-properties"><strong>leader-properties</strong></a> "
   leader-alignment  ( none | reference-area | page | inherit )  #IMPLIED
   leader-pattern  ( space | rule | dots 
                   | use-content | inherit )  #IMPLIED
@@ -638,11 +752,16 @@ rx:page-index (element)
   rule-thickness  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Table Properties                                                  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'border-spacing' shorthand property is also included              --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'inherit' property added to table-omit-...er-at-break             --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Table Properties                                                  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'border-spacing' shorthand property is also included              --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'inherit' property added to table-omit-...er-at-break             --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.table-properties"><STRONG>table-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.table-properties"
+     id=
+     "EntityDef.table-properties"><strong>table-properties</strong></a> "
   border-collapse  ( collapse | collapse-with-precedence | separate | inherit )  #IMPLIED
   border-spacing  CDATA  #IMPLIED
   border-separation  CDATA  #IMPLIED
@@ -656,116 +775,178 @@ rx:page-index (element)
   table-omit-footer-at-break  ( true | false | inherit )  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- List Properties                                                  --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- List Properties                                                  --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.list-properties"><STRONG>list-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.list-properties"
+     id="EntityDef.list-properties"><strong>list-properties</strong></a> "
   provisional-distance-between-starts  CDATA  #IMPLIED
   provisional-label-separation  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Float Properties                                                 --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Float Properties                                                 --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.float-properties"><STRONG>float-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.float-properties"
+     id=
+     "EntityDef.float-properties"><strong>float-properties</strong></a> "
   float  ( before | start | end | left | right | none | inherit )  #IMPLIED
   clear  ( start | end | left | right | both | none | inherit )  #IMPLIED
   intrusion-displace ( auto | none | line | indent | block | inherit ) #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Visibility Properties                                            --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Visibility Properties                                            --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.visibility-properties"><STRONG>visibility-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.visibility-properties"
+     id=
+     "EntityDef.visibility-properties"><strong>visibility-properties</strong></a> "
   visibility  ( visible | hidden | collapse | inherit )  #IMPLIED
   z-index  CDATA  #IMPLIED
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Set of all inheritable properties. This includes attributes     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- marked as inheritable in the spec, as well as all features that --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- may assume a value of "inherit" (because all such features are  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- also permitted at parent elements). By XSL design, this set     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- comprises nearly all attributes.                                --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Set of all inheritable properties. This includes attributes     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- marked as inheritable in the spec, as well as all features that --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- may assume a value of "inherit" (because all such features are  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- also permitted at parent elements). By XSL design, this set     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- comprises nearly all attributes.                                --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.inheritable-properties"><STRONG>inheritable-properties</STRONG></A> "   
+&lt;!ENTITY % <a name="EntityDef.inheritable-properties"
+     id=
+     "EntityDef.inheritable-properties"><strong>inheritable-properties</strong></a> "   
   color  CDATA  #IMPLIED
   relative-align  ( before | baseline | inherit )  #IMPLIED
   span  ( none | all | inherit )  #IMPLIED 
 
-  <A HREF="fo.dtd.html#EntityDef.accessibility-properties">%accessibility-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.absolute-or-relative-position-properties">%absolute-or-relative-position-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.border-padding-background-properties">%border-padding-background-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.border-precedence-properties">%border-precedence-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.aural-properties">%aural-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.box-size-properties">%box-size-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.margin-properties-inline">%margin-properties-inline;</A>
-  <A HREF="fo.dtd.html#EntityDef.area-properties">%area-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.area-alignment-properties-inline">%area-alignment-properties-inline;</A>
-  <A HREF="fo.dtd.html#EntityDef.character-properties">%character-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.table-properties">%table-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.list-properties">%list-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.float-properties">%float-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.line-related-properties">%line-related-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.leader-properties">%leader-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.keeps-and-breaks-properties-block">%keeps-and-breaks-properties-block;</A>
-  <A HREF="fo.dtd.html#EntityDef.hyphenation-properties-block">%hyphenation-properties-block;</A>
-  <A HREF="fo.dtd.html#EntityDef.visibility-properties">%visibility-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.accessibility-properties">%accessibility-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.absolute-or-relative-position-properties">%absolute-or-relative-position-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.border-padding-background-properties">%border-padding-background-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.border-precedence-properties">%border-precedence-properties;</a>
+  <a href="fo.dtd.html#EntityDef.aural-properties">%aural-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.box-size-properties">%box-size-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.margin-properties-inline">%margin-properties-inline;</a>
+  <a href="fo.dtd.html#EntityDef.area-properties">%area-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.area-alignment-properties-inline">%area-alignment-properties-inline;</a>
+  <a href=
+"fo.dtd.html#EntityDef.character-properties">%character-properties;</a>
+  <a href="fo.dtd.html#EntityDef.table-properties">%table-properties;</a>
+  <a href="fo.dtd.html#EntityDef.list-properties">%list-properties;</a>
+  <a href="fo.dtd.html#EntityDef.float-properties">%float-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.line-related-properties">%line-related-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.leader-properties">%leader-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.keeps-and-breaks-properties-block">%keeps-and-breaks-properties-block;</a>
+  <a href=
+"fo.dtd.html#EntityDef.hyphenation-properties-block">%hyphenation-properties-block;</a>
+  <a href=
+"fo.dtd.html#EntityDef.visibility-properties">%visibility-properties;</a>
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Common property subsets.                                        --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Common property subsets.                                        --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- Properties for every block that may contain text children       --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Properties for every block that may contain text children       --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.block-properties"><STRONG>block-properties</STRONG></A> "   
+&lt;!ENTITY % <a name="EntityDef.block-properties"
+     id=
+     "EntityDef.block-properties"><strong>block-properties</strong></a> "   
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a>
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Properties for nonempty inline elements                         --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Properties for nonempty inline elements                         --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.inline-properties"><STRONG>inline-properties</STRONG></A> "   
+&lt;!ENTITY % <a name="EntityDef.inline-properties"
+     id=
+     "EntityDef.inline-properties"><strong>inline-properties</strong></a> "   
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a>
 "&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- Properties for empty inline elements that contain characters    --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Properties for empty inline elements that contain characters    --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.empty-inline-properties"><STRONG>empty-inline-properties</STRONG></A> "   
+&lt;!ENTITY % <a name="EntityDef.empty-inline-properties"
+     id=
+     "EntityDef.empty-inline-properties"><strong>empty-inline-properties</strong></a> "   
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
   color  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.accessibility-properties">%accessibility-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.aural-properties">%aural-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.relative-position-properties">%relative-position-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.area-alignment-properties-inline">%area-alignment-properties-inline;</A>
-  <A HREF="fo.dtd.html#EntityDef.character-properties">%character-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.border-padding-background-properties">%border-padding-background-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.hyphenation-properties-inline">%hyphenation-properties-inline;</A>
-  <A HREF="fo.dtd.html#EntityDef.visibility-properties">%visibility-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.accessibility-properties">%accessibility-properties;</a>
+  <a href="fo.dtd.html#EntityDef.aural-properties">%aural-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.relative-position-properties">%relative-position-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.area-alignment-properties-inline">%area-alignment-properties-inline;</a>
+  <a href=
+"fo.dtd.html#EntityDef.character-properties">%character-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.border-padding-background-properties">%border-padding-background-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.hyphenation-properties-inline">%hyphenation-properties-inline;</a>
+  <a href=
+"fo.dtd.html#EntityDef.visibility-properties">%visibility-properties;</a>
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Properties for graphical inline elements                        --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Properties for graphical inline elements                        --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.graphic-properties"><STRONG>graphic-properties</STRONG></A> "   
+&lt;!ENTITY % <a name="EntityDef.graphic-properties"
+     id=
+     "EntityDef.graphic-properties"><strong>graphic-properties</strong></a> "   
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
   content-type  CDATA  #IMPLIED
 
-  <A HREF="fo.dtd.html#EntityDef.accessibility-properties">%accessibility-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.relative-position-properties">%relative-position-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.aural-properties">%aural-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.border-padding-background-properties">%border-padding-background-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.margin-properties-inline">%margin-properties-inline;</A>
-  <A HREF="fo.dtd.html#EntityDef.area-alignment-properties-inline">%area-alignment-properties-inline;</A>
-  <A HREF="fo.dtd.html#EntityDef.box-size-properties">%box-size-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.font-properties">%font-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.line-height-properties">%line-height-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.keeps-and-breaks-properties-atomic">%keeps-and-breaks-properties-atomic;</A>
+  <a href=
+"fo.dtd.html#EntityDef.accessibility-properties">%accessibility-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.relative-position-properties">%relative-position-properties;</a>
+  <a href="fo.dtd.html#EntityDef.aural-properties">%aural-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.border-padding-background-properties">%border-padding-background-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.margin-properties-inline">%margin-properties-inline;</a>
+  <a href=
+"fo.dtd.html#EntityDef.area-alignment-properties-inline">%area-alignment-properties-inline;</a>
+  <a href=
+"fo.dtd.html#EntityDef.box-size-properties">%box-size-properties;</a>
+  <a href="fo.dtd.html#EntityDef.font-properties">%font-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.line-height-properties">%line-height-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.keeps-and-breaks-properties-atomic">%keeps-and-breaks-properties-atomic;</a>
 
   content-height  CDATA  #IMPLIED
   content-width  CDATA  #IMPLIED
@@ -781,56 +962,82 @@ rx:page-index (element)
 
 
 
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Content models and attributes                                   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!--                                                                 --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- A. Element structure for top-level elements                     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Content models and attributes                                   --&gt;</span>
+<span class=
+"COMMENT">&lt;!--                                                                 --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- A. Element structure for top-level elements                     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Root element. Contains everything, generates nothing. It has an --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- id, a FO namespace prefix declaration, and other namespace      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- declarations if used. It can also bear inheritable properties,  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- passed further to fo:flows/fo:static-contents. Inheritable      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- properties from fo:layout-master-set are banned in this version --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- of the DTD.                                                     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Root element. Contains everything, generates nothing. It has an --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- id, a FO namespace prefix declaration, and other namespace      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- declarations if used. It can also bear inheritable properties,  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- passed further to fo:flows/fo:static-contents. Inheritable      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- properties from fo:layout-master-set are banned in this version --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- of the DTD.                                                     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef1"></A><STRONG>fo:root</STRONG> (
-    <A HREF="fo.dtd.html#ElementDef2">rx:meta-info</A>?,
-    <A HREF="fo.dtd.html#ElementDef4">rx:page-device</A>?,
-    <A HREF="fo.dtd.html#ElementDef10">fo:layout-master-set</A>,
-    <A HREF="fo.dtd.html#ElementDef5">fo:declarations</A>?,
-    <A HREF="fo.dtd.html#ElementDef7">rx:outline</A>?,
-    <A HREF="fo.dtd.html#ElementDef22">fo:page-sequence</A>+
+&lt;!ELEMENT <a name="ElementDef1"
+     id="ElementDef1"></a><strong>fo:root</strong> (
+    <a href="fo.dtd.html#ElementDef2">rx:meta-info</a>?,
+    <a href="fo.dtd.html#ElementDef4">rx:page-device</a>?,
+    <a href="fo.dtd.html#ElementDef10">fo:layout-master-set</a>,
+    <a href="fo.dtd.html#ElementDef5">fo:declarations</a>?,
+    <a href="fo.dtd.html#ElementDef7">rx:outline</a>?,
+    <a href="fo.dtd.html#ElementDef22">fo:page-sequence</a>+
   )
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef1"></A><STRONG>fo:root</STRONG>
+&lt;!ATTLIST <a name="AttlistDef1"
+     id="AttlistDef1"></a><strong>fo:root</strong>
   xmlns:fo  CDATA #REQUIRED
   xmlns:rx  CDATA #IMPLIED
   xmlns:svg CDATA #IMPLIED
   media-usage  ( auto | paginate | bounded-in-one-dimension | unbounded ) #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a>
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Document meta information - RenderX extension                   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Document meta information - RenderX extension                   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef2"></A><STRONG>rx:meta-info</STRONG> (<A HREF="fo.dtd.html#ElementDef3">rx:meta-field</A>+)&gt;
-&lt;!ATTLIST <A NAME="AttlistDef2"></A><STRONG>rx:meta-info</STRONG>
+&lt;!ELEMENT <a name="ElementDef2"
+     id="ElementDef2"></a><strong>rx:meta-info</strong> (<a href=
+     "fo.dtd.html#ElementDef3">rx:meta-field</a>+)&gt;
+&lt;!ATTLIST <a name="AttlistDef2"
+     id="AttlistDef2"></a><strong>rx:meta-info</strong>
   xmlns:rx  CDATA #IMPLIED
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef3"></A><STRONG>rx:meta-field</STRONG> EMPTY&gt;
-&lt;!ATTLIST  <A NAME="AttlistDef3"></A><STRONG>rx:meta-field</STRONG>
+&lt;!ELEMENT <a name="ElementDef3"
+     id="ElementDef3"></a><strong>rx:meta-field</strong> EMPTY&gt;
+&lt;!ATTLIST  <a name="AttlistDef3"
+     id="AttlistDef3"></a><strong>rx:meta-field</strong>
     name CDATA #REQUIRED
     value CDATA #REQUIRED
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef4"></A><STRONG>rx:page-device</STRONG> EMPTY&gt;
-&lt;!ATTLIST  <A NAME="AttlistDef4"></A><STRONG>rx:page-device</STRONG>
+&lt;!ELEMENT <a name="ElementDef4"
+     id="ElementDef4"></a><strong>rx:page-device</strong> EMPTY&gt;
+&lt;!ATTLIST  <a name="AttlistDef4"
+     id="AttlistDef4"></a><strong>rx:page-device</strong>
     input-tray CDATA #IMPLIED
     output-tray CDATA #IMPLIED
     manual-feed (true|false) #IMPLIED
@@ -843,139 +1050,210 @@ rx:page-index (element)
     number-copies CDATA #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Color profile declarations                                      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Color profile declarations                                      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef5"></A><STRONG>fo:declarations</STRONG> (
-    <A HREF="fo.dtd.html#ElementDef6">fo:color-profile</A>+
+&lt;!ELEMENT <a name="ElementDef5"
+     id="ElementDef5"></a><strong>fo:declarations</strong> (
+    <a href="fo.dtd.html#ElementDef6">fo:color-profile</a>+
   )
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef6"></A><STRONG>fo:color-profile</STRONG> EMPTY &gt;
+&lt;!ELEMENT <a name="ElementDef6"
+     id="ElementDef6"></a><strong>fo:color-profile</strong> EMPTY &gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef5"></A><STRONG>fo:color-profile</STRONG>
+&lt;!ATTLIST <a name="AttlistDef5"
+     id="AttlistDef5"></a><strong>fo:color-profile</strong>
   src  CDATA  #REQUIRED
   color-profile-name  CDATA #REQUIRED
   rendering-intent  CDATA #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Bookmarks - RenderX extension                                   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Bookmarks - RenderX extension                                   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef7"></A><STRONG>rx:outline</STRONG> (
-    <A HREF="fo.dtd.html#ElementDef8">rx:bookmark</A>+
+&lt;!ELEMENT <a name="ElementDef7"
+     id="ElementDef7"></a><strong>rx:outline</strong> (
+    <a href="fo.dtd.html#ElementDef8">rx:bookmark</a>+
   )
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef6"></A><STRONG>rx:outline</STRONG>
+&lt;!ATTLIST <a name="AttlistDef6"
+     id="AttlistDef6"></a><strong>rx:outline</strong>
   xmlns:rx  CDATA #IMPLIED
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef8"></A><STRONG>rx:bookmark</STRONG> (
-    <A HREF="fo.dtd.html#ElementDef9">rx:bookmark-label</A>, 
-    <A HREF="fo.dtd.html#ElementDef8">rx:bookmark</A>*
+&lt;!ELEMENT <a name="ElementDef8"
+     id="ElementDef8"></a><strong>rx:bookmark</strong> (
+    <a href="fo.dtd.html#ElementDef9">rx:bookmark-label</a>, 
+    <a href="fo.dtd.html#ElementDef8">rx:bookmark</a>*
   ) 
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef7"></A><STRONG>rx:bookmark</STRONG>
+&lt;!ATTLIST <a name="AttlistDef7"
+     id="AttlistDef7"></a><strong>rx:bookmark</strong>
   internal-destination  CDATA  #IMPLIED
   external-destination  CDATA  #IMPLIED
   collapse-subtree  (true | false)  #IMPLIED
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef9"></A><STRONG>rx:bookmark-label</STRONG> (#PCDATA) &gt;
+&lt;!ELEMENT <a name="ElementDef9"
+     id=
+     "ElementDef9"></a><strong>rx:bookmark-label</strong> (#PCDATA) &gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Layout-master-set. Contains a set of page-masters. Neither of   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- its descendants generates any area, so no inherited elements    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- can be specified on it or on its children.                      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Content model made more strict than in the draft, to enforce    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- that a page-sequence-master be always accompanied by at least   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- one simple-page-master.                                         --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Layout-master-set. Contains a set of page-masters. Neither of   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- its descendants generates any area, so no inherited elements    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- can be specified on it or on its children.                      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Content model made more strict than in the draft, to enforce    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- that a page-sequence-master be always accompanied by at least   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- one simple-page-master.                                         --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
 
-&lt;!ELEMENT <A NAME="ElementDef10"></A><STRONG>fo:layout-master-set</STRONG> 
+&lt;!ELEMENT <a name="ElementDef10"
+     id="ElementDef10"></a><strong>fo:layout-master-set</strong> 
   (
-    <A HREF="fo.dtd.html#ElementDef11">fo:page-sequence-master</A>*, <A HREF="fo.dtd.html#ElementDef16">fo:simple-page-master</A>,
-    ( <A HREF="fo.dtd.html#ElementDef16">fo:simple-page-master</A> | <A HREF="fo.dtd.html#ElementDef11">fo:page-sequence-master</A> )*
+    <a href=
+"fo.dtd.html#ElementDef11">fo:page-sequence-master</a>*, <a href=
+"fo.dtd.html#ElementDef16">fo:simple-page-master</a>,
+    ( <a href=
+"fo.dtd.html#ElementDef16">fo:simple-page-master</a> | <a href=
+"fo.dtd.html#ElementDef11">fo:page-sequence-master</a> )*
   )  
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Page sequence master                                            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Page sequence master                                            --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef11"></A><STRONG>fo:page-sequence-master</STRONG> (
+&lt;!ELEMENT <a name="ElementDef11"
+     id="ElementDef11"></a><strong>fo:page-sequence-master</strong> (
     (
-      <A HREF="fo.dtd.html#ElementDef12">fo:single-page-master-reference</A>
-    | <A HREF="fo.dtd.html#ElementDef13">fo:repeatable-page-master-reference</A>
-    | <A HREF="fo.dtd.html#ElementDef14">fo:repeatable-page-master-alternatives</A>
+      <a href=
+"fo.dtd.html#ElementDef12">fo:single-page-master-reference</a>
+    | <a href=
+"fo.dtd.html#ElementDef13">fo:repeatable-page-master-reference</a>
+    | <a href=
+"fo.dtd.html#ElementDef14">fo:repeatable-page-master-alternatives</a>
     )+
   )
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef8"></A><STRONG>fo:page-sequence-master</STRONG>
+&lt;!ATTLIST <a name="AttlistDef8"
+     id="AttlistDef8"></a><strong>fo:page-sequence-master</strong>
   master-name  CDATA  #REQUIRED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Sequence specifiers are predefined sequences of page masters    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- that are used by page sequence master to construct a desired    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- page collection.                                                --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Sequence specifiers are predefined sequences of page masters    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- that are used by page sequence master to construct a desired    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- page collection.                                                --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef12"></A><STRONG>fo:single-page-master-reference</STRONG>    EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef9"></A><STRONG>fo:single-page-master-reference</STRONG>
+&lt;!ELEMENT <a name="ElementDef12"
+     id=
+     "ElementDef12"></a><strong>fo:single-page-master-reference</strong>    EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef9"
+     id="AttlistDef9"></a><strong>fo:single-page-master-reference</strong>
   master-reference  CDATA  #REQUIRED
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef13"></A><STRONG>fo:repeatable-page-master-reference</STRONG>    EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef10"></A><STRONG>fo:repeatable-page-master-reference</STRONG>
+&lt;!ELEMENT <a name="ElementDef13"
+     id=
+     "ElementDef13"></a><strong>fo:repeatable-page-master-reference</strong>    EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef10"
+     id=
+     "AttlistDef10"></a><strong>fo:repeatable-page-master-reference</strong>
   master-reference  CDATA  #REQUIRED
   maximum-repeats  CDATA  #IMPLIED
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef14"></A><STRONG>fo:repeatable-page-master-alternatives</STRONG>  
-  ( <A HREF="fo.dtd.html#ElementDef15">fo:conditional-page-master-reference</A>+ )
+&lt;!ELEMENT <a name="ElementDef14"
+     id=
+     "ElementDef14"></a><strong>fo:repeatable-page-master-alternatives</strong>  
+  ( <a href=
+"fo.dtd.html#ElementDef15">fo:conditional-page-master-reference</a>+ )
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef11"></A><STRONG>fo:repeatable-page-master-alternatives</STRONG>
+&lt;!ATTLIST <a name="AttlistDef11"
+     id=
+     "AttlistDef11"></a><strong>fo:repeatable-page-master-alternatives</strong>
   maximum-repeats  CDATA  #IMPLIED
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef15"></A><STRONG>fo:conditional-page-master-reference</STRONG>    EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef12"></A><STRONG>fo:conditional-page-master-reference</STRONG>
+&lt;!ELEMENT <a name="ElementDef15"
+     id=
+     "ElementDef15"></a><strong>fo:conditional-page-master-reference</strong>    EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef12"
+     id=
+     "AttlistDef12"></a><strong>fo:conditional-page-master-reference</strong>
   master-reference  CDATA  #REQUIRED
   page-position  ( first | last | rest | any | inherit )  #IMPLIED
   odd-or-even  ( odd | even | any | inherit )  #IMPLIED
   blank-or-not-blank  ( blank | not-blank | any | inherit )  #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Simple page master defines a page layout. It does not           --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- explicitly generate any content. Most of its properties are     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- local except for writing-mode and reference-orientation that    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- are inherited by the underlying region-* objects.               --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Simple page master defines a page layout. It does not           --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- explicitly generate any content. Most of its properties are     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- local except for writing-mode and reference-orientation that    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- are inherited by the underlying region-* objects.               --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- NOTE. We could think about a common background/padding/border   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- for every page instance generated by the page master. For such  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- a scope, we may add borders/padding/background to its features. --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- However, in the current version this is ruled out explicitly by --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- the XSL specs.                                                  --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- NOTE. We could think about a common background/padding/border   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- for every page instance generated by the page master. For such  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- a scope, we may add borders/padding/background to its features. --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- However, in the current version this is ruled out explicitly by --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- the XSL specs.                                                  --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef16"></A><STRONG>fo:simple-page-master</STRONG> 
+&lt;!ELEMENT <a name="ElementDef16"
+     id="ElementDef16"></a><strong>fo:simple-page-master</strong> 
   (
-    <A HREF="fo.dtd.html#ElementDef17">fo:region-body</A>,
-    <A HREF="fo.dtd.html#ElementDef18">fo:region-before</A>?,
-    <A HREF="fo.dtd.html#ElementDef19">fo:region-after</A>?,
-    <A HREF="fo.dtd.html#ElementDef20">fo:region-start</A>?,
-    <A HREF="fo.dtd.html#ElementDef21">fo:region-end</A>?
+    <a href="fo.dtd.html#ElementDef17">fo:region-body</a>,
+    <a href="fo.dtd.html#ElementDef18">fo:region-before</a>?,
+    <a href="fo.dtd.html#ElementDef19">fo:region-after</a>?,
+    <a href="fo.dtd.html#ElementDef20">fo:region-start</a>?,
+    <a href="fo.dtd.html#ElementDef21">fo:region-end</a>?
   )
 &gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef13"></A><STRONG>fo:simple-page-master</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.margin-properties-CSS">%margin-properties-CSS;</A>
+&lt;!ATTLIST <a name="AttlistDef13"
+     id="AttlistDef13"></a><strong>fo:simple-page-master</strong>
+  <a href=
+"fo.dtd.html#EntityDef.margin-properties-CSS">%margin-properties-CSS;</a>
   master-name  CDATA  #REQUIRED
   page-height  CDATA  #IMPLIED
   page-width  CDATA  #IMPLIED
@@ -987,77 +1265,127 @@ rx:page-index (element)
 &gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Regions. The page instance is divided into subareas, whose      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- properties are described by the five region-* elements. These   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- elements by themselves do not generate any content.             --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Reference-orientation and writing-mode may be inherited from    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- the page master; all other features are local.                  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Regions. The page instance is divided into subareas, whose      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- properties are described by the five region-* elements. These   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- elements by themselves do not generate any content.             --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Reference-orientation and writing-mode may be inherited from    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- the page master; all other features are local.                  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.region-properties"><STRONG>region-properties</STRONG></A> "
-  <A HREF="fo.dtd.html#EntityDef.border-padding-background-properties">%border-padding-background-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.area-properties">%area-properties;</A>
+&lt;!ENTITY % <a name="EntityDef.region-properties"
+     id=
+     "EntityDef.region-properties"><strong>region-properties</strong></a> "
+  <a href=
+"fo.dtd.html#EntityDef.border-padding-background-properties">%border-padding-background-properties;</a>
+  <a href="fo.dtd.html#EntityDef.area-properties">%area-properties;</a>
 
   region-name  CDATA  #IMPLIED
 "&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Body region: middle of the page. Unlike side regions, this one  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- may have multiple columns.                                      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- [!] We have restricted margin properties to be margin-only,     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- allowing no spaces. This is done because no clear semantics     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- can be ascribed to single components of a space vector.         --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Body region: middle of the page. Unlike side regions, this one  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- may have multiple columns.                                      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- [!] We have restricted margin properties to be margin-only,     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- allowing no spaces. This is done because no clear semantics     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- can be ascribed to single components of a space vector.         --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef17"></A><STRONG>fo:region-body</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef14"></A><STRONG>fo:region-body</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.region-properties">%region-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.margin-properties-CSS">%margin-properties-CSS;</A>
+&lt;!ELEMENT <a name="ElementDef17"
+     id="ElementDef17"></a><strong>fo:region-body</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef14"
+     id="AttlistDef14"></a><strong>fo:region-body</strong>
+  <a href=
+"fo.dtd.html#EntityDef.region-properties">%region-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.margin-properties-CSS">%margin-properties-CSS;</a>
   column-count  CDATA  #IMPLIED
   column-gap  CDATA  #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Side regions: page edges. These regions have extent and         --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- precedence that is used to arbitrate corner conflicts. Side     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- regions are viewed as frames, and may not have margins.         --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Extent made obligatory: its default value of 0.0pt does not     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- make much sense.                                                --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Side regions: page edges. These regions have extent and         --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- precedence that is used to arbitrate corner conflicts. Side     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- regions are viewed as frames, and may not have margins.         --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Extent made obligatory: its default value of 0.0pt does not     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- make much sense.                                                --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.side-region-properties"><STRONG>side-region-properties</STRONG></A> "
-  <A HREF="fo.dtd.html#EntityDef.region-properties">%region-properties;</A>
+&lt;!ENTITY % <a name="EntityDef.side-region-properties"
+     id=
+     "EntityDef.side-region-properties"><strong>side-region-properties</strong></a> "
+  <a href=
+"fo.dtd.html#EntityDef.region-properties">%region-properties;</a>
   extent  CDATA  #REQUIRED
   precedence  ( true | false | inherit )  #IMPLIED
 "&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef18"></A><STRONG>fo:region-before</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef15"></A><STRONG>fo:region-before</STRONG> <A HREF="fo.dtd.html#EntityDef.side-region-properties">%side-region-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef18"
+     id="ElementDef18"></a><strong>fo:region-before</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef15"
+     id="AttlistDef15"></a><strong>fo:region-before</strong> <a href=
+     "fo.dtd.html#EntityDef.side-region-properties">%side-region-properties;</a>&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef19"></A><STRONG>fo:region-after</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef16"></A><STRONG>fo:region-after</STRONG> <A HREF="fo.dtd.html#EntityDef.side-region-properties">%side-region-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef19"
+     id="ElementDef19"></a><strong>fo:region-after</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef16"
+     id="AttlistDef16"></a><strong>fo:region-after</strong> <a href=
+     "fo.dtd.html#EntityDef.side-region-properties">%side-region-properties;</a>&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef20"></A><STRONG>fo:region-start</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef17"></A><STRONG>fo:region-start</STRONG> <A HREF="fo.dtd.html#EntityDef.side-region-properties">%side-region-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef20"
+     id="ElementDef20"></a><strong>fo:region-start</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef17"
+     id="AttlistDef17"></a><strong>fo:region-start</strong> <a href=
+     "fo.dtd.html#EntityDef.side-region-properties">%side-region-properties;</a>&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef21"></A><STRONG>fo:region-end</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef18"></A><STRONG>fo:region-end</STRONG> <A HREF="fo.dtd.html#EntityDef.side-region-properties">%side-region-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef21"
+     id="ElementDef21"></a><strong>fo:region-end</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef18"
+     id="AttlistDef18"></a><strong>fo:region-end</strong> <a href=
+     "fo.dtd.html#EntityDef.side-region-properties">%side-region-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Page sequence defines the order of choosing page masters to     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- accomodate all the contents generated by its fo:flow and        --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- fo:static-content children, and the way of numbering them.      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Page sequence defines the order of choosing page masters to     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- accomodate all the contents generated by its fo:flow and        --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- fo:static-content children, and the way of numbering them.      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef22"></A><STRONG>fo:page-sequence</STRONG>
+&lt;!ELEMENT <a name="ElementDef22"
+     id="ElementDef22"></a><strong>fo:page-sequence</strong>
   (
-    <A HREF="fo.dtd.html#ElementDef23">fo:title</A>?,
-    <A HREF="fo.dtd.html#ElementDef24">fo:static-content</A>*,
-    <A HREF="fo.dtd.html#ElementDef25">fo:flow</A>
+    <a href="fo.dtd.html#ElementDef23">fo:title</a>?,
+    <a href="fo.dtd.html#ElementDef24">fo:static-content</a>*,
+    <a href="fo.dtd.html#ElementDef25">fo:flow</a>
   )
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef19"></A><STRONG>fo:page-sequence</STRONG>
+&lt;!ATTLIST <a name="AttlistDef19"
+     id="AttlistDef19"></a><strong>fo:page-sequence</strong>
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
   master-reference  CDATA  #REQUIRED
@@ -1071,191 +1399,326 @@ rx:page-index (element)
   grouping-separator  CDATA  #IMPLIED
   grouping-size  CDATA  #IMPLIED
 
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a>
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Title may not contain out-of-lines.                             --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Title may not contain out-of-lines.                             --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef23"></A><STRONG>fo:title</STRONG>     
+&lt;!ELEMENT <a name="ElementDef23"
+     id="ElementDef23"></a><strong>fo:title</strong>     
     ( #PCDATA 
-  | <A HREF="fo.dtd.html#EntityDef.basic-inlines">%basic-inlines;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.wrappers">%wrappers;</A> )*
+  | <a href="fo.dtd.html#EntityDef.basic-inlines">%basic-inlines;</a> 
+  | <a href="fo.dtd.html#EntityDef.wrappers">%wrappers;</a> )*
 &gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef20"></A><STRONG>fo:title</STRONG>  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A>&gt;
+&lt;!ATTLIST <a name="AttlistDef20"
+     id="AttlistDef20"></a><strong>fo:title</strong>  <a href=
+     "fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a>&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- B. Element structure for content-bearing elements               --&gt;</SPAN> 
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- B. Element structure for content-bearing elements               --&gt;</span> 
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Flows. They are just sequences of blocks. 'flow-name' feature   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- defines linkage of the flow to a region in the page master.     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Flows. They are just sequences of blocks. 'flow-name' feature   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- defines linkage of the flow to a region in the page master.     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- An extension element, fo:flow-section, has been added in order  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- to overcome limitations on multicolumn layout imposed by XSL FO --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- An extension element, fo:flow-section, has been added in order  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- to overcome limitations on multicolumn layout imposed by XSL FO --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.flow-properties"><STRONG>flow-properties</STRONG></A> "
+&lt;!ENTITY % <a name="EntityDef.flow-properties"
+     id="EntityDef.flow-properties"><strong>flow-properties</strong></a> "
   id  CDATA  #IMPLIED    
   rx:key  CDATA  #IMPLIED
   flow-name  CDATA  #REQUIRED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a>
 "&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef24"></A><STRONG>fo:static-content</STRONG> (<A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A>)+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef21"></A><STRONG>fo:static-content</STRONG> <A HREF="fo.dtd.html#EntityDef.flow-properties">%flow-properties;</A> &gt;
+&lt;!ELEMENT <a name="ElementDef24"
+     id="ElementDef24"></a><strong>fo:static-content</strong> (<a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a>)+ &gt;
+&lt;!ATTLIST <a name="AttlistDef21"
+     id="AttlistDef21"></a><strong>fo:static-content</strong> <a href=
+     "fo.dtd.html#EntityDef.flow-properties">%flow-properties;</a> &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef25"></A><STRONG>fo:flow</STRONG> (<A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A> | <A HREF="fo.dtd.html#ElementDef26">rx:flow-section</A>)+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef22"></A><STRONG>fo:flow</STRONG> <A HREF="fo.dtd.html#EntityDef.flow-properties">%flow-properties;</A> &gt;
+&lt;!ELEMENT <a name="ElementDef25"
+     id="ElementDef25"></a><strong>fo:flow</strong> (<a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a> | <a href=
+     "fo.dtd.html#ElementDef26">rx:flow-section</a>)+ &gt;
+&lt;!ATTLIST <a name="AttlistDef22"
+     id="AttlistDef22"></a><strong>fo:flow</strong> <a href=
+     "fo.dtd.html#EntityDef.flow-properties">%flow-properties;</a> &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Extension element. Acts like a top-level block --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- with multiple columns.                         --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Extension element. Acts like a top-level block --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- with multiple columns.                         --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef26"></A><STRONG>rx:flow-section</STRONG> (<A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A>)+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef23"></A><STRONG>rx:flow-section</STRONG>
+&lt;!ELEMENT <a name="ElementDef26"
+     id="ElementDef26"></a><strong>rx:flow-section</strong> (<a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a>)+ &gt;
+&lt;!ATTLIST <a name="AttlistDef23"
+     id="AttlistDef23"></a><strong>rx:flow-section</strong>
   column-count CDATA #IMPLIED
   column-gap CDATA #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A> 
+  <a href="fo.dtd.html#EntityDef.block-properties">%block-properties;</a> 
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Block is the base element for all content areas. Besides        --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- properties used to format the block itself, it also conveys     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- formatting information to its inline-level children.            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Block is the base element for all content areas. Besides        --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- properties used to format the block itself, it also conveys     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- formatting information to its inline-level children.            --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef27"></A><STRONG>fo:block</STRONG> (
+&lt;!ELEMENT <a name="ElementDef27"
+     id="ElementDef27"></a><strong>fo:block</strong> (
     #PCDATA
-  | <A HREF="fo.dtd.html#ElementDef31">fo:initial-property-set</A>
-  | <A HREF="fo.dtd.html#EntityDef.basic-inlines">%basic-inlines;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.basic-blocks">%basic-blocks;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.out-of-lines">%out-of-lines;</A> 
-  | <A HREF="fo.dtd.html#EntityDef.wrappers">%wrappers;</A> 
+  | <a href="fo.dtd.html#ElementDef31">fo:initial-property-set</a>
+  | <a href="fo.dtd.html#EntityDef.basic-inlines">%basic-inlines;</a> 
+  | <a href="fo.dtd.html#EntityDef.basic-blocks">%basic-blocks;</a> 
+  | <a href="fo.dtd.html#EntityDef.out-of-lines">%out-of-lines;</a> 
+  | <a href="fo.dtd.html#EntityDef.wrappers">%wrappers;</a> 
   )*
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef24"></A><STRONG>fo:block</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ATTLIST <a name="AttlistDef24"
+     id="AttlistDef24"></a><strong>fo:block</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Block container                                                 --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-&lt;!ELEMENT <A NAME="ElementDef28"></A><STRONG>fo:block-container</STRONG> ( <A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A> )+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef25"></A><STRONG>fo:block-container</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Block container                                                 --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+&lt;!ELEMENT <a name="ElementDef28"
+     id="ElementDef28"></a><strong>fo:block-container</strong> ( <a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a> )+ &gt;
+&lt;!ATTLIST <a name="AttlistDef25"
+     id="AttlistDef25"></a><strong>fo:block-container</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Inline elements                                                 --&gt;</SPAN> 
-<SPAN CLASS="COMMENT">&lt;!-- *************************************************************** --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Inline elements                                                 --&gt;</span> 
+<span class=
+"COMMENT">&lt;!-- *************************************************************** --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Unicode bidi-override                                           --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Unicode bidi-override                                           --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef29"></A><STRONG>fo:bidi-override</STRONG> ( <A HREF="fo.dtd.html#EntityDef.inlines">%inlines;</A> )*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef26"></A><STRONG>fo:bidi-override</STRONG> <A HREF="fo.dtd.html#EntityDef.inline-properties">%inline-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef29"
+     id="ElementDef29"></a><strong>fo:bidi-override</strong> ( <a href=
+     "fo.dtd.html#EntityDef.inlines">%inlines;</a> )*&gt;
+&lt;!ATTLIST <a name="AttlistDef26"
+     id="AttlistDef26"></a><strong>fo:bidi-override</strong> <a href=
+     "fo.dtd.html#EntityDef.inline-properties">%inline-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Single character                                                --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Single character                                                --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef30"></A><STRONG>fo:character</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef27"></A><STRONG>fo:character</STRONG>
+&lt;!ELEMENT <a name="ElementDef30"
+     id="ElementDef30"></a><strong>fo:character</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef27"
+     id="AttlistDef27"></a><strong>fo:character</strong>
   character  CDATA  #REQUIRED
-  <A HREF="fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</a>
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Initial property set specifies properties for one or more lines --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Initial property set specifies properties for one or more lines --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef31"></A><STRONG>fo:initial-property-set</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef28"></A><STRONG>fo:initial-property-set</STRONG> 
-  <A HREF="fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</A> 
+&lt;!ELEMENT <a name="ElementDef31"
+     id=
+     "ElementDef31"></a><strong>fo:initial-property-set</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef28"
+     id="AttlistDef28"></a><strong>fo:initial-property-set</strong> 
+  <a href=
+"fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</a> 
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- External graphic                                                --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- External graphic                                                --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef32"></A><STRONG>fo:external-graphic</STRONG> EMPTY &gt;
-&lt;!ATTLIST <A NAME="AttlistDef29"></A><STRONG>fo:external-graphic</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.graphic-properties">%graphic-properties;</A>
+&lt;!ELEMENT <a name="ElementDef32"
+     id="ElementDef32"></a><strong>fo:external-graphic</strong> EMPTY &gt;
+&lt;!ATTLIST <a name="AttlistDef29"
+     id="AttlistDef29"></a><strong>fo:external-graphic</strong>
+  <a href=
+"fo.dtd.html#EntityDef.graphic-properties">%graphic-properties;</a>
   src  CDATA  #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- In-stream graphic                                               --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- In-stream graphic                                               --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef33"></A><STRONG>fo:instream-foreign-object</STRONG> ANY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef30"></A><STRONG>fo:instream-foreign-object</STRONG> <A HREF="fo.dtd.html#EntityDef.graphic-properties">%graphic-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef33"
+     id=
+     "ElementDef33"></a><strong>fo:instream-foreign-object</strong> ANY&gt;
+&lt;!ATTLIST <a name="AttlistDef30"
+     id=
+     "AttlistDef30"></a><strong>fo:instream-foreign-object</strong> <a href=
+     "fo.dtd.html#EntityDef.graphic-properties">%graphic-properties;</a>&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- An element to mark a point in the XML output (RenderX extension)--&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- An element to mark a point in the XML output (RenderX extension)--&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef34"></A><STRONG>rx:pinpoint</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef31"></A><STRONG>rx:pinpoint</STRONG>
+&lt;!ELEMENT <a name="ElementDef34"
+     id="ElementDef34"></a><strong>rx:pinpoint</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef31"
+     id="AttlistDef31"></a><strong>rx:pinpoint</strong>
   value CDATA  #REQUIRED
 
-  <A HREF="fo.dtd.html#EntityDef.accessibility-properties">%accessibility-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.relative-position-properties">%relative-position-properties;</A>
-  <A HREF="fo.dtd.html#EntityDef.area-alignment-properties-inline">%area-alignment-properties-inline;</A>
-  <A HREF="fo.dtd.html#EntityDef.keeps-and-breaks-properties-atomic">%keeps-and-breaks-properties-atomic;</A>
+  <a href=
+"fo.dtd.html#EntityDef.accessibility-properties">%accessibility-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.relative-position-properties">%relative-position-properties;</a>
+  <a href=
+"fo.dtd.html#EntityDef.area-alignment-properties-inline">%area-alignment-properties-inline;</a>
+  <a href=
+"fo.dtd.html#EntityDef.keeps-and-breaks-properties-atomic">%keeps-and-breaks-properties-atomic;</a>
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Inline                                                          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Inline                                                          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef35"></A><STRONG>fo:inline</STRONG> ( <A HREF="fo.dtd.html#EntityDef.mixed-level">%mixed-level;</A> )*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef32"></A><STRONG>fo:inline</STRONG> <A HREF="fo.dtd.html#EntityDef.inline-properties">%inline-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef35"
+     id="ElementDef35"></a><strong>fo:inline</strong> ( <a href=
+     "fo.dtd.html#EntityDef.mixed-level">%mixed-level;</a> )*&gt;
+&lt;!ATTLIST <a name="AttlistDef32"
+     id="AttlistDef32"></a><strong>fo:inline</strong> <a href=
+     "fo.dtd.html#EntityDef.inline-properties">%inline-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Inline container                                                --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Inline container                                                --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef36"></A><STRONG>fo:inline-container</STRONG> ( <A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A> )*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef33"></A><STRONG>fo:inline-container</STRONG> <A HREF="fo.dtd.html#EntityDef.inline-properties">%inline-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef36"
+     id="ElementDef36"></a><strong>fo:inline-container</strong> ( <a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a> )*&gt;
+&lt;!ATTLIST <a name="AttlistDef33"
+     id="AttlistDef33"></a><strong>fo:inline-container</strong> <a href=
+     "fo.dtd.html#EntityDef.inline-properties">%inline-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Leader                                                          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Leader                                                          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef37"></A><STRONG>fo:leader</STRONG> ( <A HREF="fo.dtd.html#EntityDef.inlines">%inlines;</A> )*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef34"></A><STRONG>fo:leader</STRONG> 
-  <A HREF="fo.dtd.html#EntityDef.inline-properties">%inline-properties;</A>
+&lt;!ELEMENT <a name="ElementDef37"
+     id="ElementDef37"></a><strong>fo:leader</strong> ( <a href=
+     "fo.dtd.html#EntityDef.inlines">%inlines;</a> )*&gt;
+&lt;!ATTLIST <a name="AttlistDef34"
+     id="AttlistDef34"></a><strong>fo:leader</strong> 
+  <a href=
+"fo.dtd.html#EntityDef.inline-properties">%inline-properties;</a>
   &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Page Number                                                     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Page Number                                                     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef38"></A><STRONG>fo:page-number</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef35"></A><STRONG>fo:page-number</STRONG> <A HREF="fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef38"
+     id="ElementDef38"></a><strong>fo:page-number</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef35"
+     id="AttlistDef35"></a><strong>fo:page-number</strong> <a href=
+     "fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Page number citation                                            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Page number citation                                            --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef39"></A><STRONG>fo:page-number-citation</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef36"></A><STRONG>fo:page-number-citation</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</A>
+&lt;!ELEMENT <a name="ElementDef39"
+     id=
+     "ElementDef39"></a><strong>fo:page-number-citation</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef36"
+     id="AttlistDef36"></a><strong>fo:page-number-citation</strong>
+  <a href=
+"fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</a>
   ref-id  CDATA  #REQUIRED 
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Page number list - index entry                                  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Page number list - index entry                                  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef40"></A><STRONG>rx:page-index</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef37"></A><STRONG>rx:page-index</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</A>
+&lt;!ELEMENT <a name="ElementDef40"
+     id="ElementDef40"></a><strong>rx:page-index</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef37"
+     id="AttlistDef37"></a><strong>rx:page-index</strong>
+  <a href=
+"fo.dtd.html#EntityDef.empty-inline-properties">%empty-inline-properties;</a>
   ref-key  CDATA  #REQUIRED 
   list-separator  CDATA  #IMPLIED
   range-separator  CDATA  #IMPLIED
@@ -1264,131 +1727,216 @@ rx:page-index (element)
 
 
 
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Formatting objects for tables.                                  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Formatting objects for tables.                                  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Table &amp; Caption is a wrapper to all the stuff pertinent to a    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- given table. It generates a block consisting of two subblocks:  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- one for the caption, another one for the table itself. The      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- placement of these two blocks is controlled by the              --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'caption-side' property: if  caption-side="before"|"after" (or  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- their absolute orientation equivalents), the two blocks are     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- drawn one after another; if it is "start"|"end", then the       --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- caption is displayed on the correspondent side of the table.    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- In this case, the relative alignment of the two blocks is given --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- by the 'relative-align'/'display-align' property.               --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!--                                                                 --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Table &amp; Caption is a wrapper to all the stuff pertinent to a    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- given table. It generates a block consisting of two subblocks:  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- one for the caption, another one for the table itself. The      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- placement of these two blocks is controlled by the              --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'caption-side' property: if  caption-side="before"|"after" (or  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- their absolute orientation equivalents), the two blocks are     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- drawn one after another; if it is "start"|"end", then the       --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- caption is displayed on the correspondent side of the table.    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- In this case, the relative alignment of the two blocks is given --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- by the 'relative-align'/'display-align' property.               --&gt;</span>
+<span class=
+"COMMENT">&lt;!--                                                                 --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef41"></A><STRONG>fo:table-and-caption</STRONG> (
-    <A HREF="fo.dtd.html#ElementDef42">fo:table-caption</A>?,
-    <A HREF="fo.dtd.html#ElementDef43">fo:table</A>
+&lt;!ELEMENT <a name="ElementDef41"
+     id="ElementDef41"></a><strong>fo:table-and-caption</strong> (
+    <a href="fo.dtd.html#ElementDef42">fo:table-caption</a>?,
+    <a href="fo.dtd.html#ElementDef43">fo:table</a>
   )
 &gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef38"></A><STRONG>fo:table-and-caption</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ATTLIST <a name="AttlistDef38"
+     id="AttlistDef38"></a><strong>fo:table-and-caption</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Table caption is an area container.                             --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Table caption is an area container.                             --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef42"></A><STRONG>fo:table-caption</STRONG> ( <A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A> )+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef39"></A><STRONG>fo:table-caption</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef42"
+     id="ElementDef42"></a><strong>fo:table-caption</strong> ( <a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a> )+ &gt;
+&lt;!ATTLIST <a name="AttlistDef39"
+     id="AttlistDef39"></a><strong>fo:table-caption</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- fo:table is the basic element for all tables. All the contents  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- placed inside it is distributed over a single rectangular grid  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- of rows and columns.                                            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- fo:table is the basic element for all tables. All the contents  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- placed inside it is distributed over a single rectangular grid  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- of rows and columns.                                            --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
 
-&lt;!ELEMENT <A NAME="ElementDef43"></A><STRONG>fo:table</STRONG> (
-    <A HREF="fo.dtd.html#ElementDef44">fo:table-column</A>*,
-    <A HREF="fo.dtd.html#ElementDef45">fo:table-header</A>?,
-    <A HREF="fo.dtd.html#ElementDef46">fo:table-footer</A>?,
-    <A HREF="fo.dtd.html#ElementDef47">fo:table-body</A>+
+&lt;!ELEMENT <a name="ElementDef43"
+     id="ElementDef43"></a><strong>fo:table</strong> (
+    <a href="fo.dtd.html#ElementDef44">fo:table-column</a>*,
+    <a href="fo.dtd.html#ElementDef45">fo:table-header</a>?,
+    <a href="fo.dtd.html#ElementDef46">fo:table-footer</a>?,
+    <a href="fo.dtd.html#ElementDef47">fo:table-body</a>+
   )
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef40"></A><STRONG>fo:table</STRONG>  <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ATTLIST <a name="AttlistDef40"
+     id="AttlistDef40"></a><strong>fo:table</strong>  <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Table column specifies common properties to ascribe to all      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- cells in a column *or a group of columns*. Note that, if both   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 'number-columns-repeated' and 'number-columns-spanned' exceed   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- 1, the column counter is increased by 'number-columns-spanned'. --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- it means that you only set properties for columns:              --&gt;</SPAN> 
-<SPAN CLASS="COMMENT">&lt;!--      'column-number'                                            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!--      'column-number' + 'number-columns-spanned'                 --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!--      'column-number' + 2 * 'number-columns-spanned'             --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- and so on, leaving default properties for intermediate columns. --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Table column specifies common properties to ascribe to all      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- cells in a column *or a group of columns*. Note that, if both   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 'number-columns-repeated' and 'number-columns-spanned' exceed   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- 1, the column counter is increased by 'number-columns-spanned'. --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- it means that you only set properties for columns:              --&gt;</span> 
+<span class=
+"COMMENT">&lt;!--      'column-number'                                            --&gt;</span>
+<span class=
+"COMMENT">&lt;!--      'column-number' + 'number-columns-spanned'                 --&gt;</span>
+<span class=
+"COMMENT">&lt;!--      'column-number' + 2 * 'number-columns-spanned'             --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- and so on, leaving default properties for intermediate columns. --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef44"></A><STRONG>fo:table-column</STRONG>      EMPTY &gt;
-&lt;!ATTLIST <A NAME="AttlistDef41"></A><STRONG>fo:table-column</STRONG>
+&lt;!ELEMENT <a name="ElementDef44"
+     id=
+     "ElementDef44"></a><strong>fo:table-column</strong>      EMPTY &gt;
+&lt;!ATTLIST <a name="AttlistDef41"
+     id="AttlistDef41"></a><strong>fo:table-column</strong>
   column-number  CDATA  #IMPLIED
   column-width  CDATA  #IMPLIED
   number-columns-repeated  CDATA  #IMPLIED
   number-columns-spanned  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a>
 &gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Table header, table footer, and table body are wrappers for     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- groups of rows. They contain either one or more fo:table-rows,  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- or one or more fo:table-cells; in the latter case, row breaks   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- are specified in the cells by 'starts-row'/'ends-row'.          --&gt;</SPAN> 
-<SPAN CLASS="COMMENT">&lt;!-- All these elements are identical both in the content structure  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- and in the attributes.                                          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Table header, table footer, and table body are wrappers for     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- groups of rows. They contain either one or more fo:table-rows,  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- or one or more fo:table-cells; in the latter case, row breaks   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- are specified in the cells by 'starts-row'/'ends-row'.          --&gt;</span> 
+<span class=
+"COMMENT">&lt;!-- All these elements are identical both in the content structure  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- and in the attributes.                                          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.row-group"><STRONG>row-group</STRONG></A> " <A HREF="fo.dtd.html#ElementDef48">fo:table-row</A>+ | <A HREF="fo.dtd.html#ElementDef49">fo:table-cell</A>+ "&gt;
+&lt;!ENTITY % <a name="EntityDef.row-group"
+     id="EntityDef.row-group"><strong>row-group</strong></a> " <a href=
+     "fo.dtd.html#ElementDef48">fo:table-row</a>+ | <a href=
+     "fo.dtd.html#ElementDef49">fo:table-cell</a>+ "&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef45"></A><STRONG>fo:table-header</STRONG> ( <A HREF="fo.dtd.html#EntityDef.row-group">%row-group;</A> ) &gt;
-&lt;!ATTLIST <A NAME="AttlistDef42"></A><STRONG>fo:table-header</STRONG>
+&lt;!ELEMENT <a name="ElementDef45"
+     id="ElementDef45"></a><strong>fo:table-header</strong> ( <a href=
+     "fo.dtd.html#EntityDef.row-group">%row-group;</a> ) &gt;
+&lt;!ATTLIST <a name="AttlistDef42"
+     id="AttlistDef42"></a><strong>fo:table-header</strong>
   id  CDATA  #IMPLIED 
   rx:key  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A> 
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a> 
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef46"></A><STRONG>fo:table-footer</STRONG> ( <A HREF="fo.dtd.html#EntityDef.row-group">%row-group;</A>) &gt;
-&lt;!ATTLIST <A NAME="AttlistDef43"></A><STRONG>fo:table-footer</STRONG>
+&lt;!ELEMENT <a name="ElementDef46"
+     id="ElementDef46"></a><strong>fo:table-footer</strong> ( <a href=
+     "fo.dtd.html#EntityDef.row-group">%row-group;</a>) &gt;
+&lt;!ATTLIST <a name="AttlistDef43"
+     id="AttlistDef43"></a><strong>fo:table-footer</strong>
   id  CDATA  #IMPLIED 
   rx:key  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A> 
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a> 
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef47"></A><STRONG>fo:table-body</STRONG> ( <A HREF="fo.dtd.html#EntityDef.row-group">%row-group;</A> )&gt;
-&lt;!ATTLIST <A NAME="AttlistDef44"></A><STRONG>fo:table-body</STRONG>
+&lt;!ELEMENT <a name="ElementDef47"
+     id="ElementDef47"></a><strong>fo:table-body</strong> ( <a href=
+     "fo.dtd.html#EntityDef.row-group">%row-group;</a> )&gt;
+&lt;!ATTLIST <a name="AttlistDef44"
+     id="AttlistDef44"></a><strong>fo:table-body</strong>
   id  CDATA  #IMPLIED 
   rx:key  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A> 
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a> 
 &gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Table row.                                                      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Table row.                                                      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef48"></A><STRONG>fo:table-row</STRONG> ( <A HREF="fo.dtd.html#ElementDef49">fo:table-cell</A>+ ) &gt;
-&lt;!ATTLIST <A NAME="AttlistDef45"></A><STRONG>fo:table-row</STRONG>
+&lt;!ELEMENT <a name="ElementDef48"
+     id="ElementDef48"></a><strong>fo:table-row</strong> ( <a href=
+     "fo.dtd.html#ElementDef49">fo:table-cell</a>+ ) &gt;
+&lt;!ATTLIST <a name="AttlistDef45"
+     id="AttlistDef45"></a><strong>fo:table-row</strong>
   id  CDATA  #IMPLIED 
   rx:key  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A> 
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a> 
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Table cell.                                                     --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Table cell.                                                     --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef49"></A><STRONG>fo:table-cell</STRONG> ( <A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A> )+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef46"></A><STRONG>fo:table-cell</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A> 
+&lt;!ELEMENT <a name="ElementDef49"
+     id="ElementDef49"></a><strong>fo:table-cell</strong> ( <a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a> )+ &gt;
+&lt;!ATTLIST <a name="AttlistDef46"
+     id="AttlistDef46"></a><strong>fo:table-cell</strong>
+  <a href="fo.dtd.html#EntityDef.block-properties">%block-properties;</a> 
 
   column-number  CDATA  #IMPLIED
   ends-row  ( true | false )  #IMPLIED
@@ -1397,71 +1945,127 @@ rx:page-index (element)
   starts-row  ( true | false )  #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Formatting objects for lists.                                   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Formatting objects for lists.                                   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- List block is a block, with some extra features to control the  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- disposition of list items.                                      --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- List block is a block, with some extra features to control the  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- disposition of list items.                                      --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef50"></A><STRONG>fo:list-block</STRONG> ( <A HREF="fo.dtd.html#ElementDef51">fo:list-item</A>+ ) &gt;
-&lt;!ATTLIST <A NAME="AttlistDef47"></A><STRONG>fo:list-block</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef50"
+     id="ElementDef50"></a><strong>fo:list-block</strong> ( <a href=
+     "fo.dtd.html#ElementDef51">fo:list-item</a>+ ) &gt;
+&lt;!ATTLIST <a name="AttlistDef47"
+     id="AttlistDef47"></a><strong>fo:list-block</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- List item is a coupling of item label and item body.            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- List item is a coupling of item label and item body.            --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef51"></A><STRONG>fo:list-item</STRONG> ( <A HREF="fo.dtd.html#ElementDef52">fo:list-item-label</A>, <A HREF="fo.dtd.html#ElementDef53">fo:list-item-body</A> ) &gt;
-&lt;!ATTLIST <A NAME="AttlistDef48"></A><STRONG>fo:list-item</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
-
-
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- List item label and list item body                              --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-
-&lt;!ELEMENT <A NAME="ElementDef52"></A><STRONG>fo:list-item-label</STRONG> ( <A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A> )+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef49"></A><STRONG>fo:list-item-label</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
-
-&lt;!ELEMENT <A NAME="ElementDef53"></A><STRONG>fo:list-item-body</STRONG> ( <A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A>)+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef50"></A><STRONG>fo:list-item-body</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
-
-
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Out-of-lines.                                                   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
-
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Floats and footnotes resemble containers. Accordingly, we treat --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- them as block sequences.                                        --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-
-&lt;!ELEMENT <A NAME="ElementDef54"></A><STRONG>fo:float</STRONG> ( <A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A> )+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef51"></A><STRONG>fo:float</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef51"
+     id="ElementDef51"></a><strong>fo:list-item</strong> ( <a href=
+     "fo.dtd.html#ElementDef52">fo:list-item-label</a>, <a href=
+     "fo.dtd.html#ElementDef53">fo:list-item-body</a> ) &gt;
+&lt;!ATTLIST <a name="AttlistDef48"
+     id="AttlistDef48"></a><strong>fo:list-item</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
 
-&lt;!ELEMENT <A NAME="ElementDef55"></A><STRONG>fo:footnote</STRONG> (
-  <A HREF="fo.dtd.html#ElementDef35">fo:inline</A>,
-  <A HREF="fo.dtd.html#ElementDef56">fo:footnote-body</A> 
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- List item label and list item body                              --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+
+&lt;!ELEMENT <a name="ElementDef52"
+     id="ElementDef52"></a><strong>fo:list-item-label</strong> ( <a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a> )+ &gt;
+&lt;!ATTLIST <a name="AttlistDef49"
+     id="AttlistDef49"></a><strong>fo:list-item-label</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
+
+&lt;!ELEMENT <a name="ElementDef53"
+     id="ElementDef53"></a><strong>fo:list-item-body</strong> ( <a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a>)+ &gt;
+&lt;!ATTLIST <a name="AttlistDef50"
+     id="AttlistDef50"></a><strong>fo:list-item-body</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
+
+
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Out-of-lines.                                                   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
+
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Floats and footnotes resemble containers. Accordingly, we treat --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- them as block sequences.                                        --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+
+&lt;!ELEMENT <a name="ElementDef54"
+     id="ElementDef54"></a><strong>fo:float</strong> ( <a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a> )+ &gt;
+&lt;!ATTLIST <a name="AttlistDef51"
+     id="AttlistDef51"></a><strong>fo:float</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
+
+
+&lt;!ELEMENT <a name="ElementDef55"
+     id="ElementDef55"></a><strong>fo:footnote</strong> (
+  <a href="fo.dtd.html#ElementDef35">fo:inline</a>,
+  <a href="fo.dtd.html#ElementDef56">fo:footnote-body</a> 
   )
 &gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef52"></A><STRONG>fo:footnote</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ATTLIST <a name="AttlistDef52"
+     id="AttlistDef52"></a><strong>fo:footnote</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
 
-&lt;!ELEMENT <A NAME="ElementDef56"></A><STRONG>fo:footnote-body</STRONG> ( <A HREF="fo.dtd.html#EntityDef.blocks">%blocks;</A> )+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef53"></A><STRONG>fo:footnote-body</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ELEMENT <a name="ElementDef56"
+     id="ElementDef56"></a><strong>fo:footnote-body</strong> ( <a href=
+     "fo.dtd.html#EntityDef.blocks">%blocks;</a> )+ &gt;
+&lt;!ATTLIST <a name="AttlistDef53"
+     id="AttlistDef53"></a><strong>fo:footnote-body</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Simple link. From the formatting point of view, it's nothing    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- but a regular inline sequence.                                  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Simple link. From the formatting point of view, it's nothing    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- but a regular inline sequence.                                  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef57"></A><STRONG>fo:basic-link</STRONG> ( <A HREF="fo.dtd.html#EntityDef.mixed-level">%mixed-level;</A> )* &gt;
-&lt;!ATTLIST <A NAME="AttlistDef54"></A><STRONG>fo:basic-link</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.inline-properties">%inline-properties;</A>
+&lt;!ELEMENT <a name="ElementDef57"
+     id="ElementDef57"></a><strong>fo:basic-link</strong> ( <a href=
+     "fo.dtd.html#EntityDef.mixed-level">%mixed-level;</a> )* &gt;
+&lt;!ATTLIST <a name="AttlistDef54"
+     id="AttlistDef54"></a><strong>fo:basic-link</strong>
+  <a href=
+"fo.dtd.html#EntityDef.inline-properties">%inline-properties;</a>
 
   external-destination  CDATA  #IMPLIED
   internal-destination  CDATA  #IMPLIED
@@ -1474,39 +2078,63 @@ rx:page-index (element)
 &gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Wrappers and Markers.                                           --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Wrappers and Markers.                                           --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Wrapper. This may be useful but breaks every effort to validate --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- content models for blocks and inlines.                          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Wrapper. This may be useful but breaks every effort to validate --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- content models for blocks and inlines.                          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef58"></A><STRONG>fo:wrapper</STRONG> ( <A HREF="fo.dtd.html#EntityDef.mixed-level">%mixed-level;</A> )* &gt;
-&lt;!ATTLIST <A NAME="AttlistDef55"></A><STRONG>fo:wrapper</STRONG> 
+&lt;!ELEMENT <a name="ElementDef58"
+     id="ElementDef58"></a><strong>fo:wrapper</strong> ( <a href=
+     "fo.dtd.html#EntityDef.mixed-level">%mixed-level;</a> )* &gt;
+&lt;!ATTLIST <a name="AttlistDef55"
+     id="AttlistDef55"></a><strong>fo:wrapper</strong> 
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A> 
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a> 
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Marker. This element may embrace any content but cannot pass    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- properties to its children; so, it may not have features other  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- than marker-class-name.                                         --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Marker. This element may embrace any content but cannot pass    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- properties to its children; so, it may not have features other  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- than marker-class-name.                                         --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef59"></A><STRONG>fo:marker</STRONG> ( <A HREF="fo.dtd.html#EntityDef.mixed-level">%mixed-level;</A> )* &gt;
-&lt;!ATTLIST <A NAME="AttlistDef56"></A><STRONG>fo:marker</STRONG>  
+&lt;!ELEMENT <a name="ElementDef59"
+     id="ElementDef59"></a><strong>fo:marker</strong> ( <a href=
+     "fo.dtd.html#EntityDef.mixed-level">%mixed-level;</a> )* &gt;
+&lt;!ATTLIST <a name="AttlistDef56"
+     id="AttlistDef56"></a><strong>fo:marker</strong>  
   marker-class-name  CDATA  #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Marker retrieval.                                               --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Marker retrieval.                                               --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef60"></A><STRONG>fo:retrieve-marker</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef57"></A><STRONG>fo:retrieve-marker</STRONG>  
+&lt;!ELEMENT <a name="ElementDef60"
+     id="ElementDef60"></a><strong>fo:retrieve-marker</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef57"
+     id="AttlistDef57"></a><strong>fo:retrieve-marker</strong>  
   retrieve-class-name  CDATA  #IMPLIED
   retrieve-position  ( first-starting-within-page 
                      | first-including-carryover 
@@ -1515,33 +2143,52 @@ rx:page-index (element)
   retrieve-boundary  ( page | page-sequence | document )  #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Multistate stuff. This section is the least developed in the    --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- whole DTD, and most solutions are arbitrary. We beg thy pardon. --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Multistate stuff. This section is the least developed in the    --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- whole DTD, and most solutions are arbitrary. We beg thy pardon. --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Switch. This is a pure logical operator; no formatting may be   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- conveyed through it.                                            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Switch. This is a pure logical operator; no formatting may be   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- conveyed through it.                                            --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef61"></A><STRONG>fo:multi-switch</STRONG> ( <A HREF="fo.dtd.html#ElementDef62">fo:multi-case</A> )+ &gt;
-&lt;!ATTLIST <A NAME="AttlistDef58"></A><STRONG>fo:multi-switch</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A> 
+&lt;!ELEMENT <a name="ElementDef61"
+     id="ElementDef61"></a><strong>fo:multi-switch</strong> ( <a href=
+     "fo.dtd.html#ElementDef62">fo:multi-case</a> )+ &gt;
+&lt;!ATTLIST <a name="AttlistDef58"
+     id="AttlistDef58"></a><strong>fo:multi-switch</strong>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a> 
 
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
   auto-restore  ( true | false )  #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Single case. Block-level formatting may be conveyed.            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Single case. Block-level formatting may be conveyed.            --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef62"></A><STRONG>fo:multi-case</STRONG> ( <A HREF="fo.dtd.html#EntityDef.mixed-level">%mixed-level;</A> )* &gt;
+&lt;!ELEMENT <a name="ElementDef62"
+     id="ElementDef62"></a><strong>fo:multi-case</strong> ( <a href=
+     "fo.dtd.html#EntityDef.mixed-level">%mixed-level;</a> )* &gt;
 
-&lt;!ATTLIST <A NAME="AttlistDef59"></A><STRONG>fo:multi-case</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A> 
+&lt;!ATTLIST <a name="AttlistDef59"
+     id="AttlistDef59"></a><strong>fo:multi-case</strong>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a> 
 
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
@@ -1550,13 +2197,20 @@ rx:page-index (element)
   case-title  CDATA  #IMPLIED
 &gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Toggle. This is a typical inline.                               --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Toggle. This is a typical inline.                               --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef63"></A><STRONG>fo:multi-toggle</STRONG> ( <A HREF="fo.dtd.html#EntityDef.inlines">%inlines;</A> )*&gt;
-&lt;!ATTLIST <A NAME="AttlistDef60"></A><STRONG>fo:multi-toggle</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</A> 
+&lt;!ELEMENT <a name="ElementDef63"
+     id="ElementDef63"></a><strong>fo:multi-toggle</strong> ( <a href=
+     "fo.dtd.html#EntityDef.inlines">%inlines;</a> )*&gt;
+&lt;!ATTLIST <a name="AttlistDef60"
+     id="AttlistDef60"></a><strong>fo:multi-toggle</strong>
+  <a href=
+"fo.dtd.html#EntityDef.inheritable-properties">%inheritable-properties;</a> 
 
   id  CDATA  #IMPLIED
   rx:key  CDATA  #IMPLIED
@@ -1564,30 +2218,46 @@ rx:page-index (element)
 &gt;
 
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Multi-properties is listed among block-level elements.          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Formatting common to all property sets can be specified here;   --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- we expect it to be block-level only.                            --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Multi-properties is listed among block-level elements.          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Formatting common to all property sets can be specified here;   --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- we expect it to be block-level only.                            --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
 
-&lt;!ELEMENT <A NAME="ElementDef64"></A><STRONG>fo:multi-properties</STRONG> 
+&lt;!ELEMENT <a name="ElementDef64"
+     id="ElementDef64"></a><strong>fo:multi-properties</strong> 
   (
-    <A HREF="fo.dtd.html#ElementDef65">fo:multi-property-set</A>+,
-    <A HREF="fo.dtd.html#ElementDef58">fo:wrapper</A>
+    <a href="fo.dtd.html#ElementDef65">fo:multi-property-set</a>+,
+    <a href="fo.dtd.html#ElementDef58">fo:wrapper</a>
   )
 &gt;
-&lt;!ATTLIST <A NAME="AttlistDef61"></A><STRONG>fo:multi-properties</STRONG> <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>&gt;
+&lt;!ATTLIST <a name="AttlistDef61"
+     id="AttlistDef61"></a><strong>fo:multi-properties</strong> <a href=
+     "fo.dtd.html#EntityDef.block-properties">%block-properties;</a>&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Multi property set. Since these are properties of a             --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- fo:multi-properties that is considered a block, we accept only  --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- block properties here.                                          --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- =============================================================== --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Multi property set. Since these are properties of a             --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- fo:multi-properties that is considered a block, we accept only  --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- block properties here.                                          --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- =============================================================== --&gt;</span>
 
-&lt;!ELEMENT <A NAME="ElementDef65"></A><STRONG>fo:multi-property-set</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef62"></A><STRONG>fo:multi-property-set</STRONG>
-  <A HREF="fo.dtd.html#EntityDef.block-properties">%block-properties;</A>
+&lt;!ELEMENT <a name="ElementDef65"
+     id=
+     "ElementDef65"></a><strong>fo:multi-property-set</strong> EMPTY&gt;
+&lt;!ATTLIST <a name="AttlistDef62"
+     id="AttlistDef62"></a><strong>fo:multi-property-set</strong>
+  <a href="fo.dtd.html#EntityDef.block-properties">%block-properties;</a>
   active-state  ( link | visited | active | hover | focus )  #REQUIRED
 &gt;
 <?LIVEDTD EOF?>
@@ -1631,4 +2301,8 @@ rx:page-index (element)
 
 
 
-</PRE></BODY></HTML>
+
+
+</pre>
+</body>
+</html>

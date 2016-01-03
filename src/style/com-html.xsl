@@ -308,7 +308,7 @@ Block
 -->
   <!-- ******************** -->
   <xsl:template match="legal-notice">
-    <xsl:apply-templates select="p|para|pre|pre-fmt|quote"/>
+    <xsl:apply-templates select="p|para|pre|pre-fmt|quote" />
   </xsl:template>
   <!-- ******************** -->
   <xsl:template match="ch-preface|preface|epilog"
@@ -344,7 +344,7 @@ Block
           <xsl:apply-templates select="title" />
         </xsl:element>
       </h2>
-      <xsl:apply-templates select="p|para|pre|pre-fmt"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt" />
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -503,7 +503,7 @@ Block
       <h3 class="prolog-title">
         <xsl:apply-templates select="title" />
       </h3>
-      <xsl:apply-templates select="p|para|pre|pre-fmt"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt" />
       <hr class="prolog" />
     </xsl:if>
   </xsl:template>
@@ -517,7 +517,7 @@ Block
       <h3 class="prolog-title">
         <xsl:apply-templates select="title" />
       </h3>
-      <xsl:apply-templates select="p|para|pre|pre-fmt"/>
+      <xsl:apply-templates select="p|para|pre|pre-fmt" />
     </xsl:if>
   </xsl:template>
   <!-- ******************** -->
@@ -669,10 +669,20 @@ Inline
     </xsl:variable>
     <xsl:choose>
       <xsl:when test="@float = '1'">
-        <img src="{$tImagePath}" width="{$tWidth}" height="{$tHeight}" alt="{$tImage/.}" border="0" align="left" style="margin: .5em" />
+        <img src="{$tImagePath}"
+             width="{$tWidth}"
+             height="{$tHeight}"
+             alt="{$tImage/.}"
+             border="0"
+             align="left"
+             style="margin: .5em" />
       </xsl:when>
       <xsl:otherwise>
-        <img src="{$tImagePath}" width="{$tWidth}" height="{$tHeight}" alt="{$tImage/.}" border="0" />
+        <img src="{$tImagePath}"
+             width="{$tWidth}"
+             height="{$tHeight}"
+             alt="{$tImage/.}"
+             border="0" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>

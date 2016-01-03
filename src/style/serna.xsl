@@ -480,6 +480,7 @@ Draft only
   </xsl:template>
   <!-- ****************************** -->
   <xsl:template match="def-draft|def-print|def-content|def-who|def-where|def-thread|def-base">
+
     <xsl:call-template name="para.decoration">
       <xsl:with-param name="color"
                       select="'red'" />

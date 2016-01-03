@@ -1,19 +1,33 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<HTML>
-<HEAD>
-<TITLE>docbookx.dtd</TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="livedtd.css">
-<STYLE TYPE="text/css">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>docbookx.dtd</title>
+  <link rel="stylesheet"
+        type="text/css"
+        href="livedtd.css" />
+<style type="text/css">
+/*<![CDATA[*/
   STRONG { font-weight: bold; color: red;}
   .COMMENT { font-style:italic; color: #A8A8A8;}
-</STYLE>
-</HEAD>
-<BODY onLoad="parent.file.document.open();parent.file.document.write('<BODY TOPMARGIN=0><B>docbookx.dtd</B></BODY>');parent.file.document.close()"><?LIVEDTD ENDHEAD?>
-<PRE><SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- DocBook XML DTD V4.5 ................................................. --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- File docbookx.dtd .................................................... --&gt;</SPAN>
+/*]]>*/
+</style>
+</head>
 
-<SPAN CLASS="COMMENT">&lt;!-- Copyright 1992-2006 HaL Computer Systems, Inc.,
+<body onload=
+"parent.file.document.open();parent.file.document.write('&lt;BODY TOPMARGIN=0&gt;&lt;B&gt;docbookx.dtd&lt;/B&gt;&lt;/BODY&gt;');parent.file.document.close()">
+<?LIVEDTD ENDHEAD?>
+  <pre>
+<span class=
+"COMMENT">&lt;!-- ...................................................................... --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- DocBook XML DTD V4.5 ................................................. --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- File docbookx.dtd .................................................... --&gt;</span>
+
+<span class=
+"COMMENT">&lt;!-- Copyright 1992-2006 HaL Computer Systems, Inc.,
      O'Reilly &amp; Associates, Inc., ArborText, Inc., Fujitsu Software
      Corporation, Norman Walsh, Sun Microsystems, Inc., and the
      Organization for the Advancement of Structured Information
@@ -39,11 +53,13 @@
      Please direct all questions, bug reports, or suggestions for
      changes to the docbook@lists.oasis-open.org mailing list. For more
      information, see http://www.oasis-open.org/docbook/.
---&gt;</SPAN>
+--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- ...................................................................... --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- This is the driver file for V4.5 of the DocBook DTD.
+<span class=
+"COMMENT">&lt;!-- This is the driver file for V4.5 of the DocBook DTD.
      Please use the following formal public identifier to identify it:
 
      "-//OASIS//DTD DocBook XML V4.5//EN"
@@ -67,18 +83,28 @@
      entity and module scheme used in DocBook, customizing DocBook and
      planning for interchange, and changes made since the last release
      of DocBook.
---&gt;</SPAN>
+--&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Enable SGML features ................................................. --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- ...................................................................... --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Enable SGML features ................................................. --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.sgml.features"><STRONG>sgml.features</STRONG></A> "IGNORE"&gt;
-&lt;!<A NAME="MS1"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+&lt;!ENTITY % <a name="EntityDef.sgml.features"
+     id=
+     "EntityDef.sgml.features"><strong>sgml.features</strong></a> "IGNORE"&gt;
+&lt;!<a name="MS1"
+     id="MS1"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</a>[
 &lt;!ENTITY % xml.features "IGNORE"&gt;
 ]]&gt;
-&lt;!ENTITY % <A NAME="EntityDef.xml.features"><STRONG>xml.features</STRONG></A> "INCLUDE"&gt;
+&lt;!ENTITY % <a name="EntityDef.xml.features"
+     id=
+     "EntityDef.xml.features"><strong>xml.features</strong></a> "INCLUDE"&gt;
 
-&lt;!<A NAME="MS2"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+&lt;!<a name="MS2"
+     id="MS2"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</a>[
 &lt;![%xml.features;[
 
 &lt;!-- ERROR: Exactly one of xml.features and sgml.features must be turned on! --&gt;
@@ -91,94 +117,151 @@
 ]]&gt;
 ]]&gt;
 
-&lt;!<A NAME="MS3"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+&lt;!<a name="MS3"
+     id="MS3"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</a>[
 &lt;!ENTITY % ho "- O"&gt;
 &lt;!ENTITY % hh "- -"&gt;
 ]]&gt;
 
-&lt;!<A NAME="MS4"></A>[<A HREF="docbookx.dtd.html#EntityDef.xml.features">%xml.features;</A>[
-&lt;!ENTITY % <A NAME="EntityDef.ho"><STRONG>ho</STRONG></A> ""&gt;
-&lt;!ENTITY % <A NAME="EntityDef.hh"><STRONG>hh</STRONG></A> ""&gt;
+&lt;!<a name="MS4"
+     id="MS4"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.xml.features">%xml.features;</a>[
+&lt;!ENTITY % <a name="EntityDef.ho"
+     id="EntityDef.ho"><strong>ho</strong></a> ""&gt;
+&lt;!ENTITY % <a name="EntityDef.hh"
+     id="EntityDef.hh"><strong>hh</strong></a> ""&gt;
 ]]&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Notation declarations ................................................ --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- ...................................................................... --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Notation declarations ................................................ --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.dbnotn.module"><STRONG>dbnotn.module</STRONG></A> "INCLUDE"&gt;
-&lt;!<A NAME="MS5"></A>[<A HREF="docbookx.dtd.html#EntityDef.dbnotn.module">%dbnotn.module;</A>[
-&lt;!ENTITY % <A NAME="EntityDef.dbnotn"><STRONG>dbnotn</STRONG></A> PUBLIC
+&lt;!ENTITY % <a name="EntityDef.dbnotn.module"
+     id=
+     "EntityDef.dbnotn.module"><strong>dbnotn.module</strong></a> "INCLUDE"&gt;
+&lt;!<a name="MS5"
+     id="MS5"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.dbnotn.module">%dbnotn.module;</a>[
+&lt;!ENTITY % <a name="EntityDef.dbnotn"
+     id="EntityDef.dbnotn"><strong>dbnotn</strong></a> PUBLIC
 "-//OASIS//ENTITIES DocBook Notations V4.5//EN"
 "dbnotnx.mod"&gt;
-<A HREF="docbookx.dtd.html#EntityDef.dbnotn">%dbnotn;</A>
+<a href="docbookx.dtd.html#EntityDef.dbnotn">%dbnotn;</a>
 ]]&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- ISO character entity sets ............................................ --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- ...................................................................... --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- ISO character entity sets ............................................ --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.dbcent.module"><STRONG>dbcent.module</STRONG></A> "INCLUDE"&gt;
-&lt;!<A NAME="MS6"></A>[<A HREF="docbookx.dtd.html#EntityDef.dbcent.module">%dbcent.module;</A>[
+&lt;!ENTITY % <a name="EntityDef.dbcent.module"
+     id=
+     "EntityDef.dbcent.module"><strong>dbcent.module</strong></a> "INCLUDE"&gt;
+&lt;!<a name="MS6"
+     id="MS6"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.dbcent.module">%dbcent.module;</a>[
 
-&lt;!ENTITY % <A NAME="EntityDef.dbcent.euro"><STRONG>dbcent.euro</STRONG></A> "INCLUDE"&gt;
-&lt;!<A NAME="MS7"></A>[<A HREF="docbookx.dtd.html#EntityDef.dbcent.euro">%dbcent.euro;</A>[
-&lt;!<A NAME="MS8"></A>[<A HREF="docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</A>[
+&lt;!ENTITY % <a name="EntityDef.dbcent.euro"
+     id=
+     "EntityDef.dbcent.euro"><strong>dbcent.euro</strong></a> "INCLUDE"&gt;
+&lt;!<a name="MS7"
+     id="MS7"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.dbcent.euro">%dbcent.euro;</a>[
+&lt;!<a name="MS8"
+     id="MS8"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.sgml.features">%sgml.features;</a>[
 &lt;!ENTITY euro SDATA "[euro  ]"&gt;&lt;!-- euro sign --&gt;
 ]]&gt;
-&lt;!<A NAME="MS9"></A>[<A HREF="docbookx.dtd.html#EntityDef.xml.features">%xml.features;</A>[
-&lt;!ENTITY euro "&amp;#x20AC;"&gt;<SPAN CLASS="COMMENT">&lt;!-- euro sign, U+20AC NEW --&gt;</SPAN>
+&lt;!<a name="MS9"
+     id="MS9"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.xml.features">%xml.features;</a>[
+&lt;!ENTITY euro "&amp;#x20AC;"&gt;<span class=
+"COMMENT">&lt;!-- euro sign, U+20AC NEW --&gt;</span>
 ]]&gt;
 ]]&gt;
 
-&lt;!ENTITY % <A NAME="EntityDef.dbcent"><STRONG>dbcent</STRONG></A> PUBLIC
+&lt;!ENTITY % <a name="EntityDef.dbcent"
+     id="EntityDef.dbcent"><strong>dbcent</strong></a> PUBLIC
 "-//OASIS//ENTITIES DocBook Character Entities V4.5//EN"
 "dbcentx.mod"&gt;
-<A HREF="docbookx.dtd.html#EntityDef.dbcent">%dbcent;</A>
+<a href="docbookx.dtd.html#EntityDef.dbcent">%dbcent;</a>
 ]]&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- DTD modules .......................................................... --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- ...................................................................... --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- DTD modules .......................................................... --&gt;</span>
 
-<SPAN CLASS="COMMENT">&lt;!-- Information pool .............. --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Information pool .............. --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.dbpool.module"><STRONG>dbpool.module</STRONG></A> "INCLUDE"&gt;
-&lt;!<A NAME="MS50"></A>[ <A HREF="docbookx.dtd.html#EntityDef.dbpool.module">%dbpool.module;</A> [
-&lt;!ENTITY % <A NAME="EntityDef.dbpool"><STRONG>dbpool</STRONG></A> PUBLIC
+&lt;!ENTITY % <a name="EntityDef.dbpool.module"
+     id=
+     "EntityDef.dbpool.module"><strong>dbpool.module</strong></a> "INCLUDE"&gt;
+&lt;!<a name="MS50"
+     id="MS50"></a>[ <a href=
+     "docbookx.dtd.html#EntityDef.dbpool.module">%dbpool.module;</a> [
+&lt;!ENTITY % <a name="EntityDef.dbpool"
+     id="EntityDef.dbpool"><strong>dbpool</strong></a> PUBLIC
 "-//OASIS//ELEMENTS DocBook Information Pool V4.5//EN"
 "dbpoolx.mod"&gt;
-<A HREF="docbookx.dtd.html#EntityDef.dbpool">%dbpool;</A>
+<a href="docbookx.dtd.html#EntityDef.dbpool">%dbpool;</a>
 ]]&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Redeclaration placeholder ..... --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Redeclaration placeholder ..... --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.intermod.redecl.module"><STRONG>intermod.redecl.module</STRONG></A> "IGNORE"&gt;
-&lt;!<A NAME="MS1017"></A>[<A HREF="docbookx.dtd.html#EntityDef.intermod.redecl.module">%intermod.redecl.module;</A>[
+&lt;!ENTITY % <a name="EntityDef.intermod.redecl.module"
+     id=
+     "EntityDef.intermod.redecl.module"><strong>intermod.redecl.module</strong></a> "IGNORE"&gt;
+&lt;!<a name="MS1017"
+     id="MS1017"></a>[<a href=
+     "docbookx.dtd.html#EntityDef.intermod.redecl.module">%intermod.redecl.module;</a>[
 &lt;!-- Defining rdbmods here makes some buggy XML parsers happy. --&gt;
 &lt;!ENTITY % rdbmods ""&gt;
 %rdbmods;
 &lt;!--end of intermod.redecl.module--&gt;]]&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- Document hierarchy ............ --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- Document hierarchy ............ --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.dbhier.module"><STRONG>dbhier.module</STRONG></A> "INCLUDE"&gt;
-&lt;!<A NAME="MS1018"></A>[ <A HREF="docbookx.dtd.html#EntityDef.dbhier.module">%dbhier.module;</A> [
-&lt;!ENTITY % <A NAME="EntityDef.dbhier"><STRONG>dbhier</STRONG></A> PUBLIC
+&lt;!ENTITY % <a name="EntityDef.dbhier.module"
+     id=
+     "EntityDef.dbhier.module"><strong>dbhier.module</strong></a> "INCLUDE"&gt;
+&lt;!<a name="MS1018"
+     id="MS1018"></a>[ <a href=
+     "docbookx.dtd.html#EntityDef.dbhier.module">%dbhier.module;</a> [
+&lt;!ENTITY % <a name="EntityDef.dbhier"
+     id="EntityDef.dbhier"><strong>dbhier</strong></a> PUBLIC
 "-//OASIS//ELEMENTS DocBook Document Hierarchy V4.5//EN"
 "dbhierx.mod"&gt;
-<A HREF="docbookx.dtd.html#EntityDef.dbhier">%dbhier;</A>
+<a href="docbookx.dtd.html#EntityDef.dbhier">%dbhier;</a>
 ]]&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- Other general entities ............................................... --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- ...................................................................... --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- Other general entities ............................................... --&gt;</span>
 
-&lt;!ENTITY % <A NAME="EntityDef.dbgenent.module"><STRONG>dbgenent.module</STRONG></A> "INCLUDE"&gt;
-&lt;!<A NAME="MS1262"></A>[ <A HREF="docbookx.dtd.html#EntityDef.dbgenent.module">%dbgenent.module;</A> [
-&lt;!ENTITY % <A NAME="EntityDef.dbgenent"><STRONG>dbgenent</STRONG></A> PUBLIC
+&lt;!ENTITY % <a name="EntityDef.dbgenent.module"
+     id=
+     "EntityDef.dbgenent.module"><strong>dbgenent.module</strong></a> "INCLUDE"&gt;
+&lt;!<a name="MS1262"
+     id="MS1262"></a>[ <a href=
+     "docbookx.dtd.html#EntityDef.dbgenent.module">%dbgenent.module;</a> [
+&lt;!ENTITY % <a name="EntityDef.dbgenent"
+     id="EntityDef.dbgenent"><strong>dbgenent</strong></a> PUBLIC
 "-//OASIS//ENTITIES DocBook Additional General Entities V4.5//EN"
 "dbgenent.mod"&gt;
-<A HREF="docbookx.dtd.html#EntityDef.dbgenent">%dbgenent;</A>
+<a href="docbookx.dtd.html#EntityDef.dbgenent">%dbgenent;</a>
 ]]&gt;
 
-<SPAN CLASS="COMMENT">&lt;!-- End of DocBook XML DTD V4.5 .......................................... --&gt;</SPAN>
-<SPAN CLASS="COMMENT">&lt;!-- ...................................................................... --&gt;</SPAN>
+<span class=
+"COMMENT">&lt;!-- End of DocBook XML DTD V4.5 .......................................... --&gt;</span>
+<span class=
+"COMMENT">&lt;!-- ...................................................................... --&gt;</span>
 <?LIVEDTD EOF?>
 
 
@@ -220,4 +303,8 @@
 
 
 
-</PRE></BODY></HTML>
+
+
+</pre>
+</body>
+</html>

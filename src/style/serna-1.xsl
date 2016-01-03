@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-xmlns:fo="http://www.w3.org/1999/XSL/Format">
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:fo="http://www.w3.org/1999/XSL/Format">
   <!--
 $Header: /repo/local.cvs/app/story-xml/src/story5/serna-1.xsl,v 1.2 2009/03/29 05:11:49 bruce Exp $
 -->
@@ -52,10 +53,14 @@ red
       </xsl:choose>
     </xsl:variable>
     <xsl:call-template name="para.decoration">
-      <xsl:with-param name="padding" select="'30pt'" />
-      <xsl:with-param name="start-indent" select="'0pt'" />
-      <xsl:with-param name="end-indent" select="'0pt'" />
-      <xsl:with-param name="color" select="$color" />
+      <xsl:with-param name="padding"
+                      select="'30pt'" />
+      <xsl:with-param name="start-indent"
+                      select="'0pt'" />
+      <xsl:with-param name="end-indent"
+                      select="'0pt'" />
+      <xsl:with-param name="color"
+                      select="$color" />
     </xsl:call-template>
   </xsl:template>
   <!-- ****************************** -->
@@ -85,10 +90,14 @@ red
       </xsl:choose>
     </xsl:variable>
     <xsl:call-template name="para.decoration">
-      <xsl:with-param name="padding" select="'0pt'" />
-      <xsl:with-param name="start-indent" select="'0pt'" />
-      <xsl:with-param name="end-indent" select="'0pt'" />
-      <xsl:with-param name="color" select="$color" />
+      <xsl:with-param name="padding"
+                      select="'0pt'" />
+      <xsl:with-param name="start-indent"
+                      select="'0pt'" />
+      <xsl:with-param name="end-indent"
+                      select="'0pt'" />
+      <xsl:with-param name="color"
+                      select="$color" />
       <xsl:with-param name="content">
         <xsl:text>
 _____
@@ -120,10 +129,14 @@ red
       </xsl:choose>
     </xsl:variable>
     <xsl:call-template name="para.decoration">
-      <xsl:with-param name="padding" select="'0pt'" />
-      <xsl:with-param name="start-indent" select="'0pt'" />
-      <xsl:with-param name="end-indent" select="'0pt'" />
-      <xsl:with-param name="color" select="$color" />
+      <xsl:with-param name="padding"
+                      select="'0pt'" />
+      <xsl:with-param name="start-indent"
+                      select="'0pt'" />
+      <xsl:with-param name="end-indent"
+                      select="'0pt'" />
+      <xsl:with-param name="color"
+                      select="$color" />
       <xsl:with-param name="content">
         <xsl:if test="@ref = ../@viewpoint">
           <xsl:text>
@@ -133,11 +146,16 @@ _____
         </xsl:if>
         <xsl:if test="@ref != ../@viewpoint">
           <xsl:call-template name="para.decoration">
-            <xsl:with-param name="padding" select="'0pt'" />
-            <xsl:with-param name="start-indent" select="'0pt'" />
-            <xsl:with-param name="end-indent" select="'0pt'" />
-            <xsl:with-param name="font-style" select="'italic'" />
-            <xsl:with-param name="color" select="'red'" />
+            <xsl:with-param name="padding"
+                            select="'0pt'" />
+            <xsl:with-param name="start-indent"
+                            select="'0pt'" />
+            <xsl:with-param name="end-indent"
+                            select="'0pt'" />
+            <xsl:with-param name="font-style"
+                            select="'italic'" />
+            <xsl:with-param name="color"
+                            select="'red'" />
             <xsl:with-param name="content">
             <xsl:text>
 _____
@@ -169,7 +187,8 @@ _____
           </xsl:with-param>
         </xsl:call-template>
         <xsl:call-template name="div">
-          <xsl:with-param name="background-color" select='blue' />
+          <xsl:with-param name="background-color"
+                          select='blue' />
           <xsl:with-param name="content">
             <xsl:apply-templates />
           </xsl:with-param>
@@ -232,15 +251,15 @@ Draft only
   <!-- ****************************** -->
   <xsl:template name="fSayDuration">
     <xsl:variable name="year"
-    select="substring-before(substring-after(.,'P'),'Y')" />
+                  select="substring-before(substring-after(.,'P'),'Y')" />
     <xsl:variable name="month"
-    select="substring-before(substring-after(.,'Y'),'M')" />
+                  select="substring-before(substring-after(.,'Y'),'M')" />
     <xsl:variable name="day"
-    select="substring-before(substring-after(.,'M'),'D')" />
+                  select="substring-before(substring-after(.,'M'),'D')" />
     <xsl:variable name="hour"
-    select="substring-before(substring-after(.,'DT'),'H')" />
+                  select="substring-before(substring-after(.,'DT'),'H')" />
     <xsl:variable name="min"
-    select="substring-before(substring-after(.,'H'),'M')" />
+                  select="substring-before(substring-after(.,'H'),'M')" />
     <xsl:text>
  
 </xsl:text>
