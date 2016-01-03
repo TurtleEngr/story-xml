@@ -310,18 +310,11 @@ to pixes, from the width/height attr., with the ratio 72dpi
 
 &lt;!ELEMENT <A NAME="ElementDef35"></A><STRONG>story-info</STRONG> (<A HREF="story.dtd.html#ElementDef36">def-when</A>, (<A HREF="story.dtd.html#ElementDef37">def-where</A>|<A HREF="story.dtd.html#ElementDef38">def-who</A>|<A HREF="story.dtd.html#ElementDef39">def-thread</A>)*, <A HREF="story.dtd.html#ElementDef42">ch-preface</A>?)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef36"></A><STRONG>def-when</STRONG> EMPTY&gt;
+&lt;!ELEMENT <A NAME="ElementDef36"></A><STRONG>def-when</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
 &lt;!ATTLIST <A NAME="AttlistDef13"></A><STRONG>def-when</STRONG>
-	year CDATA #REQUIRED
-	month CDATA #REQUIRED
-	day CDATA #REQUIRED
-	hour CDATA #REQUIRED
-	min CDATA #REQUIRED
-	gmt CDATA #REQUIRED
+	<A HREF="story.dtd.html#EntityDef.id">%id;</A>
+	<A HREF="story.dtd.html#EntityDef.date-time">%date-time;</A>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
-Defaults, for attr not specified in "when" start-date's.
---&gt;</SPAN>
 
 &lt;!ELEMENT <A NAME="ElementDef37"></A><STRONG>def-where</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
 &lt;!ATTLIST <A NAME="AttlistDef14"></A><STRONG>def-where</STRONG>
@@ -380,7 +373,7 @@ Defaults, for attr not specified in "when" start-date's.
 
 &lt;!ELEMENT <A NAME="ElementDef48"></A><STRONG>outline</STRONG> (<A HREF="story.dtd.html#ElementDef49">when</A>?, <A HREF="story.dtd.html#ElementDef52">where</A>?, <A HREF="story.dtd.html#ElementDef53">who</A>*, <A HREF="story.dtd.html#ElementDef54">description</A>?)&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef49"></A><STRONG>when</STRONG> (<A HREF="story.dtd.html#ElementDef50">start-date</A>, <A HREF="story.dtd.html#ElementDef51">end-date</A>, <A HREF="story.dtd.html#ElementDef54">description</A>?)&gt;
+&lt;!ELEMENT <A NAME="ElementDef49"></A><STRONG>when</STRONG> (<A HREF="story.dtd.html#ElementDef50">start-date</A>?, <A HREF="story.dtd.html#ElementDef51">end-date</A>?, <A HREF="story.dtd.html#ElementDef54">description</A>?)&gt;
 &lt;!ELEMENT <A NAME="ElementDef50"></A><STRONG>start-date</STRONG> (#PCDATA)&gt;
 &lt;!ATTLIST <A NAME="AttlistDef24"></A><STRONG>start-date</STRONG>
 	<A HREF="story.dtd.html#EntityDef.date-time">%date-time;</A>
@@ -389,16 +382,12 @@ Defaults, for attr not specified in "when" start-date's.
 &lt;!ATTLIST <A NAME="AttlistDef25"></A><STRONG>end-date</STRONG>
 	<A HREF="story.dtd.html#EntityDef.date-time">%date-time;</A>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
-If attr are missing from start-date, use def-when.
-If attr are missing from end-date, get them from start-date.
---&gt;</SPAN>
 
 &lt;!ELEMENT <A NAME="ElementDef52"></A><STRONG>where</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
 &lt;!ATTLIST <A NAME="AttlistDef26"></A><STRONG>where</STRONG>
 	<A HREF="story.dtd.html#EntityDef.ref-r">%ref-r;</A>
 &gt;
-<SPAN CLASS="COMMENT">&lt;!-- ref - defwhere-id --&gt;</SPAN>
+<SPAN CLASS="COMMENT">&lt;!-- ref - def-where id --&gt;</SPAN>
 
 &lt;!ELEMENT <A NAME="ElementDef53"></A><STRONG>who</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
 &lt;!ATTLIST <A NAME="AttlistDef27"></A><STRONG>who</STRONG>
@@ -451,7 +440,7 @@ revision-flag (changed|added|deleted|off) #IMPLIED
 month (1|2|3|4|5|6|7|8|9|10|11|12) #IMPLIED
 day CDATA #IMPLIED
 hour CDATA #IMPLIED
-min CDATA #REQUIRED
+min CDATA #IMPLIED
 gmt CDATA #IMPLIED
 "&gt;
 <SPAN CLASS="COMMENT">&lt;!--
@@ -489,7 +478,7 @@ Internal use:
 
 &lt;!ENTITY % <A NAME="EntityDef.com-info"><STRONG>com-info</STRONG></A> "<A HREF="story.dtd.html#ElementDef56">author-group</A>?, <A HREF="story.dtd.html#ElementDef68">release-info</A>?, <A HREF="story.dtd.html#ElementDef69">pub-date</A>?"&gt;
 
-&lt;!ENTITY % com-person"honorific?, first-name, surname, linage?, other-name?, affiliation?, email?, author-blurb?"&gt;
+&lt;!ENTITY % <A NAME="EntityDef.com-person"><STRONG>com-person</STRONG></A> "<A HREF="story.dtd.html#ElementDef60">honorific</A>?, <A HREF="story.dtd.html#ElementDef61">first-name</A>, <A HREF="story.dtd.html#ElementDef62">surname</A>, <A HREF="story.dtd.html#ElementDef63">linage</A>?, <A HREF="story.dtd.html#ElementDef64">other-name</A>?, <A HREF="story.dtd.html#ElementDef65">affiliation</A>?, <A HREF="story.dtd.html#ElementDef66">email</A>?, <A HREF="story.dtd.html#ElementDef67">author-blurb</A>?"&gt;
 
 &lt;!ENTITY % <A NAME="EntityDef.simple-text"><STRONG>simple-text</STRONG></A> "(<A HREF="story.dtd.html#ElementDef83">p</A>|<A HREF="story.dtd.html#ElementDef79">para</A>|<A HREF="story.dtd.html#ElementDef80">pre</A>|<A HREF="story.dtd.html#ElementDef81">pre-fmt</A>|<A HREF="story.dtd.html#ElementDef82">quote</A>|<A HREF="story.dtd.html#ElementDef86">br</A>)*"&gt;
 
@@ -497,17 +486,17 @@ Internal use:
 
 &lt;!ELEMENT <A NAME="ElementDef56"></A><STRONG>author-group</STRONG> (<A HREF="story.dtd.html#ElementDef57">author</A>|<A HREF="story.dtd.html#ElementDef58">coauthor</A>|<A HREF="story.dtd.html#ElementDef59">editor</A>)*&gt;
 
-&lt;!ELEMENT <A NAME="ElementDef57"></A><STRONG>author</STRONG> (%com-person;)&gt;
+&lt;!ELEMENT <A NAME="ElementDef57"></A><STRONG>author</STRONG> (<A HREF="story.dtd.html#EntityDef.com-person">%com-person;</A>)&gt;
 &lt;!ATTLIST <A NAME="AttlistDef29"></A><STRONG>author</STRONG>
 	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef58"></A><STRONG>coauthor</STRONG> (%com-person;)&gt;
+&lt;!ELEMENT <A NAME="ElementDef58"></A><STRONG>coauthor</STRONG> (<A HREF="story.dtd.html#EntityDef.com-person">%com-person;</A>)&gt;
 &lt;!ATTLIST <A NAME="AttlistDef30"></A><STRONG>coauthor</STRONG>
 	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef59"></A><STRONG>editor</STRONG> (%com-person;)&gt;
+&lt;!ELEMENT <A NAME="ElementDef59"></A><STRONG>editor</STRONG> (<A HREF="story.dtd.html#EntityDef.com-person">%com-person;</A>)&gt;
 &lt;!ATTLIST <A NAME="AttlistDef31"></A><STRONG>editor</STRONG>
 	<A HREF="story.dtd.html#EntityDef.com-attr-req">%com-attr-req;</A>
 &gt;
@@ -551,24 +540,11 @@ Internal use:
 	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
 &gt;
 
-&lt;!ELEMENT <A NAME="ElementDef68"></A><STRONG>release-info</STRONG> EMPTY&gt;
+&lt;!ELEMENT <A NAME="ElementDef68"></A><STRONG>release-info</STRONG> <A HREF="story.dtd.html#EntityDef.simple-text">%simple-text;</A>&gt;
 &lt;!ATTLIST <A NAME="AttlistDef40"></A><STRONG>release-info</STRONG>
 	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
-	date CDATA #REQUIRED
-	rev CDATA #REQUIRED
-	file CDATA #IMPLIED
-	repository CDATA #IMPLIED
-	root CDATA #IMPLIED
-	source CDATA #IMPLIED
-	svn-path CDATA #IMPLIED
 &gt;
-<SPAN CLASS="COMMENT">&lt;!--
-root - for example: :ext:LOGNAME@moria.dynu.com:/data/public.cvs
-repository - for example: app/story-xml/src
-source - $Source: /repo/local.cvs/app/story-xml/src/story5/story.dtd,v $
-rev - $Revision: 1.7 $
-date -$Date: 2010/08/13 15:30:32 $
---&gt;</SPAN>
+
 &lt;!ELEMENT <A NAME="ElementDef69"></A><STRONG>pub-date</STRONG> (#PCDATA)&gt;		<SPAN CLASS="COMMENT">&lt;!-- yyyy-mm-dd --&gt;</SPAN>
 &lt;!ATTLIST <A NAME="AttlistDef41"></A><STRONG>pub-date</STRONG>
 	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
@@ -690,9 +666,6 @@ copies may output all thought text (with the ids).
 Section break.  Either a blank line (print) or a short rule line (html).
 --&gt;</SPAN>
 &lt;!ELEMENT <A NAME="ElementDef86"></A><STRONG>br</STRONG> EMPTY&gt;
-&lt;!ATTLIST <A NAME="AttlistDef55"></A><STRONG>br</STRONG>
-	<A HREF="story.dtd.html#EntityDef.com-attr">%com-attr;</A>
-&gt;
 <?LIVEDTD EOF?>
 
 

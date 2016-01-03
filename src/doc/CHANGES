@@ -5,10 +5,32 @@ Version 5
 
 * Added the product to github
 
-* change: pre-fmt to pre
+* change: pre-fmt to pre ??? see TODO
 
-* Reformated the product
+* Reformated the product directories.
 
+* Changed release-info, removed attr, and use pre to define release info.
+  Examples:
+  <release-info>
+    <pre>
+	cvs-id -  $Header$, or $Id
+	cvs-tag
+	date -> cvs-date - $Date$
+	git-tag
+	git-url - $(git config --get remote.origin.url)
+	repository -> cvs-repository - $(cat CVS/Repository)
+	rev -> cvs-rev - $Revision$
+	root -> cvs-root - $(cat CVS/Root)
+	source -> cvs-source - $Source$
+	svn-id - $Id
+	svn-path -> svn-url - $(svn info | grep URL)
+    </pre>
+  </release-info>
+
+* Changed def-when
+  Added attr: id (so it can be referenced).
+  Changed other attr to be optional.
+  Changed from empty tag to "simple-text".
 
 ============================================================
 Version 4

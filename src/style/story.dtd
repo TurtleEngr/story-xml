@@ -299,18 +299,11 @@ to pixes, from the width/height attr., with the ratio 72dpi
 
 <!ELEMENT story-info (def-when, (def-where|def-who|def-thread)*, ch-preface?)>
 
-<!ELEMENT def-when EMPTY>
+<!ELEMENT def-when %simple-text;>
 <!ATTLIST def-when
-	year CDATA #REQUIRED
-	month CDATA #REQUIRED
-	day CDATA #REQUIRED
-	hour CDATA #REQUIRED
-	min CDATA #REQUIRED
-	gmt CDATA #REQUIRED
+	%id;
+	%date-time;
 >
-<!--
-Defaults, for attr not specified in "when" start-date's.
--->
 
 <!ELEMENT def-where %simple-text;>
 <!ATTLIST def-where
@@ -369,7 +362,7 @@ Defaults, for attr not specified in "when" start-date's.
 
 <!ELEMENT outline (when?, where?, who*, description?)>
 
-<!ELEMENT when (start-date, end-date, description?)>
+<!ELEMENT when (start-date?, end-date?, description?)>
 <!ELEMENT start-date (#PCDATA)>
 <!ATTLIST start-date
 	%date-time;
@@ -378,16 +371,12 @@ Defaults, for attr not specified in "when" start-date's.
 <!ATTLIST end-date
 	%date-time;
 >
-<!--
-If attr are missing from start-date, use def-when.
-If attr are missing from end-date, get them from start-date.
--->
 
 <!ELEMENT where %simple-text;>
 <!ATTLIST where
 	%ref-r;
 >
-<!-- ref - defwhere-id -->
+<!-- ref - def-where id -->
 
 <!ELEMENT who %simple-text;>
 <!ATTLIST who
@@ -440,7 +429,7 @@ year CDATA #IMPLIED
 month (1|2|3|4|5|6|7|8|9|10|11|12) #IMPLIED
 day CDATA #IMPLIED
 hour CDATA #IMPLIED
-min CDATA #REQUIRED
+min CDATA #IMPLIED
 gmt CDATA #IMPLIED
 ">
 <!--
@@ -478,7 +467,7 @@ Internal use:
 
 <!ENTITY % com-info "author-group?, release-info?, pub-date?">
 
-<!ENTITY % com-person"honorific?, first-name, surname, linage?, other-name?, affiliation?, email?, author-blurb?">
+<!ENTITY % com-person "honorific?, first-name, surname, linage?, other-name?, affiliation?, email?, author-blurb?">
 
 <!ENTITY % simple-text "(p|para|pre|pre-fmt|quote|br)*">
 
@@ -540,24 +529,11 @@ Internal use:
 	%com-attr;
 >
 
-<!ELEMENT release-info EMPTY>
+<!ELEMENT release-info %simple-text;>
 <!ATTLIST release-info
 	%com-attr;
-	date CDATA #REQUIRED
-	rev CDATA #REQUIRED
-	file CDATA #IMPLIED
-	repository CDATA #IMPLIED
-	root CDATA #IMPLIED
-	source CDATA #IMPLIED
-	svn-path CDATA #IMPLIED
 >
-<!--
-root - for example: :ext:LOGNAME@moria.dynu.com:/data/public.cvs
-repository - for example: app/story-xml/src
-source - $Source: /repo/local.cvs/app/story-xml/src/story5/story.dtd,v $
-rev - $Revision: 1.7 $
-date -$Date: 2010/08/13 15:30:32 $
--->
+
 <!ELEMENT pub-date (#PCDATA)>		<!-- yyyy-mm-dd -->
 <!ATTLIST pub-date
 	%com-attr;
@@ -679,6 +655,3 @@ copies may output all thought text (with the ids).
 Section break.  Either a blank line (print) or a short rule line (html).
 -->
 <!ELEMENT br EMPTY>
-<!ATTLIST br
-	%com-attr;
->

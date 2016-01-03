@@ -78,16 +78,15 @@ cd serna-4.2
   - actually, remove @draft,  Leave @debug, and make it
     toggle message output.
 
-* Remove pre-fmt (only pre is needed) - find out if this is true
+* Remove pre-fmt (only pre is needed) - find out if this is true.
+  Found: convert-2to3.xsl:Change: pre elements to pre-fmt in non-thread sections.
+  Find out why.
 
 * Get RenderX working better:
 
 	* The Courier font is proportional.  Type in spec file? - done
-
 	* The Copyright page flows into the next pages. - done
-
 	* Images are indented rather than being left justified.
-
 	* Document the changes needed to get fonts embedded.  Setup
 	  scripts which can hook up all the configurations needed.
 
@@ -135,7 +134,6 @@ cd serna-4.2
 * Add footnote support.
 
       * html style: end of chapter, or end of book (after epilog)
-
       * pdf style: end of page, end of chapter, or end of book
 
 * Add "Part I", "Part II", ... or "Book 1", "Book 2", ... headings?
