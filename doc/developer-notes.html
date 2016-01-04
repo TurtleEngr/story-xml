@@ -97,27 +97,29 @@ tNameName - local variable
     </li>
   </ol>
 
-<h2>www.lulu.com</h2>
+  <h2>www.lulu.com</h2>
 
-<p>Pocket Size, 6.25in x 9.25in, Perfect Binding, $4.53 + $0.02/page</p>
+  <p>Pocket Size, 6.25in x 9.25in, Perfect Binding, $4.53 + $0.02/page</p>
 
-<p>300dpi images.</p>
+  <p>300dpi images.</p>
 
-<p>Text area: .5in margin minimum; .3in gutter</p>
-<p>Bleed area (no text, ever): right Edge .25in, Top/bottom: .125in</p>
+  <p>Text area: .5in margin minimum; .3in gutter</p>
 
-<p>Gutter (binding margin): recommended: .1in or .2in</p>
-<p>For a 6" x 9" book, 30 lines/page is recommended</p>
+  <p>Bleed area (no text, ever): right Edge .25in, Top/bottom: .125in</p>
 
-<p>Fonts should be embedded in the PDF file.</p>
+  <p>Gutter (binding margin): recommended: .1in or .2in</p>
 
-<p>TOC is after, dedication, preface.</p>
+  <p>For a 6" x 9" book, 30 lines/page is recommended</p>
 
-<p>Total page count should be divisibe by 4, last page should be
-blank. Add blank pages to make it a multiple of 4.</p>
+  <p>Fonts should be embedded in the PDF file.</p>
 
-<h2>User Directory Layout<h2>
-<pre>
+  <p>TOC is after, dedication, preface.</p>
+
+  <p>Total page count should be divisibe by 4, last page should be blank.
+  Add blank pages to make it a multiple of 4.</p>
+
+  <h2>User Directory Layout</h2>
+  <pre>
 /home/
     USER/
         .story-xml/
@@ -141,11 +143,10 @@ blank. Add blank pages to make it a multiple of 4.</p>
                 book-id.planner.xml     # planner
 </pre>
 
-<h2>Program Directory Layout<h2>
+  <h2>Program Directory Layout</h2>
 
-<h3>story-xml</h3>
-
-<pre>
+  <h3>story-xml</h3>
+  <pre>
 /opt/
     story-xml/
         bin/
@@ -157,10 +158,10 @@ blank. Add blank pages to make it a multiple of 4.</p>
             pub-xsltproc-multi.sh*
             pub-xsltproc.sh*
             story-xml*
-	    story-xml-confif*
-	etc/
-	    story-xml.config
-	    story-xml.ini
+            story-xml-confif*
+        etc/
+            story-xml.config
+            story-xml.ini
         doc/
             CHANGES
             LICENSE
@@ -168,12 +169,12 @@ blank. Add blank pages to make it a multiple of 4.</p>
             gplv3-127x51.png
             story-xml-manual.html
             story-xml-reference.html
-            story-xml.html	# pod2html ../bin/story-xml >story-xml.html
-            story-xml.1.gz	# pod2man ../bin/story-xml | gzip >story-xml.1.gz
-            story-xml-config.html	# pod3html ../bin/story-xml-config >story-xml-config.html
-            story-xml-config.5.gz	# pod3man ../bin/story-xml-config | gzip >story-xml-config.5.gz
-	    dtd/
-	    livedtd/
+            story-xml.html      # pod2html ../bin/story-xml &gt;story-xml.html
+            story-xml.1.gz      # pod2man ../bin/story-xml | gzip &gt;story-xml.1.gz
+            story-xml-config.html       # pod3html ../bin/story-xml-config &gt;story-xml-config.html
+            story-xml-config.5.gz       # pod3man ../bin/story-xml-config | gzip &gt;story-xml-config.5.gz
+            dtd/
+            livedtd/
             template/
                 sample-full.xml
                 sample-minimal.xml
@@ -207,28 +208,27 @@ blank. Add blank pages to make it a multiple of 4.</p>
             test-parm.xsl
 /usr/
     bin/
-        story-xml -> /opt/story-xml/bin/story-xml
+        story-xml -&gt; /opt/story-xml/bin/story-xml
     share/
         doc/
-            story-xml/ -> /opt/story-xml/doc/
+            story-xml/ -&gt; /opt/story-xml/doc/
         man/
             man1/
-                story-xml.1.gz -> /opt/story-xml/doc/story-xml.1.gz
+                story-xml.1.gz -&gt; /opt/story-xml/doc/story-xml.1.gz
             man5/
                 story-xml.conf.5.gz /opt/story-xml/doc/story-xml.conf.5.gz
 </pre>
 
-<h3>serna</h3>
-
-<pre>
+  <h3>serna</h3>
+  <pre>
 /opt/
-    serna/ -> serna-4.2/
+    serna/ -&gt; serna-4.2/
     serna-4.2/
         bin/
             serna
-	    serna.env
-	    serna.bin
-	    xsltproc
+            serna.env
+            serna.bin
+            xsltproc
         doc/
             developers_guide/
             installation_guide/
@@ -286,7 +286,7 @@ blank. Add blank pages to make it a multiple of 4.</p>
                 multiprocessing/
                     dummy/
         plugins/
-            story/		# story style
+            story/              # story style
             resume/
                 examples/
                 element-help/
@@ -325,7 +325,7 @@ blank. Add blank pages to make it a multiple of 4.</p>
         translations/
         ui/
         utils/
-            publishing/		# story scripts go here
+            publishing/         # story scripts go here
         xml/
             stylesheets/
                 xslbricks/
@@ -337,106 +337,146 @@ blank. Add blank pages to make it a multiple of 4.</p>
                     extensions/
                     doc/
 </pre>
-    
-<h3>Editix</h3>
-<pre>
+
+  <h3>Editix</h3>
+  <pre>
 /opt/
-    editix/ -> editix2010sp1/
+    editix/ -&gt; editix2010sp1/
     editix2010sp1/
         bin/
             run.sh
             exitix
 </pre>
 
-<h3>emacs</h3>
-<pre>
+  <h3>emacs</h3>
+  <pre>
 Ubuntu package: emacs
 /usr/bin/emacs
 </pre>
 
-<h3>vi</h3>
-<pre>
+  <h3>vi</h3>
+  <pre>
 /usr/bin/vi
 </pre>
 
-<h3>saxon</h3>
-<pre>
+  <h3>saxon</h3>
+  <pre>
 /opt/
-    saxon/ -> saxonhe9-3-5j/
+    saxon/ -&gt; saxonhe9-3-5j/
     saxonhe9-3-5j/
         bin/
             saxon9he.jar
 </pre>
-    
-<h3>xlstproc</h3>
-<pre>
-</pre>
 
-<h3>xalan</h3>
-<p>apt-get install xalan</p>
-<p>source: https://xalan.apache.org/</p>
-<pre>
+  <h3>xlstproc</h3>
+
+  <h3>xalan</h3>
+
+  <p>apt-get install xalan</p>
+
+  <p>source: https://xalan.apache.org/</p>
+  <pre>
 /usr/bin/xalan
 </pre>
-    
-<h3>fop</h3>
-<p>Source: https://xmlgraphics.apache.org/fop/</p>
-<pre>
+
+  <h3>fop</h3>
+
+  <p>Source: https://xmlgraphics.apache.org/fop/</p>
+  <pre>
 /opt/
-    fop -> 
+    fop -&gt; 
     fop-2.0/
         fop
 </pre>
-    
-<h3>renderx</h3>
-<pre>
+
+  <h3>renderx</h3>
+  <pre>
 /opt/
     RenderX/
         XEP/
             xep
         doc/
 </pre>
-    
-<h3>antennahouse</h3>
-<p>$400 for the personal Lite version</p>
 
-<h3>planner</h3>
-<p>Ubuntu package: planner</p>
-<p>Source: https://wiki.gnome.org/Apps/Planner/About</p>
-<pre>
+  <h3>antennahouse</h3>
+
+  <p>$400 for the personal Lite version</p>
+
+  <h3>planner</h3>
+
+  <p>Ubuntu package: planner</p>
+
+  <p>Source: https://wiki.gnome.org/Apps/Planner/About</p>
+  <pre>
 /usr/bin/planner
-<pre>
+</pre>
+  <pre>
 
-<h3>project-libre</h3>
-<p>Source: http://www.projectlibre.org/</p>
-<pre>
+
+</pre>
+
+  <h3>project-libre</h3>
+  <pre>
+
+<br />
+Source: http://www.projectlibre.org/
+</pre>
+  <pre>
+
 /opt/
-        projectlibre/ -> projectlibre-1.5_beta5/
-	projectlibre-1.5_beta5/
-		lib/
-		license/
-		projectlibre.jar
-		projectlibre.bat
-		projectlibre.sh*
-<pre>
+        projectlibre/ -&gt; projectlibre-1.5_beta5/
+        projectlibre-1.5_beta5/
+                lib/
+                license/
+                projectlibre.jar
+                projectlibre.bat
+                projectlibre.sh*
+</pre>
+  <pre>
 
-<h3>git</h3>
-<p>source: apt-get install git git-flow</p>
-<p>Used to parse and set the etc/story-xml.ini file.</p>
-<p>For development, used to access the and update the source files on github</p>
-<pre>
+
+</pre>
+
+  <h3>git</h3>
+  <pre>
+
+<br />
+source: apt-get install git git-flow
+<br />
+Used to parse and set the etc/story-xml.ini file.
+<br />
+For development, used to access the and update the source files on github
+</pre>
+  <pre>
+
 /usr/
     bin/
         git
 </pre>
+  <pre>
 
-<h3>epm</h3>
-<pre>
+
 </pre>
 
+  <h3>epm</h3>
+  <pre>
 
-<h3>dtd2xs</h3>
-<pre>
+</pre>
+  <pre>
+
+</pre>
+  <pre>
+
+
+
+</pre>
+
+  <h3>dtd2xs</h3>
+  <pre>
+
+</pre>
+  <pre>
+
 /usr/
     bin/
         dtd2xs
@@ -447,12 +487,21 @@ Ubuntu package: emacs
             man1/
                 dtd2xs.1.gz
 </pre>
+  <pre>
 
-<h3>tidy</h3>
 
-<p>ubuntu packages: tidy libtidy-0.99-0</p>
+</pre>
 
-<pre>
+  <h3>tidy</h3>
+  <pre>
+
+
+<br />
+ubuntu packages: tidy libtidy-0.99-0
+
+</pre>
+  <pre>
+
 /usr/
     bin/
         tidy
@@ -463,9 +512,17 @@ Ubuntu package: emacs
             man1/
                 tidy.1.gz
 </pre>
+  <pre>
 
-<h3>livedtd</h3>
-<pre>
+
+</pre>
+
+  <h3>livedtd</h3>
+  <pre>
+
+</pre>
+  <pre>
+
 /usr/
     bin/
         livedtd.pl
@@ -477,6 +534,11 @@ Ubuntu package: emacs
             man1/
                 livedtd.1.gz    # pod2man livedtd.pl
 </pre>
+  <pre>
 
+
+
+
+</pre>
 </body>
 </html>

@@ -13,52 +13,108 @@
 
   <ul>
     <li>
-      <a href="#struct">Structure</a>
+      <a href="#struct">1. Structure</a>
 
       <ul>
-        <li><a href="#min">Minimal Story Structure</a></li>
+        <li><a href="#min">1.1. Minimal Story Structure</a></li>
 
-        <li><a href="#full">Full Story Structure</a></li>
+        <li><a href="#full">1.2. Full Story Structure</a></li>
 
-        <li><a href="#com-attr">Common Attributes (all elements)</a></li>
+        <li><a href="#com-attr">1.3. Common Attributes (all
+        elements)</a></li>
 
-        <li><a href="#std-attr">Standard Attribute Names</a></li>
+        <li><a href="#std-attr">1.4. Standard Attribute Names</a></li>
 
-        <li><a href="#text">Text Elements</a></li>
+        <li><a href="#text">1.5. Text Elements</a></li>
 
-        <li><a href="#inline">Inline Text Style Elements</a></li>
-
-        <li><a href="#dtd">Complete story.dtd</a></li>
-
-        <li><a href="#example">Story XML Examples</a></li>
+        <li><a href="#inline">1.6. Inline Text Style Elements</a></li>
       </ul>
     </li>
 
-    <li>
-      <a href="#author">Authoring Tools</a>
+    <li><a href="#install">2. Installation</a></li>
 
+    <li style="list-style: none">
       <ul>
-        <li><a href="#serna">Serna</a></li>
+        <li><a href="#core">2.1. Core Tool</a></li>
 
-        <li><a href="#editix">editix</a></li>
+        <li>
+          <a href="#author">2.2. Authoring Tools</a>
+
+          <ul>
+            <li><a href="#serna">2.2.1. Serna</a></li>
+
+            <li><a href="#editix">2.2.2. editix</a></li>
+
+            <li><a href="#emacs">2.2.3. emacs</a></li>
+
+            <li><a href="#vi">2.2.4. vi</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#process">2.3. Processing Tools</a>
+
+          <ul>
+            <li><a href="#p-xlstproc">2.3.1. xsltproc</a></li>
+
+            <li><a href="#p-saxon">2.3.2. Saxon</a></li>
+
+            <li><a href="#p-renderx">2.3.3. RenderX</a></li>
+
+            <li><a href="#p-antennahouse">2.3.4. AntennaHouse</a></li>
+
+            <li><a href="#p-xalan">2.3.5. xalan</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#render">2.4. Rendering Tools</a>
+
+          <ul>
+            <li><a href="#f-fop">2.4.1. fop</a></li>
+
+            <li><a href="#f-renderx">2.4.2. RenderX</a></li>
+
+            <li><a href="#f-antennahouse">2.4.3. AntennaHouse</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <a href="#proj">2.5. Project Timeline Tools</a>
+
+          <ul>
+            <li><a href="#projlibre">2.5.1. ProjectLibre</a></li>
+
+            <li><a href="#planner">2.5.2. Planner</a></li>
+
+            <li><a href="#msproj">2.5.3. MSProject</a></li>
+
+            <li><a href="#projcsv">2.5.3. CSV</a></li>
+
+            <li><a href="#projhtml">2.5.3. HTML TImeline</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#confi">2.6 Configuration</a></li>
       </ul>
     </li>
 
-    <li>
-      <a href="#render">Rendering Tools</a>
+    <li><a href="#publish">3. Publishing</a></li>
 
+    <li style="list-style: none">
       <ul>
-        <li><a href="#xlstproc">xsltproc</a></li>
+        <li><a href="#command">3.1. Command Line Use</a></li>
 
-        <li><a href="#fop">fop</a></li>
-
-        <li><a href="#renderx">RenderX xep</a></li>
+        <li><a href="#control">3.2. Control Elements and
+        Attributes</a></li>
       </ul>
     </li>
 
-    <li><a href="#command">Command Line Use</a></li>
+    <li><a href="#dtd">A. Complete story.dtd</a></li>
 
-    <li><a href="#install">Installation</a></li>
+    <li><a href="#example">B. Story XML Examples</a></li>
+
+    <li><a href="#dev">C. Story Tool Development</a></li>
   </ul>
 
   <p><a target="_blank"
@@ -69,14 +125,14 @@
   <hr />
 
   <h2><a name="struct"
-     id="struct">Structure</a></h2>
+     id="struct">1. Structure</a></h2>
 
   <p>* - means zero or more of these elements can be used.</p>
 
   <p>+ - means one or more of these elements can be used.</p>
 
   <h3><a name="min"
-     id="min">Minimal Story Structure</a></h3>
+     id="min">1.1 Minimal Story Structure</a></h3>
   <pre>
 book +
     title - Book's title (prints)
@@ -107,7 +163,7 @@ book +
 </pre>
 
   <h3><a name="full"
-     id="full">Full Story Structure</a></h3>
+     id="full">1.2. Full Story Structure</a></h3>
   <pre>
 book +
     title - Book's title (prints)
@@ -174,7 +230,7 @@ book +
 </pre>
 
   <h3><a name="com-attr"
-     id="com-attr">Common Attributes (all elements)</a></h3>
+     id="com-attr">1.3. Common Attributes (all elements)</a></h3>
 
   <dl>
     <dt>condition</dt>
@@ -212,7 +268,7 @@ book +
       <p>Value, one of: "final", "in-progress", "draft" (optional).</p>
 
       <p>The def-content defines what will be printed, based on the
-      setting of this attribue for each element. If it is not defined
+      setting of this attribute for each element. If it is not defined
       "final" is assumed.</p>
     </dd>
 
@@ -232,7 +288,7 @@ book +
   </dl>
 
   <h3><a name="std-attr"
-     id="std-attr">Standard Attribute Names</a></h3>
+     id="std-attr">1.4.Standard Attribute Names</a></h3>
 
   <dl>
     <dt>idref, ref, EL-ref</dt>
@@ -249,7 +305,7 @@ book +
   </dl>
 
   <h3><a name="text"
-     id="text">Text Elements</a></h3>
+     id="text">1.5. Text Elements</a></h3>
 
   <dl>
     <dt>&lt;para&gt;</dt>
@@ -284,7 +340,7 @@ book +
   </dl>
 
   <h3><a name="inline"
-     id="inline">Inline Text Style Elements</a></h3>
+     id="inline">1.6. Inline Text Style Elements</a></h3>
 
   <dl>
     <dt>&lt;b&gt;</dt>
@@ -312,20 +368,291 @@ book +
       attribute.</p>
     </dd>
   </dl>
+  <hr />
 
-  <h3><a name="dtd"
-     id="dtd">Complete story.dtd</a></h3>
+  <h2><a name="install"
+     id="install">2. Installation</a></h2>
+
+  <p>TBD ???</p>
+
+  <h3><a name="core"
+     id="core">2.1 Core Tool</a></h3>
+
+  <p>TBD ???</p>
+  <pre>
+package
+dependent packages
+User
+        Linux
+                story-xml - rpm, deb
+                Authoring Tools
+                        serna - rpm (source - zip)
+                                open source
+                                commercial
+                        editx
+                Rendering Tools
+                        xsltproc
+                        fop - rpm
+                        RenderX - xep
+        Mac - dmg
+        MS Windows - Advanced Installer
+Developer
+        Linux
+                epm - rpm, deb
+</pre>
+
+  <h3><a name="author"
+     id="author">2.2. Authoring Tools</a></h3>
+
+  <p>A general text editor, such as VI or EMACS can be used to create the
+  story-xml file, but xml authoring tools will use the DTD to help keep
+  the structure "valid" and they will help with generating the required
+  elements and attributes.</p>
+
+  <h4><a target="_blank"
+     name="serna"
+     href="http://moria.whyayh.com/faq/cache/62.html"
+     id="serna">2.2.1. Serna</a></h4>
+
+  <p>This is a complete authoring and publishing tool. It can be easily
+  configured to use the story-xml DTD, and it's PDF formatting styles.</p>
+
+  <p>TBD ???: Installing and this tool, for use with story-xml...</p>
+
+  <h4><a target="_blank"
+     name="editix"
+     href="http://moria.whyayh.com/faq/cache/117.html"
+     id="editix">2.2.2. editix</a></h4>
+
+  <p>This a more general purpose XML tool.</p>
+
+  <p>TBD ???: Installing and this tool, for use with story-xml...</p>
+
+  <h4><a target="_blank"
+     name="emacs"
+     href="na"
+     id="emacs">2.2.3. emacs</a></h4>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="vi"
+     href="na"
+     id="vi">2.2.4. vi</a></h4>
+
+  <p>TBD ???</p>
+
+  <h3><a name="process"
+     id="process">2.3. Processing Tools</a></h3>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="p-xlstproc"
+     href="http://moria.whyayh.com/faq/cache/118.html"
+     id="p-xlstproc">2.3.1. xsltproc</a></h4>
+
+  <p>xlstproc is used generate the html files, html draft files, time-line
+  files, and docbook xml files. It is also used to generate "fo" files,
+  which are input to the PDF rendering programs.</p>
+
+  <h4><a target="_blank"
+     name="p-saxon"
+     id="p-saxon"
+     href="na">2.3.2. Saxon</a></h4>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="p-renderx"
+     id="p-renderx"
+     href="na">2.3.3. RenderX</a></h4>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="p-antennahouse"
+     id="p-antennahouse"
+     href="na">2.3.4. AntennaHouse</a></h4>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="p-xalan"
+     id="p-xalan"
+     href="na">2.3.5. xalan</a></h4>
+
+  <p>TBD ???</p>
+
+  <h3><a name="render"
+     id="render">2.4. Rendering Tools</a></h3>
+
+  <h4><a target="_blank"
+     name="fop"
+     href="http://moria.whyayh.com/faq/cache/135.html"
+     id="fop">2.4.1. fop</a></h4>
+
+  <p>This is a free tool for generating PDF files.</p>
+
+  <h4><a target="_blank"
+     name="renderx"
+     href="http://moria.whyayh.com/faq/cache/136.html"
+     id="renderx">2.4.2. RenderX</a></h4>
+
+  <p>This tool will generate PDF files and the fonts can be "embedded" so
+  that the PDF file can be used with publish-on-demand services like
+  <a target="_blank"
+     href="http://www.lulu.com">lulu.com</a></p>
+
+  <p>There is a free version of this tool, but it marks the bottom of the
+  page with it's trademark. There are personal versions available for a
+  reasonable cost.</p>
+
+  <h4><a target="_blank"
+     name="f-antennahouse"
+     id="f-antennahouse"
+     href="na">2.4.3. AntennaHouse</a></h4>
+
+  <p>TBD ???</p>
+
+  <h3><a name="proj"
+     id="proj">2.5 Project Timeline Tools</a></h3>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="projlibre"
+     id="projlibre">2.5.1. ProjectLibre</a></h4>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="planner"
+     id="planner">2.5.2. Planner</a></h4>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="msproj"
+     id="msproj">2.5.3. MSProject</a></h4>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="projcsv"
+     id="projcsv">2.5.3. CSV</a></h4>
+
+  <p>TBD ???</p>
+
+  <h4><a target="_blank"
+     name="projhtml"
+     id="projhtml">2.5.3. HTML TImeline</a></h4>
+
+  <p>TBD ???</p>
+
+  <h3><a name="config"
+     id="config">2.6 Configuration</a></h3>
+
+  <p>TBD ???</p>
+  <hr />
+
+  <h2><a name="publish"
+     id="publish">3. Publishing</a></h2>
+
+  <h3><a name="command"
+     id="command">3.1. Command Line Use</a></h3>
+
+  <p>To generate the different output formats, run the "story-fmt"
+  program, with one (or more) of the options followed by the input file
+  name.</p>
+  <pre>
+/opt/story-xml/bin/story-fmt
+        -html -draft -chapter -fo -fop -renderx -project -docbook
+        -style NAME -input FILE.xml
+</pre>
+
+  <dl>
+    <dt>-html (default)</dt>
+
+    <dd>Output FILE.html</dd>
+
+    <dt>-draft html</dt>
+
+    <dd>Output FILE-draft.html Output FILE-timeline.html</dd>
+
+    <dt>chapter</dt>
+
+    <dd>(Not implemented)<br />
+    Output FILE.chN.html</dd>
+
+    <dt>-fo</dt>
+
+    <dd>Output FILE.fo</dd>
+
+    <dt>-fop (pdf)</dt>
+
+    <dd>Output FILE.pdf</dd>
+
+    <dt>-renderx (pdf)</dt>
+
+    <dd>(Not implemented)<br />
+    Output FILE.pdf</dd>
+
+    <dt>-project</dt>
+
+    <dd>(Not tested)<br />
+    Output FILE-timeline.proj.xml</dd>
+
+    <dt>-docbook</dt>
+
+    <dd>(Not tested)<br />
+    Output FILE.docbook.xml</dd>
+
+    <dt>-style NAME</dt>
+
+    <dd>(Not implemented)<br />
+    Override the "style-ref" attribute in the "style-info" element, so
+    that you can select a different "def-style" id.</dd>
+
+    <dt>-input FILE.xml</dt>
+
+    <dd>Input file name.</dd>
+  </dl>
+
+  <h4>3.1.1. Example</h4>
+  <pre>
+PATH=$PATH:/opt/story-xml/bin
+cp /opt/story-xml/doc/example/ebook-20869-h.xml .
+
+story-fmt -html -draft -fop -input ebook-20869-h.xml
+</pre>
+
+  <h3><a name="control"
+     id="control">3.2. Control Elements and Attributes</a></h3>
+
+  <p>TBD???</p>
+  <pre>
+    style-info - Control what is printed and how
+        def-content * - Controls what content prints
+        def-draft * - Controls what draft items print
+        def-print * - Control the print output
+</pre>
+  <hr />
+
+  <h2><a name="dtd"
+     id="dtd">A. Complete story.dtd</a></h2>
 
   <p>The complete annotated story.dtd (Document Type Definition) can be
   found <a target="_blank"
-     href="story-xml-dtd/index.html">here</a>. This describes all
+     href="livedtd/story/index.html">here</a>. This describes all the
      elements, and attributes.</p>
 
   <p>Click on the element or entity name to see it's definition. Click on
   the '+' character, to see where it is used.</p>
+  <hr />
 
-  <h3><a name="example"
-     id="example">Story XML Examples</a></h3>
+  <h2><a name="example"
+     id="example">B. Story XML Examples</a></h2>
 
   <p>The example files will show the complete use of the xml
   structure.</p>
@@ -387,161 +714,13 @@ book +
   </dl>
   <hr />
 
-  <h2><a name="author"
-     id="author">Authoring Tools</a></h2>
+  <h2><a name="dev"
+     id="dev">C. Story Tool Development</a></h2>
 
-  <p>A general text editor, such as VI or EMACS can be used to create the
-  story-xml file, but xml authoring tools will use the DTD to help keep
-  the structure "valid" and they will help with generating the required
-  elements and attributes.</p>
+  <p>TBD ???</p>
 
-  <h3><a target="_blank"
-     name="serna"
-     href="http://moria.whyayh.com/faq/cache/62.html"
-     id="serna">Serna</a></h3>
-
-  <p>This is a complete authoring and publishing tool. It can be easily
-  configured to use the story-xml DTD, and it's PDF formatting styles.</p>
-
-  <p>TBD: Installing and this tool, for use with story-xml...</p>
-
-  <h3><a target="_blank"
-     name="editix"
-     href="http://moria.whyayh.com/faq/cache/117.html"
-     id="editix">editix</a></h3>
-
-  <p>This a more general purpose XML tool.</p>
-
-  <p>TBD: Installing and this tool, for use with story-xml...</p>
+  <p>github...</p>
   <hr />
-
-  <h2><a name="render"
-     id="render">Rendering Tools</a></h2>
-
-  <h3><a target="_blank"
-     name="xlstproc"
-     href="http://moria.whyayh.com/faq/cache/118.html"
-     id="xlstproc">xsltproc</a></h3>
-
-  <p>xlstproc is used generate the html files, html draft files, time-line
-  files, and docbook xml files. It is also used to generate "fo" files,
-  which are input to the PDF rendering programs.</p>
-
-  <h3><a target="_blank"
-     name="fop"
-     href="http://moria.whyayh.com/faq/cache/135.html"
-     id="fop">fop</a></h3>
-
-  <p>This is a free tool for generating PDF files.</p>
-
-  <h3><a target="_blank"
-     name="renderx"
-     href="http://moria.whyayh.com/faq/cache/136.html"
-     id="renderx">RenderX xep</a></h3>
-
-  <p>This tool will generate PDF files and the fonts can be "embedded" so
-  that the PDF file can be used with publish-on-demand services like
-  <a target="_blank"
-     href="http://www.lulu.com">lulu.com</a></p>
-
-  <p>There is a free version of this tool, but it marks the bottom of the
-  page with it's trademark. There are personal versions available for a
-  reasonable cost.</p>
-  <hr />
-
-  <h2><a name="command"
-     id="command">Command Line Use</a></h2>
-
-  <p>To generate the different output formats, run the "story-fmt"
-  program, with one (or more) of the options followed by the input file
-  name.</p>
-  <pre>
-/opt/story-xml/bin/story-fmt
-        -html -draft -chapter -fo -fop -renderx -project -docbook
-        -style NAME -input FILE.xml
-</pre>
-
-  <dl>
-    <dt>-html (default)</dt>
-
-    <dd>Output FILE.html</dd>
-
-    <dt>-draft html</dt>
-
-    <dd>Output FILE-draft.html Output FILE-timeline.html</dd>
-
-    <dt>chapter</dt>
-
-    <dd>(Not implemented)<br />
-    Output FILE.chN.html</dd>
-
-    <dt>-fo</dt>
-
-    <dd>Output FILE.fo</dd>
-
-    <dt>-fop (pdf)</dt>
-
-    <dd>Output FILE.pdf</dd>
-
-    <dt>-renderx (pdf)</dt>
-
-    <dd>(Not implemented)<br />
-    Output FILE.pdf</dd>
-
-    <dt>-project</dt>
-
-    <dd>(Not tested)<br />
-    Output FILE-timeline.proj.xml</dd>
-
-    <dt>-docbook</dt>
-
-    <dd>(Not tested)<br />
-    Output FILE.docbook.xml</dd>
-
-    <dt>-sytle NAME</dt>
-
-    <dd>(Not implemented)<br />
-    Override the "style-ref" attribute in the "style-info" element, so
-    that you can select a different "def-style" id.</dd>
-
-    <dt>-input FILE.xml</dt>
-
-    <dd>Input file name.</dd>
-  </dl>
-
-  <h3>Example</h3>
-  <pre>
-PATH=$PATH:/opt/story-xml/bin
-cp /opt/story-xml/doc/example/ebook-20869-h.xml .
-
-story-fmt -html -draft -fop -input ebook-20869-h.xml
-</pre>
-  <hr />
-
-  <h2><a name="install"
-     id="install">Installation</a></h2>
-
-  <p>TBD</p>
-  <pre>
-User
-        Linux
-                story-xml - rpm, deb
-                Authoring Tools
-                        serna - rpm (source - zip)
-                                open source
-                                commercial
-                        editx
-                Rendering Tools
-                        xsltproc
-                        fop - rpm
-                        RenderX - xep
-        Mac - dmg
-        MS Windows - Advanced Installer
-Developer
-        Linux
-                epm - rpm, deb
-</pre>
-  <hr />
-  Last modified: 2016-01-02
+  Last modified: 2016-01-03
 </body>
 </html>

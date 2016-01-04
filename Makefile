@@ -28,9 +28,6 @@ build : ver.env livedtd
 	cd dist/opt; ln -s story-xml4 story-xml
 	-mkdir -p dist/opt/story-xml/config dist/opt/story-xml/doc/example
 	rsync -r $(mRsyncOpt) src/* dist/opt/story-xml/
-	rsync -r $(mRsyncOpt) example/* dist/opt/story-xml/doc/example/
-	rsync -r $(mRsyncOpt) doc/livedtd dist/opt/story-xml/doc/
-	rsync -r $(mRsyncOpt) kit/linux/* dist/opt/story-xml/config/
 	chmod a+rx,go-w dist/opt/story-xml/bin/*
 	find dist/opt -type d -exec chmod a+rx {} \;
 	find dist/opt -type f -exec chmod a+r {} \;
@@ -63,63 +60,63 @@ ver.epm : ver.sh
 	export RELEASE=1; mkver.pl -e epm
 
 # -------------
-# doc/livedtd/docbook45/index.html
+# src/doc/livedtd/docbook45/index.html
 
-livedtd : doc/livedtd/story/index.html  doc/livedtd/html3.2/index.html doc/livedtd/html40loose/index.html doc/livedtd/xhtml1-transitional/index.html doc/livedtd/xslfo/index.html doc/livedtd/xslt10/index.html
-	for i in $$(find doc/livedtd -name '*.html'); do \
+livedtd : src/doc/livedtd/story/index.html src/doc/livedtd/html3.2/index.html src/doc/livedtd/html40loose/index.html src/doc/livedtd/xhtml1-transitional/index.html src/doc/livedtd/xslfo/index.html src/doc/livedtd/xslt10/index.html
+	for i in $$(find src/doc/livedtd -name '*.html'); do \
 		echo "Process: $$i"; \
 		tidy -asxhtml $(mTidyOpt) $$i; \
 	done
 
-doc/livedtd/story/index.html : src/style/story.dtd
-	-rm -rf doc/livedtd/story/*
-	livedtd.pl --outdir doc/livedtd/story --title story.dtd $?
-	uniq doc/livedtd/story/ElemUsage.html >t.tmp
-	mv t.tmp doc/livedtd/story/ElemUsage.html
-	uniq doc/livedtd/story/EntityUsage.html >t.tmp
-	mv t.tmp doc/livedtd/story/EntityUsage.html
+src/doc/livedtd/story/index.html : src/style/story.dtd
+	-rm -rf src/doc/livedtd/story/*
+	livedtd.pl --outdir src/doc/livedtd/story --title story.dtd $?
+	uniq src/doc/livedtd/story/ElemUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/story/ElemUsage.html
+	uniq src/doc/livedtd/story/EntityUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/story/EntityUsage.html
 
-doc/livedtd/docbook45/index.html : doc/dtd/docbook45.dtd
-	livedtd.pl --outdir doc/livedtd/docbook45 --title docbook45.dtd $?
-	uniq doc/livedtd/docbook45/ElemUsage.html >t.tmp
-	mv t.tmp doc/livedtd/docbook45/ElemUsage.html
-	uniq doc/livedtd/docbook45/EntityUsage.html >t.tmp
-	mv t.tmp doc/livedtd/docbook45/EntityUsage.html
+src/doc/livedtd/docbook45/index.html : src/doc/dtd/docbook45.dtd
+	livedtd.pl --outdir src/doc/livedtd/docbook45 --title docbook45.dtd $?
+	uniq src/doc/livedtd/docbook45/ElemUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/docbook45/ElemUsage.html
+	uniq src/doc/livedtd/docbook45/EntityUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/docbook45/EntityUsage.html
 
-doc/livedtd/html3.2/index.html : doc/dtd/html3.2.dtd
-	livedtd.pl --outdir doc/livedtd/html3.2 --title html3.2.dtd $?
-	uniq doc/livedtd/html3.2/ElemUsage.html >t.tmp
-	mv t.tmp doc/livedtd/html3.2/ElemUsage.html
-	uniq doc/livedtd/html3.2/EntityUsage.html >t.tmp
-	mv t.tmp doc/livedtd/html3.2/EntityUsage.html
+src/doc/livedtd/html3.2/index.html : src/doc/dtd/html3.2.dtd
+	livedtd.pl --outdir src/doc/livedtd/html3.2 --title html3.2.dtd $?
+	uniq src/doc/livedtd/html3.2/ElemUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/html3.2/ElemUsage.html
+	uniq src/doc/livedtd/html3.2/EntityUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/html3.2/EntityUsage.html
 
-doc/livedtd/html40loose/index.html : doc/dtd/html40loose.dtd
-	livedtd.pl --outdir doc/livedtd/html40loose --title html40loose.dtd $?
-	uniq doc/livedtd/html40loose/ElemUsage.html >t.tmp
-	mv t.tmp doc/livedtd/html40loose/ElemUsage.html
-	uniq doc/livedtd/html40loose/EntityUsage.html >t.tmp
-	mv t.tmp doc/livedtd/html40loose/EntityUsage.html
+src/doc/livedtd/html40loose/index.html : src/doc/dtd/html40loose.dtd
+	livedtd.pl --outdir src/doc/livedtd/html40loose --title html40loose.dtd $?
+	uniq src/doc/livedtd/html40loose/ElemUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/html40loose/ElemUsage.html
+	uniq src/doc/livedtd/html40loose/EntityUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/html40loose/EntityUsage.html
 
-doc/livedtd/xhtml1-transitional/index.html : doc/dtd/xhtml1-transitional.dtd
-	livedtd.pl --outdir doc/livedtd/xhtml1-transitional --title xhtml1-transitional.dtd $?
-	uniq doc/livedtd/xhtml1-transitional/ElemUsage.html >t.tmp
-	mv t.tmp doc/livedtd/xhtml1-transitional/ElemUsage.html
-	uniq doc/livedtd/xhtml1-transitional/EntityUsage.html >t.tmp
-	mv t.tmp doc/livedtd/xhtml1-transitional/EntityUsage.html
+src/doc/livedtd/xhtml1-transitional/index.html : src/doc/dtd/xhtml1-transitional.dtd
+	livedtd.pl --outdir src/doc/livedtd/xhtml1-transitional --title xhtml1-transitional.dtd $?
+	uniq src/doc/livedtd/xhtml1-transitional/ElemUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/xhtml1-transitional/ElemUsage.html
+	uniq src/doc/livedtd/xhtml1-transitional/EntityUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/xhtml1-transitional/EntityUsage.html
 
-doc/livedtd/xslfo/index.html : doc/dtd/xslfo.dtd
-	livedtd.pl --outdir doc/livedtd/xslfo --title xslfo.dtd $?
-	uniq doc/livedtd/xslfo/ElemUsage.html >t.tmp
-	mv t.tmp doc/livedtd/xslfo/ElemUsage.html
-	uniq doc/livedtd/xslfo/EntityUsage.html >t.tmp
-	mv t.tmp doc/livedtd/xslfo/EntityUsage.html
+src/doc/livedtd/xslfo/index.html : src/doc/dtd/xslfo.dtd
+	livedtd.pl --outdir src/doc/livedtd/xslfo --title xslfo.dtd $?
+	uniq src/doc/livedtd/xslfo/ElemUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/xslfo/ElemUsage.html
+	uniq src/doc/livedtd/xslfo/EntityUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/xslfo/EntityUsage.html
 
-doc/livedtd/xslt10/index.html : doc/dtd/xslt10.dtd
-	livedtd.pl --outdir doc/livedtd/xslt10 --title xslt10.dtd $?
-	uniq doc/livedtd/xslt10/ElemUsage.html >t.tmp
-	mv t.tmp doc/livedtd/xslt10/ElemUsage.html
-	uniq doc/livedtd/xslt10/EntityUsage.html >t.tmp
-	mv t.tmp doc/livedtd/xslt10/EntityUsage.html
+src/doc/livedtd/xslt10/index.html : src/doc/dtd/xslt10.dtd
+	livedtd.pl --outdir src/doc/livedtd/xslt10 --title xslt10.dtd $?
+	uniq src/doc/livedtd/xslt10/ElemUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/xslt10/ElemUsage.html
+	uniq src/doc/livedtd/xslt10/EntityUsage.html >t.tmp
+	mv t.tmp src/doc/livedtd/xslt10/EntityUsage.html
 
 # -------------
 build-schema : src/style/schema-gen.xsd src/style/template2.sdt
@@ -161,15 +158,15 @@ serna4-story :
 	ln -sf $$PWD/src/bin/convert-*.sh $(mSerna4)/utils/publishing
 
 tidy-story :
-	for i in $$(ls src/style/*.xml src/style/*.xsl src/style/*.xsd | grep -v template); do \
+	-for i in $$(ls src/doc/example/*.xml src/style/*.xml src/style/*.xsl src/style/*.xsd | grep -v template); do \
 		echo "Process: $$i"; \
 		tidy -xml $(mTidyOpt) $$i; \
 	done
-	for i in $$(find doc -name '*.html') src/doc/*.html; do \
+	-for i in $$(find doc src/doc -name '*.html'); do \
 		echo "Process: $$i"; \
 		tidy -asxhtml $(mTidyOpt) $$i; \
 	done
-	for i in src/style/template2.sdt src/style/template2.xml src/doc/template/*.xml; do \
+	-for i in src/style/template2.sdt src/style/template2.xml src/doc/template/*.xml; do \
 		echo "Process: $$i"; \
 		tidy -xml $(mTidyTemplate) $$i; \
 	done

@@ -1,0 +1,1821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>html401loose.dtd</title>
+<style type="text/css">
+/*<![CDATA[*/
+  STRONG { font-weight: bold; color: red;}
+/*]]>*/
+</style>
+</head>
+
+<body onload=
+"self.parent.file.document.open();self.parent.file.document.write('&lt;BODY TOPMARGIN=0&gt;&lt;B&gt;html401loose.dtd&lt;/B&gt;&lt;/BODY&gt;');self.parent.file.document.close()">
+<?LIVEDTD ENDHEAD?>
+  <pre>
+&lt;!--
+    This is the HTML 4.01 Transitional DTD, which includes
+    presentation attributes and elements that W3C expects to phase out
+    as support for style sheets matures. Authors should use the Strict
+    DTD when possible, but may use the Transitional DTD when support
+    for presentation attribute and elements is required.
+
+    HTML 4 includes mechanisms for style sheets, scripting,
+    embedding objects, improved support for right to left and mixed
+    direction text, and enhancements to forms for improved
+    accessibility for people with disabilities.
+
+          Draft: $Date: 2009/04/21 07:29:47 $
+
+          Authors:
+              Dave Raggett &lt;dsr@w3.org&gt;
+              Arnaud Le Hors &lt;lehors@w3.org&gt;
+              Ian Jacobs &lt;ij@w3.org&gt;
+
+    Further information about HTML 4.01 is available at:
+
+        http://www.w3.org/TR/1999/REC-html401-19991224
+
+
+    The HTML 4.01 specification includes additional
+    syntactic constraints that cannot be expressed within
+    the DTDs.
+
+--&gt;
+&lt;!ENTITY % <a name="EntityDef.HTML.Version"
+     id=
+     "EntityDef.HTML.Version"><strong>HTML.Version</strong></a> "-//W3C//DTD <a href="html401loose.dtd.html#ElementDef63">HTML</a> 4.01 Transitional//EN"
+  -- Typical usage:
+
+    &lt;!DOCTYPE <a href=
+"html401loose.dtd.html#ElementDef63">HTML</a> PUBLIC "-//W3C//DTD <a href=
+"html401loose.dtd.html#ElementDef63">HTML</a> 4.01 Transitional//EN"
+            "http://www.w3.org/<a href=
+"html401loose.dtd.html#ElementDef51">TR</a>/html4/loose.dtd"&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+    ...
+    &lt;/head&gt;
+    &lt;body&gt;
+    ...
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+    The URI used as a system identifier with the public identifier allows
+    the user agent to download the DTD and entity sets as needed.
+
+    The FPI for the Strict HTML 4.01 DTD is:
+
+        "-//W3C//DTD HTML 4.01//EN"
+
+    This version of the strict DTD is:
+
+        http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd
+
+    Authors should use the Strict DTD unless they need the
+    presentation control for user agents that don't (adequately)
+    support style sheets.
+
+    If you are writing a document that includes frames, use 
+    the following FPI:
+
+        "-//W3C//DTD HTML 4.01 Frameset//EN"
+
+    This version of the frameset DTD is:
+
+        http://www.w3.org/TR/1999/REC-html401-19991224/frameset.dtd
+
+    Use the following (relative) URIs to refer to 
+    the DTDs and entity definitions of this specification:
+
+    "strict.dtd"
+    "loose.dtd"
+    "frameset.dtd"
+    "HTMLlat1.ent"
+    "HTMLsymbol.ent"
+    "HTMLspecial.ent"
+
+--&gt;
+
+&lt;!--================== Imported Names ====================================--&gt;
+&lt;!-- Feature Switch for frameset documents --&gt;
+&lt;!ENTITY % <a name="EntityDef.HTML.Frameset"
+     id=
+     "EntityDef.HTML.Frameset"><strong>HTML.Frameset</strong></a> "IGNORE"&gt;
+
+&lt;!ENTITY % <a name="EntityDef.ContentType"
+     id="EntityDef.ContentType"><strong>ContentType</strong></a> "CDATA"
+    -- media type, as per [RFC2045]
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.ContentTypes"
+     id="EntityDef.ContentTypes"><strong>ContentTypes</strong></a> "CDATA"
+    -- comma-separated list of media types, as per [RFC2045]
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.Charset"
+     id="EntityDef.Charset"><strong>Charset</strong></a> "CDATA"
+    -- a character encoding, as per [RFC2045]
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.Charsets"
+     id="EntityDef.Charsets"><strong>Charsets</strong></a> "CDATA"
+    -- a space-separated list of character encodings, as per [RFC2045]
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.LanguageCode"
+     id="EntityDef.LanguageCode"><strong>LanguageCode</strong></a> "NAME"
+    -- a language code, as per [RFC1766]
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.Character"
+     id="EntityDef.Character"><strong>Character</strong></a> "CDATA"
+    -- a single character from [ISO10646] 
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.LinkTypes"
+     id="EntityDef.LinkTypes"><strong>LinkTypes</strong></a> "CDATA"
+    -- space-separated list of link types
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.MediaDesc"
+     id="EntityDef.MediaDesc"><strong>MediaDesc</strong></a> "CDATA"
+    -- single or comma-separated list of media descriptors
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.URI"
+     id="EntityDef.URI"><strong>URI</strong></a> "CDATA"
+    -- a Uniform Resource Identifier,
+       see [URI]
+    --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.Datetime"
+     id=
+     "EntityDef.Datetime"><strong>Datetime</strong></a> "CDATA" -- date and time information. ISO date format --&gt;
+
+
+&lt;!ENTITY % <a name="EntityDef.Script"
+     id=
+     "EntityDef.Script"><strong>Script</strong></a> "CDATA" -- script expression --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.StyleSheet"
+     id=
+     "EntityDef.StyleSheet"><strong>StyleSheet</strong></a> "CDATA" -- style sheet data --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.FrameTarget"
+     id=
+     "EntityDef.FrameTarget"><strong>FrameTarget</strong></a> "CDATA" -- render in this frame --&gt;
+
+
+&lt;!ENTITY % <a name="EntityDef.Text"
+     id="EntityDef.Text"><strong>Text</strong></a> "CDATA"&gt;
+
+
+&lt;!-- Parameter Entities --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.head.misc"
+     id="EntityDef.head.misc"><strong>head.misc</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef61">SCRIPT</a>|<a href=
+     "html401loose.dtd.html#ElementDef60">STYLE</a>|<a href=
+     "html401loose.dtd.html#ElementDef59">META</a>|<a href=
+     "html401loose.dtd.html#ElementDef15">LINK</a>|<a href=
+     "html401loose.dtd.html#ElementDef17">OBJECT</a>" -- repeatable head elements --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.heading"
+     id="EntityDef.heading"><strong>heading</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef22">H1</a>|<a href=
+     "html401loose.dtd.html#ElementDef22">H2</a>|<a href=
+     "html401loose.dtd.html#ElementDef22">H3</a>|<a href=
+     "html401loose.dtd.html#ElementDef22">H4</a>|<a href=
+     "html401loose.dtd.html#ElementDef22">H5</a>|<a href=
+     "html401loose.dtd.html#ElementDef22">H6</a>"&gt;
+
+&lt;!ENTITY % <a name="EntityDef.list"
+     id="EntityDef.list"><strong>list</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef31">UL</a> | <a href=
+     "html401loose.dtd.html#ElementDef30">OL</a> |  <a href=
+     "html401loose.dtd.html#ElementDef32">DIR</a> | <a href=
+     "html401loose.dtd.html#ElementDef32">MENU</a>"&gt;
+
+&lt;!ENTITY % <a name="EntityDef.preformatted"
+     id=
+     "EntityDef.preformatted"><strong>preformatted</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef23">PRE</a>"&gt;
+
+&lt;!ENTITY % <a name="EntityDef.Color"
+     id=
+     "EntityDef.Color"><strong>Color</strong></a> "CDATA" -- a color using sRGB: #RRGGBB as Hex values --&gt;
+
+&lt;!-- There are also 16 widely known color names with their sRGB values:
+
+    Black  = #000000    Green  = #008000
+    Silver = #C0C0C0    Lime   = #00FF00
+    Gray   = #808080    Olive  = #808000
+    White  = #FFFFFF    Yellow = #FFFF00
+    Maroon = #800000    Navy   = #000080
+    Red    = #FF0000    Blue   = #0000FF
+    Purple = #800080    Teal   = #008080
+    Fuchsia= #FF00FF    Aqua   = #00FFFF
+ --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.bodycolors"
+     id="EntityDef.bodycolors"><strong>bodycolors</strong></a> "
+  bgcolor     <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- document background color --
+  text        <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- document text color --
+  link        <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- color of links --
+  vlink       <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- color of visited links --
+  alink       <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- color of selected links --
+  "&gt;
+
+&lt;!--================ Character mnemonic entities =========================--&gt;
+
+&lt;!ENTITY % <a name="EntityDef.HTMLlat1"
+     id="EntityDef.HTMLlat1"><strong>HTMLlat1</strong></a> PUBLIC
+   "-//W3C//ENTITIES Latin1//EN//<a href=
+"html401loose.dtd.html#ElementDef63">HTML</a>"
+   "HTMLlat1.ent"&gt;
+<a href="html401loose.dtd.html#EntityDef.HTMLlat1">%HTMLlat1;</a>
+
+&lt;!ENTITY % <a name="EntityDef.HTMLsymbol"
+     id="EntityDef.HTMLsymbol"><strong>HTMLsymbol</strong></a> PUBLIC
+   "-//W3C//ENTITIES Symbols//EN//<a href=
+"html401loose.dtd.html#ElementDef63">HTML</a>"
+   "HTMLsymbol.ent"&gt;
+<a href="html401loose.dtd.html#EntityDef.HTMLsymbol">%HTMLsymbol;</a>
+
+&lt;!ENTITY % <a name="EntityDef.HTMLspecial"
+     id="EntityDef.HTMLspecial"><strong>HTMLspecial</strong></a> PUBLIC
+   "-//W3C//ENTITIES Special//EN//<a href=
+"html401loose.dtd.html#ElementDef63">HTML</a>"
+   "HTMLspecial.ent"&gt;
+<a href="html401loose.dtd.html#EntityDef.HTMLspecial">%HTMLspecial;</a>
+&lt;!--=================== Generic Attributes ===============================--&gt;
+
+&lt;!ENTITY % <a name="EntityDef.coreattrs"
+     id="EntityDef.coreattrs"><strong>coreattrs</strong></a>
+ "id          ID             #IMPLIED  -- document-wide unique id --
+  class       CDATA          #IMPLIED  -- space-separated list of classes --
+  style       <a href=
+"html401loose.dtd.html#EntityDef.StyleSheet">%StyleSheet;</a>   #IMPLIED  -- associated style info --
+  title       <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #IMPLIED  -- advisory title --"
+  &gt;
+
+&lt;!ENTITY % <a name="EntityDef.i18n"
+     id="EntityDef.i18n"><strong>i18n</strong></a>
+ "lang        <a href=
+"html401loose.dtd.html#EntityDef.LanguageCode">%LanguageCode;</a> #IMPLIED  -- language code --
+  dir         (ltr|rtl)      #IMPLIED  -- direction for weak/neutral text --"
+  &gt;
+
+&lt;!ENTITY % <a name="EntityDef.events"
+     id="EntityDef.events"><strong>events</strong></a>
+ "onclick     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a pointer button was clicked --
+  ondblclick  <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a pointer button was double clicked--
+  onmousedown <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a pointer button was pressed down --
+  onmouseup   <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a pointer button was released --
+  onmouseover <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a pointer was moved onto --
+  onmousemove <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a pointer was moved within --
+  onmouseout  <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a pointer was moved away --
+  onkeypress  <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a key was pressed and released --
+  onkeydown   <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a key was pressed down --
+  onkeyup     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- a key was released --"
+  &gt;
+
+&lt;!-- Reserved Feature Switch --&gt;
+&lt;!ENTITY % <a name="EntityDef.HTML.Reserved"
+     id=
+     "EntityDef.HTML.Reserved"><strong>HTML.Reserved</strong></a> "IGNORE"&gt;
+
+&lt;!-- The following attributes are reserved for possible future use --&gt;
+&lt;!<a name="MS1"
+     id="MS1"></a>[ <a href=
+     "html401loose.dtd.html#EntityDef.HTML.Reserved">%HTML.Reserved;</a> [
+&lt;!ENTITY % reserved
+ "datasrc     %URI;          #IMPLIED  -- a single or tabular Data Source --
+  datafld     CDATA          #IMPLIED  -- the property or column name --
+  dataformatas (plaintext|html) plaintext -- text or html --"
+  &gt;
+]]&gt;
+
+&lt;!ENTITY % <a name="EntityDef.reserved"
+     id="EntityDef.reserved"><strong>reserved</strong></a> ""&gt;
+
+&lt;!ENTITY % <a name="EntityDef.attrs"
+     id="EntityDef.attrs"><strong>attrs</strong></a> "<a href=
+     "html401loose.dtd.html#EntityDef.coreattrs">%coreattrs;</a> <a href=
+     "html401loose.dtd.html#EntityDef.i18n">%i18n;</a> <a href=
+     "html401loose.dtd.html#EntityDef.events">%events;</a>"&gt;
+
+&lt;!ENTITY % <a name="EntityDef.align"
+     id=
+     "EntityDef.align"><strong>align</strong></a> "align (left|center|right|justify)  #IMPLIED"
+                   -- default is left for ltr paragraphs, right for rtl --
+  &gt;
+
+&lt;!--=================== Text Markup ======================================--&gt;
+
+&lt;!ENTITY % <a name="EntityDef.fontstyle"
+     id="EntityDef.fontstyle"><strong>fontstyle</strong></a>
+ "<a href="html401loose.dtd.html#ElementDef1">TT</a> | <a href=
+"html401loose.dtd.html#ElementDef1">I</a> | <a href=
+"html401loose.dtd.html#ElementDef1">B</a> | <a href=
+"html401loose.dtd.html#ElementDef1">U</a> | <a href=
+"html401loose.dtd.html#ElementDef1">S</a> | <a href=
+"html401loose.dtd.html#ElementDef1">STRIKE</a> | <a href=
+"html401loose.dtd.html#ElementDef1">BIG</a> | <a href=
+"html401loose.dtd.html#ElementDef1">SMALL</a>"&gt;
+
+&lt;!ENTITY % <a name="EntityDef.phrase"
+     id="EntityDef.phrase"><strong>phrase</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef1">EM</a> | <a href=
+     "html401loose.dtd.html#ElementDef1">STRONG</a> | <a href=
+     "html401loose.dtd.html#ElementDef1">DFN</a> | <a href=
+     "html401loose.dtd.html#ElementDef1">CODE</a> |
+                   <a href=
+"html401loose.dtd.html#ElementDef1">SAMP</a> | <a href=
+"html401loose.dtd.html#ElementDef1">KBD</a> | <a href=
+"html401loose.dtd.html#ElementDef1">VAR</a> | <a href=
+"html401loose.dtd.html#ElementDef1">CITE</a> | <a href=
+"html401loose.dtd.html#ElementDef1">ABBR</a> | <a href=
+"html401loose.dtd.html#ElementDef1">ACRONYM</a>" &gt;
+
+&lt;!ENTITY % <a name="EntityDef.special"
+     id="EntityDef.special"><strong>special</strong></a>
+   "<a href="html401loose.dtd.html#ElementDef12">A</a> | <a href=
+"html401loose.dtd.html#ElementDef16">IMG</a> | <a href=
+"html401loose.dtd.html#ElementDef19">APPLET</a> | <a href=
+"html401loose.dtd.html#ElementDef17">OBJECT</a> | <a href=
+"html401loose.dtd.html#ElementDef6">FONT</a> | <a href=
+"html401loose.dtd.html#ElementDef5">BASEFONT</a> | <a href=
+"html401loose.dtd.html#ElementDef7">BR</a> | <a href=
+"html401loose.dtd.html#ElementDef61">SCRIPT</a> |
+    <a href="html401loose.dtd.html#ElementDef13">MAP</a> | <a href=
+"html401loose.dtd.html#ElementDef24">Q</a> | <a href=
+"html401loose.dtd.html#ElementDef2">SUB</a> | <a href=
+"html401loose.dtd.html#ElementDef2">SUP</a> | <a href=
+"html401loose.dtd.html#ElementDef3">SPAN</a> | <a href=
+"html401loose.dtd.html#ElementDef4">BDO</a> | <a href=
+"html401loose.dtd.html#ElementDef53">IFRAME</a>"&gt;
+
+&lt;!ENTITY % <a name="EntityDef.formctrl"
+     id="EntityDef.formctrl"><strong>formctrl</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef36">INPUT</a> | <a href=
+     "html401loose.dtd.html#ElementDef37">SELECT</a> | <a href=
+     "html401loose.dtd.html#ElementDef40">TEXTAREA</a> | <a href=
+     "html401loose.dtd.html#ElementDef35">LABEL</a> | <a href=
+     "html401loose.dtd.html#ElementDef43">BUTTON</a>"&gt;
+
+&lt;!-- %inline; covers inline or "text-level" elements --&gt;
+&lt;!ENTITY % <a name="EntityDef.inline"
+     id="EntityDef.inline"><strong>inline</strong></a> "#PCDATA | <a href=
+     "html401loose.dtd.html#EntityDef.fontstyle">%fontstyle;</a> | <a href=
+     "html401loose.dtd.html#EntityDef.phrase">%phrase;</a> | <a href=
+     "html401loose.dtd.html#EntityDef.special">%special;</a> | <a href=
+     "html401loose.dtd.html#EntityDef.formctrl">%formctrl;</a>"&gt;
+
+&lt;!ELEMENT <a name="ElementDef1"
+     id="ElementDef1"></a><strong>(<a href=
+     "html401loose.dtd.html#EntityDef.fontstyle">%fontstyle;</a>|<a href=
+     "html401loose.dtd.html#EntityDef.phrase">%phrase;</a>)</strong> - - (<a href="html401loose.dtd.html#EntityDef.inline">%inline;</a>)*&gt;
+&lt;!ATTLIST <a name="AttlistDef1"
+     id="AttlistDef1"></a><strong>(<a href=
+     "html401loose.dtd.html#EntityDef.fontstyle">%fontstyle;</a>|<a href=
+     "html401loose.dtd.html#EntityDef.phrase">%phrase;</a>)</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef2"
+     id="ElementDef2"></a><strong>(SUB|SUP)</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*    -- subscript, superscript --&gt;
+&lt;!ATTLIST <a name="AttlistDef2"
+     id="AttlistDef2"></a><strong>(SUB|SUP)</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef3"
+     id="ElementDef3"></a><strong>SPAN</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*         -- generic language/style container --&gt;
+&lt;!ATTLIST <a name="AttlistDef3"
+     id="AttlistDef3"></a><strong>SPAN</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  <a href=
+"html401loose.dtd.html#EntityDef.reserved">%reserved;</a>                            -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef4"
+     id="ElementDef4"></a><strong>BDO</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*          -- I18N BiDi over-ride --&gt;
+&lt;!ATTLIST <a name="AttlistDef4"
+     id="AttlistDef4"></a><strong>BDO</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  lang        <a href=
+"html401loose.dtd.html#EntityDef.LanguageCode">%LanguageCode;</a> #IMPLIED  -- language code --
+  dir         (ltr|rtl)      #REQUIRED -- directionality --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef5"
+     id=
+     "ElementDef5"></a><strong>BASEFONT</strong> - O EMPTY           -- base font size --&gt;
+&lt;!ATTLIST <a name="AttlistDef5"
+     id="AttlistDef5"></a><strong>BASEFONT</strong>
+  id          ID             #IMPLIED  -- document-wide unique id --
+  size        CDATA          #REQUIRED -- base font size for FONT elements --
+  color       <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- text color --
+  face        CDATA          #IMPLIED  -- comma-separated list of font names --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef6"
+     id="ElementDef6"></a><strong>FONT</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*         -- local change to font --&gt;
+&lt;!ATTLIST <a name="AttlistDef6"
+     id="AttlistDef6"></a><strong>FONT</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  <a href=
+"html401loose.dtd.html#EntityDef.i18n">%i18n;</a>                            -- lang, dir --
+  size        CDATA          #IMPLIED  -- [+|-]nn e.g. size="+1", size="4" --
+  color       <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- text color --
+  face        CDATA          #IMPLIED  -- comma-separated list of font names --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef7"
+     id=
+     "ElementDef7"></a><strong>BR</strong> - O EMPTY                 -- forced line break --&gt;
+&lt;!ATTLIST <a name="AttlistDef7"
+     id="AttlistDef7"></a><strong>BR</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  clear       (left|all|right|none) none -- control of text flow --
+  &gt;
+
+&lt;!--================== HTML content models ===============================--&gt;
+
+&lt;!--
+    HTML has two basic content models:
+
+        %inline;     character level elements and text strings
+        %block;      block-like elements e.g. paragraphs and lists
+--&gt;
+
+&lt;!ENTITY % <a name="EntityDef.block"
+     id="EntityDef.block"><strong>block</strong></a>
+     "<a href="html401loose.dtd.html#ElementDef21">P</a> | <a href=
+"html401loose.dtd.html#EntityDef.heading">%heading;</a> | <a href=
+"html401loose.dtd.html#EntityDef.list">%list;</a> | <a href=
+"html401loose.dtd.html#EntityDef.preformatted">%preformatted;</a> | <a href="html401loose.dtd.html#ElementDef27">DL</a> | <a href="html401loose.dtd.html#ElementDef10">DIV</a> | <a href="html401loose.dtd.html#ElementDef11">CENTER</a> |
+      <a href="html401loose.dtd.html#ElementDef62">NOSCRIPT</a> | <a href=
+"html401loose.dtd.html#ElementDef54">NOFRAMES</a> | <a href=
+"html401loose.dtd.html#ElementDef25">BLOCKQUOTE</a> | <a href=
+"html401loose.dtd.html#ElementDef34">FORM</a> | <a href=
+"html401loose.dtd.html#ElementDef57">ISINDEX</a> | <a href=
+"html401loose.dtd.html#ElementDef20">HR</a> |
+      <a href="html401loose.dtd.html#ElementDef44">TABLE</a> | <a href=
+"html401loose.dtd.html#ElementDef41">FIELDSET</a> | <a href=
+"html401loose.dtd.html#ElementDef9">ADDRESS</a>"&gt;
+
+&lt;!ENTITY % <a name="EntityDef.flow"
+     id="EntityDef.flow"><strong>flow</strong></a> "<a href=
+     "html401loose.dtd.html#EntityDef.block">%block;</a> | <a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>"&gt;
+
+&lt;!--=================== Document Body ====================================--&gt;
+
+&lt;!ELEMENT <a name="ElementDef8"
+     id="ElementDef8"></a><strong>BODY</strong> O O (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)* +(<a href=
+     "html401loose.dtd.html#ElementDef26">INS</a>|<a href=
+     "html401loose.dtd.html#ElementDef26">DEL</a>) -- document body --&gt;
+&lt;!ATTLIST <a name="AttlistDef8"
+     id="AttlistDef8"></a><strong>BODY</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  onload          <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>   #IMPLIED  -- the document has been loaded --
+  onunload        <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>   #IMPLIED  -- the document has been removed --
+  background      <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>      #IMPLIED  -- texture tile for document
+                                          background --
+  <a href=
+"html401loose.dtd.html#EntityDef.bodycolors">%bodycolors;</a>                         -- bgcolor, text, link, vlink, alink --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef9"
+     id="ElementDef9"></a><strong>ADDRESS</strong> - - ((<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)|<a href=
+     "html401loose.dtd.html#ElementDef21">P</a>)*  -- information on author --&gt;
+&lt;!ATTLIST <a name="AttlistDef9"
+     id="AttlistDef9"></a><strong>ADDRESS</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef10"
+     id="ElementDef10"></a><strong>DIV</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*            -- generic language/style container --&gt;
+&lt;!ATTLIST <a name="AttlistDef10"
+     id="AttlistDef10"></a><strong>DIV</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  <a href=
+"html401loose.dtd.html#EntityDef.align">%align;</a>                              -- align, text alignment --
+  <a href=
+"html401loose.dtd.html#EntityDef.reserved">%reserved;</a>                           -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef11"
+     id="ElementDef11"></a><strong>CENTER</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*         -- shorthand for <a href="html401loose.dtd.html#ElementDef10">DIV</a> align=center --&gt;
+&lt;!ATTLIST <a name="AttlistDef11"
+     id="AttlistDef11"></a><strong>CENTER</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  &gt;
+
+&lt;!--================== The Anchor Element ================================--&gt;
+
+&lt;!ENTITY % <a name="EntityDef.Shape"
+     id=
+     "EntityDef.Shape"><strong>Shape</strong></a> "(rect|circle|poly|default)"&gt;
+&lt;!ENTITY % <a name="EntityDef.Coords"
+     id=
+     "EntityDef.Coords"><strong>Coords</strong></a> "CDATA" -- comma-separated list of lengths --&gt;
+
+&lt;!ELEMENT <a name="ElementDef12"
+     id="ElementDef12"></a><strong>A</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)* -(<a href=
+     "html401loose.dtd.html#ElementDef12">A</a>)       -- anchor --&gt;
+&lt;!ATTLIST <a name="AttlistDef12"
+     id="AttlistDef12"></a><strong>A</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  charset     <a href=
+"html401loose.dtd.html#EntityDef.Charset">%Charset;</a>      #IMPLIED  -- char encoding of linked resource --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.ContentType">%ContentType;</a>  #IMPLIED  -- advisory content type --
+  name        CDATA          #IMPLIED  -- named link end --
+  href        <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- URI for linked resource --
+  hreflang    <a href=
+"html401loose.dtd.html#EntityDef.LanguageCode">%LanguageCode;</a> #IMPLIED  -- language code --
+  target      <a href=
+"html401loose.dtd.html#EntityDef.FrameTarget">%FrameTarget;</a>  #IMPLIED  -- render in this frame --
+  rel         <a href=
+"html401loose.dtd.html#EntityDef.LinkTypes">%LinkTypes;</a>    #IMPLIED  -- forward link types --
+  rev         <a href=
+"html401loose.dtd.html#EntityDef.LinkTypes">%LinkTypes;</a>    #IMPLIED  -- reverse link types --
+  accesskey   <a href=
+"html401loose.dtd.html#EntityDef.Character">%Character;</a>    #IMPLIED  -- accessibility key character --
+  shape       <a href=
+"html401loose.dtd.html#EntityDef.Shape">%Shape;</a>        rect      -- for use with client-side image maps --
+  coords      <a href=
+"html401loose.dtd.html#EntityDef.Coords">%Coords;</a>       #IMPLIED  -- for use with client-side image maps --
+  tabindex    NUMBER         #IMPLIED  -- position in tabbing order --
+  onfocus     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  onblur      <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  &gt;
+
+&lt;!--================== Client-side image maps ============================--&gt;
+
+&lt;!-- These can be placed in the same document or grouped in a
+     separate document although this isn't yet widely supported --&gt;
+
+&lt;!ELEMENT <a name="ElementDef13"
+     id="ElementDef13"></a><strong>MAP</strong> - - ((<a href=
+     "html401loose.dtd.html#EntityDef.block">%block;</a>) | <a href=
+     "html401loose.dtd.html#ElementDef14">AREA</a>)+ -- client-side image map --&gt;
+&lt;!ATTLIST <a name="AttlistDef13"
+     id="AttlistDef13"></a><strong>MAP</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  name        CDATA          #REQUIRED -- for reference by usemap --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef14"
+     id=
+     "ElementDef14"></a><strong>AREA</strong> - O EMPTY               -- client-side image map area --&gt;
+&lt;!ATTLIST <a name="AttlistDef14"
+     id="AttlistDef14"></a><strong>AREA</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  shape       <a href=
+"html401loose.dtd.html#EntityDef.Shape">%Shape;</a>        rect      -- controls interpretation of coords --
+  coords      <a href=
+"html401loose.dtd.html#EntityDef.Coords">%Coords;</a>       #IMPLIED  -- comma-separated list of lengths --
+  href        <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- URI for linked resource --
+  target      <a href=
+"html401loose.dtd.html#EntityDef.FrameTarget">%FrameTarget;</a>  #IMPLIED  -- render in this frame --
+  nohref      (nohref)       #IMPLIED  -- this region has no action --
+  alt         <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #REQUIRED -- short description --
+  tabindex    NUMBER         #IMPLIED  -- position in tabbing order --
+  accesskey   <a href=
+"html401loose.dtd.html#EntityDef.Character">%Character;</a>    #IMPLIED  -- accessibility key character --
+  onfocus     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  onblur      <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  &gt;
+
+&lt;!--================== The LINK Element ==================================--&gt;
+
+&lt;!--
+  Relationship values can be used in principle:
+
+   a) for document specific toolbars/menus when used
+      with the LINK element in document head e.g.
+        start, contents, previous, next, index, end, help
+   b) to link to a separate style sheet (rel=stylesheet)
+   c) to make a link to a script (rel=script)
+   d) by stylesheets to control how collections of
+      html nodes are rendered into printed documents
+   e) to make a link to a printable version of this document
+      e.g. a postscript or pdf version (rel=alternate media=print)
+--&gt;
+
+&lt;!ELEMENT <a name="ElementDef15"
+     id=
+     "ElementDef15"></a><strong>LINK</strong> - O EMPTY               -- a media-independent link --&gt;
+&lt;!ATTLIST <a name="AttlistDef15"
+     id="AttlistDef15"></a><strong>LINK</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  charset     <a href=
+"html401loose.dtd.html#EntityDef.Charset">%Charset;</a>      #IMPLIED  -- char encoding of linked resource --
+  href        <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- URI for linked resource --
+  hreflang    <a href=
+"html401loose.dtd.html#EntityDef.LanguageCode">%LanguageCode;</a> #IMPLIED  -- language code --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.ContentType">%ContentType;</a>  #IMPLIED  -- advisory content type --
+  rel         <a href=
+"html401loose.dtd.html#EntityDef.LinkTypes">%LinkTypes;</a>    #IMPLIED  -- forward link types --
+  rev         <a href=
+"html401loose.dtd.html#EntityDef.LinkTypes">%LinkTypes;</a>    #IMPLIED  -- reverse link types --
+  media       <a href=
+"html401loose.dtd.html#EntityDef.MediaDesc">%MediaDesc;</a>    #IMPLIED  -- for rendering on these media --
+  target      <a href=
+"html401loose.dtd.html#EntityDef.FrameTarget">%FrameTarget;</a>  #IMPLIED  -- render in this frame --
+  &gt;
+
+&lt;!--=================== Images ===========================================--&gt;
+
+&lt;!-- Length defined in strict DTD for cellpadding/cellspacing --&gt;
+&lt;!ENTITY % <a name="EntityDef.Length"
+     id=
+     "EntityDef.Length"><strong>Length</strong></a> "CDATA" -- nn for pixels or nn% for percentage length --&gt;
+&lt;!ENTITY % <a name="EntityDef.MultiLength"
+     id=
+     "EntityDef.MultiLength"><strong>MultiLength</strong></a> "CDATA" -- pixel, percentage, or relative --&gt;
+
+&lt;!<a name="MS2"
+     id="MS2"></a>[ <a href=
+     "html401loose.dtd.html#EntityDef.HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ENTITY % MultiLengths "CDATA" -- comma-separated list of MultiLength --&gt;
+]]&gt;
+
+&lt;!ENTITY % <a name="EntityDef.Pixels"
+     id=
+     "EntityDef.Pixels"><strong>Pixels</strong></a> "CDATA" -- integer representing length in pixels --&gt;
+
+&lt;!ENTITY % <a name="EntityDef.IAlign"
+     id=
+     "EntityDef.IAlign"><strong>IAlign</strong></a> "(top|middle|bottom|left|right)" -- center? --&gt;
+
+&lt;!-- To avoid problems with text-only UAs as well as 
+   to make image content understandable and navigable 
+   to users of non-visual UAs, you need to provide
+   a description with ALT, and avoid server-side image maps --&gt;
+&lt;!ELEMENT <a name="ElementDef16"
+     id=
+     "ElementDef16"></a><strong>IMG</strong> - O EMPTY                -- Embedded image --&gt;
+&lt;!ATTLIST <a name="AttlistDef16"
+     id="AttlistDef16"></a><strong>IMG</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  src         <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #REQUIRED -- URI of image to embed --
+  alt         <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #REQUIRED -- short description --
+  longdesc    <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- link to long description
+                                          (complements alt) --
+  name        CDATA          #IMPLIED  -- name of image for scripting --
+  height      <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- override height --
+  width       <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- override width --
+  usemap      <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- use client-side image map --
+  ismap       (ismap)        #IMPLIED  -- use server-side image map --
+  align       <a href=
+"html401loose.dtd.html#EntityDef.IAlign">%IAlign;</a>       #IMPLIED  -- vertical or horizontal alignment --
+  border      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- link border width --
+  hspace      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- horizontal gutter --
+  vspace      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- vertical gutter --
+  &gt;
+
+&lt;!-- USEMAP points to a MAP element which may be in this document
+  or an external document, although the latter is not widely supported --&gt;
+
+&lt;!--==================== OBJECT ======================================--&gt;
+&lt;!--
+  OBJECT is used to embed objects as part of HTML pages 
+  PARAM elements should precede other content. SGML mixed content
+  model technicality precludes specifying this formally ...
+--&gt;
+
+&lt;!ELEMENT <a name="ElementDef17"
+     id="ElementDef17"></a><strong>OBJECT</strong> - - (<a href=
+     "html401loose.dtd.html#ElementDef18">PARAM</a> | <a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*
+ -- generic embedded object --&gt;
+&lt;!ATTLIST <a name="AttlistDef17"
+     id="AttlistDef17"></a><strong>OBJECT</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  declare     (declare)      #IMPLIED  -- declare but don't instantiate flag --
+  classid     <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- identifies an implementation --
+  codebase    <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- base URI for classid, data, archive--
+  data        <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- reference to object's data --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.ContentType">%ContentType;</a>  #IMPLIED  -- content type for data --
+  codetype    <a href=
+"html401loose.dtd.html#EntityDef.ContentType">%ContentType;</a>  #IMPLIED  -- content type for code --
+  archive     CDATA          #IMPLIED  -- space-separated list of URIs --
+  standby     <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #IMPLIED  -- message to show while loading --
+  height      <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- override height --
+  width       <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- override width --
+  usemap      <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- use client-side image map --
+  name        CDATA          #IMPLIED  -- submit as part of form --
+  tabindex    NUMBER         #IMPLIED  -- position in tabbing order --
+  align       <a href=
+"html401loose.dtd.html#EntityDef.IAlign">%IAlign;</a>       #IMPLIED  -- vertical or horizontal alignment --
+  border      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- link border width --
+  hspace      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- horizontal gutter --
+  vspace      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- vertical gutter --
+  <a href=
+"html401loose.dtd.html#EntityDef.reserved">%reserved;</a>                           -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef18"
+     id=
+     "ElementDef18"></a><strong>PARAM</strong> - O EMPTY              -- named property value --&gt;
+&lt;!ATTLIST <a name="AttlistDef18"
+     id="AttlistDef18"></a><strong>PARAM</strong>
+  id          ID             #IMPLIED  -- document-wide unique id --
+  name        CDATA          #REQUIRED -- property name --
+  value       CDATA          #IMPLIED  -- property value --
+  valuetype   (DATA|REF|OBJECT) DATA   -- How to interpret value --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.ContentType">%ContentType;</a>  #IMPLIED  -- content type for value
+                                          when valuetype=ref --
+  &gt;
+
+&lt;!--=================== Java APPLET ==================================--&gt;
+&lt;!--
+  One of code or object attributes must be present.
+  Place PARAM elements before other content.
+--&gt;
+&lt;!ELEMENT <a name="ElementDef19"
+     id="ElementDef19"></a><strong>APPLET</strong> - - (<a href=
+     "html401loose.dtd.html#ElementDef18">PARAM</a> | <a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)* -- Java applet --&gt;
+&lt;!ATTLIST <a name="AttlistDef19"
+     id="AttlistDef19"></a><strong>APPLET</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  codebase    <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- optional base URI for applet --
+  archive     CDATA          #IMPLIED  -- comma-separated archive list --
+  code        CDATA          #IMPLIED  -- applet class file --
+  object      CDATA          #IMPLIED  -- serialized applet file --
+  alt         <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #IMPLIED  -- short description --
+  name        CDATA          #IMPLIED  -- allows applets to find each other --
+  width       <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #REQUIRED -- initial width --
+  height      <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #REQUIRED -- initial height --
+  align       <a href=
+"html401loose.dtd.html#EntityDef.IAlign">%IAlign;</a>       #IMPLIED  -- vertical or horizontal alignment --
+  hspace      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- horizontal gutter --
+  vspace      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- vertical gutter --
+  &gt;
+
+&lt;!--=================== Horizontal Rule ==================================--&gt;
+
+&lt;!ELEMENT <a name="ElementDef20"
+     id=
+     "ElementDef20"></a><strong>HR</strong> - O EMPTY -- horizontal rule --&gt;
+&lt;!ATTLIST <a name="AttlistDef20"
+     id="AttlistDef20"></a><strong>HR</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  align       (left|center|right) #IMPLIED
+  noshade     (noshade)      #IMPLIED
+  size        <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED
+  width       <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED
+  &gt;
+
+&lt;!--=================== Paragraphs =======================================--&gt;
+
+&lt;!ELEMENT <a name="ElementDef21"
+     id="ElementDef21"></a><strong>P</strong> - O (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*            -- paragraph --&gt;
+&lt;!ATTLIST <a name="AttlistDef21"
+     id="AttlistDef21"></a><strong>P</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  <a href=
+"html401loose.dtd.html#EntityDef.align">%align;</a>                              -- align, text alignment --
+  &gt;
+
+&lt;!--=================== Headings =========================================--&gt;
+
+&lt;!--
+  There are six levels of headings from H1 (the most important)
+  to H6 (the least important).
+--&gt;
+
+&lt;!ELEMENT <a name="ElementDef22"
+     id="ElementDef22"></a><strong>(<a href=
+     "html401loose.dtd.html#EntityDef.heading">%heading;</a>)</strong>  - - (<a href="html401loose.dtd.html#EntityDef.inline">%inline;</a>)* -- heading --&gt;
+&lt;!ATTLIST <a name="AttlistDef22"
+     id="AttlistDef22"></a><strong>(<a href=
+     "html401loose.dtd.html#EntityDef.heading">%heading;</a>)</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  <a href=
+"html401loose.dtd.html#EntityDef.align">%align;</a>                              -- align, text alignment --
+  &gt;
+
+&lt;!--=================== Preformatted Text ================================--&gt;
+
+&lt;!-- excludes markup for images and changes in font size --&gt;
+&lt;!ENTITY % <a name="EntityDef.pre.exclusion"
+     id=
+     "EntityDef.pre.exclusion"><strong>pre.exclusion</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef16">IMG</a>|<a href=
+     "html401loose.dtd.html#ElementDef17">OBJECT</a>|<a href=
+     "html401loose.dtd.html#ElementDef19">APPLET</a>|<a href=
+     "html401loose.dtd.html#ElementDef1">BIG</a>|<a href=
+     "html401loose.dtd.html#ElementDef1">SMALL</a>|<a href=
+     "html401loose.dtd.html#ElementDef2">SUB</a>|<a href=
+     "html401loose.dtd.html#ElementDef2">SUP</a>|<a href=
+     "html401loose.dtd.html#ElementDef6">FONT</a>|<a href=
+     "html401loose.dtd.html#ElementDef5">BASEFONT</a>"&gt;
+
+&lt;!ELEMENT <a name="ElementDef23"
+     id="ElementDef23"></a><strong>PRE</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)* -(<a href=
+     "html401loose.dtd.html#EntityDef.pre.exclusion">%pre.exclusion;</a>) -- preformatted text --&gt;
+&lt;!ATTLIST <a name="AttlistDef23"
+     id="AttlistDef23"></a><strong>PRE</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  width       NUMBER         #IMPLIED
+  &gt;
+
+&lt;!--===================== Inline Quotes ==================================--&gt;
+
+&lt;!ELEMENT <a name="ElementDef24"
+     id="ElementDef24"></a><strong>Q</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*            -- short inline quotation --&gt;
+&lt;!ATTLIST <a name="AttlistDef24"
+     id="AttlistDef24"></a><strong>Q</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  cite        <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- URI for source document or msg --
+  &gt;
+
+&lt;!--=================== Block-like Quotes ================================--&gt;
+
+&lt;!ELEMENT <a name="ElementDef25"
+     id="ElementDef25"></a><strong>BLOCKQUOTE</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*     -- long quotation --&gt;
+&lt;!ATTLIST <a name="AttlistDef25"
+     id="AttlistDef25"></a><strong>BLOCKQUOTE</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  cite        <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- URI for source document or msg --
+  &gt;
+
+&lt;!--=================== Inserted/Deleted Text ============================--&gt;
+
+
+&lt;!-- INS/DEL are handled by inclusion on BODY --&gt;
+&lt;!ELEMENT <a name="ElementDef26"
+     id="ElementDef26"></a><strong>(INS|DEL)</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*      -- inserted text, deleted text --&gt;
+&lt;!ATTLIST <a name="AttlistDef26"
+     id="AttlistDef26"></a><strong>(INS|DEL)</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  cite        <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- info on reason for change --
+  datetime    <a href=
+"html401loose.dtd.html#EntityDef.Datetime">%Datetime;</a>     #IMPLIED  -- date and time of change --
+  &gt;
+
+&lt;!--=================== Lists ============================================--&gt;
+
+&lt;!-- definition lists - DT for term, DD for its definition --&gt;
+
+&lt;!ELEMENT <a name="ElementDef27"
+     id="ElementDef27"></a><strong>DL</strong> - - (<a href=
+     "html401loose.dtd.html#ElementDef28">DT</a>|<a href=
+     "html401loose.dtd.html#ElementDef29">DD</a>)+              -- definition list --&gt;
+&lt;!ATTLIST <a name="AttlistDef27"
+     id="AttlistDef27"></a><strong>DL</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  compact     (compact)      #IMPLIED  -- reduced interitem spacing --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef28"
+     id="ElementDef28"></a><strong>DT</strong> - O (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*           -- definition term --&gt;
+&lt;!ELEMENT <a name="ElementDef29"
+     id="ElementDef29"></a><strong>DD</strong> - O (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*             -- definition description --&gt;
+&lt;!ATTLIST <a name="AttlistDef28"
+     id="AttlistDef28"></a><strong>(DT|DD)</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  &gt;
+
+&lt;!-- Ordered lists (OL) Numbering style
+
+    1   arablic numbers     1, 2, 3, ...
+    a   lower alpha         a, b, c, ...
+    A   upper alpha         A, B, C, ...
+    i   lower roman         i, ii, iii, ...
+    I   upper roman         I, II, III, ...
+
+    The style is applied to the sequence number which by default
+    is reset to 1 for the first list item in an ordered list.
+
+    This can't be expressed directly in SGML due to case folding.
+--&gt;
+
+&lt;!ENTITY % <a name="EntityDef.OLStyle"
+     id=
+     "EntityDef.OLStyle"><strong>OLStyle</strong></a> "CDATA"      -- constrained to: "(1|a|<a href="html401loose.dtd.html#ElementDef12">A</a>|i|<a href="html401loose.dtd.html#ElementDef1">I</a>)" --&gt;
+
+&lt;!ELEMENT <a name="ElementDef30"
+     id="ElementDef30"></a><strong>OL</strong> - - (<a href=
+     "html401loose.dtd.html#ElementDef33">LI</a>)+                 -- ordered list --&gt;
+&lt;!ATTLIST <a name="AttlistDef29"
+     id="AttlistDef29"></a><strong>OL</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.OLStyle">%OLStyle;</a>      #IMPLIED  -- numbering style --
+  compact     (compact)      #IMPLIED  -- reduced interitem spacing --
+  start       NUMBER         #IMPLIED  -- starting sequence number --
+  &gt;
+
+&lt;!-- Unordered Lists (UL) bullet styles --&gt;
+&lt;!ENTITY % <a name="EntityDef.ULStyle"
+     id=
+     "EntityDef.ULStyle"><strong>ULStyle</strong></a> "(disc|square|circle)"&gt;
+
+&lt;!ELEMENT <a name="ElementDef31"
+     id="ElementDef31"></a><strong>UL</strong> - - (<a href=
+     "html401loose.dtd.html#ElementDef33">LI</a>)+                 -- unordered list --&gt;
+&lt;!ATTLIST <a name="AttlistDef30"
+     id="AttlistDef30"></a><strong>UL</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.ULStyle">%ULStyle;</a>      #IMPLIED  -- bullet style --
+  compact     (compact)      #IMPLIED  -- reduced interitem spacing --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef32"
+     id="ElementDef32"></a><strong>(DIR|MENU)</strong> - - (<a href=
+     "html401loose.dtd.html#ElementDef33">LI</a>)+ -(<a href=
+     "html401loose.dtd.html#EntityDef.block">%block;</a>) -- directory list, menu list --&gt;
+&lt;!ATTLIST <a name="AttlistDef31"
+     id="AttlistDef31"></a><strong>DIR</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  compact     (compact)      #IMPLIED -- reduced interitem spacing --
+  &gt;
+&lt;!ATTLIST <a name="AttlistDef32"
+     id="AttlistDef32"></a><strong>MENU</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  compact     (compact)      #IMPLIED -- reduced interitem spacing --
+  &gt;
+
+&lt;!ENTITY % <a name="EntityDef.LIStyle"
+     id=
+     "EntityDef.LIStyle"><strong>LIStyle</strong></a> "CDATA" -- constrained to: "(<a href="html401loose.dtd.html#EntityDef.ULStyle">%ULStyle;</a>|<a href="html401loose.dtd.html#EntityDef.OLStyle">%OLStyle;</a>)" --&gt;
+
+&lt;!ELEMENT <a name="ElementDef33"
+     id="ElementDef33"></a><strong>LI</strong> - O (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*             -- list item --&gt;
+&lt;!ATTLIST <a name="AttlistDef33"
+     id="AttlistDef33"></a><strong>LI</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.LIStyle">%LIStyle;</a>      #IMPLIED  -- list item style --
+  value       NUMBER         #IMPLIED  -- reset sequence number --
+  &gt;
+
+&lt;!--================ Forms ===============================================--&gt;
+&lt;!ELEMENT <a name="ElementDef34"
+     id="ElementDef34"></a><strong>FORM</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)* -(<a href=
+     "html401loose.dtd.html#ElementDef34">FORM</a>)   -- interactive form --&gt;
+&lt;!ATTLIST <a name="AttlistDef34"
+     id="AttlistDef34"></a><strong>FORM</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  action      <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #REQUIRED -- server-side form handler --
+  method      (GET|POST)     GET       -- HTTP method used to submit the form--
+  enctype     <a href=
+"html401loose.dtd.html#EntityDef.ContentType">%ContentType;</a>  "application/x-www-form-urlencoded"
+  accept      <a href=
+"html401loose.dtd.html#EntityDef.ContentTypes">%ContentTypes;</a> #IMPLIED  -- list of MIME types for file upload --
+  name        CDATA          #IMPLIED  -- name of form for scripting --
+  onsubmit    <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the form was submitted --
+  onreset     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the form was reset --
+  target      <a href=
+"html401loose.dtd.html#EntityDef.FrameTarget">%FrameTarget;</a>  #IMPLIED  -- render in this frame --
+  accept-charset <a href=
+"html401loose.dtd.html#EntityDef.Charsets">%Charsets;</a>  #IMPLIED  -- list of supported charsets --
+  &gt;
+
+&lt;!-- Each label must not contain more than ONE field --&gt;
+&lt;!ELEMENT <a name="ElementDef35"
+     id="ElementDef35"></a><strong>LABEL</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)* -(<a href=
+     "html401loose.dtd.html#ElementDef35">LABEL</a>) -- form field label text --&gt;
+&lt;!ATTLIST <a name="AttlistDef35"
+     id="AttlistDef35"></a><strong>LABEL</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  for         IDREF          #IMPLIED  -- matches field ID value --
+  accesskey   <a href=
+"html401loose.dtd.html#EntityDef.Character">%Character;</a>    #IMPLIED  -- accessibility key character --
+  onfocus     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  onblur      <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  &gt;
+
+&lt;!ENTITY % <a name="EntityDef.InputType"
+     id="EntityDef.InputType"><strong>InputType</strong></a>
+  "(TEXT | PASSWORD | CHECKBOX |
+    RADIO | SUBMIT | RESET |
+    FILE | HIDDEN | IMAGE | <a href=
+"html401loose.dtd.html#ElementDef43">BUTTON</a>)"
+   &gt;
+
+&lt;!-- attribute name required for all but submit and reset --&gt;
+&lt;!ELEMENT <a name="ElementDef36"
+     id=
+     "ElementDef36"></a><strong>INPUT</strong> - O EMPTY              -- form control --&gt;
+&lt;!ATTLIST <a name="AttlistDef36"
+     id="AttlistDef36"></a><strong>INPUT</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.InputType">%InputType;</a>    TEXT      -- what kind of widget is needed --
+  name        CDATA          #IMPLIED  -- submit as part of form --
+  value       CDATA          #IMPLIED  -- Specify for radio buttons and checkboxes --
+  checked     (checked)      #IMPLIED  -- for radio buttons and check boxes --
+  disabled    (disabled)     #IMPLIED  -- unavailable in this context --
+  readonly    (readonly)     #IMPLIED  -- for text and passwd --
+  size        CDATA          #IMPLIED  -- specific to each type of field --
+  maxlength   NUMBER         #IMPLIED  -- max chars for text fields --
+  src         <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- for fields with images --
+  alt         CDATA          #IMPLIED  -- short description --
+  usemap      <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- use client-side image map --
+  ismap       (ismap)        #IMPLIED  -- use server-side image map --
+  tabindex    NUMBER         #IMPLIED  -- position in tabbing order --
+  accesskey   <a href=
+"html401loose.dtd.html#EntityDef.Character">%Character;</a>    #IMPLIED  -- accessibility key character --
+  onfocus     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  onblur      <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  onselect    <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- some text was selected --
+  onchange    <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element value was changed --
+  accept      <a href=
+"html401loose.dtd.html#EntityDef.ContentTypes">%ContentTypes;</a> #IMPLIED  -- list of MIME types for file upload --
+  align       <a href=
+"html401loose.dtd.html#EntityDef.IAlign">%IAlign;</a>       #IMPLIED  -- vertical or horizontal alignment --
+  <a href=
+"html401loose.dtd.html#EntityDef.reserved">%reserved;</a>                           -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef37"
+     id="ElementDef37"></a><strong>SELECT</strong> - - (<a href=
+     "html401loose.dtd.html#ElementDef38">OPTGROUP</a>|<a href=
+     "html401loose.dtd.html#ElementDef39">OPTION</a>)+ -- option selector --&gt;
+&lt;!ATTLIST <a name="AttlistDef37"
+     id="AttlistDef37"></a><strong>SELECT</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  name        CDATA          #IMPLIED  -- field name --
+  size        NUMBER         #IMPLIED  -- rows visible --
+  multiple    (multiple)     #IMPLIED  -- default is single selection --
+  disabled    (disabled)     #IMPLIED  -- unavailable in this context --
+  tabindex    NUMBER         #IMPLIED  -- position in tabbing order --
+  onfocus     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  onblur      <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  onchange    <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element value was changed --
+  <a href=
+"html401loose.dtd.html#EntityDef.reserved">%reserved;</a>                           -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef38"
+     id="ElementDef38"></a><strong>OPTGROUP</strong> - - (<a href=
+     "html401loose.dtd.html#ElementDef39">OPTION</a>)+ -- option group --&gt;
+&lt;!ATTLIST <a name="AttlistDef38"
+     id="AttlistDef38"></a><strong>OPTGROUP</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  disabled    (disabled)     #IMPLIED  -- unavailable in this context --
+  label       <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #REQUIRED -- for use in hierarchical menus --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef39"
+     id=
+     "ElementDef39"></a><strong>OPTION</strong> - O (#PCDATA)         -- selectable choice --&gt;
+&lt;!ATTLIST <a name="AttlistDef39"
+     id="AttlistDef39"></a><strong>OPTION</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  selected    (selected)     #IMPLIED
+  disabled    (disabled)     #IMPLIED  -- unavailable in this context --
+  label       <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #IMPLIED  -- for use in hierarchical menus --
+  value       CDATA          #IMPLIED  -- defaults to element content --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef40"
+     id=
+     "ElementDef40"></a><strong>TEXTAREA</strong> - - (#PCDATA)       -- multi-line text field --&gt;
+&lt;!ATTLIST <a name="AttlistDef40"
+     id="AttlistDef40"></a><strong>TEXTAREA</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  name        CDATA          #IMPLIED
+  rows        NUMBER         #REQUIRED
+  cols        NUMBER         #REQUIRED
+  disabled    (disabled)     #IMPLIED  -- unavailable in this context --
+  readonly    (readonly)     #IMPLIED
+  tabindex    NUMBER         #IMPLIED  -- position in tabbing order --
+  accesskey   <a href=
+"html401loose.dtd.html#EntityDef.Character">%Character;</a>    #IMPLIED  -- accessibility key character --
+  onfocus     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  onblur      <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  onselect    <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- some text was selected --
+  onchange    <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element value was changed --
+  <a href=
+"html401loose.dtd.html#EntityDef.reserved">%reserved;</a>                           -- reserved for possible future use --
+  &gt;
+
+&lt;!--
+  #PCDATA is to solve the mixed content problem,
+  per specification only whitespace is allowed there!
+ --&gt;
+&lt;!ELEMENT <a name="ElementDef41"
+     id="ElementDef41"></a><strong>FIELDSET</strong> - - (#PCDATA,<a href=
+     "html401loose.dtd.html#ElementDef42">LEGEND</a>,(<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*) -- form control group --&gt;
+&lt;!ATTLIST <a name="AttlistDef41"
+     id="AttlistDef41"></a><strong>FIELDSET</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef42"
+     id="ElementDef42"></a><strong>LEGEND</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*       -- fieldset legend --&gt;
+&lt;!ENTITY % <a name="EntityDef.LAlign"
+     id=
+     "EntityDef.LAlign"><strong>LAlign</strong></a> "(top|bottom|left|right)"&gt;
+
+&lt;!ATTLIST <a name="AttlistDef42"
+     id="AttlistDef42"></a><strong>LEGEND</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  accesskey   <a href=
+"html401loose.dtd.html#EntityDef.Character">%Character;</a>    #IMPLIED  -- accessibility key character --
+  align       <a href=
+"html401loose.dtd.html#EntityDef.LAlign">%LAlign;</a>       #IMPLIED  -- relative to fieldset --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef43"
+     id="ElementDef43"></a><strong>BUTTON</strong> - -
+     (<a href=
+"html401loose.dtd.html#EntityDef.flow">%flow;</a>)* -(<a href=
+"html401loose.dtd.html#ElementDef12">A</a>|<a href=
+"html401loose.dtd.html#EntityDef.formctrl">%formctrl;</a>|<a href=
+"html401loose.dtd.html#ElementDef34">FORM</a>|<a href=
+"html401loose.dtd.html#ElementDef57">ISINDEX</a>|<a href=
+"html401loose.dtd.html#ElementDef41">FIELDSET</a>|<a href=
+"html401loose.dtd.html#ElementDef53">IFRAME</a>)
+     -- push button --&gt;
+&lt;!ATTLIST <a name="AttlistDef43"
+     id="AttlistDef43"></a><strong>BUTTON</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  name        CDATA          #IMPLIED
+  value       CDATA          #IMPLIED  -- sent to server when submitted --
+  type        (button|submit|reset) submit -- for use as form button --
+  disabled    (disabled)     #IMPLIED  -- unavailable in this context --
+  tabindex    NUMBER         #IMPLIED  -- position in tabbing order --
+  accesskey   <a href=
+"html401loose.dtd.html#EntityDef.Character">%Character;</a>    #IMPLIED  -- accessibility key character --
+  onfocus     <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element got the focus --
+  onblur      <a href=
+"html401loose.dtd.html#EntityDef.Script">%Script;</a>       #IMPLIED  -- the element lost the focus --
+  <a href=
+"html401loose.dtd.html#EntityDef.reserved">%reserved;</a>                           -- reserved for possible future use --
+  &gt;
+
+&lt;!--======================= Tables =======================================--&gt;
+
+&lt;!-- IETF HTML table standard, see [RFC1942] --&gt;
+
+&lt;!--
+ The BORDER attribute sets the thickness of the frame around the
+ table. The default units are screen pixels.
+
+ The FRAME attribute specifies which parts of the frame around
+ the table should be rendered. The values are not the same as
+ CALS to avoid a name clash with the VALIGN attribute.
+
+ The value "border" is included for backwards compatibility with
+ &lt;TABLE BORDER&gt; which yields frame=border and border=implied
+ For &lt;TABLE BORDER=1&gt; you get border=1 and frame=implied. In this
+ case, it is appropriate to treat this as frame=border for backwards
+ compatibility with deployed browsers.
+--&gt;
+&lt;!ENTITY % <a name="EntityDef.TFrame"
+     id=
+     "EntityDef.TFrame"><strong>TFrame</strong></a> "(void|above|below|hsides|lhs|rhs|vsides|box|border)"&gt;
+
+&lt;!--
+ The RULES attribute defines which rules to draw between cells:
+
+ If RULES is absent then assume:
+     "none" if BORDER is absent or BORDER=0 otherwise "all"
+--&gt;
+
+&lt;!ENTITY % <a name="EntityDef.TRules"
+     id=
+     "EntityDef.TRules"><strong>TRules</strong></a> "(none | groups | rows | cols | all)"&gt;
+  
+&lt;!-- horizontal placement of table relative to document --&gt;
+&lt;!ENTITY % <a name="EntityDef.TAlign"
+     id=
+     "EntityDef.TAlign"><strong>TAlign</strong></a> "(left|center|right)"&gt;
+
+&lt;!-- horizontal alignment attributes for cell contents --&gt;
+&lt;!ENTITY % <a name="EntityDef.cellhalign"
+     id="EntityDef.cellhalign"><strong>cellhalign</strong></a>
+  "align      (left|center|right|justify|char) #IMPLIED
+   char       <a href=
+"html401loose.dtd.html#EntityDef.Character">%Character;</a>    #IMPLIED  -- alignment char, e.g. char=':' --
+   charoff    <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- offset for alignment char --"
+  &gt;
+
+&lt;!-- vertical alignment attributes for cell contents --&gt;
+&lt;!ENTITY % <a name="EntityDef.cellvalign"
+     id="EntityDef.cellvalign"><strong>cellvalign</strong></a>
+  "valign     (top|middle|bottom|baseline) #IMPLIED"
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef44"
+     id="ElementDef44"></a><strong>TABLE</strong> - -
+     (<a href="html401loose.dtd.html#ElementDef45">CAPTION</a>?, (<a href=
+"html401loose.dtd.html#ElementDef50">COL</a>*|<a href=
+"html401loose.dtd.html#ElementDef49">COLGROUP</a>*), <a href=
+"html401loose.dtd.html#ElementDef46">THEAD</a>?, <a href=
+"html401loose.dtd.html#ElementDef47">TFOOT</a>?, <a href=
+"html401loose.dtd.html#ElementDef48">TBODY</a>+)&gt;
+&lt;!ELEMENT <a name="ElementDef45"
+     id="ElementDef45"></a><strong>CAPTION</strong>  - - (<a href=
+     "html401loose.dtd.html#EntityDef.inline">%inline;</a>)*     -- table caption --&gt;
+&lt;!ELEMENT <a name="ElementDef46"
+     id="ElementDef46"></a><strong>THEAD</strong>    - O (<a href=
+     "html401loose.dtd.html#ElementDef51">TR</a>)+           -- table header --&gt;
+&lt;!ELEMENT <a name="ElementDef47"
+     id="ElementDef47"></a><strong>TFOOT</strong>    - O (<a href=
+     "html401loose.dtd.html#ElementDef51">TR</a>)+           -- table footer --&gt;
+&lt;!ELEMENT <a name="ElementDef48"
+     id="ElementDef48"></a><strong>TBODY</strong>    O O (<a href=
+     "html401loose.dtd.html#ElementDef51">TR</a>)+           -- table body --&gt;
+&lt;!ELEMENT <a name="ElementDef49"
+     id="ElementDef49"></a><strong>COLGROUP</strong> - O (<a href=
+     "html401loose.dtd.html#ElementDef50">COL</a>)*          -- table column group --&gt;
+&lt;!ELEMENT <a name="ElementDef50"
+     id=
+     "ElementDef50"></a><strong>COL</strong>      - O EMPTY           -- table column --&gt;
+&lt;!ELEMENT <a name="ElementDef51"
+     id="ElementDef51"></a><strong>TR</strong>       - O (<a href=
+     "html401loose.dtd.html#ElementDef52">TH</a>|<a href=
+     "html401loose.dtd.html#ElementDef52">TD</a>)+        -- table row --&gt;
+&lt;!ELEMENT <a name="ElementDef52"
+     id="ElementDef52"></a><strong>(TH|TD)</strong>  - O (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*       -- table header cell, table data cell--&gt;
+
+&lt;!ATTLIST <a name="AttlistDef44"
+     id=
+     "AttlistDef44"></a><strong>TABLE</strong>                        -- table element --
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  summary     <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #IMPLIED  -- purpose/structure for speech output--
+  width       <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- table width --
+  border      <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- controls frame width around table --
+  frame       <a href=
+"html401loose.dtd.html#EntityDef.TFrame">%TFrame;</a>       #IMPLIED  -- which parts of frame to render --
+  rules       <a href=
+"html401loose.dtd.html#EntityDef.TRules">%TRules;</a>       #IMPLIED  -- rulings between rows and cols --
+  cellspacing <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- spacing between cells --
+  cellpadding <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- spacing within cells --
+  align       <a href=
+"html401loose.dtd.html#EntityDef.TAlign">%TAlign;</a>       #IMPLIED  -- table position relative to window --
+  bgcolor     <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- background color for cells --
+  <a href=
+"html401loose.dtd.html#EntityDef.reserved">%reserved;</a>                           -- reserved for possible future use --
+  datapagesize CDATA         #IMPLIED  -- reserved for possible future use --
+  &gt;
+
+&lt;!ENTITY % <a name="EntityDef.CAlign"
+     id=
+     "EntityDef.CAlign"><strong>CAlign</strong></a> "(top|bottom|left|right)"&gt;
+
+&lt;!ATTLIST <a name="AttlistDef45"
+     id="AttlistDef45"></a><strong>CAPTION</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  align       <a href=
+"html401loose.dtd.html#EntityDef.CAlign">%CAlign;</a>       #IMPLIED  -- relative to table --
+  &gt;
+
+&lt;!--
+COLGROUP groups a set of COL elements. It allows you to group
+several semantically related columns together.
+--&gt;
+&lt;!ATTLIST <a name="AttlistDef46"
+     id="AttlistDef46"></a><strong>COLGROUP</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  span        NUMBER         1         -- default number of columns in group --
+  width       <a href=
+"html401loose.dtd.html#EntityDef.MultiLength">%MultiLength;</a>  #IMPLIED  -- default width for enclosed COLs --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellhalign">%cellhalign;</a>                         -- horizontal alignment in cells --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellvalign">%cellvalign;</a>                         -- vertical alignment in cells --
+  &gt;
+
+&lt;!--
+ COL elements define the alignment properties for cells in
+ one or more columns.
+
+ The WIDTH attribute specifies the width of the columns, e.g.
+
+     width=64        width in screen pixels
+     width=0.5*      relative width of 0.5
+
+ The SPAN attribute causes the attributes of one
+ COL element to apply to more than one column.
+--&gt;
+&lt;!ATTLIST <a name="AttlistDef47"
+     id=
+     "AttlistDef47"></a><strong>COL</strong>                          -- column groups and properties --
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  span        NUMBER         1         -- COL attributes affect N columns --
+  width       <a href=
+"html401loose.dtd.html#EntityDef.MultiLength">%MultiLength;</a>  #IMPLIED  -- column width specification --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellhalign">%cellhalign;</a>                         -- horizontal alignment in cells --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellvalign">%cellvalign;</a>                         -- vertical alignment in cells --
+  &gt;
+
+&lt;!--
+    Use THEAD to duplicate headers when breaking table
+    across page boundaries, or for static headers when
+    TBODY sections are rendered in scrolling panel.
+
+    Use TFOOT to duplicate footers when breaking table
+    across page boundaries, or for static footers when
+    TBODY sections are rendered in scrolling panel.
+
+    Use multiple TBODY sections when rules are needed
+    between groups of table rows.
+--&gt;
+&lt;!ATTLIST <a name="AttlistDef48"
+     id=
+     "AttlistDef48"></a><strong>(THEAD|TBODY|TFOOT)</strong>          -- table section --
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellhalign">%cellhalign;</a>                         -- horizontal alignment in cells --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellvalign">%cellvalign;</a>                         -- vertical alignment in cells --
+  &gt;
+
+&lt;!ATTLIST <a name="AttlistDef49"
+     id=
+     "AttlistDef49"></a><strong>TR</strong>                           -- table row --
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellhalign">%cellhalign;</a>                         -- horizontal alignment in cells --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellvalign">%cellvalign;</a>                         -- vertical alignment in cells --
+  bgcolor     <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- background color for row --
+  &gt;
+
+
+&lt;!-- Scope is simpler than headers attribute for common tables --&gt;
+&lt;!ENTITY % <a name="EntityDef.Scope"
+     id=
+     "EntityDef.Scope"><strong>Scope</strong></a> "(row|col|rowgroup|colgroup)"&gt;
+
+&lt;!-- TH is for headers, TD for data, but for cells acting as both use TD --&gt;
+&lt;!ATTLIST <a name="AttlistDef50"
+     id=
+     "AttlistDef50"></a><strong>(TH|TD)</strong>                      -- header or data cell --
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  abbr        <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #IMPLIED  -- abbreviation for header cell --
+  axis        CDATA          #IMPLIED  -- comma-separated list of related headers--
+  headers     IDREFS         #IMPLIED  -- list of id's for header cells --
+  scope       <a href=
+"html401loose.dtd.html#EntityDef.Scope">%Scope;</a>        #IMPLIED  -- scope covered by header cells --
+  rowspan     NUMBER         1         -- number of rows spanned by cell --
+  colspan     NUMBER         1         -- number of cols spanned by cell --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellhalign">%cellhalign;</a>                         -- horizontal alignment in cells --
+  <a href=
+"html401loose.dtd.html#EntityDef.cellvalign">%cellvalign;</a>                         -- vertical alignment in cells --
+  nowrap      (nowrap)       #IMPLIED  -- suppress word wrap --
+  bgcolor     <a href=
+"html401loose.dtd.html#EntityDef.Color">%Color;</a>        #IMPLIED  -- cell background color --
+  width       <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- width for cell --
+  height      <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- height for cell --
+  &gt;
+
+&lt;!--================== Document Frames ===================================--&gt;
+
+&lt;!--
+  The content model for HTML documents depends on whether the HEAD is
+  followed by a FRAMESET or BODY element. The widespread omission of
+  the BODY start tag makes it impractical to define the content model
+  without the use of a marked section.
+--&gt;
+
+&lt;!<a name="MS3"
+     id="MS3"></a>[ <a href=
+     "html401loose.dtd.html#EntityDef.HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ELEMENT FRAMESET - - ((FRAMESET|FRAME)+ &amp; NOFRAMES?) -- window subdivision--&gt;
+&lt;!ATTLIST FRAMESET
+  %coreattrs;                          -- id, class, style, title --
+  rows        %MultiLengths; #IMPLIED  -- list of lengths,
+                                          default: 100% (1 row) --
+  cols        %MultiLengths; #IMPLIED  -- list of lengths,
+                                          default: 100% (1 col) --
+  onload      %Script;       #IMPLIED  -- all the frames have been loaded  -- 
+  onunload    %Script;       #IMPLIED  -- all the frames have been removed -- 
+  &gt;
+]]&gt;
+
+&lt;!<a name="MS4"
+     id="MS4"></a>[ <a href=
+     "html401loose.dtd.html#EntityDef.HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!-- reserved frame names start with "_" otherwise starts with letter --&gt;
+&lt;!ELEMENT FRAME - O EMPTY              -- subwindow --&gt;
+&lt;!ATTLIST FRAME
+  %coreattrs;                          -- id, class, style, title --
+  longdesc    %URI;          #IMPLIED  -- link to long description
+                                          (complements title) --
+  name        CDATA          #IMPLIED  -- name of frame for targetting --
+  src         %URI;          #IMPLIED  -- source of frame content --
+  frameborder (1|0)          1         -- request frame borders? --
+  marginwidth %Pixels;       #IMPLIED  -- margin widths in pixels --
+  marginheight %Pixels;      #IMPLIED  -- margin height in pixels --
+  noresize    (noresize)     #IMPLIED  -- allow users to resize frames? --
+  scrolling   (yes|no|auto)  auto      -- scrollbar or none --
+  &gt;
+]]&gt;
+
+&lt;!ELEMENT <a name="ElementDef53"
+     id="ElementDef53"></a><strong>IFRAME</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*         -- inline subwindow --&gt;
+&lt;!ATTLIST <a name="AttlistDef51"
+     id="AttlistDef51"></a><strong>IFRAME</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  longdesc    <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- link to long description
+                                          (complements title) --
+  name        CDATA          #IMPLIED  -- name of frame for targetting --
+  src         <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- source of frame content --
+  frameborder (1|0)          1         -- request frame borders? --
+  marginwidth <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>       #IMPLIED  -- margin widths in pixels --
+  marginheight <a href=
+"html401loose.dtd.html#EntityDef.Pixels">%Pixels;</a>      #IMPLIED  -- margin height in pixels --
+  scrolling   (yes|no|auto)  auto      -- scrollbar or none --
+  align       <a href=
+"html401loose.dtd.html#EntityDef.IAlign">%IAlign;</a>       #IMPLIED  -- vertical or horizontal alignment --
+  height      <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- frame height --
+  width       <a href=
+"html401loose.dtd.html#EntityDef.Length">%Length;</a>       #IMPLIED  -- frame width --
+  &gt;
+
+&lt;!<a name="MS5"
+     id="MS5"></a>[ <a href=
+     "html401loose.dtd.html#EntityDef.HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ENTITY % noframes.content "(BODY) -(NOFRAMES)"&gt;
+]]&gt;
+
+&lt;!ENTITY % <a name="EntityDef.noframes.content"
+     id=
+     "EntityDef.noframes.content"><strong>noframes.content</strong></a> "(<a href="html401loose.dtd.html#EntityDef.flow">%flow;</a>)*"&gt;
+
+&lt;!ELEMENT <a name="ElementDef54"
+     id="ElementDef54"></a><strong>NOFRAMES</strong> - - <a href=
+     "html401loose.dtd.html#EntityDef.noframes.content">%noframes.content;</a>
+ -- alternate content container for non frame-based rendering --&gt;
+&lt;!ATTLIST <a name="AttlistDef52"
+     id="AttlistDef52"></a><strong>NOFRAMES</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  &gt;
+
+&lt;!--================ Document Head =======================================--&gt;
+&lt;!-- %head.misc; defined earlier on as "SCRIPT|STYLE|META|LINK|OBJECT" --&gt;
+&lt;!ENTITY % <a name="EntityDef.head.content"
+     id=
+     "EntityDef.head.content"><strong>head.content</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef56">TITLE</a> &amp; <a href=
+     "html401loose.dtd.html#ElementDef57">ISINDEX</a>? &amp; <a href=
+     "html401loose.dtd.html#ElementDef58">BASE</a>?"&gt;
+
+&lt;!ELEMENT <a name="ElementDef55"
+     id="ElementDef55"></a><strong>HEAD</strong> O O (<a href=
+     "html401loose.dtd.html#EntityDef.head.content">%head.content;</a>) +(<a href="html401loose.dtd.html#EntityDef.head.misc">%head.misc;</a>) -- document head --&gt;
+&lt;!ATTLIST <a name="AttlistDef53"
+     id="AttlistDef53"></a><strong>HEAD</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.i18n">%i18n;</a>                               -- lang, dir --
+  profile     <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- named dictionary of meta info --
+  &gt;
+
+&lt;!-- The TITLE element is not considered part of the flow of text.
+       It should be displayed, for example as the page header or
+       window title. Exactly one title is required per document.
+    --&gt;
+&lt;!ELEMENT <a name="ElementDef56"
+     id="ElementDef56"></a><strong>TITLE</strong> - - (#PCDATA) -(<a href=
+     "html401loose.dtd.html#EntityDef.head.misc">%head.misc;</a>) -- document title --&gt;
+&lt;!ATTLIST <a name="AttlistDef54"
+     id="AttlistDef54"></a><strong>TITLE</strong> <a href=
+     "html401loose.dtd.html#EntityDef.i18n">%i18n</a>&gt;
+
+&lt;!ELEMENT <a name="ElementDef57"
+     id=
+     "ElementDef57"></a><strong>ISINDEX</strong> - O EMPTY            -- single line prompt --&gt;
+&lt;!ATTLIST <a name="AttlistDef55"
+     id="AttlistDef55"></a><strong>ISINDEX</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.coreattrs">%coreattrs;</a>                          -- id, class, style, title --
+  <a href=
+"html401loose.dtd.html#EntityDef.i18n">%i18n;</a>                               -- lang, dir --
+  prompt      <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #IMPLIED  -- prompt message --&gt;
+
+&lt;!ELEMENT <a name="ElementDef58"
+     id=
+     "ElementDef58"></a><strong>BASE</strong> - O EMPTY               -- document base URI --&gt;
+&lt;!ATTLIST <a name="AttlistDef56"
+     id="AttlistDef56"></a><strong>BASE</strong>
+  href        <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- URI that acts as base URI --
+  target      <a href=
+"html401loose.dtd.html#EntityDef.FrameTarget">%FrameTarget;</a>  #IMPLIED  -- render in this frame --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef59"
+     id=
+     "ElementDef59"></a><strong>META</strong> - O EMPTY               -- generic metainformation --&gt;
+&lt;!ATTLIST <a name="AttlistDef57"
+     id="AttlistDef57"></a><strong>META</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.i18n">%i18n;</a>                               -- lang, dir, for use with content --
+  http-equiv  NAME           #IMPLIED  -- HTTP response header name  --
+  name        NAME           #IMPLIED  -- metainformation name --
+  content     CDATA          #REQUIRED -- associated information --
+  scheme      CDATA          #IMPLIED  -- select form of content --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef60"
+     id="ElementDef60"></a><strong>STYLE</strong> - - <a href=
+     "html401loose.dtd.html#EntityDef.StyleSheet">%StyleSheet</a>        -- style info --&gt;
+&lt;!ATTLIST <a name="AttlistDef58"
+     id="AttlistDef58"></a><strong>STYLE</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.i18n">%i18n;</a>                               -- lang, dir, for use with title --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.ContentType">%ContentType;</a>  #REQUIRED -- content type of style language --
+  media       <a href=
+"html401loose.dtd.html#EntityDef.MediaDesc">%MediaDesc;</a>    #IMPLIED  -- designed for use with these media --
+  title       <a href=
+"html401loose.dtd.html#EntityDef.Text">%Text;</a>         #IMPLIED  -- advisory title --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef61"
+     id="ElementDef61"></a><strong>SCRIPT</strong> - - <a href=
+     "html401loose.dtd.html#EntityDef.Script">%Script;</a>          -- script statements --&gt;
+&lt;!ATTLIST <a name="AttlistDef59"
+     id="AttlistDef59"></a><strong>SCRIPT</strong>
+  charset     <a href=
+"html401loose.dtd.html#EntityDef.Charset">%Charset;</a>      #IMPLIED  -- char encoding of linked resource --
+  type        <a href=
+"html401loose.dtd.html#EntityDef.ContentType">%ContentType;</a>  #REQUIRED -- content type of script language --
+  language    CDATA          #IMPLIED  -- predefined script language name --
+  src         <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- URI for an external script --
+  defer       (defer)        #IMPLIED  -- UA may defer execution of script --
+  event       CDATA          #IMPLIED  -- reserved for possible future use --
+  for         <a href=
+"html401loose.dtd.html#EntityDef.URI">%URI;</a>          #IMPLIED  -- reserved for possible future use --
+  &gt;
+
+&lt;!ELEMENT <a name="ElementDef62"
+     id="ElementDef62"></a><strong>NOSCRIPT</strong> - - (<a href=
+     "html401loose.dtd.html#EntityDef.flow">%flow;</a>)*
+  -- alternate content container for non script-based rendering --&gt;
+&lt;!ATTLIST <a name="AttlistDef60"
+     id="AttlistDef60"></a><strong>NOSCRIPT</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.attrs">%attrs;</a>                              -- <a href="html401loose.dtd.html#EntityDef.coreattrs">%coreattrs</a>, <a href="html401loose.dtd.html#EntityDef.i18n">%i18n</a>, <a href="html401loose.dtd.html#EntityDef.events">%events</a> --
+  &gt;
+
+&lt;!--================ Document Structure ==================================--&gt;
+&lt;!ENTITY % <a name="EntityDef.version"
+     id=
+     "EntityDef.version"><strong>version</strong></a> "version CDATA #FIXED '<a href="html401loose.dtd.html#EntityDef.HTML.Version">%HTML.Version;</a>'"&gt;
+
+&lt;!<a name="MS6"
+     id="MS6"></a>[ <a href=
+     "html401loose.dtd.html#EntityDef.HTML.Frameset">%HTML.Frameset;</a> [
+&lt;!ENTITY % html.content "HEAD, FRAMESET"&gt;
+]]&gt;
+
+&lt;!ENTITY % <a name="EntityDef.html.content"
+     id=
+     "EntityDef.html.content"><strong>html.content</strong></a> "<a href=
+     "html401loose.dtd.html#ElementDef55">HEAD</a>, <a href=
+     "html401loose.dtd.html#ElementDef8">BODY</a>"&gt;
+
+&lt;!ELEMENT <a name="ElementDef63"
+     id="ElementDef63"></a><strong>HTML</strong> O O (<a href=
+     "html401loose.dtd.html#EntityDef.html.content">%html.content;</a>)    -- document root element --&gt;
+&lt;!ATTLIST <a name="AttlistDef61"
+     id="AttlistDef61"></a><strong>HTML</strong>
+  <a href=
+"html401loose.dtd.html#EntityDef.i18n">%i18n;</a>                               -- lang, dir --
+  <a href="html401loose.dtd.html#EntityDef.version">%version;</a>
+  &gt;
+<?LIVEDTD EOF?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>

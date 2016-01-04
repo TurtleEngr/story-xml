@@ -191,11 +191,12 @@
     </h:attr-help>
     <h:attr-help name="link-fmt">
       <h:short-help>default - use the link tag's attr (if pdf, no 'a' tag)
+      
       <br />full - force attr: img title, url, content (if pdf, no 'a'
-      tag)
-      <br />long - force attr: title, url, content (if pdf, no 'a' tag)
-      <br />short - force attr: title, url (if pdf, no 'a' tag)
-      <br />text - force attr: title, url (no 'a' tag)
+      tag) 
+      <br />long - force attr: title, url, content (if pdf, no 'a' tag) 
+      <br />short - force attr: title, url (if pdf, no 'a' tag) 
+      <br />text - force attr: title, url (no 'a' tag) 
       <br />plain - force attr: title (no 'a' tag)</h:short-help>
     </h:attr-help>
     <h:attr-help name="preface">
@@ -366,11 +367,11 @@
     </h:attr-help>
     <h:attr-help name="ch-page-break">
       <h:short-help>Controls page breaks for chapters. TOC always starts
-      on odd page.
+      on odd page. 
       <br />none - ch-preface, preface and first chapter start on a new
       page. 
       <br />some-odd - ch-preface, preface first chapter, and epilog start
-      on odd pages. Other chapters break on any page.
+      on odd pages. Other chapters break on any page. 
       <br />all-odd - same as some-odd, but all chapters start on odd
       pages.</h:short-help>
     </h:attr-help>
@@ -389,29 +390,29 @@
       edge).</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-align">
-      <h:short-help>Print only: Heading aligment:
+      <h:short-help>Print only: Heading aligment: 
       <br />page no. is aways on outside edge, if there is other text. If
-      just page-no head-type, then head-align applies to the page-no.
-      <br />left - align non-page text to inside edge
-      <br />right - align non-page text to outside edge
+      just page-no head-type, then head-align applies to the page-no. 
+      <br />left - align non-page text to inside edge 
+      <br />right - align non-page text to outside edge 
       <br />center - center the text</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-family">
       <h:short-help>Page header font family</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-location">
-      <h:short-help>Print only: Heading location.
-      <br />top - top of page, with a rule line below
+      <h:short-help>Print only: Heading location. 
+      <br />top - top of page, with a rule line below 
       <br />bottom - bottom of page, with a rule line above</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-size">
       <h:short-help>Page header font size.</h:short-help>
     </h:attr-help>
     <h:attr-help name="head-type">
-      <h:short-help>Print only: Heading type:
-      <br />page-no - only page numbers
-      <br />title - numbers outside, title inside
-      <br />author-title - numbers outside, author even, title odd
+      <h:short-help>Print only: Heading type: 
+      <br />page-no - only page numbers 
+      <br />title - numbers outside, title inside 
+      <br />author-title - numbers outside, author even, title odd 
       <br />title-chapter - numbers outside, title even, chapter
       odd</h:short-help>
     </h:attr-help>
