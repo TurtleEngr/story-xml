@@ -1,0 +1,44 @@
+#!/bin/bash
+# ini2env
+
+cCurDir=$PWD
+
+# -------------------
+# Define the location of the script
+if [ $0 = ${0%/*} ]; then
+	cBin=$(whence $cName)
+	cBin=${cBin%/*}
+else
+	cBin=${0%/*}
+fi
+cd $cBin
+cBin=$PWD
+cd $cCurDir
+
+# -------------------
+cDefaultIni=$cBin/../etc/story-xml.ini
+cDefaultEnv=$cBin/../etc/story-xml.env
+cIni=$HOME/.story-xml/config.ini
+cEnv=$HOME/.story-xml/config.env
+
+export GIT_CONFIG=$cIni
+
+if [ ! -d $HOME/.story-xml ]; then
+	echo "Create: $HOME/.story-xml"
+	mkdir $HOME/.story-xml
+fi
+
+if [ ! -f $cIni ]; then
+	echo "Create default: $cIni"
+	cp $cDefaultIni $cIni
+	chmod a+r $cIni
+fi
+
+# -------------------
+git config -l | awk '{
+	gsub("\\.","_");
+	sub("=","=\"");
+	print "export", $0 "\"";
+}' >$cEnv
+chmod a+rx $cEnv
+echo "Create: $cEnv"
