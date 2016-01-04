@@ -32,6 +32,8 @@ Version 5
   Changed other attr to be optional.
   Changed from empty tag to "simple-text".
 
+* Renamed bin/story-fmt to bin/story-xml
+
 ============================================================
 Version 4
 

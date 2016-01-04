@@ -96,5 +96,372 @@ tNameName - local variable
 </pre>
     </li>
   </ol>
+
+<h2>www.lulu.com</h2>
+
+<p>Pocket Size, 6.25in x 9.25in, Perfect Binding, $4.53 + $0.02/page</p>
+
+<p>300dpi images.</p>
+
+<p>Text area: .5in margin minimum; .3in gutter</p>
+<p>Bleed area (no text, ever): right Edge .25in, Top/bottom: .125in</p>
+
+<p>Gutter (binding margin): recommended: .1in or .2in</p>
+<p>For a 6" x 9" book, 30 lines/page is recommended</p>
+
+<p>Fonts should be embedded in the PDF file.</p>
+
+<p>TOC is after, dedication, preface.</p>
+
+<p>Total page count should be divisibe by 4, last page should be
+blank. Add blank pages to make it a multiple of 4.</p>
+
+<h2>User Directory Layout<h2>
+<pre>
+/home/
+    USER/
+        .story-xml/
+            config
+        PROJECT/
+            book.xml
+            chapter1.xml
+            chapter2.xml
+            format/
+                book-id.pdf
+                book-id.html
+                book-id.draft.html
+                book-id.ch.html # serial toc
+                book-id.chN.html        # serial
+                book-id.ch.N.txt        # serial (wrap at N char)
+                book-id.man.pdf # manuscript format (double spaced)
+                book-id.tidy.xml
+                book-id.fo
+                book-id.docbook.xml
+                book-id.proj.xml        # libre project
+                book-id.planner.xml     # planner
+</pre>
+
+<h2>Program Directory Layout<h2>
+
+<h3>story-xml</h3>
+
+<pre>
+/opt/
+    story-xml/
+        bin/
+            convert-1to2.sh*
+            convert-2to3.sh*
+            convert-3to4.sh*
+            pub-fop-pdf.sh*
+            pub-fop-ps.sh*
+            pub-xsltproc-multi.sh*
+            pub-xsltproc.sh*
+            story-xml*
+	    story-xml-confif*
+	etc/
+	    story-xml.config
+	    story-xml.ini
+        doc/
+            CHANGES
+            LICENSE
+            README.html
+            gplv3-127x51.png
+            story-xml-manual.html
+            story-xml-reference.html
+            story-xml.html	# pod2html ../bin/story-xml >story-xml.html
+            story-xml.1.gz	# pod2man ../bin/story-xml | gzip >story-xml.1.gz
+            story-xml-config.html	# pod3html ../bin/story-xml-config >story-xml-config.html
+            story-xml-config.5.gz	# pod3man ../bin/story-xml-config | gzip >story-xml-config.5.gz
+	    dtd/
+	    livedtd/
+            template/
+                sample-full.xml
+                sample-minimal.xml
+        style/
+            com-html.xsl
+            com-param.xsl
+            com-timeline.xsl
+            com.xsl
+            convert-1to2.xsl
+            convert-2to3.xsl
+            convert-3to4.xsl
+            convert-4to5.xsl
+            help.xml
+            out-ch-html.xsl
+            out-docbook.xsl
+            out-draft.xsl
+            out-html.xsl
+            out-pdf.xsl
+            out-planner.xsl
+            out-project.xsl
+            schema-gen.xsd
+            schema.xsd
+            serna-1.xsl
+            serna-new.xsl
+            serna-toc.xsl
+            serna.xsl
+            story.dtd
+            template2.sdt
+            template2.xml
+            template-index.html
+            test-parm.xsl
+/usr/
+    bin/
+        story-xml -> /opt/story-xml/bin/story-xml
+    share/
+        doc/
+            story-xml/ -> /opt/story-xml/doc/
+        man/
+            man1/
+                story-xml.1.gz -> /opt/story-xml/doc/story-xml.1.gz
+            man5/
+                story-xml.conf.5.gz /opt/story-xml/doc/story-xml.conf.5.gz
+</pre>
+
+<h3>serna</h3>
+
+<pre>
+/opt/
+    serna/ -> serna-4.2/
+    serna-4.2/
+        bin/
+            serna
+	    serna.env
+	    serna.bin
+	    xsltproc
+        doc/
+            developers_guide/
+            installation_guide/
+            users_guide/
+            xslbricks/
+            tutorial/
+                tut-images/
+            sapi_py/
+            gui_items_guide/
+            dita-tutorial/
+                dita-tut-images/
+            sapi_guide/
+            sapi/
+            abouthelp/
+            faq/
+        examples/
+            docbook/
+            tei/
+            gca/
+            xslbricks/
+            xinclude/
+            interactive_example/
+                xsl/
+            ideadb/
+            sapi/
+            nitf/
+        icons/
+        include/
+            python2.6/
+        lib/
+            python2.6/
+                xml/
+                    etree/
+                    parsers/
+                    dom/
+                    sax/
+                compiler/
+                ctypes/
+                    macholib/
+                json/
+                curses/
+                wsgiref/
+                plat-linux2/
+                idlelib/
+                    Icons/
+                email/
+                    mime/
+                logging/
+                encodings/
+                hotshot/
+                lib2to3/
+                    pgen2/
+                    fixes/
+                lib-dynload/
+                multiprocessing/
+                    dummy/
+        plugins/
+            story/		# story style
+            resume/
+                examples/
+                element-help/
+                xsl/
+                    pdf/
+                        format/
+                        output/
+                        country/
+                        paper/
+                        lib/
+                        misc/
+                dtd/
+                xsd/
+            customcontent/
+            docbook/
+            idealliance/
+            publishing/
+            tei/
+            speller/
+            hotkeys/
+            xsltparam/
+            contentmap/
+            dita/
+            dita-faq/
+            syntext/
+            tableplugin/
+            docinfo/
+            pyplugin/
+            xhtml/
+            nitf/
+        python/
+            lib/
+                python2.6/
+                    site-packages/
+        sapi/
+        translations/
+        ui/
+        utils/
+            publishing/		# story scripts go here
+        xml/
+            stylesheets/
+                xslbricks/
+                    fo/
+                    html/
+                docbook-xsl-1.68.1/
+                    template/
+                    fo/
+                    extensions/
+                    doc/
+</pre>
+    
+<h3>Editix</h3>
+<pre>
+/opt/
+    editix/ -> editix2010sp1/
+    editix2010sp1/
+        bin/
+            run.sh
+            exitix
+</pre>
+
+<h3>emacs</h3>
+<pre>
+Ubuntu package: emacs
+/usr/bin/emacs
+</pre>
+
+<h3>vi</h3>
+<pre>
+/usr/bin/vi
+</pre>
+
+<h3>saxon</h3>
+<pre>
+/opt/
+    saxon/ -> saxonhe9-3-5j/
+    saxonhe9-3-5j/
+        bin/
+            saxon9he.jar
+</pre>
+    
+<h3>xlstproc</h3>
+<pre>
+</pre>
+
+<h3>xalan</h3>
+<p>apt-get install xalan</p>
+<p>source: https://xalan.apache.org/</p>
+<pre>
+/usr/bin/xalan
+</pre>
+    
+<h3>fop</h3>
+<p>Source: https://xmlgraphics.apache.org/fop/</p>
+<pre>
+/opt/
+    fop -> 
+    fop-2.0/
+        fop
+</pre>
+    
+<h3>renderx</h3>
+<pre>
+/opt/
+    RenderX/
+        XEP/
+            xep
+        doc/
+</pre>
+    
+<h3>antennahouse</h3>
+<p>$400 for the personal Lite version</p>
+
+<h3>planner</h3>
+<p>Ubuntu package: planner</p>
+<p>Source: https://wiki.gnome.org/Apps/Planner/About</p>
+<pre>
+/usr/bin/planner
+<pre>
+
+<h3>project-libre</h3>
+<p>Source: http://www.projectlibre.org/</p>
+<pre>
+/opt/
+        projectlibre/ -> projectlibre-1.5_beta5/
+	projectlibre-1.5_beta5/
+		lib/
+		license/
+		projectlibre.jar
+		projectlibre.bat
+		projectlibre.sh*
+<pre>
+
+<h3>dtd2xs</h3>
+<pre>
+/usr/
+    bin/
+        dtd2xs
+    share/
+        doc/
+            dtd2xs.html
+        man/
+            man1/
+                dtd2xs.1.gz
+</pre>
+
+<h3>tidy</h3>
+
+<p>ubuntu packages: tidy libtidy-0.99-0</p>
+
+<pre>
+/usr/
+    bin/
+        tidy
+    share/
+        doc/
+            tidy/
+        man/
+            man1/
+                tidy.1.gz
+</pre>
+
+<h3>livedtd</h3>
+<pre>
+/usr/
+    bin/
+        livedtd.pl
+    share/
+        doc/
+            livedtd/
+                livedtd.html    # pod2html livedtd.pl
+        man/
+            man1/
+                livedtd.1.gz    # pod2man livedtd.pl
+</pre>
+
 </body>
 </html>
