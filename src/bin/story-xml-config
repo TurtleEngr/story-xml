@@ -1,5 +1,5 @@
 #!/bin/bash
-# story-xml/kit/linux/story-config.sh
+# story-xml/src/bin/story-xml-config
 
 # --------------------
 function fReadConfig {
@@ -706,6 +706,7 @@ function fSetPaths {
 
 # =========================================================
 # Main
+
 export gAuthor=""
 export gXSLT=""
 export gFmt=""

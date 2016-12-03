@@ -26,7 +26,6 @@ build : ver.env livedtd
 	-rm -rf dist/*
 	-mkdir -p dist/opt/story-xml4
 	cd dist/opt; ln -s story-xml4 story-xml
-	-mkdir -p dist/opt/story-xml/config dist/opt/story-xml/doc/example
 	rsync -r $(mRsyncOpt) src/* dist/opt/story-xml/
 	chmod a+rx,go-w dist/opt/story-xml/bin/*
 	find dist/opt -type d -exec chmod a+rx {} \;
