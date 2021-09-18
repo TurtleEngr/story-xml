@@ -3,6 +3,14 @@ Todo
 
 Where did I stop?  What is next?
 
+---------------
+Add xsltunit tests, for all of the functional template parts.
+
+It looks like I started defining configs with git ini config processing.
+This could greatly simplify the formatting definitions:
+style-info, def-style, def-content, def-draft, def-print.
+
+---------------
 2009-05-09
 
 * Add a man page for fop pkg - point to the installed doc files, and
@@ -40,9 +48,12 @@ to:
 
 * Remove alink, vlink, etc.
 
-* Remove all def-link releated tags
+* Remove all def-img related tags, and replace with <img src=""/>
+  Maybe provide some "size" options that could be changed by the "output"
+  format?
 
-* Change <link> to <a>: <a href="">Title</a>
+* Remove all def-link releated tags
+  Change <link> to <a>: <a href="">Title</a>
 
 * Format links based on the style defined in output profile:
 
@@ -58,7 +69,9 @@ to:
 
 * Each chapter id is an implied anchor (<a id="$id">Heading</a>
 
-* Simplify the Copyright page formatting. I.e.the author, address, etc, remove?
+* Simplify the Copyright page formatting. I.e. use "entities" for the
+  author, address, etc. And make the copyright formating more a "pre"
+  format or regular HTML tags.
 
 * Output a "plain" html conversion.
 
