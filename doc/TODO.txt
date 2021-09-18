@@ -14,6 +14,66 @@ Where did I stop?  What is next?
 * To epm pkg, add man page for mkver.  Add a symlink mkver -> mkver.pl
 
 ---------------
+Huh?
+* Convert this to XHTML, with css styles.
+* Generate the css styles?  Start with a base template.
+* Generate the fo from the xhtml, with the styles...
+* Use "filters" with "flags" to generate the final xhtml and fo output.
+
+---------------
+* Convert story5 format to story6 (xhtml) format
+	- define mapping
+* generate epub files
+
+---------------
+Simplify things.
+
+* Change:
+	<s who-ref="hero">"What?" said the hero.</s>
+to:
+	<s who="hero">"What?" said the hero.</s>
+
+* Change:
+          <t who-ref="hero">Thought text.</t>
+to:
+          <t who="hero">Thought text.</t>
+
+* Remove alink, vlink, etc.
+
+* Remove all def-link releated tags
+
+* Change <link> to <a>: <a href="">Title</a>
+
+* Format links based on the style defined in output profile:
+
+  <a href="http://foo.com/bar.html">Sample Title</a>
+  normal: <a href="http://foo.com/bar.html" target="_blank">Sample Title</a>
+  long:   <a href="http://foo.com/bar.html" target="_blank">Sample Title (http://foo.com/bar.html)</a>
+  text:   Sample Title (http://foo.com/bar.html)
+
+  <a href="http://foo.com/bar.html" cite="http://www.webcitation.org/6dUN5dw9U">Sample Title</a>
+  normal: <a href="http://www.webcitation.org/6dUN5dw9U" target="_blank">Sample Title</a> <a href="http://foo.com/bar.html" target="_blank">(http://foo.com/bar.html)</a>
+  long:   <a href="http://www.webcitation.org/6dUN5dw9U" target="_blank">Sample Title (http://www.webcitation.org/6dUN5dw9U)</a> <a href="http://foo.com/bar.html" target="_blank">(http://foo.com/bar.html)</a>
+  text:   "Sample Title" [http://foo.com/bar.html or http://www.webcitation.org/6dUN5dw9U]
+
+* Each chapter id is an implied anchor (<a id="$id">Heading</a>
+
+* Simplify the Copyright page formatting. I.e.the author, address, etc, remove?
+
+* Output a "plain" html conversion.
+
+* css html output
+
+* Get RenderX rendering going
+
+* Get fop rendering going
+
+* Update Serna? The company has been bought, and product discontinued.
+  http://www.flatironssolutions.com
+
+  See Free Serna in github
+
+---------------
 Dependent User Packages:
 
 Editors:
