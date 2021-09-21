@@ -1,5 +1,4 @@
-#!/bin/sh
-# $Header: /repo/local.cvs/app/story-xml/src/publishing/pub-fop-pdf.sh,v 1.16 2009/05/26 17:36:51 bruce Exp $
+#!/bin/bash
 
 cTidyOpt="-modify -q -e --show-warnings no --tidy-mark no --drop-empty-paras no  -indent -wrap 75  --indent-spaces 2 --indent-attributes yes"
 

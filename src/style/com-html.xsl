@@ -7,9 +7,6 @@
                 xmlns:exsl="http://exslt.org/common"
                 xmlns:str="http://exslt.org/strings"
                 extension-element-prefixes="date doc exsl str">
-  <!--
-$Header: /repo/local.cvs/app/story-xml/src/story5/com-html.xsl,v 1.6 2009/05/01 20:52:53 bruce Exp $
--->
   <!-- ******************** -->
   <xsl:param name="gIndent">
     <xsl:value-of select="'&#161;&#161;&#161;'" />

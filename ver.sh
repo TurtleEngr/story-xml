@@ -1,4 +1,4 @@
-# $Header: /repo/local.cvs/app/story-xml/ver.sh,v 1.3 2009/04/28 07:26:35 bruce Exp $
+#!/bin/bash
 
 # Input file for: mkver.pl.  All variables must have
 # "export " at the beginning.  No spaces around the

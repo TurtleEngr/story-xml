@@ -9,7 +9,6 @@
                 extension-element-prefixes="date doc exsl str">
   <!--
         extension-element-prefixes="date doc exsl str"
-$Header: /repo/local.cvs/app/story-xml/src/story5/out-html.xsl,v 1.5 2009/04/20 06:53:32 bruce Exp $
 -->
   <xsl:output method="html"
               indent="yes" />

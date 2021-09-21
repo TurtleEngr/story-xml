@@ -7,9 +7,6 @@
                 xmlns:exsl="http://exslt.org/common"
                 xmlns:str="http://exslt.org/strings"
                 extension-element-prefixes="date doc exsl str">
-  <!--
-$Header: /repo/local.cvs/app/story-xml/test/inherit/story-com-param.xsl,v 1.1 2009/04/03 05:25:21 bruce Exp $
--->
   <!-- ************************************************** -->
   <!-- External parameters -->
   <xsl:param name="style"

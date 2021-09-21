@@ -7,9 +7,6 @@
                 xmlns:exsl="http://exslt.org/common"
                 xmlns:str="http://exslt.org/strings"
                 extension-element-prefixes="date doc exsl str">
-  <!--
-$Header: /repo/local.cvs/app/story-xml/src/story5/out-draft.xsl,v 1.7 2009/04/28 07:23:43 bruce Exp $
--->
   <xsl:output method="html"
               indent="yes" />
   <xsl:param name="gDraft"

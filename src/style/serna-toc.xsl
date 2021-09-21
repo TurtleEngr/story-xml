@@ -4,9 +4,7 @@
                 xmlns="http://www.w3.org/TR/xhtml1/transitional"
                 xmlns:xse="http://www.syntext.com/Extensions/XSLT-1.0"
                 exclude-result-prefixes="#default">
-  <!--
-$Header: /repo/local.cvs/app/story-xml/src/story5/serna-toc.xsl,v 1.2 2009/03/29 05:11:49 bruce Exp $
--->
+
   <xsl:output method="xml"
               indent="yes" />
   <xsl:param name="toc-depth"

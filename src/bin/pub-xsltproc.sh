@@ -1,5 +1,4 @@
 #!/bin/bash
-# $Header: /repo/local.cvs/app/story-xml/src/publishing/pub-xsltproc.sh,v 1.14 2009/04/28 07:23:43 bruce Exp $
 
 cTidyOpt="-modify -q -e --show-warnings no --tidy-mark no --drop-empty-paras no  -indent -wrap 75  --indent-spaces 2 --indent-attributes yes"
 

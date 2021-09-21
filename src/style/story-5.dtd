@@ -1,8 +1,3 @@
-<!--
-$Source: /repo/local.cvs/app/story-xml/src/story5/story.dtd,v $
-$Revision: 1.7 $ $Date: 2010/08/13 15:30:32 $ UTC
--->
-
 <!-- ************************************** -->
 <!ELEMENT content  (story-dtd?, book+)>
 

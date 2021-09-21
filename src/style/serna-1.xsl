@@ -2,9 +2,6 @@
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:fo="http://www.w3.org/1999/XSL/Format">
-  <!--
-$Header: /repo/local.cvs/app/story-xml/src/story5/serna-1.xsl,v 1.2 2009/03/29 05:11:49 bruce Exp $
--->
   <!-- **************************************** -->
   <xsl:import href="/usr/local/serna/xml/stylesheets/xslbricks/fo/fo.xsl" />
   <xsl:param name="body.master">16</xsl:param>

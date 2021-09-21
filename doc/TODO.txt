@@ -1,90 +1,27 @@
 Todo
 ----
 
+=======================================================
+DONE
+
+* Get timeline working completely (there's a bug with duration) - done
+
+* Graph the timeline--import into planner project? - done
+
+* Put all "who" and "where" ids in timeline for each "when" period
+  (optional, and filter?) - done
+
+* Are there draft filters for just listing the who and where ids, or
+  the who and where ids and descriptions? - yes
+
+* Get draft HTML ouput working. - done
+
+* Apply the paragraph style with css, for html?  Done.
+
 Where did I stop?  What is next?
 
----------------
-Add xsltunit tests, for all of the functional template parts.
-
-It looks like I started defining configs with git ini config processing.
-This could greatly simplify the formatting definitions:
-style-info, def-style, def-content, def-draft, def-print.
-
----------------
-2009-05-09
-
-* Add a man page for fop pkg - point to the installed doc files, and
-  the web home.
-
-* Add a man page for story-xml pkg - point to the install doc files,
-  and the web home (initiallly moria, the Source Forge).
-
-* To epm pkg, add man page for mkver.  Add a symlink mkver -> mkver.pl
-
----------------
-Huh?
-* Convert this to XHTML, with css styles.
-* Generate the css styles?  Start with a base template.
-* Generate the fo from the xhtml, with the styles...
-* Use "filters" with "flags" to generate the final xhtml and fo output.
-
----------------
-* Convert story5 format to story6 (xhtml) format
-	- define mapping
-* generate epub files
-
----------------
-Simplify things.
-
-* Change:
-	<s who-ref="hero">"What?" said the hero.</s>
-to:
-	<s who="hero">"What?" said the hero.</s>
-
-* Change:
-          <t who-ref="hero">Thought text.</t>
-to:
-          <t who="hero">Thought text.</t>
-
-* Remove alink, vlink, etc.
-
-* Remove all def-img related tags, and replace with <img src=""/>
-  Maybe provide some "size" options that could be changed by the "output"
-  format?
-
-* Remove all def-link releated tags
-  Change <link> to <a>: <a href="">Title</a>
-
-* Format links based on the style defined in output profile:
-
-  <a href="http://foo.com/bar.html">Sample Title</a>
-  normal: <a href="http://foo.com/bar.html" target="_blank">Sample Title</a>
-  long:   <a href="http://foo.com/bar.html" target="_blank">Sample Title (http://foo.com/bar.html)</a>
-  text:   Sample Title (http://foo.com/bar.html)
-
-  <a href="http://foo.com/bar.html" cite="http://www.webcitation.org/6dUN5dw9U">Sample Title</a>
-  normal: <a href="http://www.webcitation.org/6dUN5dw9U" target="_blank">Sample Title</a> <a href="http://foo.com/bar.html" target="_blank">(http://foo.com/bar.html)</a>
-  long:   <a href="http://www.webcitation.org/6dUN5dw9U" target="_blank">Sample Title (http://www.webcitation.org/6dUN5dw9U)</a> <a href="http://foo.com/bar.html" target="_blank">(http://foo.com/bar.html)</a>
-  text:   "Sample Title" [http://foo.com/bar.html or http://www.webcitation.org/6dUN5dw9U]
-
-* Each chapter id is an implied anchor (<a id="$id">Heading</a>
-
-* Simplify the Copyright page formatting. I.e. use "entities" for the
-  author, address, etc. And make the copyright formating more a "pre"
-  format or regular HTML tags.
-
-* Output a "plain" html conversion.
-
-* css html output
-
-* Get RenderX rendering going
-
-* Get fop rendering going
-
-* Update Serna? The company has been bought, and product discontinued.
-  http://www.flatironssolutions.com
-
-  See Free Serna in github
+=======================================================
+Notes in date order
 
 ---------------
 Dependent User Packages:
@@ -97,11 +34,16 @@ Editors:
 
 XSLT Procesors
 	xsltproc - standard Linux package (often not installed)
+	or
 	xsltsaxon - package?
+	
 	RenderX - commercial product (free and paid)
+	or
 	xsltant - commercial product (antenna house) (free and paid)
 
-FO Processors
+	xmllint
+
+FO Processors (pick one)
 	FOP - apache (custom package)
 	RenderX - commercial product (free and paid)
 	xsltant - commercial product (antenna house) (free and paid)
@@ -156,7 +98,6 @@ cd serna-4.2
   Find out why.
 
 * Get RenderX working better:
-
 	* The Courier font is proportional.  Type in spec file? - done
 	* The Copyright page flows into the next pages. - done
 	* Images are indented rather than being left justified.
@@ -177,7 +118,7 @@ cd serna-4.2
 * Clean up the Serna publish targets (pdf, ps, html, docbook, text)
 
 	* Modularize the template file: different story templates, and
-	  differenct publish backends
+	  different publish backends
 
 * Get it running with newer Serna versions
 
@@ -197,9 +138,9 @@ cd serna-4.2
 	* Create a book example with this tool, i.e. a user guide,
 	  tutorial, developer guide.  Publish on lulu.
 
-	* Put tool in sourceforge? (GNU license?)
+	* Put tool in github (GNU license) - done
 
-	* Submit tool to SynText (Serna)
+	* Submit tool to SynText (Serna) - NA
 
 	* Submit tool to Lulu (show how it can be used with Serna and editix)
 	  Show how it can output Docbook
@@ -271,20 +212,88 @@ pdf: "rev"
       </xsl:when>
     </xsl:choose>
 
-=======================================================
-DONE
+---------------
+Simplify things.
 
-* Get timeline working completely (there's a bug with duration) - done
+* Change:
+	<s who-ref="hero">"What?" said the hero.</s>
+to:
+	<s who="hero">"What?" said the hero.</s>
 
-* Graph the timeline--import into planner project? - done
+* Change:
+          <t who-ref="hero">Thought text.</t>
+to:
+          <t who="hero">Thought text.</t>
 
-* Put all "who" and "where" ids in timeline for each "when" period
-  (optional, and filter?) - done
+* Remove alink, vlink, etc.
 
-* Are there draft filters for just listing the who and where ids, or
-  the who and where ids and descriptions? - yes
+* Remove all def-img related tags, and replace with <img src=""/>
+  Maybe provide some "size" options that could be changed by the "output"
+  format?
 
-* Get draft HTML ouput working. - done
+* Remove all def-link releated tags
+  Change <link> to <a>: <a href="">Title</a>
 
-* Apply the paragraph style with css, for html?  Done.
+* Format links based on the style defined in output profile:
 
+  <a href="http://foo.com/bar.html">Sample Title</a>
+  normal: <a href="http://foo.com/bar.html" target="_blank">Sample Title</a>
+  long:   <a href="http://foo.com/bar.html" target="_blank">Sample Title (http://foo.com/bar.html)</a>
+  text:   Sample Title (http://foo.com/bar.html)
+
+  <a href="http://foo.com/bar.html" cite="http://www.webcitation.org/6dUN5dw9U">Sample Title</a>
+  normal: <a href="http://www.webcitation.org/6dUN5dw9U" target="_blank">Sample Title</a> <a href="http://foo.com/bar.html" target="_blank">(http://foo.com/bar.html)</a>
+  long:   <a href="http://www.webcitation.org/6dUN5dw9U" target="_blank">Sample Title (http://www.webcitation.org/6dUN5dw9U)</a> <a href="http://foo.com/bar.html" target="_blank">(http://foo.com/bar.html)</a>
+  text:   "Sample Title" [http://foo.com/bar.html or http://www.webcitation.org/6dUN5dw9U]
+
+* Each chapter id is an implied anchor (<a id="$id">Heading</a>
+
+* Simplify the Copyright page formatting. I.e. use "entities" for the
+  author, address, etc. And make the copyright formating more like a "pre"
+  format or use regular HTML tags.
+
+* Output a "plain" html conversion.
+
+* css html output
+
+* Get RenderX rendering going
+
+* Get fop rendering going
+
+* Update Serna? The company has been bought, and product discontinued.
+  http://www.flatironssolutions.com
+  See Free Serna in github
+  Make a better package of Serna V4.
+
+---------------
+Huh?
+* Convert this to XHTML, with css styles.
+* Generate the css styles?  Start with a base template.
+* Generate the fo from the xhtml, with the styles...
+* Use "filters" with "flags" to generate the final xhtml and fo output.
+
+---------------
+2009-05-09
+
+* Add a man page for fop pkg - point to the installed doc files, and
+  the web home.
+
+* Add a man page for story-xml pkg - point to the install doc files,
+  and the web home (initiallly moria, the Source Forge).
+
+* To epm pkg, add man page for mkver.  Add a symlink mkver -> mkver.pl
+
+* Convert story5 format to story6 (xhtml) format
+	- define mapping for conversion
+
+* generate epub files
+
+# ---------------------------
+# 2021-09-21 12:25:24 PDT Tue
+
+* Add xsltunit tests, for all of the functional template parts.
+
+* It looks like I started defining configs with git ini config
+  processing.  This could greatly simplify the formatting definitions
+  (i.e. they can be removed from the story.dtd): style-info,
+  def-style, def-content, def-draft, def-print.

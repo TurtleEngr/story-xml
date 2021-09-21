@@ -1,5 +1,5 @@
-#!/bin/sh
-# $Header: /repo/local.cvs/app/story-xml/src/publishing/pub-fop-ps.sh,v 1.8 2008/06/23 21:42:05 bruce Exp $
+#!/bin/bash
+
 
 if [ $# -lt 3 -a -z "$SERNA_XSL_STYLESHEET" ]; then
 	cat <<EOF

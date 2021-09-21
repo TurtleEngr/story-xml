@@ -9,7 +9,6 @@
                 extension-element-prefixes="date doc exsl str">
   <!--
         extension-element-prefixes="date doc exsl str"
-$Header: /repo/local.cvs/app/story-xml/src/story5/com-timeline.xsl,v 1.2 2009/03/29 05:11:49 bruce Exp $
 -->
   <!-- ******************** -->
   <xsl:template name="fTimeline">
