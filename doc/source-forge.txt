@@ -1,9 +1,9 @@
 Open Source Software Project
-Porject Name: story-xml
+Project Name: story-xml
 Project UNIX name : story-xml
 Public Description:
 
-This tool is more of a "batch" processing tool.  It helps you orgaize
+This tool is more of a "batch" processing tool.  It helps you organize
 your story, keep track of the timeline, plot treads, scene/sequel
 structure, scene locations, back story, etc.  Your notes are defined
 inline with the text that is actually printed.  You can mark sections
@@ -52,10 +52,10 @@ supports structured writing and formatting from beginning to end.  If
 you like to write, and would like a professional layout, but you don't
 want to be bothered with the formatting work, then this tool is for
 you.  If you like fiddling with the layout, paging, and formatting,
-with WSIWIG tools, then this tool is NOT for you; there are many other
-execllent tools, such as OpenOfice Writer, that will meet your needs.
+with WYSIWYG tools, then this tool is NOT for you; there are many other
+excellent tools, such as OpenOffice Writer, that will meet your needs.
 
-This tool is more of a "batch" processing tool.  It helps you orgaize
+This tool is more of a "batch" processing tool.  It helps you organize
 your story, keep track of the timeline, plot treads, scene/sequel
 structure, scene locations, back story, etc.  Your notes are defined
 inline with the text that is actually printed.  You can mark sections
@@ -106,7 +106,7 @@ Download
 	Max OS X
 	Browse All Files
 	Statistics
-Documentaion
+Documentation
 	Browse
 	Submit
 	Search
@@ -128,7 +128,7 @@ Tasks
 		Max OSX
 	HTML
 		frame views
-		multifile docs
+		multi-file docs
 	Serna
 		Linux
 		Windows
@@ -161,7 +161,7 @@ Tasks
 		pdf - base 14
 		pdf - embedded fonts
 		docbook - export only
-		OpenDocument - export only
+		Open-Document - export only
 		OpenProj - timeline in OpenProj (MS Project) format
 		Planner - timeline in Planner (Mr Project) format (Linux only)
 		TaskJuggler - timeline (Linux only?)
