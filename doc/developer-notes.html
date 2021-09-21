@@ -8,7 +8,8 @@
 
 <body>
   <h1>Developer Notes</h1>
-
+  
+<hr/>
   <h2>XSL Coding Style</h2>
 
   <ol>
@@ -97,6 +98,7 @@ tNameName - local variable
     </li>
   </ol>
 
+<hr/>
   <h2>www.lulu.com</h2>
 
   <p>Pocket Size, 6.25in x 9.25in, Perfect Binding, $4.53 + $0.02/page</p>
@@ -118,6 +120,176 @@ tNameName - local variable
   <p>Total page count should be divisibe by 4, last page should be blank.
   Add blank pages to make it a multiple of 4.</p>
 
+<hr/>
+  <h2>Development Directory Layout</h2>
+  <pre>
+git@github.com:TurtleEngr/story-xml.git
+doc/
+    bugs.html
+    developer-notes.html
+    dir-layout.txt
+    dir-struct.txt
+    docbook-temp.xml
+    docbook.txt
+    dtd.outline-old.txt
+    lulu.txt
+    outline.txt
+    README.style
+    source-forge.txt
+    story-summary.txt
+    story-xml.eco
+    TODO.txt
+src/
+    bin/
+        convert-1to2.sh*
+        convert-2to3.sh*
+        convert-3to4.sh*
+        convert-4to5.sh*
+        env2ini*
+        ini2env*
+        pub-fop-pdf.sh*
+        pub-fop-ps.sh*
+        pub-xsltproc-multi.sh*
+        pub-xsltproc.sh*
+        story-xml*
+        story-xml-config*
+    doc/
+        dtd/
+            html3.2.dtd
+            html40loose.dtd
+            HTMLlat1.ent
+            HTMLspecial.ent
+            HTMLsymbol.ent
+            iso*.ent
+            svg11.dtd
+            xhtml11.dtd
+            xhtml1-transitional.dtd
+            xhtml-lat1.ent
+            xhtml-special.ent
+            xhtml-symbol.ent
+            xslfo.dtd
+            xslt10.dtd
+        example/
+            003.png
+            031.png
+            042.png
+            062.png
+            20869-h.htm
+            ebook-20869-h.xml
+            entity-example.xml
+            entity.xml
+            Makefile
+            xhtml2story.xsl
+        livedtd/
+            docbook45/
+                *.html
+                index.html
+                livedtd.css
+            html3.2/
+                *.html
+                index.html
+                livedtd.css
+            html40loose/
+                *.html
+                index.html
+            story/
+                *.html
+                index.html
+                livedtd.css
+                story.dtd.html
+            xhtml1-transitional/
+                *.html
+                index.html
+                livedtd.css
+            xslfo/
+                *.html
+                index.html
+                livedtd.css
+                xslfo.dtd.html
+            xslt10/
+                *.html
+                index.html
+                livedtd.css
+                xslt10.dtd.html
+            index.html
+        template/
+            sample-full.xml
+            sample-minimal.xml
+        CHANGES
+        gplv3-127x51.png
+        LICENSE
+        README.html
+        story-xml-manual.html
+        story-xml-reference.html
+    etc/
+        story-xml.env*
+        story-xml.ini
+    style/
+        com-html.xsl
+        com-param.xsl
+        com-timeline.xsl
+        com.xsl
+        convert-1to2.xsl
+        convert-2to3.xsl
+        convert-3to4.xsl
+        convert-4to5.xsl
+        help.xml
+        out-ch-html.xsl
+        out-docbook.xsl
+        out-draft.xsl
+        out-html.xsl
+        out-pdf.xsl
+        out-planner.xsl
+        out-project.xsl
+        schema-gen.xsd
+        schema.xsd
+        serna-1.xsl
+        serna-new.xsl
+        serna-toc.xsl
+        serna.xsl
+        story.dtd
+        template2.sdt
+        template2.xml
+        template-index.html
+        test-parm.xsl
+test/
+    image/
+    inherit/
+        story-com-param.xsl
+    story1/
+        book1.xml
+        book2.xml
+        def-site.xml
+        test1.xml
+    story2/
+        book1.xml
+        book2.xml
+    story3/
+        image/
+            folder.png
+        book1.xml
+    story4/
+        image/
+            folder.png
+        book1.xml
+        Makefile
+        test.proj.planner
+    Makefile
+    test-even-odd.fo
+    test-page.fo
+    test-page.layout
+epm.list
+epm.list.patch*
+.gitignore
+Makefile
+README.md
+ver.env
+ver.epm
+ver.require
+ver.sh
+  </pre>
+  
+<hr/>
   <h2>User Directory Layout</h2>
   <pre>
 /home/
@@ -143,8 +315,16 @@ tNameName - local variable
                 book-id.planner.xml     # planner
 </pre>
 
+<hr/>
   <h2>Program Directory Layout</h2>
 
+  <p>In earlier versions (see branches story[2345]) the development
+  directory structure was different from the deployment
+  structure. This structure is a refactor to make the development dirs
+  be closer to the deployment structure. story5 branch appears to
+  have a complete working build/package process. So far this "develop"
+  branch is not complete.</p>
+  
   <h3>story-xml</h3>
   <pre>
 /opt/
@@ -410,19 +590,12 @@ Ubuntu package: emacs
   <pre>
 /usr/bin/planner
 </pre>
-  <pre>
-
-
-</pre>
 
   <h3>project-libre</h3>
-  <pre>
 
-<br />
-Source: http://www.projectlibre.org/
-</pre>
-  <pre>
+<p>Source: http://www.projectlibre.org/</p>
 
+  <pre>
 /opt/
         projectlibre/ -&gt; projectlibre-1.5_beta5/
         projectlibre-1.5_beta5/
@@ -432,51 +605,27 @@ Source: http://www.projectlibre.org/
                 projectlibre.bat
                 projectlibre.sh*
 </pre>
-  <pre>
-
-
-</pre>
 
   <h3>git</h3>
-  <pre>
+<p>source: apt-get install git git-flow</p>
 
-<br />
-source: apt-get install git git-flow
-<br />
-Used to parse and set the etc/story-xml.ini file.
-<br />
-For development, used to access the and update the source files on github
-</pre>
-  <pre>
+<p>Used to parse and set the etc/story-xml.ini file.</p>
 
+<p>For development, used to access the and update the source files on github</p>
+
+  <pre>
 /usr/
     bin/
         git
 </pre>
-  <pre>
-
-
-</pre>
 
   <h3>epm</h3>
-  <pre>
 
-</pre>
-  <pre>
-
-</pre>
-  <pre>
-
-
-
-</pre>
+<p>Make Linux packages.</p>
 
   <h3>dtd2xs</h3>
+  
   <pre>
-
-</pre>
-  <pre>
-
 /usr/
     bin/
         dtd2xs
@@ -487,21 +636,12 @@ For development, used to access the and update the source files on github
             man1/
                 dtd2xs.1.gz
 </pre>
-  <pre>
-
-
-</pre>
 
   <h3>tidy</h3>
+
+<p>ubuntu packages: tidy libtidy-0.99-0</p>
+
   <pre>
-
-
-<br />
-ubuntu packages: tidy libtidy-0.99-0
-
-</pre>
-  <pre>
-
 /usr/
     bin/
         tidy
@@ -512,17 +652,12 @@ ubuntu packages: tidy libtidy-0.99-0
             man1/
                 tidy.1.gz
 </pre>
-  <pre>
-
-
-</pre>
 
   <h3>livedtd</h3>
-  <pre>
 
-</pre>
-  <pre>
+<p>Format DTDs so that they can be viewed and browsed with a web browser.</p>
 
+<pre>
 /usr/
     bin/
         livedtd.pl
@@ -534,11 +669,6 @@ ubuntu packages: tidy libtidy-0.99-0
             man1/
                 livedtd.1.gz    # pod2man livedtd.pl
 </pre>
-  <pre>
 
-
-
-
-</pre>
 </body>
 </html>
