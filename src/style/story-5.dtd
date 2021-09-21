@@ -1,5 +1,6 @@
 <!--
-In progress: version 6
+$Source: /repo/local.cvs/app/story-xml/src/story5/story.dtd,v $
+$Revision: 1.7 $ $Date: 2010/08/13 15:30:32 $ UTC
 -->
 
 <!-- ************************************** -->
@@ -8,7 +9,7 @@ In progress: version 6
 <!-- ************************************** -->
 <!ELEMENT story-dtd EMPTY>
 <!ATTLIST story-dtd
-	version (1|2|3|4|5|6) #REQUIRED
+	version (1|2|3|4|5) #REQUIRED
 >
 
 <!-- ************************************** -->
@@ -298,11 +299,18 @@ to pixes, from the width/height attr., with the ratio 72dpi
 
 <!ELEMENT story-info (def-when, (def-where|def-who|def-thread)*, ch-preface?)>
 
-<!ELEMENT def-when %simple-text;>
+<!ELEMENT def-when EMPTY>
 <!ATTLIST def-when
-	%id;
-	%date-time;
+	year CDATA #REQUIRED
+	month CDATA #REQUIRED
+	day CDATA #REQUIRED
+	hour CDATA #REQUIRED
+	min CDATA #REQUIRED
+	gmt CDATA #REQUIRED
 >
+<!--
+Defaults, for attr not specified in "when" start-date's.
+-->
 
 <!ELEMENT def-where %simple-text;>
 <!ATTLIST def-where
@@ -361,7 +369,7 @@ to pixes, from the width/height attr., with the ratio 72dpi
 
 <!ELEMENT outline (when?, where?, who*, description?)>
 
-<!ELEMENT when (start-date?, end-date?, description?)>
+<!ELEMENT when (start-date, end-date, description?)>
 <!ELEMENT start-date (#PCDATA)>
 <!ATTLIST start-date
 	%date-time;
@@ -370,12 +378,16 @@ to pixes, from the width/height attr., with the ratio 72dpi
 <!ATTLIST end-date
 	%date-time;
 >
+<!--
+If attr are missing from start-date, use def-when.
+If attr are missing from end-date, get them from start-date.
+-->
 
 <!ELEMENT where %simple-text;>
 <!ATTLIST where
 	%ref-r;
 >
-<!-- ref - def-where id -->
+<!-- ref - defwhere-id -->
 
 <!ELEMENT who %simple-text;>
 <!ATTLIST who
@@ -428,7 +440,7 @@ year CDATA #IMPLIED
 month (1|2|3|4|5|6|7|8|9|10|11|12) #IMPLIED
 day CDATA #IMPLIED
 hour CDATA #IMPLIED
-min CDATA #IMPLIED
+min CDATA #REQUIRED
 gmt CDATA #IMPLIED
 ">
 <!--
@@ -466,7 +478,7 @@ Internal use:
 
 <!ENTITY % com-info "author-group?, release-info?, pub-date?">
 
-<!ENTITY % com-person "honorific?, first-name, surname, linage?, other-name?, affiliation?, email?, author-blurb?">
+<!ENTITY % com-person"honorific?, first-name, surname, linage?, other-name?, affiliation?, email?, author-blurb?">
 
 <!ENTITY % simple-text "(p|para|pre|pre-fmt|quote|br)*">
 
@@ -528,11 +540,24 @@ Internal use:
 	%com-attr;
 >
 
-<!ELEMENT release-info %simple-text;>
+<!ELEMENT release-info EMPTY>
 <!ATTLIST release-info
 	%com-attr;
+	date CDATA #REQUIRED
+	rev CDATA #REQUIRED
+	file CDATA #IMPLIED
+	repository CDATA #IMPLIED
+	root CDATA #IMPLIED
+	source CDATA #IMPLIED
+	svn-path CDATA #IMPLIED
 >
-
+<!--
+root - for example: :ext:LOGNAME@moria.dynu.com:/data/public.cvs
+repository - for example: app/story-xml/src
+source - $Source: /repo/local.cvs/app/story-xml/src/story5/story.dtd,v $
+rev - $Revision: 1.7 $
+date -$Date: 2010/08/13 15:30:32 $
+-->
 <!ELEMENT pub-date (#PCDATA)>		<!-- yyyy-mm-dd -->
 <!ATTLIST pub-date
 	%com-attr;
@@ -654,3 +679,6 @@ copies may output all thought text (with the ids).
 Section break.  Either a blank line (print) or a short rule line (html).
 -->
 <!ELEMENT br EMPTY>
+<!ATTLIST br
+	%com-attr;
+>
