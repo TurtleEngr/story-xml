@@ -1,0 +1,1062 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Function Map</title>
+  <style type="text/css">
+  <!--
+  /*<![CDATA[*/
+  body {
+        margin-left: 2%;
+        margin-right: 2%;
+        font-family: Times, serif;
+        font-size: 110%;
+  }
+  pre {
+        font-size: 100%;
+        line-height: 100%;
+        font-family: Courier New, monospace;
+  }
+  /*]]>*/
+  // -->
+  </style>
+</head>
+<body>
+  <h1>File Function Map</h1>
+  <hr />
+  <h2>com-param.xsl</h2>
+  <hr />
+  <h2>com.xsl</h2>
+  <pre>
+      <b>template match="story-dtd"</b>
+</pre>
+  <h3>template name="fShowContent"</h3>
+  <h3>template name="fToXMLTime"</h3>
+  <h3>template name="fUnits"</h3>
+  <h3>template name="fDebugBook"</h3>
+  <hr />
+  <h2>com-timeline.xsl</h2>
+  <h3>template name="fTimeline"</h3>
+  <pre>
+            apply-templates select="chapter"
+      <b>template match="chapter"</b>
+          call-template name="fShowContent"
+          apply-templates select="unit"
+      <b>template match="unit"</b>
+          call-template name="fShowContent"
+            call-template name="fToXMLTime"
+            call-template name="fToXMLTime"
+</pre>
+  <h3>template name="fFmtTimeline"</h3>
+  <pre>
+          apply-templates select="document('/tmp/timeline.xml')"
+      <b>template match="timeline"</b>
+                  call-template name="fFmtXMLTime"
+</pre>
+  <hr />
+  <h2>com-html.xsl</h2>
+  <h3>template name="fFmtXMLTime"</h3>
+  <h3>template name="fRevisionFlag"</h3>
+  <h3>template name="fRevFlag"</h3>
+  <h3>template name="fHtmlStyle"</h3>
+  <h3>template name="fMetaHead"</h3>
+  <h3>template name="fBodyAttr"</h3>
+  <pre>
+            call-template name="fImgUrl"
+</pre>
+  <h3>template name="fTitlePage"</h3>
+  <pre>
+            apply-templates select="subtitle"
+          apply-templates select="book-info/author-group/author"
+</pre>
+  <h3>template name="fCopyrightPage"</h3>
+  <pre>
+        call-template name="fFmtCopyright"
+        apply-templates select="book-info/edition"
+        apply-templates select="book-info/publisher"
+        apply-templates select="book-info/biblio-id"
+        call-template name="fFmtReleaseInfo"
+        apply-templates select="book-info/legal-notice"
+</pre>
+  <h3>template name="fFmtCopyright"</h3>
+  <pre>
+            apply-templates select="book-info/copyright/year[1]"
+            apply-templates select="book-info/copyright/year[last()]"
+            apply-templates select="book-info/copyright/holder[1]"
+            apply-templates select="book-info/author-group/author[1]"
+</pre>
+  <h3>template name="fTocPage"</h3>
+  <pre>
+            apply-templates select="story-info/ch-preface"
+            apply-templates select="preface"
+            apply-templates select="chapter"
+            apply-templates select="epilog"
+      <b>template match="legal-notice"</b>
+        apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="ch-preface|preface|epilog"</b>
+          call-template name="fShowContent"
+      <b>template match="ch-preface|preface|epilog"</b>
+          call-template name="fShowContent"
+              apply-templates select="title"
+          apply-templates select="p|para|pre|pre-fmt"
+      <b>template match="chapter"</b>
+          call-template name="fShowContent"
+                call-template name="fFmtReleaseInfoToc"
+      <b>template match="chapter"</b>
+          call-template name="fShowContent"
+              apply-templates select="title"
+          call-template name="fFmtReleaseInfo"
+          apply-templates select="prolog"
+          apply-templates select="unit"
+          apply-templates select="postlog"
+</pre>
+  <h3>template name="fFmtReleaseInfoToc"</h3>
+  <pre>
+          apply-templates select="chapter-info/release-info/@date"
+</pre>
+  <h3>template name="fFmtReleaseInfo"</h3>
+  <pre>
+            apply-templates select="book-info/release-info"
+            apply-templates select="chapter-info/release-info"
+      <b>template match="release-info"</b>
+    apply-templates select="@date"
+    apply-templates select="@rev"
+    apply-templates select="@source"
+    apply-templates select="@root"
+    apply-templates select="@repository"
+    apply-templates select="@file"
+    apply-templates select="@svn-path"
+      <b>template match="prolog"</b>
+          call-template name="fShowContent"
+            apply-templates select="title"
+          apply-templates select="p|para|pre|pre-fmt"
+      <b>template match="postlog"</b>
+          call-template name="fShowContent"
+            apply-templates select="title"
+          apply-templates select="p|para|pre|pre-fmt"
+      <b>template match="br"</b>
+      <b>template match="rev"</b>
+        call-template name="fRevisionFlag"
+      <b>template match="author"</b>
+      <b>template match="edition"</b>
+      <b>template match="biblio-id"</b>
+      <b>template match="publisher"</b>
+          apply-templates select="address"
+      <b>template match="address"</b>
+      <b>template match="street|pob|country|phone|fax|email|other-addr|city|state|post-code"</b>
+      <b>template match="@date"</b>
+      <b>template match="@rev"</b>
+      <b>template match="@source"</b>
+      <b>template match="@root"</b>
+      <b>template match="@repository"</b>
+      <b>template match="@file"</b>
+      <b>template match="@svn-path"</b>
+</pre>
+  <h3>template name="fImgUrl"</h3>
+  <h3>template name="fImgTag"</h3>
+  <pre>
+          call-template name="fImgUrl"
+          call-template name="fUnits"
+          call-template name="fUnits"
+      <b>template match="img"</b>
+        call-template name="fImgTag"
+      <b>template match="link"</b>
+            call-template name="fLinkFull"
+            call-template name="fLinkLong"
+            call-template name="fLinkShort"
+            call-template name="fLinkText"
+            call-template name="fLinkPlain"
+            call-template name="fLinkDefault"
+            call-template name="fLinkDefault"
+</pre>
+  <h3>template name="fLinkDefault"</h3>
+  <pre>
+            call-template name="fImgTag"
+</pre>
+  <h3>template name="fLinkFull"</h3>
+  <pre>
+            call-template name="fImgTag"
+</pre>
+  <h3>template name="fLinkLong"</h3>
+  <h3>template name="fLinkShort"</h3>
+  <h3>template name="fLinkText"</h3>
+  <h3>template name="fLinkPlain"</h3>
+  <pre>
+      <b>template match="b"</b>
+      <b>template match="i"</b>
+      <b>template match="tt"</b>
+      <b>template match="text()"</b>
+</pre>
+  <hr />
+  <h2>out-html.xsl</h2>
+  <h3>Includes:</h3>
+  <pre>
+com-param.xsl
+com-html.xsl
+com.xsl
+----------
+</pre>
+  <pre>
+      <b>template match="/content"</b>
+        apply-templates select="book"
+        call-template name="fOutputList"
+</pre>
+  <h3>template name="fOutputList"</h3>
+  <pre>
+          apply-templates select="book"
+      <b>template match="book"</b>
+      <b>template match="book"</b>
+              call-template name="fMetaHead"
+              call-template name="fHtmlStyle"
+              call-template name="fBodyAttr"
+              call-template name="fTitlePage"
+              call-template name="fCopyrightPage"
+              call-template name="fTocPage"
+              apply-templates select="story-info/ch-preface"
+              apply-templates select="preface"
+              apply-templates select="chapter"
+              apply-templates select="epilog"
+      <b>template match="unit"</b>
+          call-template name="fShowContent"
+          apply-templates select="thread"
+      <b>template match="thread"</b>
+          call-template name="fShowContent"
+          apply-templates select="p|s|t|pre|quote|br|para|pre-fmt"
+      <b>template match="p"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+      <b>template match="para"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+      <b>template match="pre|pre-fmt"</b>
+          call-template name="fShowContent"
+    call-template name="fRevisionFlag"
+      <b>template match="quote"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+      <b>template match="s"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+      <b>template match="t"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+</pre>
+  <hr />
+  <h2>out-ch-html.xsl</h2>
+  <h3>Includes:</h3>
+  <pre>
+com-param.xsl
+com-html.xsl
+com.xsl
+----------
+</pre>
+  <pre>
+      <b>template match="/content"</b>
+        apply-templates select="book"
+        call-template name="fOutputList"
+</pre>
+  <h3>template name="fOutputList"</h3>
+  <pre>
+          apply-templates select="book"
+      <b>template match="book"</b>
+      <b>template match="book"</b>
+              call-template name="fMetaHead"
+              call-template name="fHtmlStyle"
+              call-template name="fBodyAttr"
+              call-template name="fTitlePage"
+              call-template name="fCopyrightPage"
+              call-template name="fTocPage"
+              apply-templates select="story-info/ch-preface"
+              apply-templates select="preface"
+              apply-templates select="chapter"
+              apply-templates select="epilog"
+      <b>template match="unit"</b>
+          call-template name="fShowContent"
+          apply-templates select="thread"
+      <b>template match="thread"</b>
+          call-template name="fShowContent"
+          apply-templates select="p|s|t|pre|quote|br|para|pre-fmt"
+      <b>template match="p"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+      <b>template match="para"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+      <b>template match="pre|pre-fmt"</b>
+          call-template name="fShowContent"
+    call-template name="fRevisionFlag"
+      <b>template match="quote"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+      <b>template match="s"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+      <b>template match="t"</b>
+          call-template name="fShowContent"
+          call-template name="fRevisionFlag"
+</pre>
+  <hr />
+  <h2>out-draft.xsl</h2>
+  <h3>Includes:</h3>
+  <pre>
+com-param.xsl
+com-html.xsl
+com.xsl
+com-timeline.xsl
+----------
+</pre>
+  <pre>
+      <b>template match="/content"</b>
+        apply-templates select="story-dtd"
+        apply-templates select="book"
+        call-template name="fOutputList"
+</pre>
+  <h3>template name="fOutputList"</h3>
+  <pre>
+          apply-templates select="book"
+      <b>template match="book"</b>
+      <b>template match="book"</b>
+              call-template name="fMetaHead"
+              call-template name="fHtmlStyle"
+              call-template name="fBodyAttr"
+              call-template name="fTitlePage"
+              call-template name="fCopyrightPage"
+              call-template name="fTocPage"
+              call-template name="fDefBook"
+              apply-templates select="preface"
+              apply-templates select="chapter"
+              apply-templates select="epilog"
+</pre>
+  <h3>template name="fDefBook"</h3>
+  <pre>
+            apply-templates select="style-info/def-style"
+            apply-templates select="style-info/def-content"
+            apply-templates select="style-info/def-draft"
+            apply-templates select="style-info/def-draft"
+            apply-templates select="style-info/def-print"
+            apply-templates select="style-info/def-print"
+            apply-templates select="style-info/def-print"
+            apply-templates select="style-info/def-base"
+            apply-templates select="style-info/def-img"
+            apply-templates select="style-info/def-link"
+            call-template name="fTimeline"
+            call-template name="fFmtTimeline"
+            apply-templates select="story-info/def-when"
+              apply-templates select="story-info/def-who"
+              apply-templates select="story-info/def-where"
+              apply-templates select="story-info/def-thread"
+          apply-templates select="story-info/ch-preface"
+      <b>template match="def-style"</b>
+      <b>template match="def-content"</b>
+      <b>template match="def-draft"</b>
+      <b>template match="def-draft"</b>
+      <b>template match="def-print"</b>
+      <b>template match="def-print"</b>
+      <b>template match="def-print"</b>
+      <b>template match="def-base"</b>
+      <b>template match="def-img"</b>
+      <b>template match="def-link"</b>
+      <b>template match="def-when"</b>
+      <b>template match="def-who"</b>
+            apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="def-where"</b>
+            apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="def-thread"</b>
+            apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="ch-preface"</b>
+        apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="unit"</b>
+          call-template name="fShowContent"
+          call-template name="fRevFlag"
+              call-template name="fFmtDraft"
+              call-template name="fFmtDraft"
+                    apply-templates select="outline/when"
+              call-template name="fFmtDraft"
+                    apply-templates select="outline/where"
+              call-template name="fFmtDraft"
+                    apply-templates select="outline/who"
+              call-template name="fFmtDraft"
+                  apply-templates select="outline/description"
+              apply-templates select="thread"
+      <b>template match="when"</b>
+          call-template name="fToXMLTime"
+          call-template name="fToXMLTime"
+            call-template name="fFmtXMLTime"
+            call-template name="fFmtXMLTime"
+            apply-templates select="description"
+      <b>template match="where"</b>
+            apply-templates select="key('def-where-index',@ref)/*"
+            apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="who"</b>
+            apply-templates select="key('def-who-index',@ref)/*"
+            apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="description"</b>
+        apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="thread"</b>
+          call-template name="fShowContent"
+          call-template name="fFmtDraft"
+          call-template name="fFmtDraft"
+            apply-templates select="p|s|t|pre|quote|br"
+          call-template name="fFmtDraft"
+          call-template name="fFmtDraft"
+          call-template name="fFmtDraft"
+              apply-templates select="p|s|t|pre|quote|br"
+      <b>template match="p"</b>
+          call-template name="fShowContent"
+            call-template name="fRevisionFlag"
+          call-template name="fFmtDraft"
+                call-template name="fRevisionFlag"
+      <b>template match="para"</b>
+          call-template name="fShowContent"
+            call-template name="fRevisionFlag"
+          call-template name="fFmtDraft"
+                call-template name="fRevisionFlag"
+      <b>template match="pre|pre-fmt"</b>
+          call-template name="fShowContent"
+    call-template name="fRevisionFlag"
+          call-template name="fFmtDraft"
+    call-template name="fRevisionFlag"
+      <b>template match="quote"</b>
+          call-template name="fShowContent"
+            call-template name="fRevisionFlag"
+          call-template name="fFmtDraft"
+                call-template name="fRevisionFlag"
+      <b>template match="s"</b>
+          call-template name="fShowContent"
+            call-template name="fRevisionFlag"
+            call-template name="fFmtDraft"
+          call-template name="fFmtDraft"
+                call-template name="fRevisionFlag"
+      <b>template match="t"</b>
+          call-template name="fShowContent"
+            call-template name="fRevisionFlag"
+            call-template name="fFmtDraft"
+          call-template name="fFmtDraft"
+                call-template name="fRevisionFlag"
+</pre>
+  <h3>template name="fFmtDraft"</h3>
+  <hr />
+  <h2>out-pdf.xsl</h2>
+  <h3>Includes:</h3>
+  <pre>
+com-param.xsl
+com.xsl
+----------
+</pre>
+  <pre>
+            call-template name="fUnits"
+            call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fUnits"
+        call-template name="fSelectFont"
+        call-template name="fSelectFont"
+        call-template name="fSelectFont"
+        call-template name="fSelectFont"
+      <b>template match="/content"</b>
+        apply-templates select="book"
+      <b>template match="book"</b>
+              call-template name="fPageHeader"
+                call-template name="fTitlePage"
+                call-template name="fCopyrightPage"
+                  call-template name="fTocPage"
+                apply-templates select="story-info/ch-preface"
+                apply-templates select="preface"
+                apply-templates select="chapter"
+                apply-templates select="epilog"
+</pre>
+  <h3>template name="fPageHeader"</h3>
+  <pre>
+                        apply-templates select="book-info/author-group/author[1]"
+</pre>
+  <h3>template name="fTitlePage"</h3>
+  <pre>
+            apply-templates select="subtitle"
+          apply-templates select="book-info/author-group/author"
+</pre>
+  <h3>template name="fCopyrightPage"</h3>
+  <pre>
+        call-template name="fFmtCopyright"
+        apply-templates select="book-info/edition"
+        apply-templates select="book-info/publisher"
+        apply-templates select="book-info/biblio-id"
+        call-template name="fFmtReleaseInfo"
+              apply-templates select="book-info/legal-notice"
+</pre>
+  <h3>template name="fTocPage"</h3>
+  <pre>
+          apply-templates select="story-info/ch-preface"
+          apply-templates select="preface"
+        apply-templates select="chapter"
+          apply-templates select="epilog"
+      <b>template match="author"</b>
+      <b>template match="ch-preface|preface|epilog"</b>
+          apply-templates select="title"
+      <b>template match="chapter"</b>
+          call-template name="fShowContent"
+            apply-templates select="title"
+              apply-templates select="chapter-info/release-info/@date"
+</pre>
+  <h3>template name="fFmtCopyright"</h3>
+  <pre>
+            apply-templates select="book-info/copyright/year[1]"
+            apply-templates select="book-info/copyright/year[last()]"
+            apply-templates select="book-info/copyright/holder[1]"
+            apply-templates select="book-info/author-group/author[1]"
+      <b>template match="legal-notice"</b>
+          apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="edition"</b>
+      <b>template match="biblio-id"</b>
+</pre>
+  <h3>template name="fFmtReleaseInfo"</h3>
+  <pre>
+          apply-templates select="book-info/release-info"
+          apply-templates select="book-info/release-info"
+      <b>template match="publisher"</b>
+          apply-templates select="address"
+      <b>template match="address"</b>
+        apply-templates select="street"
+        apply-templates select="pob"
+        apply-templates select="country"
+        apply-templates select="phone"
+        apply-templates select="fax"
+        apply-templates select="email"
+        apply-templates select="other-addr"
+      <b>template match="street|pob|country|phone|fax|email|other-addr"</b>
+      <b>template match="title"</b>
+      <b>template match="title"</b>
+      <b>template match="title"</b>
+      <b>template match="ch-preface|preface|epilog"</b>
+          call-template name="fShowContent"
+          call-template name="fPageBreak"
+            apply-templates select="title"
+          apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="chapter"</b>
+          call-template name="fShowContent"
+          call-template name="fPageBreak"
+          call-template name="fChapterBody"
+</pre>
+  <h3>template name="fChapterBody"</h3>
+  <pre>
+          apply-templates select="title"
+          apply-templates select="chapter-info/release-info"
+        apply-templates select="prolog"
+        apply-templates select="unit"
+        apply-templates select="postlog"
+      <b>template match="prolog"</b>
+          call-template name="fShowContent"
+            apply-templates select="title"
+          apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="postlog"</b>
+          call-template name="fShowContent"
+            apply-templates select="title"
+          apply-templates select="p|para|pre|pre-fmt|quote"
+      <b>template match="unit"</b>
+          call-template name="fShowContent"
+          apply-templates select="thread"
+      <b>template match="thread"</b>
+          call-template name="fShowContent"
+          apply-templates select="p|s|t|pre|quote|br"
+</pre>
+  <h3>template name="fPageBreak"</h3>
+  <pre>
+              apply-templates select="title"
+              apply-templates select="title"
+                  apply-templates select="title"
+                  apply-templates select="title"
+              apply-templates select="title"
+</pre>
+  <h3>template name="fSelectFont"</h3>
+  <pre>
+      <b>template match="release-info"</b>
+          apply-templates select="@date"
+          apply-templates select="@rev"
+          apply-templates select="@source"
+          apply-templates select="@root"
+          apply-templates select="@repository"
+          apply-templates select="@file"
+          apply-templates select="@svn-path"
+      <b>template match="@date"</b>
+      <b>template match="@rev"</b>
+      <b>template match="@source"</b>
+      <b>template match="@root"</b>
+      <b>template match="@repository"</b>
+      <b>template match="@file"</b>
+      <b>template match="@svn-path"</b>
+      <b>template match="br"</b>
+          call-template name="fShowContent"
+      <b>template match="p"</b>
+          call-template name="fShowContent"
+      <b>template match="para"</b>
+          call-template name="fShowContent"
+      <b>template match="quote"</b>
+          call-template name="fShowContent"
+      <b>template match="pre-fmt"</b>
+          call-template name="fShowContent"
+      <b>template match="pre"</b>
+          call-template name="fShowContent"
+      <b>template match="s"</b>
+          call-template name="fShowContent"
+      <b>template match="t"</b>
+          call-template name="fShowContent"
+</pre>
+  <h3>template name="fImgUrl"</h3>
+  <h3>template name="fImgTag"</h3>
+  <pre>
+          call-template name="fImgUrl"
+          call-template name="fUnits"
+          call-template name="fUnits"
+      <b>template match="img"</b>
+        call-template name="fImgTag"
+      <b>template match="link"</b>
+            call-template name="fLinkFull"
+            call-template name="fLinkLong"
+            call-template name="fLinkShort"
+            call-template name="fLinkText"
+            call-template name="fLinkPlain"
+            call-template name="fLinkDefault"
+            call-template name="fLinkDefault"
+</pre>
+  <h3>template name="fLinkDefault"</h3>
+  <pre>
+            call-template name="fImgTag"
+</pre>
+  <h3>template name="fLinkFull"</h3>
+  <pre>
+            call-template name="fImgTag"
+</pre>
+  <h3>template name="fLinkLong"</h3>
+  <h3>template name="fLinkShort"</h3>
+  <h3>template name="fLinkText"</h3>
+  <h3>template name="fLinkPlain"</h3>
+  <pre>
+      <b>template match="b"</b>
+      <b>template match="i"</b>
+      <b>template match="tt"</b>
+</pre>
+  <h3>template name="fRevisionFlag"</h3>
+  <pre>
+      <b>template match="rev"</b>
+        call-template name="fRevisionFlag"
+      <b>template match="text()"</b>
+</pre>
+  <hr />
+  <h2>out-docbook.xsl</h2>
+  <h3>Includes:</h3>
+  <pre>
+com-param.xsl
+com.xsl
+----------
+</pre>
+  <pre>
+      <b>template match="/content/book"</b>
+          apply-templates select="@*"
+          apply-templates select="title"
+          apply-templates select="subtitle"
+          apply-templates select="title-abbrev"
+          apply-templates select="book-info"
+          apply-templates select="preface"
+          apply-templates select="chapter"
+          apply-templates select="epilog"
+      <b>template match="node() | @* | comment() | processing-instruction()"</b>
+          apply-templates select="@* | node()"
+</pre>
+  <h3>template name="fReplaceSubstring"</h3>
+  <pre>
+                  call-template name="fReplaceSubstring"
+      <b>template match="story-dtd"</b>
+      <b>template match="style-info"</b>
+      <b>template match="story-info"</b>
+      <b>template match="outline"</b>
+      <b>template match="@ref"</b>
+      <b>template match="@who-ref"</b>
+      <b>template match="@who-refs"</b>
+      <b>template match="@other-class"</b>
+      <b>template match="@revision-flag"</b>
+      <b>template match="@other-class"</b>
+      <b>template match="author-blurb"</b>
+      <b>template match="author-group"</b>
+      <b>template match="biblio-id"</b>
+      <b>template match="book-info"</b>
+          apply-templates select="author-group"
+          apply-templates select="release-info"
+          apply-templates select="pub-date"
+          apply-templates select="copyright"
+          apply-templates select="publisher"
+          apply-templates select="edition"
+          apply-templates select="biblio-id"
+          apply-templates select="keyword-set"
+          apply-templates select="abstract"
+          apply-templates select="legal-notice"
+      <b>template match="chapter-info"</b>
+      <b>template match="first-name"</b>
+      <b>template match="keyword-set"</b>
+      <b>template match="legal-notice"</b>
+      <b>template match="other-addr"</b>
+      <b>template match="other-name"</b>
+      <b>template match="post-code"</b>
+      <b>template match="pub-date"</b>
+      <b>template match="publisher-name"</b>
+      <b>template match="release-info"</b>
+      <b>template match="title-abbrev"</b>
+      <b>template match="preface"</b>
+          apply-templates select="@*"
+            apply-templates select="subtitle"
+            apply-templates select="@*"
+            apply-templates select="title-abbrev"
+            apply-templates select="@*"
+      <b>template match="chapter"</b>
+          call-template name="fShowContent"
+            apply-templates select="@*"
+            apply-templates select="title"
+            apply-templates select="subtitle"
+            apply-templates select="title-abbrev"
+              apply-templates select="prolog"
+            apply-templates select="unit"
+              apply-templates select="postlog"
+      <b>template match="epilog"</b>
+          apply-templates select="@*"
+          apply-templates select="title"
+          apply-templates select="subtitle"
+          apply-templates select="title-abbrev"
+          apply-templates select="para|pre-fmt"
+      <b>template match="prolog"</b>
+          call-template name="fShowContent"
+            apply-templates select="title"
+          apply-templates select="para|pre-fmt"
+      <b>template match="postlog"</b>
+          call-template name="fShowContent"
+            apply-templates select="title"
+          apply-templates select="para|pre-fmt"
+      <b>template match="unit"</b>
+          call-template name="fShowContent"
+          apply-templates select="thread"
+      <b>template match="thread"</b>
+          call-template name="fShowContent"
+      <b>template match="para"</b>
+      <b>template match="t"</b>
+          call-template name="fShowContent"
+      <b>template match="p|s"</b>
+</pre>
+  <hr />
+  <h2>out-planner.xsl</h2>
+  <h3>Includes:</h3>
+  <pre>
+com-param.xsl
+com-html.xsl
+com.xsl
+com-timeline.xsl
+----------
+</pre>
+  <pre>
+      <b>template match="/content"</b>
+        apply-templates select="book"
+      <b>template match="book"</b>
+        call-template name="fTimeline"
+        call-template name="fFmtPlanner"
+</pre>
+  <h3>template name="fFmtPlanner"</h3>
+  <pre>
+          apply-templates select="document('/tmp/timeline.xml')"
+      <b>template match="timeline"</b>
+</pre>
+  <hr />
+  <h2>out-project.xsl</h2>
+  <h3>Includes:</h3>
+  <pre>
+com-param.xsl
+com-html.xsl
+com.xsl
+com-timeline.xsl
+----------
+</pre>
+  <pre>
+      <b>template match="/content"</b>
+        apply-templates select="book"
+      <b>template match="book"</b>
+        call-template name="fTimeline"
+        call-template name="fFmtProj"
+</pre>
+  <h3>template name="fFmtProj"</h3>
+  <pre>
+          apply-templates select="document('/tmp/timeline.xml')"
+      <b>template match="timeline"</b>
+</pre>
+  <hr />
+  <h2>test-parm.xsl</h2>
+  <h3>Includes:</h3>
+  <pre>
+com-param.xsl
+com.xsl
+----------
+</pre>
+  <pre>
+      <b>template match="/content/book"</b>
+        apply-templates select="style-info"
+        apply-templates select="preface"
+        apply-templates select="chapter"
+        apply-templates select="epilog"
+      <b>template match="style-info"</b>
+        call-template name="fDebugBook"
+      <b>template match="preface"</b>
+          call-template name="fShowContent"
+      <b>template match="epilog"</b>
+          call-template name="fShowContent"
+      <b>template match="ch-preface"</b>
+          call-template name="fShowContent"
+      <b>template match="chapter"</b>
+          call-template name="fShowContent"
+        apply-templates select="prolog"
+        apply-templates select="unit"
+        apply-templates select="postlog"
+      <b>template match="prolog"</b>
+          call-template name="fShowContent"
+      <b>template match="postlog"</b>
+          call-template name="fShowContent"
+      <b>template match="unit"</b>
+          call-template name="fShowContent"
+        apply-templates select="thread"
+      <b>template match="thread"</b>
+          call-template name="fShowContent"
+        apply-templates select="t"
+      <b>template match="t"</b>
+          call-template name="fShowContent"
+</pre>
+  <hr />
+  <h2>serna.xsl</h2>
+  <pre>
+      <b>template match="story-dtd"</b>
+        call-template name="para.decoration"
+            call-template name="h4"
+      <b>template match="book/title"</b>
+        call-template name="h1"
+            call-template name="inline.decoration"
+      <b>template match="chapter/title"</b>
+        call-template name="h2"
+            call-template name="inline.decoration"
+      <b>template match="subtitle|ch-preface/title|preface/title|epilog/title|prolog/title|postlog/title|ch-preface/title"</b>
+        call-template name="h3"
+            call-template name="inline.decoration"
+      <b>template match="unit/title"</b>
+        call-template name="h4"
+      <b>template match="p"</b>
+        call-template name="para.decoration"
+      <b>template match="ch-preface/para|preface/para|epilog/para|prolog/para|postlog/para"</b>
+        call-template name="para.decoration"
+      <b>template match="para"</b>
+        call-template name="para.decoration"
+      <b>template match="ch-preface/pre-fmt|preface/pre-fmt|epilog/pre-fmt|prolog/pre-fmt|postlog/pre-fmt"</b>
+        call-template name="pre.decoration"
+      <b>template match="pre-fmt"</b>
+        call-template name="pre.decoration"
+      <b>template match="pre"</b>
+        call-template name="pre.decoration"
+      <b>template match="s"</b>
+        call-template name="para.decoration"
+              call-template name="para.decoration"
+      <b>template match="t"</b>
+        call-template name="para.decoration"
+                call-template name="para.decoration"
+      <b>template match="rev"</b>
+            call-template name="inline.decoration"
+            call-template name="inline.decoration"
+            call-template name="inline.decoration"
+      <b>template match="style-info"</b>
+        call-template name="para.decoration"
+            call-template name="h4"
+      <b>template match="def-style"</b>
+        call-template name="para.decoration"
+            call-template name="h4"
+      <b>template match="chapter|book"</b>
+        call-template name="para.decoration"
+            call-template name="para.decoration"
+      <b>template match="unit"</b>
+        call-template name="para.decoration"
+            call-template name="para.decoration"
+      <b>template match="thread"</b>
+        call-template name="para.decoration"
+            call-template name="para.decoration"
+      <b>template match="b"</b>
+        call-template name="bold.inline"
+      <b>template match="i"</b>
+        call-template name="italic.inline"
+      <b>template match="tt"</b>
+        call-template name="monospace.inline"
+      <b>template match="def-img"</b>
+        call-template name="para.decoration"
+            call-template name="h4"
+      <b>template match="def-link"</b>
+        call-template name="para.decoration"
+            call-template name="h4"
+      <b>template match="link"</b>
+        call-template name="para.decoration"
+            call-template name="para.decoration"
+      <b>template match="img"</b>
+        call-template name="para.decoration"
+            call-template name="para.decoration"
+      <b>template match="def-draft|def-print|def-content|def-who|def-where|def-thread|def-base"</b>
+        call-template name="para.decoration"
+            call-template name="h4"
+      <b>template match="who|where"</b>
+        call-template name="para.decoration"
+            call-template name="h4"
+      <b>template match="outline"</b>
+        call-template name="para.decoration"
+            call-template name="h4"
+</pre>
+  <h3>template name="fSayDuration"</h3>
+  <hr />
+  <h2>serna-new.xsl</h2>
+  <pre>
+      <b>template match="story-dtd"</b>
+        call-template name="para"
+            call-template name="h4"
+      <b>template match="book/title"</b>
+        call-template name="h1"
+            call-template name="inline.decoration"
+      <b>template match="chapter/title"</b>
+        call-template name="h2"
+            call-template name="inline.decoration"
+      <b>template match="ch-preface/title|preface/title|epilog/title|prolog/title|postlog/title|ch-preface/title"</b>
+        call-template name="h3"
+            call-template name="inline.decoration"
+      <b>template match="unit/title"</b>
+        call-template name="h4"
+      <b>template match="p"</b>
+        call-template name="para.decoration"
+      <b>template match="ch-preface/para|preface/para|epilog/para|prolog/para|postlog/para"</b>
+        call-template name="para.decoration"
+      <b>template match="para"</b>
+        call-template name="para.decoration"
+      <b>template match="pre"</b>
+        call-template name="pre.decoration"
+      <b>template match="ch-preface/pre-fmt|preface/pre-fmt|epilog/pre-fmt|prolog/pre-fmt|postlog/pre-fmt"</b>
+        call-template name="pre.decoration"
+      <b>template match="pre-fmt"</b>
+        call-template name="pre.decoration"
+      <b>template match="s"</b>
+        call-template name="para.decoration"
+      <b>template match="t"</b>
+        call-template name="para.decoration"
+                call-template name="para.decoration"
+      <b>template match="rev"</b>
+            call-template name="inline.decoration"
+            call-template name="inline.decoration"
+            call-template name="inline.decoration"
+      <b>template match="style-info"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="def-style"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="def-content"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="def-draft"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="def-print"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="chapter|book"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="unit"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="thread"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="b"</b>
+        call-template name="bold.inline"
+      <b>template match="i"</b>
+        call-template name="italic.inline"
+      <b>template match="tt"</b>
+        call-template name="monospace.inline"
+      <b>template match="def-img"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="def-link"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="link"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="img"</b>
+        call-template name="para"
+            call-template name="para"
+      <b>template match="def-who|def-where|def-thread|def-base"</b>
+        call-template name="para"
+            call-template name="h4"
+      <b>template match="who|where"</b>
+        call-template name="para"
+            call-template name="h4"
+</pre>
+  <h3>template name="fSayDuration"</h3>
+  <pre>
+      <b>template match="outline"</b>
+        call-template name="para"
+            call-template name="h4"
+</pre>
+  <hr />
+  <h2>serna-toc.xsl</h2>
+  <pre>
+      <b>template match="/*"</b>
+            call-template name="all"
+      <b>template match="*"</b>
+                    apply-templates select="*[node()[1]/self::text()][1]"
+                    apply-templates select="*[node()[1]/self::text()][1]|*[not (text())]"
+      <b>template match="text()"</b>
+</pre>
+  <hr />
+  <h2>serna-1.xsl</h2>
+  <pre>
+      <b>template match="book/title"</b>
+        call-template name="h1"
+      <b>template match="chapter/title"</b>
+        call-template name="h2"
+      <b>template match="ch-preface/title|preface/title|epilog/title|prolog/title|postlog/title|ch-preface/title"</b>
+        call-template name="h3"
+      <b>template match="unit/title"</b>
+        call-template name="h4"
+      <b>template match="p"</b>
+        call-template name="para.decoration"
+      <b>template match="pre"</b>
+        call-template name="pre"
+      <b>template match="s"</b>
+        call-template name="para.decoration"
+      <b>template match="t"</b>
+        call-template name="para.decoration"
+              call-template name="para.decoration"
+      <b>template match="thread"</b>
+        call-template name="para"
+            call-template name="para"
+            call-template name="div"
+      <b>template match="b"</b>
+        call-template name="bold.inline"
+      <b>template match="i"</b>
+        call-template name="italic.inline"
+      <b>template match="tt"</b>
+        call-template name="monospace.inline"
+      <b>template match="def-who|def-where|def-thread"</b>
+        call-template name="para"
+            call-template name="h4"
+      <b>template match="who|where"</b>
+        call-template name="para"
+            call-template name="h4"
+</pre>
+  <h3>template name="fSayDuration"</h3>
+  <pre>
+      <b>template match="outline"</b>
+        call-template name="para"
+            call-template name="h4"
+</pre>
+</body>
+</html>
