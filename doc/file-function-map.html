@@ -25,6 +25,23 @@
   <h1>File Function Map</h1>
   <hr />
   <h2>com-param.xsl</h2>
+  <h3>Global Params:</h3>
+  <pre>
+gDTDVer
+gNL
+gStyleName
+gStyleRef
+gContentRef
+gPrintRef
+gDraftRef
+gDraft
+gDebug
+gThreads
+gChStatus
+gUnitStatus
+gContentLink
+----------
+</pre>
   <hr />
   <h2>com.xsl</h2>
   <pre>
@@ -55,6 +72,12 @@
 </pre>
   <hr />
   <h2>com-html.xsl</h2>
+  <h3>Global Params:</h3>
+  <pre>
+gIndent
+gDraftColor
+----------
+</pre>
   <h3>template name="fFmtXMLTime"</h3>
   <h3>template name="fRevisionFlag"</h3>
   <h3>template name="fRevFlag"</h3>
@@ -196,6 +219,11 @@ com-html.xsl
 com.xsl
 ----------
 </pre>
+  <h3>Global Params:</h3>
+  <pre>
+gDraft
+----------
+</pre>
   <pre>
       <b>template match="/content"</b>
         apply-templates select="book"
@@ -248,6 +276,11 @@ com.xsl
 com-param.xsl
 com-html.xsl
 com.xsl
+----------
+</pre>
+  <h3>Global Params:</h3>
+  <pre>
+gDraft
 ----------
 </pre>
   <pre>
@@ -303,6 +336,11 @@ com-param.xsl
 com-html.xsl
 com.xsl
 com-timeline.xsl
+----------
+</pre>
+  <h3>Global Params:</h3>
+  <pre>
+gDraft
 ----------
 </pre>
   <pre>
@@ -441,6 +479,41 @@ com-timeline.xsl
   <pre>
 com-param.xsl
 com.xsl
+----------
+</pre>
+  <h3>Global Params:</h3>
+  <pre>
+gDraft
+gWidth
+gHeight
+gMargin
+gGutter
+gBleedLeft
+gBleedRight
+gBleedTop
+gBleedBottom
+gPageHeight
+gPageWidth
+gMarginTop
+gMarginBottom
+gMarginOddLeft
+gMarginOddRight
+gMarginEvenLeft
+gMarginEvenRight
+gBodySize
+gBodyWidth
+gBodyWidthPt
+gHalfBodyWidth
+gLineHeight
+gHeaderHeight
+gHeaderHeightIn
+gBodyHeight
+gBodyHeightPt
+gIndent
+gBodyFamily
+gChTitleFamily
+gTitleFamily
+gHeadFamily
 ----------
 </pre>
   <pre>
@@ -755,6 +828,11 @@ com.xsl
 com-timeline.xsl
 ----------
 </pre>
+  <h3>Global Params:</h3>
+  <pre>
+gDraft
+----------
+</pre>
   <pre>
       <b>template match="/content"</b>
         apply-templates select="book"
@@ -775,6 +853,11 @@ com-param.xsl
 com-html.xsl
 com.xsl
 com-timeline.xsl
+----------
+</pre>
+  <h3>Global Params:</h3>
+  <pre>
+gDraft
 ----------
 </pre>
   <pre>
@@ -831,6 +914,11 @@ com.xsl
 </pre>
   <hr />
   <h2>serna.xsl</h2>
+  <h3>Global Params:</h3>
+  <pre>
+gThreads
+----------
+</pre>
   <pre>
       <b>template match="story-dtd"</b>
         call-template name="para.decoration"
@@ -914,6 +1002,11 @@ com.xsl
   <h3>template name="fSayDuration"</h3>
   <hr />
   <h2>serna-new.xsl</h2>
+  <h3>Global Params:</h3>
+  <pre>
+gThreads
+----------
+</pre>
   <pre>
       <b>template match="story-dtd"</b>
         call-template name="para"

@@ -69,6 +69,18 @@ for i in \
 		echo '----------'
 		echo '</pre>'
 	fi
+	if grep -q ':param name="g' $i &>/dev/null; then
+		echo '<h3>Global Params:</h3>'
+		echo '<pre>'
+		grep ':param name="g' $i | awk '{
+			sub(/ *<xsl:param name="/,"")
+			sub(/">/,"")
+			sub(/"/,"")
+			print $0
+		}'
+		echo '----------'
+		echo '</pre>'
+	fi
 	awk '
 		BEGIN {
 			gInPre=0
