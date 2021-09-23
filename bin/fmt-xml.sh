@@ -54,9 +54,11 @@ for i in $*; do
 		echo "Skipping $i. Could not read. [$LINENO]"
 		continue
 	fi
-	if ! xmllint --noout --nonet $i; then
-		echo "Skipping $i. Invalid xml. [$LINENO]"
-		continue
+	if [ "$tExt" != "html" ] && [ "$tExt" != "htm" ]; then
+		if ! xmllint --noout --nonet $i; then
+			echo "Skipping $i. Invalid xml. [$LINENO]"
+			continue
+		fi
 	fi
 	gpFiles="$gpFiles $i"
 done
