@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ "${PWD##*/}" != "doc" ]; then
-   echo "Error: run this from the top 'doc' dir"
+if [ "${PWD##*/}" != "bin" ]; then
+   echo "Error: run this from the top 'bin' dir"
    exit 1
 fi
 if [ ! -d ../src/style ]; then
