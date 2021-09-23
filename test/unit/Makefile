@@ -3,13 +3,12 @@
 mBin = ../../bin
 mSrc = ../../src/style
 
-mApp = $(mSrc)/com-param.xsl
-mTestSuite = test_param.xsl
-mFmtReport = xsltunit_report.xsl
+mTests = \
+	test_param.xsl.pass.result.html
 
 # --------------------
-test : validate
-	$(mBin)/run-test.sh $(mTestSuite) $(mApp) pass
+test : validate $(mTests)
+
 
 # --------------------
 validate :
@@ -24,3 +23,9 @@ reformat : validate
 # --------------------
 clean :
 	-rm *~ *.result.* &>/dev/null
+
+# --------------------
+# Tests
+
+test_param.xsl.pass.result.html : test_param.xsl $(mSrc)/com-param.xsl
+	$(mBin)/run-test.sh test_param.xsl $(mSrc)/com-param.xsl

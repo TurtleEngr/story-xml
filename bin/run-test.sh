@@ -2,10 +2,10 @@
 
 # --------------------
 # Usage
-if [ $# -ne 3 ]; then
+if [ $# -ne 2 ]; then
 	cat <<EOF
 Usage:
-	run-test.sh Test.xsl App.xsl {pass|fail}
+	run-test.sh Test.xsl App.xsl
 EOF
 	exit 1
 fi
@@ -14,7 +14,6 @@ fi
 # Get Args
 gpTest=$1
 gpApp=$2
-gpPassFail=$3
 
 # --------------------
 # Config
@@ -44,13 +43,18 @@ if [ ! -s test_param.xsl.result.xml ]; then
 	exit 1
 fi
 
+for tPassFail in pass fail; do
 xsltproc \
 	--stringparam gpApp $gpApp \
 	--stringparam gpTestSuite $gpTest \
-	--stringparam gpPassFail $gpPassFail \
+	--stringparam gpPassFail $tPassFail \
 	$cReport \
 	$gpTest.result.xml \
-		>$gpTest.$gpPassFail.result.html
-$cBin/fmt-xml.sh $gpTest.$gpPassFail.result.html
+		>$gpTest.$tPassFail.result.html
+$cBin/fmt-xml.sh $gpTest.$tPassFail.result.html
+done
 
+if grep Failed $gpTest.pass.result.html; then
+	exit 1
+fi
 exit 0
