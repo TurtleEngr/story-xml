@@ -14,7 +14,8 @@
                     <t who="hero">What will we do next? Thinks hero</t>
                     <t who="bob">Bob thinks: what? (not printed)</t>
                 </thread>
-                <thread ref="ranch" who-refs="bob">
+                <thread ref="ranch"
+                        who-refs="bob">
                     <p>Indented Paragraph</p>
                 </thread>
             </unit>
@@ -22,7 +23,7 @@
                 <thread ref="main"
                         who-refs="hero">
                     <p>Indented Paragraph</p>
-		</thread>
+                </thread>
             </unit>
         </chapter>
     </book>

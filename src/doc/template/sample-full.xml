@@ -1,124 +1,223 @@
 <?xml version="1.0"?>
 <content>
-  <story-dtd version="6" />
-  <book id="book" revision="in-progress">
-    <title>Book Title</title>
-    <subtitle>subtitle</subtitle>
-    <title-abbrev>abbrev</title-abbrev>
-    <book-info>
-      <author-group>
-        <author>
-          <first-name />
-          <surname />
-          <email />
-          <author-blurb>
-            <para />
-          </author-blurb>
-        </author>
-      </author-group>
-      <release-info>
-	<para>$Date: 2009/03/31 15:51:05 $</para>
-	<para>$Revision: 1.1 $</para>
-	<para>file="file.name.xml"</para>
-	<para>repository="fiction/book1" root="/data/local.cvs" source="$Source: /repo/local.cvs/app/story-xml/src/story5/sample-full.xml,v $"</para>
-      </release-info>
-      <pub-date>2008</pub-date>
-      <copyright>
-        <year>2008</year>
-        <holder>AuthorName</holder>
-      </copyright>
-      <biblio-id class="isbn">123456-123456</biblio-id>
-      <biblio-id class="uri">http:://books.lulu.com/content/1234567</biblio-id>
-      <keyword-set>word, word</keyword-set>
-      <abstract>
-        <para>Brief description.</para>
-      </abstract>
-    </book-info>
-    <style-info style-ref="main" thread-refs="main">
-      <def-style content-ref="main" debug="0" draft="0" draft-ref="main" print-ref="main" id="main">
-        <para>Optional: define this style.</para>
-      </def-style>
-      <def-content link-fmt="default" thread-refs="main" id="main" ch-draft="1" ch-final="1" ch-in-progress="1" ch-preface="1" preface="1" prolog="1" unit-draft="1" unit-final="1" unit-in-progress="1">
-        <para>Optional: define this content setting.</para>
-      </def-content>
-      <def-draft id="main" def-base="0" def-img="1" def-link="1" def-thread="1" def-where="1" def-who="1" deleted="1" thread-all="1" thread-all-vp="1" thread-content="1" thread-id-vp="1" thread-ref="1" timeline="1" unit-outline="1" unit-title="1" unit-when="1" unit-where="1" unit-who="1">
-        <para>Optional: define the draft setting.</para>
-      </def-draft>
-      <def-print bgcolor="white" body-family="times" body-size="12pt" ch-title-family="times" ch-title-size="20pt" ch-page-break="some-odd" copyright-type="standard" draft="red" duplex="1" gutter="0.3in" head-align="left" head-family="times" head-location="top" head-size="16pt" head-type="title" line-height="110" margin="0.5in" multi-file="0" output-type="pdf" page="6x9in" text="black" title-family="times" title-size="24pt" toc="1" id="main" alink="purple" auto-break="0" bleed-bottom="0" bleed-left="0" bleed-right="0" bleed-top="0" link="blue" next-prev="1" vlink="red">
-        <para>Optional: define the print setting.</para>
-      </def-print>
-      <meta-description>html meta description</meta-description>
-      <file-prefix />
-    </style-info>
-    <story-info>
-      <def-thread id="main">
-        <para>Describe the plot thread.</para>
-      </def-thread>
-      <def-who id="hero">
-        <para>Describe the hero</para>
-      </def-who>
-      <def-who id="villain">
-        <para>Describe</para>
-      </def-who>
-      <def-where id="beach">
-        <para>Describe scene location</para>
-      </def-where>
-      <ch-preface>
-        <title>Disclaimer</title>
-        <para>This is put at the beginning of multi-file book chapter files.</para>
-      </ch-preface>
-    </story-info>
-    <preface>
-      <title>Preface</title>
-      <para>Printed before all chapters.</para>
-    </preface>
-    <chapter id="ch1" revision="in-progress">
-      <title>Chaper Title</title>
-      <subtitle>subtitle</subtitle>
-      <title-abbrev>ch-abbrev</title-abbrev>
-      <chapter-info>
-        <release-info>
-	  <para>date="$Date: 2009/03/31 15:51:05 $"</para>
-	  <para>rev="$Revision: 1.1 $" svn-path="$URL$"</para>
-        </release-info>
-        <pub-date>2008</pub-date>
-      </chapter-info>
-      <prolog>
-        <title>Prolog</title>
-        <para>Prolog text prints at beginning of chapter.</para>
-      </prolog>
-      <unit type="scene" id="u1" revision="in-progress">
-        <title>Unit title</title>
-        <outline>
-          <when>
-            <start-date min="0" hour="9" day="5" month="2" />
-            <end-date min="0" hour="13" />
-            <description>
-              <para>More details about this time.</para>
-            </description>
-          </when>
-          <where ref="beach">
-            <para>additional description</para>
-          </where>
-          <who ref="hero">
-            <para>additional description.</para>
-          </who>
-          <description>
-            <para>Describe this unit.</para>
-            <pre>This is where the scene or sequel is outlined.</pre>
-          </description>
-        </outline>
-        <thread ref="main" who-refs="hero" revision-flag="added">
-          <p>Paragraph</p>
-          <s who="hero">"What?" said the hero.</s>
-          <t who="hero">Thought text.</t>
-          <t who="bob">Non-view point character thought (not printed.)</t>
-        </thread>
-      </unit>
-      <postlog>
-        <title>Postlog</title>
-        <para>This is printed at the end of the chapter.</para>
-      </postlog>
-    </chapter>
-  </book>
+    <story-dtd version="6" />
+    <book id="book"
+          revision="in-progress">
+        <title>Book Title</title>
+        <subtitle>subtitle</subtitle>
+        <title-abbrev>abbrev</title-abbrev>
+        <book-info>
+            <author-group>
+                <author>
+                    <first-name />
+                    <surname />
+                    <email />
+                    <author-blurb>
+                        <para />
+                    </author-blurb>
+                </author>
+            </author-group>
+            <release-info>
+                <para>$Date: 2009/03/31 15:51:05 $</para>
+                <para>$Revision: 1.1 $</para>
+                <para>file="file.name.xml"</para>
+                <para>repository="fiction/book1" root="/data/local.cvs"
+                source="$Source:
+                /repo/local.cvs/app/story-xml/src/story5/sample-full.xml,v
+                $"</para>
+            </release-info>
+            <pub-date>2008</pub-date>
+            <copyright>
+                <year>2008</year>
+                <holder>AuthorName</holder>
+            </copyright>
+            <biblio-id class="isbn">123456-123456</biblio-id>
+            <biblio-id class="uri">
+            http:://books.lulu.com/content/1234567</biblio-id>
+            <keyword-set>word, word</keyword-set>
+            <abstract>
+                <para>Brief description.</para>
+            </abstract>
+        </book-info>
+        <style-info style-ref="main"
+                    thread-refs="main">
+            <def-style content-ref="main"
+                       debug="0"
+                       draft="0"
+                       draft-ref="main"
+                       print-ref="main"
+                       id="main">
+                <para>Optional: define this style.</para>
+            </def-style>
+            <def-content link-fmt="default"
+                         thread-refs="main"
+                         id="main"
+                         ch-draft="1"
+                         ch-final="1"
+                         ch-in-progress="1"
+                         ch-preface="1"
+                         preface="1"
+                         prolog="1"
+                         unit-draft="1"
+                         unit-final="1"
+                         unit-in-progress="1">
+                <para>Optional: define this content setting.</para>
+            </def-content>
+            <def-draft id="main"
+                       def-base="0"
+                       def-img="1"
+                       def-link="1"
+                       def-thread="1"
+                       def-when="1"
+                       def-where="1"
+                       def-who="1"
+                       deleted="1"
+                       thread-all="1"
+                       thread-all-vp="1"
+                       thread-content="1"
+                       thread-id-vp="1"
+                       thread-ref="1"
+                       timeline="1"
+                       unit-outline="1"
+                       unit-title="1"
+                       unit-when="1"
+                       unit-where="1"
+                       unit-who="1">
+                <para>Optional: define the draft setting.</para>
+            </def-draft>
+            <def-print bgcolor="white"
+                       body-family="times"
+                       body-size="12pt"
+                       ch-title-family="times"
+                       ch-title-size="20pt"
+                       ch-page-break="some-odd"
+                       copyright-type="standard"
+                       draft="red"
+                       duplex="1"
+                       gutter="0.3in"
+                       head-align="left"
+                       head-family="times"
+                       head-location="top"
+                       head-size="16pt"
+                       head-type="title"
+                       line-height="110"
+                       margin="0.5in"
+                       multi-file="0"
+                       output-type="pdf"
+                       page="6x9in"
+                       text="black"
+                       title-family="times"
+                       title-size="24pt"
+                       toc="1"
+                       id="main"
+                       alink="purple"
+                       auto-break="0"
+                       bleed-bottom="0"
+                       bleed-left="0"
+                       bleed-right="0"
+                       bleed-top="0"
+                       link="blue"
+                       next-prev="1"
+                       vlink="red">
+                <para>Optional: define the print setting.</para>
+            </def-print>
+            <meta-description>html meta description</meta-description>
+            <file-prefix />
+        </style-info>
+        <story-info>
+            <def-when year="2008"
+                      month="01"
+                      day="01"
+                      hour="08"
+                      min="00"
+                      gmt="-08" />
+            <def-thread id="main">
+                <para>Describe the plot thread.</para>
+            </def-thread>
+            <def-who id="hero">
+                <para>Describe the hero</para>
+            </def-who>
+            <def-who id="villain">
+                <para>Describe</para>
+            </def-who>
+            <def-where id="beach">
+                <para>Describe scene location</para>
+            </def-where>
+            <ch-preface>
+                <title>Disclaimer</title>
+                <para>This is put at the beginning of multi-file book chapter
+                files.</para>
+            </ch-preface>
+        </story-info>
+        <preface>
+            <title>Preface</title>
+            <para>Printed before all chapters.</para>
+        </preface>
+        <chapter id="ch1"
+                 revision="in-progress">
+            <title>Chaper Title</title>
+            <subtitle>subtitle</subtitle>
+            <title-abbrev>ch-abbrev</title-abbrev>
+            <chapter-info>
+                <release-info>
+                    <para>date="$Date: 2009/03/31 15:51:05 $"</para>
+                    <para>rev="$Revision: 1.1 $" svn-path="$URL$"</para>
+                </release-info>
+                <pub-date>2008</pub-date>
+            </chapter-info>
+            <prolog>
+                <title>Prolog</title>
+                <para>Prolog text prints at beginning of chapter.</para>
+            </prolog>
+            <unit type="scene"
+                  id="u1"
+                  revision="in-progress">
+                <title>Unit title</title>
+                <outline>
+                    <when>
+                        <start-date min="0"
+                                    hour="9"
+                                    day="5"
+                                    month="2" />
+                        <end-date min="0"
+                                  hour="13" />
+                        <description>
+                            <para>More details about this time.</para>
+                        </description>
+                    </when>
+                    <where ref="beach">
+                        <para>additional description</para>
+                    </where>
+                    <who ref="hero">
+                        <para>additional description.</para>
+                    </who>
+                    <description>
+                        <para>Describe this unit.</para>
+                        <pre>
+This is where the scene or sequel is outlined.
+</pre>
+                    </description>
+                </outline>
+                <thread ref="main"
+                        who-refs="hero"
+                        revision-flag="added">
+                    <p>Paragraph</p>
+                    <s who="hero">"What?" said the hero.</s>
+                    <t who="hero">Thought text.</t>
+                    <t who="bob">Non-view point character thought (not
+                    printed.)</t>
+                </thread>
+            </unit>
+            <unit type="sequel">
+                <thread ref="main"
+                        who-refs="hero">
+                    <p>Indented Paragraph</p>
+                </thread>
+            </unit>
+            <postlog>
+                <title>Postlog</title>
+                <para>This is printed at the end of the chapter.</para>
+            </postlog>
+        </chapter>
+    </book>
 </content>

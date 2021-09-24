@@ -14,9 +14,9 @@
                 </author>
             </author-group>
             <release-info>
-	      <para>$Date: 2009/03/31 16:01:28 $"</para>
-              <para>$Revision: 1.2 $"</para>
-	    </release-info>
+                <para>$Date: 2009/03/31 16:01:28 $"</para>
+                <para>$Revision: 1.2 $"</para>
+            </release-info>
             <pub-date>2008</pub-date>
             <copyright>
                 <year>2008</year>
@@ -97,11 +97,11 @@
             <subtitle />
             <title-abbrev />
             <chapter-info>
-              <release-info>
-	        <para>$Date$"</para>
-                <para>$Revision: 2.5 $"</para>
-	      </release-info>
-              <pub-date>2008</pub-date>
+                <release-info>
+                    <para>$Date$"</para>
+                    <para>$Revision: 2.5 $"</para>
+                </release-info>
+                <pub-date>2008</pub-date>
             </chapter-info>
             <prolog>
                 <title>Prolog</title>
@@ -118,12 +118,18 @@
                 </outline>
                 <thread ref="main"
                         who-refs="hero">
-                    <p>Paragraph</p>
+                    <para>Non-indented Block Paragraph</para>
+                    <p>Indented Paragraph</p>
                     <s who="hero">"What?" said the hero.</s>
-                    <s>"The who-ref is optional for the s tag.".</s>
-                    <t who="hero">Thought text.</t>
-                    <t who="bob">Non-view point character thought (not
-                    printed.)</t>
+                    <s>"The who attribute is optional for the s tag.".</s>
+                    <t who="hero">What will we do next? Thinks hero</t>
+                    <t who="bob">Bob thinks: what? (not printed)</t>
+                </thread>
+            </unit>
+            <unit type="sequel">
+                <thread ref="main"
+                        who-refs="hero">
+                    <p>Indented Paragraph</p>
                 </thread>
             </unit>
             <postlog>

@@ -19,7 +19,7 @@ gpApp=$2
 # Config
 cCurDir=$PWD
 cBin=${0%/*}
-cReport=$cCurDir/xsltunit_report.xsl
+cReport=$cCurDir/xsltunit-report.xsl
 cUnitTestLib=$cCurDir/xsltunit.xsl
 
 # --------------------
@@ -38,8 +38,8 @@ set -x
 xsltproc $gpTest $gpApp >$gpTest.result.xml
 set +x
 
-if [ ! -s test_param.xsl.result.xml ]; then
-	echo "Error: Cannot run the tests"
+if [ ! -s $gpTest.result.xml ]; then
+	echo "Error: Test did not run."
 	exit 1
 fi
 

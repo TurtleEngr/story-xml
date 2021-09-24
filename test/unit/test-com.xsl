@@ -6,6 +6,9 @@
                 extension-element-prefixes="exsl"
                 exclude-result-prefixes="exsl">
     <xsl:import href="../../src/style/com-param.xsl" />
+    <xsl:import href="../../src/style/com.xsl" />
+    <xsl:import href="../../src/style/com-html.xsl" />
+    <xsl:import href="../../src/style/body-html.xsl" />
     <xsl:import href="xsltunit.xsl" />
     <xsl:output method="xml"
                 version="1.0"
@@ -16,7 +19,6 @@
             <!-- ******************** -->
             <xsltu:test id="test-content-params">
 	        <!-- .......... -->
-		<xsl:variable name="test-book" select="document('sample-full.xml')"/>
                 <xsl:call-template name="xsltu:assertEqual">
                     <xsl:with-param name="id"
                                     select="'Check gStyleName'" />
@@ -24,7 +26,7 @@
                         <xsl:value-of select="$gStyleName" />
                     </xsl:with-param>
                     <xsl:with-param name="pExpectNodes">
-		    main
+                        <xsl:value-of select="'main'" />
 		    </xsl:with-param>
                 </xsl:call-template>
             </xsltu:test>

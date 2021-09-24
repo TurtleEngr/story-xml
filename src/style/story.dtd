@@ -390,6 +390,7 @@ link-fmt -
 	def-img (%bool;) #IMPLIED
 	def-link (%bool;) #IMPLIED
 	def-thread (%bool;) #IMPLIED
+	def-when (%bool;) #IMPLIED
 	def-where (%bool;) #IMPLIED
 	def-who (%bool;) #IMPLIED
         deleted (%bool;) #IMPLIED
@@ -558,7 +559,20 @@ to pixes, from the width/height attr., with the ratio 72dpi
 <!ELEMENT file-prefix (#PCDATA)>
 <!-- Prefix for ch files -->
 
-<!ELEMENT story-info ((def-where|def-who|def-thread)*, ch-preface?)>
+<!ELEMENT story-info (def-when?, (def-where|def-who|def-thread)*, ch-preface?)>
+
+<!ELEMENT def-when EMPTY>
+<!ATTLIST def-when
+	year CDATA #REQUIRED
+	month CDATA #REQUIRED
+	day CDATA #REQUIRED
+	hour CDATA #REQUIRED
+	min CDATA #REQUIRED
+	gmt CDATA #REQUIRED
+>
+<!--
+Defaults, for attr not specified in "when" start-date's.
+-->
 
 <!ELEMENT def-where %simple-text;>
 <!ATTLIST def-where
