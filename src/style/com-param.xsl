@@ -53,7 +53,7 @@
     <!-- ************************************************** -->
     <!-- Global Parameters -->
     <xsl:param name="gDTDVer"
-               select="'4'" />
+               select="'6'" />
     <xsl:param name="gNL">
         <xsl:value-of disable-output-escaping="yes"
                       select="'&#10;'" />

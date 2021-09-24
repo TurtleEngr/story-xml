@@ -1,88 +1,134 @@
 <?xml version="1.0"?>
 <content>
-  <story-dtd version="4" />
-  <book id="book" revision="in-progress">
-    <title />
-    <subtitle />
-    <title-abbrev />
-    <book-info>
-      <author-group>
-        <author>
-          <first-name />
-          <surname />
-        </author>
-      </author-group>
-      <release-info date="$Date: 2009/03/31 16:01:28 $" rev="$Revision: 1.2 $" />
-      <pub-date>2008</pub-date>
-      <copyright>
-        <year>2008</year>
-        <holder>AuthorName</holder>
-      </copyright>
-      <biblio-id class="isbn">123456-123456</biblio-id>
-      <biblio-id class="uri">http:://books.lulu.com/content/1234567</biblio-id>
-      <keyword-set>word, word</keyword-set>
-      <abstract>
-        <para>Brief description.</para>
-      </abstract>
-    </book-info>
-    <style-info style-ref="main" thread-refs="main">
-      <def-style content-ref="main" debug="0" draft="0" draft-ref="main" print-ref="main" id="main" />
-      <def-content link-fmt="default" thread-refs="main" id="main" />
-      <def-draft id="main" />
-      <def-print bgcolor="white" body-family="times" body-size="12pt" ch-title-family="times" ch-title-size="20pt" ch-page-break="some-odd" copyright-type="standard" draft="red" duplex="1" gutter="0.3in" head-align="left" head-family="times" head-location="top" head-size="16pt" head-type="title" line-height="110" margin="0.5in" multi-file="0" output-type="pdf" page="6x9in" text="black" title-family="times" title-size="24pt" toc="1" id="main" />
-      <meta-description>html meta description</meta-description>
-      <file-prefix />
-    </style-info>
-    <story-info>
-      <def-when year="2008" month="01" day="01" hour="08" min="00" gmt="-08" />
-      <def-thread id="main" />
-      <def-who id="hero">
-        <para>Describe the hero</para>
-      </def-who>
-      <def-who id="villain">
-        <para>Describe</para>
-      </def-who>
-      <def-where id="beach">
-        <para>Describe scene location</para>
-      </def-where>
-      <ch-preface>
-        <title>Disclaimer</title>
-        <para>This is put at the beginning of multi-file book chapter files.</para>
-      </ch-preface>
-    </story-info>
-    <preface>
-      <title>Preface</title>
-      <para>Printed before all chapters.</para>
-    </preface>
-    <chapter id="ch1" revision="in-progress">
-      <title />
-      <subtitle />
-      <title-abbrev />
-      <chapter-info>
-        <release-info date="$Date: 2009/03/31 16:01:28 $" rev="$Revision: 1.2 $" />
-        <pub-date>2008</pub-date>
-      </chapter-info>
-      <prolog>
-        <title>Prolog</title>
-      </prolog>
-      <unit type="scene" id="u1" revision="in-progress">
-        <title>Unit title</title>
-        <outline>
-          <description>
-            <para>Describe the scene's goal, disaster, or the sequel's reaction/plan</para>
-          </description>
-        </outline>
-        <thread ref="main" who-refs="hero">
-          <p>Paragraph</p>
-          <s who-ref="hero">"What?" said the hero.</s>
-          <s>"The who-ref is optional for the s tag.".</s>
-          <t who-ref="hero">Thought text.</t>
-          <t who-ref="bob">Non-view point character thought (not printed.)</t>
-        </thread>
-      </unit>
-      <postlog>
-        <title>Postlog</title>
-      </postlog>
-    </chapter>
-  </book>
+    <story-dtd version="6" />
+    <book id="book"
+          revision="in-progress">
+        <title />
+        <subtitle />
+        <title-abbrev />
+        <book-info>
+            <author-group>
+                <author>
+                    <first-name />
+                    <surname />
+                </author>
+            </author-group>
+            <release-info>
+	      <para>$Date: 2009/03/31 16:01:28 $"</para>
+              <para>$Revision: 1.2 $"</para>
+	    </release-info>
+            <pub-date>2008</pub-date>
+            <copyright>
+                <year>2008</year>
+                <holder>AuthorName</holder>
+            </copyright>
+            <biblio-id class="isbn">123456-123456</biblio-id>
+            <biblio-id class="uri">
+            http:://books.lulu.com/content/1234567</biblio-id>
+            <keyword-set>word, word</keyword-set>
+            <abstract>
+                <para>Brief description.</para>
+            </abstract>
+        </book-info>
+        <style-info style-ref="main"
+                    thread-refs="main">
+            <def-style content-ref="main"
+                       debug="0"
+                       draft="0"
+                       draft-ref="main"
+                       print-ref="main"
+                       id="main" />
+            <def-content link-fmt="default"
+                         thread-refs="main"
+                         id="main" />
+            <def-draft id="main" />
+            <def-print bgcolor="white"
+                       body-family="times"
+                       body-size="12pt"
+                       ch-title-family="times"
+                       ch-title-size="20pt"
+                       ch-page-break="some-odd"
+                       copyright-type="standard"
+                       draft="red"
+                       duplex="1"
+                       gutter="0.3in"
+                       head-align="left"
+                       head-family="times"
+                       head-location="top"
+                       head-size="16pt"
+                       head-type="title"
+                       line-height="110"
+                       margin="0.5in"
+                       multi-file="0"
+                       output-type="pdf"
+                       page="6x9in"
+                       text="black"
+                       title-family="times"
+                       title-size="24pt"
+                       toc="1"
+                       id="main" />
+            <meta-description>html meta description</meta-description>
+            <file-prefix />
+        </style-info>
+        <story-info>
+            <def-thread id="main" />
+            <def-who id="hero">
+                <para>Describe the hero</para>
+            </def-who>
+            <def-who id="villain">
+                <para>Describe</para>
+            </def-who>
+            <def-where id="beach">
+                <para>Describe scene location</para>
+            </def-where>
+            <ch-preface>
+                <title>Disclaimer</title>
+                <para>This is put at the beginning of multi-file book chapter
+                files.</para>
+            </ch-preface>
+        </story-info>
+        <preface>
+            <title>Preface</title>
+            <para>Printed before all chapters.</para>
+        </preface>
+        <chapter id="ch1"
+                 revision="in-progress">
+            <title />
+            <subtitle />
+            <title-abbrev />
+            <chapter-info>
+              <release-info>
+	        <para>$Date$"</para>
+                <para>$Revision: 2.5 $"</para>
+	      </release-info>
+              <pub-date>2008</pub-date>
+            </chapter-info>
+            <prolog>
+                <title>Prolog</title>
+            </prolog>
+            <unit type="scene"
+                  id="u1"
+                  revision="in-progress">
+                <title>Unit title</title>
+                <outline>
+                    <description>
+                        <para>Describe the scene's goal, disaster, or the
+                        sequel's reaction/plan</para>
+                    </description>
+                </outline>
+                <thread ref="main"
+                        who-refs="hero">
+                    <p>Paragraph</p>
+                    <s who="hero">"What?" said the hero.</s>
+                    <s>"The who-ref is optional for the s tag.".</s>
+                    <t who="hero">Thought text.</t>
+                    <t who="bob">Non-view point character thought (not
+                    printed.)</t>
+                </thread>
+            </unit>
+            <postlog>
+                <title>Postlog</title>
+            </postlog>
+        </chapter>
+    </book>
 </content>

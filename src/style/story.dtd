@@ -3,6 +3,269 @@ In progress: version 6
 -->
 
 <!-- ************************************** -->
+<!-- Entitities -->
+
+<!-- ******************* -->
+<!-- Common Attr -->
+
+<!ENTITY % id "id CDATA #REQUIRED">
+<!ENTITY % ref-i "ref CDATA #IMPLIED">
+<!ENTITY % ref-r "ref CDATA #REQUIRED">
+<!ENTITY % bool "1|0">
+
+<!ENTITY % com-attr "
+condition CDATA #IMPLIED
+id CDATA #IMPLIED
+lang CDATA #IMPLIED
+revision (in-progress|draft|final) #IMPLIED
+revision-flag (changed|added|deleted|off) #IMPLIED
+">
+
+<!ENTITY % com-attr-req "
+condition CDATA #IMPLIED
+id CDATA #REQUIRED
+lang CDATA #IMPLIED
+revision (in-progress|draft|final) #REQUIRED
+revision-flag (changed|added|deleted|off) #IMPLIED
+">
+
+<!ENTITY % date-time "
+year CDATA #IMPLIED
+month (1|2|3|4|5|6|7|8|9|10|11|12) #IMPLIED
+day CDATA #IMPLIED
+hour CDATA #IMPLIED
+min CDATA #IMPLIED
+gmt CDATA #IMPLIED
+">
+<!--
+year - any integer
+month - 1-12
+day - 1-31
+hour - 0-23
+min - 0-59
+gmt - -HH or +HH (GMT-8 = -08, HH is -12 to +11)
+-->
+
+<!ENTITY % font-family "helvetica|courier|times">
+<!--
+lulu fonts: 
+	Arial (sans)
+	Book Antiqua
+	Bookman Old Style (serif)
+	Century (serif)
+	Courier (monospace)
+	Garamond
+	Palatino (serif)
+	Tahoma
+	Times New Roman (serif)
+	Verdana
+	Symbols 
+Internal use:
+	Helvetica, Arial, sans
+	Courier, monospace
+	Times, "Times New Roman", serif
+-->
+<!ENTITY % font-size "8pt|9pt|10pt|11pt|12pt|13pt|14pt|15pt|16pt|17pt|18pt|19pt|20pt|21pt|22pt|23pt|24pt|25pt">
+
+<!ENTITY % com-info "author-group?, release-info?, pub-date?">
+
+<!ENTITY % com-person "honorific?, first-name, surname, linage?, other-name?, affiliation?, email?, author-blurb?">
+
+<!ENTITY % simple-text "(p|para|pre|quote|br)*">
+
+<!ENTITY % thread-text "(p|para|pre|quote|br|s|t)*">
+
+<!ENTITY % com-title "title?, subtitle?, title-abbrev?">
+
+<!ENTITY % text-style "(#PCDATA|link|img|b|i|tt|rev)*">
+
+
+<!-- ******************* -->
+<!-- Common Elements -->
+
+<!ELEMENT author-group (author|coauthor|editor)*>
+
+<!ELEMENT author (%com-person;)>
+<!ATTLIST author
+	%com-attr;
+>
+
+<!ELEMENT coauthor (%com-person;)>
+<!ATTLIST coauthor
+	%com-attr;
+>
+
+<!ELEMENT editor (%com-person;)>
+<!ATTLIST editor
+	%com-attr;
+>
+
+<!ELEMENT honorific (#PCDATA)> <!-- Mr, Mrs, Ms, Dr, etc. -->
+<!ATTLIST honorific
+	%com-attr;
+>
+
+<!ELEMENT first-name (#PCDATA)>
+<!ATTLIST first-name
+	%com-attr;
+>
+
+<!ELEMENT surname (#PCDATA)>
+<!ATTLIST surname
+	%com-attr;
+>
+<!ELEMENT linage (#PCDATA)> <!-- jr, senior, II, etc -->
+<!ATTLIST linage
+	%com-attr;
+>
+
+<!ELEMENT other-name (#PCDATA)>
+<!ATTLIST other-name
+	%com-attr;
+>
+
+<!ELEMENT affiliation (#PCDATA)>
+<!ATTLIST affiliation
+	%com-attr;
+>
+
+<!ELEMENT email (#PCDATA)> <!-- text@text -->
+<!ATTLIST email
+	%com-attr;
+>
+
+<!ELEMENT author-blurb %simple-text;>
+<!ATTLIST author-blurb
+	%com-attr;
+>
+
+<!ELEMENT release-info %simple-text;>
+<!ATTLIST release-info
+	%com-attr;
+>
+
+<!ELEMENT pub-date (#PCDATA)>	<!-- yyyy-mm-dd or yyyy/mm/dd -->
+<!ATTLIST pub-date
+	%com-attr;
+>
+
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title
+	%com-attr;
+>
+
+<!ELEMENT subtitle (#PCDATA)>
+<!ATTLIST subtitle
+	%com-attr;
+>
+
+<!ELEMENT title-abbrev (#PCDATA)>
+<!ATTLIST title-abbrev
+	%com-attr;
+>
+
+<!-- ************************************** -->
+<!ELEMENT b (#PCDATA|link|img|i|tt|rev)*>
+<!ELEMENT i (#PCDATA|link|img|b|tt|rev)*>
+<!ELEMENT tt (#PCDATA|link|img|b|i|rev)*>
+<!ELEMENT rev (#PCDATA|link|img|b|i|tt)*>
+<!ATTLIST rev
+	condition CDATA #IMPLIED
+	id CDATA #IMPLIED
+	lang CDATA #IMPLIED
+	revision (in-progress|draft|final) #IMPLIED
+	revision-flag (changed|added|deleted|off) #REQUIRED
+>
+<!--
+no operation, only used to set the revision-flag
+-->
+
+<!ELEMENT link (#PCDATA)>
+<!ATTLIST link
+	%ref-r;
+	img (%bool;) #IMPLIED
+	title (%bool;) #IMPLIED
+	url (%bool;) #IMPLIED
+>
+<!--
+ref - def-link-id
+img - <img src="url" alt="content"/>
+content - if not blank
+title - def-link content (default, if all else is empty)
+url - (def-link url)
+<a href="def-url">img content title url</a>
+-->
+
+<!ELEMENT img EMPTY>
+<!ATTLIST img
+	%ref-r;
+	float (%bool;) #IMPLIED
+>
+<!--
+ref - def-img-id
+float - Let text flow around the image?  If the value is 1,
+        and the output is non-html, and the image is > 2/3
+        of the page width, then don't float the image.
+        Default: 0
+-->
+
+<!ELEMENT para %text-style;>
+<!ATTLIST para
+	%com-attr;
+>
+<!-- Format as a block para -->
+
+<!ELEMENT pre %text-style;>
+<!ATTLIST pre
+	%com-attr;
+>
+
+<!ELEMENT pre-fmt %text-style;>
+<!ATTLIST pre-fmt
+	%com-attr;
+>
+
+<!ELEMENT quote %text-style;>
+<!ATTLIST quote
+	%com-attr;
+>
+<!-- Format the same as a block para, but indent 10% on margins -->
+
+<!ELEMENT p %text-style;>
+<!ATTLIST p
+	%com-attr;
+>
+<!-- Indented para style, justified -->
+
+<!ELEMENT s %text-style;>
+<!ATTLIST s
+	%com-attr;
+	who CDATA #IMPLIED
+>
+<!--
+story, say - ref id is the person talking, optional (output is not
+affected, but this may be output in draft copies)
+-->
+
+<!ELEMENT t %text-style;>
+<!ATTLIST t
+	%com-attr;
+	who CDATA #REQUIRED
+>
+<!--
+thought - ref id = the viewpoint id.  Only the thoughts of the
+id, that match a thread's viewpoint id, will be printed.  Draft
+copies may output all thought text (with the ids).
+-->
+
+<!--
+Line break.
+-->
+<!ELEMENT br EMPTY>
+
+<!-- ************************************** -->
+<!-- Main Elements -->
+
 <!ELEMENT content  (story-dtd?, book+)>
 
 <!-- ************************************** -->
@@ -12,11 +275,11 @@ In progress: version 6
 >
 
 <!-- ************************************** -->
-<!ELEMENT book (%com-title;, book-info, style-info, story-info,
+<!ELEMENT book (%com-title;, book-info?, style-info?, story-info?,
 	preface?, chapter*, epilog?)
 >
 <!ATTLIST book
-	%com-attr-req;
+	%com-attr;
 >
 
 <!ELEMENT book-info (%com-info;, copyright?, publisher?,
@@ -29,7 +292,7 @@ In progress: version 6
 
 <!ELEMENT publisher (publisher-name, address?)>
 <!ATTLIST publisher
-	%com-attr-req;
+	%com-attr;
 >
 
 <!ELEMENT publisher-name (#PCDATA)>
@@ -58,7 +321,7 @@ In progress: version 6
 
 <!ELEMENT keyword-set (#PCDATA)>
 
-<!ELEMENT abstract (%simple-text;)>
+<!ELEMENT abstract %simple-text;>
 
 <!ELEMENT style-info ((def-style|def-content|def-draft|def-print|def-base|
 	def-img|def-link)*, meta-description, file-prefix)>
@@ -71,7 +334,7 @@ style-ref - def-style id
 thread-refs - editor content view
 -->
 
-<!ELEMENT def-style (%simple-text;)>
+<!ELEMENT def-style %simple-text;>
 <!ATTLIST def-style
 	%id;
 	content-ref CDATA #REQUIRED
@@ -86,7 +349,7 @@ content-ref - def-content id
 draft-ref - def-draft id
 -->
 
-<!ELEMENT def-content (%simple-text;)>
+<!ELEMENT def-content %simple-text;>
 <!ATTLIST def-content
 	%id;
 	ch-draft (%bool;) #IMPLIED
@@ -120,14 +383,13 @@ link-fmt -
 	plain - force attr: title (no 'a' tag)
 -->
 
-<!ELEMENT def-draft (%simple-text;)>
+<!ELEMENT def-draft %simple-text;>
 <!ATTLIST def-draft
 	%id;
 	def-base (%bool;) #IMPLIED
 	def-img (%bool;) #IMPLIED
 	def-link (%bool;) #IMPLIED
 	def-thread (%bool;) #IMPLIED
-	def-when (%bool;) #IMPLIED
 	def-where (%bool;) #IMPLIED
 	def-who (%bool;) #IMPLIED
         deleted (%bool;) #IMPLIED
@@ -156,7 +418,7 @@ timeline - show the when times across all active units
 unit-outline - if 1 show outline.  If 2 and unit is in-progress show outline
 -->
 
-<!ELEMENT def-print (%simple-text;)>
+<!ELEMENT def-print %simple-text;>
 <!ATTLIST def-print
 	%id;
 	alink CDATA #IMPLIED
@@ -296,13 +558,7 @@ to pixes, from the width/height attr., with the ratio 72dpi
 <!ELEMENT file-prefix (#PCDATA)>
 <!-- Prefix for ch files -->
 
-<!ELEMENT story-info (def-when, (def-where|def-who|def-thread)*, ch-preface?)>
-
-<!ELEMENT def-when %simple-text;>
-<!ATTLIST def-when
-	%id;
-	%date-time;
->
+<!ELEMENT story-info ((def-where|def-who|def-thread)*, ch-preface?)>
 
 <!ELEMENT def-where %simple-text;>
 <!ATTLIST def-where
@@ -321,23 +577,23 @@ to pixes, from the width/height attr., with the ratio 72dpi
 
 <!ELEMENT preface (%com-title;, %simple-text;)>
 <!ATTLIST preface
-	%com-attr-req;
+	%com-attr;
 >
 
 <!ELEMENT epilog (%com-title;, %simple-text;)>
 <!ATTLIST epilog
-	%com-attr-req;
+	%com-attr;
 >
 
 <!ELEMENT ch-preface (title, %simple-text;)>
 <!ATTLIST ch-preface
-	%com-attr-req;
+	%com-attr;
 >
 
 <!-- ****************** -->
 <!ELEMENT chapter (%com-title;, chapter-info?, prolog?, unit+, postlog?)>
 <!ATTLIST chapter
-	%com-attr-req;
+	%com-attr;
 >
 
 <!ELEMENT chapter-info (%com-info;)>
@@ -353,9 +609,9 @@ to pixes, from the width/height attr., with the ratio 72dpi
 >
 
 <!-- ****************** -->
-<!ELEMENT unit (title, outline?, thread+)>
+<!ELEMENT unit (title?, outline?, thread+)>
 <!ATTLIST unit
-	%com-attr-req;
+	%com-attr;
 	type (scene|sequel|other) #REQUIRED
 >
 
@@ -383,7 +639,7 @@ to pixes, from the width/height attr., with the ratio 72dpi
 >
 <!-- ref - defwho-id -->
 
-<!ELEMENT description (%simple-text;)>
+<!ELEMENT description %simple-text;>
 
 <!ELEMENT thread %thread-text;>
 <!ATTLIST thread
@@ -395,262 +651,3 @@ to pixes, from the width/height attr., with the ratio 72dpi
 refs - one or more def-thread-id's separated by spaces
 who-refs - print only the t tags that have these "who" ids
 -->
-
-<!-- ************************************** -->
-<!-- Entitities -->
-
-<!-- ******************* -->
-<!-- Common Attr -->
-
-<!ENTITY % id "id CDATA #REQUIRED">
-<!ENTITY % ref-i "ref CDATA #IMPLIED">
-<!ENTITY % ref-r "ref CDATA #REQUIRED">
-<!ENTITY % bool "1|0">
-
-<!ENTITY % com-attr "
-condition CDATA #IMPLIED
-id CDATA #IMPLIED
-lang CDATA #IMPLIED
-revision (in-progress|draft|final) #IMPLIED
-revision-flag (changed|added|deleted|off) #IMPLIED
-">
-
-<!ENTITY % com-attr-req "
-condition CDATA #IMPLIED
-id CDATA #REQUIRED
-lang CDATA #IMPLIED
-revision (in-progress|draft|final) #REQUIRED
-revision-flag (changed|added|deleted|off) #IMPLIED
-">
-
-<!ENTITY % date-time "
-year CDATA #IMPLIED
-month (1|2|3|4|5|6|7|8|9|10|11|12) #IMPLIED
-day CDATA #IMPLIED
-hour CDATA #IMPLIED
-min CDATA #IMPLIED
-gmt CDATA #IMPLIED
-">
-<!--
-year - any integer
-month - 1-12
-day - 1-31
-hour - 0-23
-min - 0-59
-gmt - -HH or +HH (GMT-8 = -08, HH is -12 to +11)
--->
-
-<!ENTITY % font-family "helvetica|courier|times">
-<!--
-lulu fonts: 
-	Arial (sans)
-	Book Antiqua
-	Bookman Old Style (serif)
-	Century (serif)
-	Courier (monospace)
-	Garamond
-	Palatino (serif)
-	Tahoma
-	Times New Roman (serif)
-	Verdana
-	Symbols 
-Internal use:
-	Helvetica, Arial, sans
-	Courier, monospace
-	Times, "Times New Roman", serif
--->
-<!ENTITY % font-size "8pt|9pt|10pt|11pt|12pt|13pt|14pt|15pt|16pt|17pt|18pt|19pt|20pt|21pt|22pt|23pt|24pt|25pt">
-
-<!-- ******************* -->
-<!-- Common Elements -->
-
-<!ENTITY % com-info "author-group?, release-info?, pub-date?">
-
-<!ENTITY % com-person "honorific?, first-name, surname, linage?, other-name?, affiliation?, email?, author-blurb?">
-
-<!ENTITY % simple-text "(p|para|pre|pre-fmt|quote|br)*">
-
-<!ENTITY % thread-text "(p|para|pre|pre-fmt|quote|br|s|t)*">
-
-<!ELEMENT author-group (author|coauthor|editor)*>
-
-<!ELEMENT author (%com-person;)>
-<!ATTLIST author
-	%com-attr-req;
->
-
-<!ELEMENT coauthor (%com-person;)>
-<!ATTLIST coauthor
-	%com-attr-req;
->
-
-<!ELEMENT editor (%com-person;)>
-<!ATTLIST editor
-	%com-attr-req;
->
-
-<!ELEMENT honorific (#PCDATA)>
-<!ATTLIST honorific
-	%com-attr;
->
-
-<!ELEMENT first-name (#PCDATA)>
-<!ATTLIST first-name
-	%com-attr;
->
-
-<!ELEMENT surname (#PCDATA)>
-<!ATTLIST surname
-	%com-attr;
->
-<!ELEMENT linage (#PCDATA)>
-<!ATTLIST linage
-	%com-attr;
->
-
-<!ELEMENT other-name (#PCDATA)>
-<!ATTLIST other-name
-	%com-attr;
->
-
-<!ELEMENT affiliation (#PCDATA)>
-<!ATTLIST affiliation
-	%com-attr;
->
-
-<!ELEMENT email (#PCDATA)>
-<!ATTLIST email
-	%com-attr;
->
-
-<!ELEMENT author-blurb %simple-text;>
-<!ATTLIST author-blurb
-	%com-attr;
->
-
-<!ELEMENT release-info %simple-text;>
-<!ATTLIST release-info
-	%com-attr;
->
-
-<!ELEMENT pub-date (#PCDATA)>		<!-- yyyy-mm-dd -->
-<!ATTLIST pub-date
-	%com-attr;
->
-
-<!ENTITY % com-title "title, subtitle?, title-abbrev?">
-
-<!ELEMENT title (#PCDATA)>
-<!ATTLIST title
-	%com-attr;
->
-
-<!ELEMENT subtitle (#PCDATA)>
-<!ATTLIST subtitle
-	%com-attr;
->
-
-<!ELEMENT title-abbrev (#PCDATA)>
-<!ATTLIST title-abbrev
-	%com-attr;
->
-
-<!-- ************************************** -->
-<!ENTITY % text-style "(#PCDATA|link|img|b|i|tt|rev)*">
-<!ELEMENT b (#PCDATA|link|img|i|tt|rev)*>
-<!ELEMENT i (#PCDATA|link|img|b|tt|rev)*>
-<!ELEMENT tt (#PCDATA|link|img|b|i|rev)*>
-<!ELEMENT rev (#PCDATA|link|img|b|i|tt)*>
-<!ATTLIST rev
-	condition CDATA #IMPLIED
-	id CDATA #IMPLIED
-	lang CDATA #IMPLIED
-	revision (in-progress|draft|final) #IMPLIED
-	revision-flag (changed|added|deleted|off) #REQUIRED
->
-<!--
-no operation, only used to set the revision-flag
--->
-
-<!ELEMENT link (#PCDATA)>
-<!ATTLIST link
-	%ref-r;
-	img (%bool;) #IMPLIED
-	title (%bool;) #IMPLIED
-	url (%bool;) #IMPLIED
->
-<!--
-ref - def-link-id
-img - <img src="url" alt="content"/>
-content - if not blank
-title - def-link content (default, if all else is empty)
-url - (def-link url)
-<a href="def-url">img content title url</a>
--->
-
-<!ELEMENT img EMPTY>
-<!ATTLIST img
-	%ref-r;
-	float (%bool;) #IMPLIED
->
-<!--
-ref - def-img-id
-float - Let text flow around the image?  If the value is 1,
-        and the output is non-html, and the image is > 2/3
-        of the page width, then don't float the image.
-        Default: 0
--->
-
-<!ELEMENT para %text-style;>
-<!ATTLIST para
-	%com-attr;
->
-<!-- Format as a block para -->
-
-<!ELEMENT pre %text-style;>
-<!ATTLIST pre
-	%com-attr;
->
-
-<!ELEMENT pre-fmt %text-style;>
-<!ATTLIST pre-fmt
-	%com-attr;
->
-
-<!ELEMENT quote %text-style;>
-<!ATTLIST quote
-	%com-attr;
->
-<!-- Format the same as a block para, but indent 10% on margins -->
-
-<!ELEMENT p %text-style;>
-<!ATTLIST p
-	%com-attr;
->
-<!-- Indented para style, justified -->
-
-<!ELEMENT s %text-style;>
-<!ATTLIST s
-	%com-attr;
-	who-ref CDATA #IMPLIED
->
-<!--
-story, say - ref id is the person talking, optional (output is not
-affected, but this may be output in draft copies)
--->
-
-<!ELEMENT t %text-style;>
-<!ATTLIST t
-	%com-attr;
-	who-ref CDATA #REQUIRED
->
-<!--
-thought - ref id = the viewpoint id.  Only the thoughts of the
-id, that match a thread's viewpoint id, will be printed.  Draft
-copies may output all thought text (with the ids).
--->
-
-<!--
-Section break.  Either a blank line (print) or a short rule line (html).
--->
-<!ELEMENT br EMPTY>

@@ -13,6 +13,8 @@ test : validate $(mTests)
 # --------------------
 validate :
 	xmllint --noout --nonet *.xsl
+	xmllint --dtdvalid $(mSrc)/story.dtd --noout book-min.xml
+	xmllint --dtdvalid $(mSrc)/story.dtd --noout sample-minimal.xml
 
 # --------------------
 reformat : validate

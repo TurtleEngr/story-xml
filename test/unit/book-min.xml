@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!-- book-min.xml -->
+<content>
+    <story-dtd version="6" />
+    <book>
+        <chapter>
+            <unit type="scene">
+                <thread ref="main"
+                        who-refs="hero">
+                    <para>Non-indented Block Paragraph</para>
+                    <p>Indented Paragraph</p>
+                    <s who="hero">"What?" said the hero.</s>
+                    <s>"The who attribute is optional for the s tag.".</s>
+                    <t who="hero">What will we do next? Thinks hero</t>
+                    <t who="bob">Bob thinks: what? (not printed)</t>
+                </thread>
+                <thread ref="ranch" who-refs="bob">
+                    <p>Indented Paragraph</p>
+                </thread>
+            </unit>
+            <unit type="sequel">
+                <thread ref="main"
+                        who-refs="hero">
+                    <p>Indented Paragraph</p>
+		</thread>
+            </unit>
+        </chapter>
+    </book>
+</content>

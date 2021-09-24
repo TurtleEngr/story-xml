@@ -18,11 +18,20 @@
 	        <!-- .......... -->
                 <xsl:call-template name="xsltu:assertEqual">
                     <xsl:with-param name="id"
+                                    select="'Check expected DTD ver'" />
+                    <xsl:with-param name="pActualNodes">
+                        <xsl:value-of select="$gDTDVer" />
+                    </xsl:with-param>
+                    <xsl:with-param name="pExpectNodes">6</xsl:with-param>
+                </xsl:call-template>
+	        <!-- .......... -->
+                <xsl:call-template name="xsltu:assertEqual">
+                    <xsl:with-param name="id"
                                     select="'gDTDVer'" />
                     <xsl:with-param name="pActualNodes">
                         <xsl:value-of select="$gDTDVer" />
                     </xsl:with-param>
-                    <xsl:with-param name="pExpectNodes">4</xsl:with-param>
+                    <xsl:with-param name="pExpectNodes">6</xsl:with-param>
                 </xsl:call-template>
 	        <!-- .......... -->
                 <xsl:call-template name="xsltu:assertEqual">

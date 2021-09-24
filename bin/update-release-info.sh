@@ -13,21 +13,27 @@ file is output to stdout.
 
 Patterns matched and changed:
 In:
-    <release-info date="$Date: 2009/03/31 16:01:28 $"
-                  rev="$Revision: 1.2 $" />
+    <release-info>
+      <para>$Date: 2009/03/31 16:01:28 $</para>
+      <para>$Revision: 1.2 $</para>
+    </release-info>
 Out:
-    <release-info date="$Date: 2020/04/27 18:04:21 $"
-                  rev="$Revision: 1.3 $" />
+    <release-info>
+      <para>$Date: 2020/04/27 18:04:21 $</para>
+      <para>$Revision: 1.3 $</para>
+    </release-info>
 
 In:
-    <release-info date="$Date: 2009/03/31 16:01:28 $" rev="$Revision: 1.2 $" />
+    <release-info>
+      <para>$Date$</para>
+      <para>$Revision$</para>
+    </release-info>
 Out:
-    <release-info date="$Date: 2020/04/27 18:04:21 $" rev="$Revision: 1.3 $" />
+    <release-info>
+      <para>$Date: 2020/04/27 18:04:21 $</para>
+      <para>$Revision: 1.1 $</para>
+    </release-info>
 
-In:
-    <release-info date="$Date$" rev="$Revision$" />
-Out:
-    <release-info date="$Date: 2020/04/27 18:04:21 $" rev="$Revision: 1.1 $" />
 EOF
 	exit 1
 fi
@@ -45,7 +51,7 @@ tDate=$(date -u +'%F %T' | tr '-' '/')
 # --------------------
 # Validate
 
-if [ -r $gpFile ]; thne
+if [ ! -r $gpFile ]; then
 	echo "Error: Could not read file: $gpFile" 1>&2
 	exit 1
 fi
@@ -58,16 +64,16 @@ fi
 # Process
 
 awk -v pDate="$tDate" '
-	/date="\$Date\$"/ {
+	/\$Date\$/ {
 		sub(/\$Date\$/, "$Date: " pDate " $");
 	}
-	/rev="\$Revision\$"/ {
+	/\$Revision\$/ {
 		sub(/\$Revision\$/, "$Revision: 1.1 $");
 	}
-	/date=\"\$Date: / {
+	/\$Date: / {
 		sub(/\$Date: [^$]*\$/, "$Date: " pDate " $");
 	}
-	/rev="\$Revision: / {
+	/\$Revision: / {
     		tOldVer = $0
 		sub(/.*\$Revision: /, "", tOldVer);
 		sub(/ \$.*/, "", tOldVer);
