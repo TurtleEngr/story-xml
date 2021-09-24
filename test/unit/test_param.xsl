@@ -27,11 +27,15 @@
 	        <!-- .......... -->
                 <xsl:call-template name="xsltu:assertEqual">
                     <xsl:with-param name="id"
-                                    select="'gDTDVer'" />
+                                    select="'gNL'" />
                     <xsl:with-param name="pActualNodes">
-                        <xsl:value-of select="$gDTDVer" />
+                        <xsl:value-of disable-output-escaping="yes"
+				      select="$gNL" />
                     </xsl:with-param>
-                    <xsl:with-param name="pExpectNodes">4</xsl:with-param>
+                    <xsl:with-param name="pExpectNodes">
+                        <xsl:value-of disable-output-escaping="yes"
+				      select="'&#10;'" />
+		    </xsl:with-param>
                 </xsl:call-template>
             </xsltu:test>
  

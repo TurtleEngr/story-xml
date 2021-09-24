@@ -56,7 +56,7 @@
                select="'4'" />
     <xsl:param name="gNL">
         <xsl:value-of disable-output-escaping="yes"
-                      select="' '" />
+                      select="'&#10;'" />
     </xsl:param>
     <!--
   The content style can be selected by defining the 'style'

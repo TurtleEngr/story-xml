@@ -54,7 +54,7 @@ xsltproc \
 $cBin/fmt-xml.sh $gpTest.$tPassFail.result.html
 done
 
-if grep Failed $gpTest.pass.result.html; then
+if grep Failed $gpTest.fail.result.html; then
 	exit 1
 fi
 exit 0
