@@ -41,17 +41,17 @@
         </book-info>
         <style-info style-ref="main"
                     thread-refs="main">
-            <def-style content-ref="main"
+            <def-style id="main"
+	    	       content-ref="main"
                        debug="0"
                        draft="0"
                        draft-ref="main"
-                       print-ref="main"
-                       id="main">
+                       print-ref="main">
                 <para>Optional: define this style.</para>
             </def-style>
-            <def-content link-fmt="default"
+            <def-content id="main"
+	    		 link-fmt="default"
                          thread-refs="main"
-                         id="main"
                          ch-draft="1"
                          ch-final="1"
                          ch-in-progress="1"
@@ -85,7 +85,8 @@
                        unit-who="1">
                 <para>Optional: define the draft setting.</para>
             </def-draft>
-            <def-print bgcolor="white"
+            <def-print id="main"
+	    	       bgcolor="white"
                        body-family="times"
                        body-size="12pt"
                        ch-title-family="times"
@@ -109,7 +110,6 @@
                        title-family="times"
                        title-size="24pt"
                        toc="1"
-                       id="main"
                        alink="purple"
                        auto-break="0"
                        bleed-bottom="0"
@@ -208,7 +208,8 @@ This is where the scene or sequel is outlined.
                     printed.)</t>
                 </thread>
             </unit>
-            <unit type="sequel">
+            <unit type="sequel"
+                  revision="draft">
                 <thread ref="main"
                         who-refs="hero">
                     <p>Indented Paragraph</p>

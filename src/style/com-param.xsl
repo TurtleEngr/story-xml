@@ -12,7 +12,7 @@
     <xsl:param name="style"
                select="''" />
     <xsl:strip-space elements="*" />
-    <xsl:preserve-space elements="pre pre-fmt" />
+    <xsl:preserve-space elements="pre" />
     <!-- ************************************************** -->
     <xsl:key name="style-index"
              match="def-style"
@@ -107,15 +107,15 @@
     <!-- ******************** -->
     <xsl:param name="gChStatus">
         <xsl:if test="$gContentRef/@ch-final = '1'">
-            <xsl:value-of select="' final'" />
+            <xsl:value-of select="',final'" />
         </xsl:if>
         <xsl:if test="$gContentRef/@ch-draft = '1'">
-            <xsl:value-of select="' draft'" />
+            <xsl:value-of select="',draft'" />
         </xsl:if>
         <xsl:if test="$gContentRef/@ch-in-progress = '1'">
-            <xsl:value-of select="' in-progress'" />
+            <xsl:value-of select="',in-progress'" />
         </xsl:if>
-        <xsl:value-of select="' '" />
+        <xsl:value-of select="','" />
     </xsl:param>
     <!--
   Use: test="contains($gChStatus, @revision)"
@@ -123,15 +123,15 @@
     <!-- ******************** -->
     <xsl:param name="gUnitStatus">
         <xsl:if test="$gContentRef/@unit-final = '1'">
-            <xsl:value-of select="' final '" />
+            <xsl:value-of select="',final'" />
         </xsl:if>
         <xsl:if test="$gContentRef/@unit-draft = '1'">
-            <xsl:value-of select="' draft '" />
+            <xsl:value-of select="',draft'" />
         </xsl:if>
         <xsl:if test="$gContentRef/@unit-in-progress = '1'">
-            <xsl:value-of select="' in-progress '" />
+            <xsl:value-of select="',in-progress'" />
         </xsl:if>
-        <xsl:value-of select="' '" />
+        <xsl:value-of select="','" />
     </xsl:param>
     <!-- ******************** -->
     <xsl:param name="gContentLink">
