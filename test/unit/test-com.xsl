@@ -141,6 +141,19 @@
                 </xsl:call-template>
             </xsltu:test>
  
+            <!-- ******************** -->
+            <xsltu:test id="test-com-templates">
+                <!-- .......... -->
+                <xsl:call-template name="xsltu:assertEqual">
+                    <xsl:with-param name="id"
+                                    select="'Check when story-dtd matches'" />
+                    <xsl:with-param name="pActualNodes">
+                        <xsl:apply-templates select="/content/story-dtd"/>
+                    </xsl:with-param>
+                    <xsl:with-param name="pExpectNodes" />
+                </xsl:call-template>
+            </xsltu:test>
+		
         </xsltu:tests>
     </xsl:template>
  

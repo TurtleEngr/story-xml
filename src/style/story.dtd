@@ -180,6 +180,11 @@ Internal use:
 no operation, only used to set the revision-flag
 -->
 
+<!--
+TBD: remove this and change to <a> tag, with a "style" option, which
+can ge used to override the default style option. I.e. how is the link
+displayed. See: doc/TODO.txt
+-->
 <!ELEMENT link (#PCDATA)>
 <!ATTLIST link
 	%ref-r;
@@ -213,15 +218,10 @@ float - Let text flow around the image?  If the value is 1,
 <!ATTLIST para
 	%com-attr;
 >
-<!-- Format as a block para -->
+<!-- Format as a block para. I.e. like a typical HTML p tag. -->
 
 <!ELEMENT pre %text-style;>
 <!ATTLIST pre
-	%com-attr;
->
-
-<!ELEMENT pre-fmt %text-style;>
-<!ATTLIST pre-fmt
 	%com-attr;
 >
 
